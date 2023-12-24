@@ -1,0 +1,50 @@
+{
+	"songs": [
+		[
+			"lets-get-funky",
+			"enid",
+			[
+				255,
+				122,
+				205
+			]
+		],
+		[
+			"dilemma",
+			"drivethru",
+			[
+				0,
+				255,
+				144
+			]
+		],
+		[
+			"promenade",
+			"niku2",
+			[
+				245,
+				245,
+				245
+			]
+		]
+	],
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "philly",
+	"difficulties": "",
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"storyName": "Rose - wip",
+	"weekName": "Rose",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "Dan",
+	"startUnlocked": false
+}

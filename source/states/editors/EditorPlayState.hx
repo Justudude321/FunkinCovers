@@ -241,7 +241,7 @@ class EditorPlayState extends MusicBeatSubstate
 			//trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);
 			return;
 		}
-		notes.sort(FlxSort.byY, ClientPrefs.data.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
+		notes.sort(FlxSort.byY, PlayState.isDownscroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
 
 		super.beatHit();
 		lastBeatHit = curBeat;
@@ -376,7 +376,7 @@ class EditorPlayState extends MusicBeatSubstate
 								oldNote.updateHitbox();
 							}
 
-							if(ClientPrefs.data.downScroll)
+							if(PlayState.isDownscroll)
 								sustainNote.correctionOffset = 0;
 						}
 						else if(oldNote.isSustainNote)
@@ -386,7 +386,7 @@ class EditorPlayState extends MusicBeatSubstate
 						}
 
 						if (sustainNote.mustPress) sustainNote.x += FlxG.width / 2; // general offset
-						else if(ClientPrefs.data.middleScroll)
+						else if(PlayState.isMiddlescroll)
 						{
 							sustainNote.x += 310;
 							if(daNoteData > 1) //Up and Right
@@ -399,7 +399,7 @@ class EditorPlayState extends MusicBeatSubstate
 				{
 					swagNote.x += FlxG.width / 2; // general offset
 				}
-				else if(ClientPrefs.data.middleScroll)
+				else if(PlayState.isMiddlescroll)
 				{
 					swagNote.x += 310;
 					if(daNoteData > 1) //Up and Right
@@ -415,8 +415,8 @@ class EditorPlayState extends MusicBeatSubstate
 	
 	private function generateStaticArrows(player:Int):Void
 	{
-		var strumLineX:Float = ClientPrefs.data.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X;
-		var strumLineY:Float = ClientPrefs.data.downScroll ? (FlxG.height - 150) : 50;
+		var strumLineX:Float = PlayState.isMiddlescroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X;
+		var strumLineY:Float = PlayState.isDownscroll ? (FlxG.height - 150) : 50;
 		for (i in 0...4)
 		{
 			// FlxG.log.add(i);
@@ -424,18 +424,18 @@ class EditorPlayState extends MusicBeatSubstate
 			if (player < 1)
 			{
 				if(!ClientPrefs.data.opponentStrums) targetAlpha = 0;
-				else if(ClientPrefs.data.middleScroll) targetAlpha = 0.35;
+				else if(PlayState.isMiddlescroll) targetAlpha = 0.35;
 			}
 
 			var babyArrow:StrumNote = new StrumNote(strumLineX, strumLineY, i, player);
-			babyArrow.downScroll = ClientPrefs.data.downScroll;
+			babyArrow.downScroll = PlayState.isDownscroll;
 			babyArrow.alpha = targetAlpha;
 
 			if (player == 1)
 				playerStrums.add(babyArrow);
 			else
 			{
-				if(ClientPrefs.data.middleScroll)
+				if(PlayState.isMiddlescroll)
 				{
 					babyArrow.x += 310;
 					if(i > 1) { //Up and Right

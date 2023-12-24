@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Dan-shine.png">
+	<!-- Created with Adobe Animate version 22.0.6.202 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="death confirm0000" x="0" y="0" width="363" height="676" frameX="0" frameY="-36" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0001" x="363" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0002" x="726" y="0" width="363" height="711"/>
+	<SubTexture name="death confirm0003" x="1089" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0004" x="1452" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0005" x="1815" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0006" x="2178" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0007" x="2541" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0008" x="2904" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0009" x="3267" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0010" x="3630" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0011" x="3993" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0012" x="4356" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0013" x="4719" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0014" x="5082" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0015" x="5445" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0016" x="5808" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0017" x="6171" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0018" x="6534" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0019" x="6897" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0020" x="7260" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0021" x="7623" y="0" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0022" x="0" y="711" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death confirm0023" x="0" y="711" width="363" height="681" frameX="0" frameY="-30" frameWidth="363" frameHeight="711"/>
+	<SubTexture name="death loop0000" x="363" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0001" x="726" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0002" x="726" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0003" x="1089" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0004" x="1089" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0005" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0006" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0007" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0008" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0009" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0010" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0011" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0012" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0013" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="death loop0014" x="1452" y="711" width="363" height="675"/>
+	<SubTexture name="dies0000" x="1815" y="711" width="341" height="672" frameX="-4" frameY="0" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0001" x="1815" y="711" width="341" height="672" frameX="-4" frameY="0" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0002" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0003" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0004" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0005" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0006" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0007" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0008" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0009" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0010" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0011" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0012" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0013" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0014" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0015" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0016" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0017" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0018" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0019" x="2156" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0020" x="2506" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0021" x="2506" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0022" x="2856" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0023" x="2856" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0024" x="3206" y="711" width="350" height="666" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0025" x="3556" y="711" width="364" height="681" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0026" x="3556" y="711" width="364" height="681" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0027" x="3920" y="711" width="364" height="672" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0028" x="3920" y="711" width="364" height="672" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0029" x="4284" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0030" x="4284" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0031" x="4648" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0032" x="4648" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0033" x="4648" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0034" x="4648" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0035" x="5012" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0036" x="5376" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0037" x="5740" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0038" x="6104" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0039" x="6468" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0040" x="6832" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0041" x="7196" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0042" x="7560" y="711" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0043" x="0" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0044" x="364" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0045" x="728" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0046" x="1092" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0047" x="1456" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0048" x="1820" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0049" x="2184" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0050" x="2184" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0051" x="2548" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="dies0052" x="2912" y="1392" width="364" height="676" frameX="0" frameY="-1" frameWidth="364" frameHeight="682"/>
+	<SubTexture name="down0000" x="3276" y="1392" width="397" height="586" frameX="0" frameY="-11" frameWidth="397" frameHeight="597"/>
+	<SubTexture name="down0001" x="3673" y="1392" width="397" height="586" frameX="0" frameY="-11" frameWidth="397" frameHeight="597"/>
+	<SubTexture name="down0002" x="4070" y="1392" width="382" height="597" frameX="-8" frameY="0" frameWidth="397" frameHeight="597"/>
+	<SubTexture name="down0003" x="4452" y="1392" width="382" height="596" frameX="-8" frameY="0" frameWidth="397" frameHeight="597"/>
+	<SubTexture name="down0004" x="4452" y="1392" width="382" height="596" frameX="-8" frameY="0" frameWidth="397" frameHeight="597"/>
+	<SubTexture name="hey0000" x="4834" y="1392" width="440" height="663" frameX="-3" frameY="0" frameWidth="445" frameHeight="665"/>
+	<SubTexture name="hey0001" x="5274" y="1392" width="379" height="663" frameX="-3" frameY="0" frameWidth="445" frameHeight="665"/>
+	<SubTexture name="hey0002" x="5653" y="1392" width="373" height="657" frameX="0" frameY="-9" frameWidth="445" frameHeight="665"/>
+	<SubTexture name="hey0003" x="6026" y="1392" width="445" height="657" frameX="0" frameY="-9" frameWidth="445" frameHeight="665"/>
+	<SubTexture name="hey0004" x="6471" y="1392" width="445" height="659" frameX="0" frameY="-7" frameWidth="445" frameHeight="665"/>
+	<SubTexture name="hey0005" x="6916" y="1392" width="375" height="658" frameX="0" frameY="-8" frameWidth="445" frameHeight="665"/>
+	<SubTexture name="hey0006" x="6916" y="1392" width="375" height="658" frameX="0" frameY="-8" frameWidth="445" frameHeight="665"/>
+	<SubTexture name="idle0000" x="7291" y="1392" width="380" height="650" frameX="0" frameY="-7" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0001" x="7291" y="1392" width="380" height="650" frameX="0" frameY="-7" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0002" x="7671" y="1392" width="375" height="652" frameX="0" frameY="-6" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0003" x="7671" y="1392" width="375" height="652" frameX="0" frameY="-6" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0004" x="0" y="2068" width="376" height="656" frameX="-2" frameY="-1" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0005" x="376" y="2068" width="375" height="656" frameX="-2" frameY="-1" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0006" x="751" y="2068" width="372" height="656" frameX="-2" frameY="-1" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0007" x="1123" y="2068" width="373" height="657" frameX="-2" frameY="0" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0008" x="1496" y="2068" width="373" height="657" frameX="-2" frameY="0" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0009" x="1869" y="2068" width="372" height="657" frameX="-1" frameY="0" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0010" x="1869" y="2068" width="372" height="657" frameX="-1" frameY="0" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0011" x="1496" y="2068" width="373" height="657" frameX="-2" frameY="0" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0012" x="1496" y="2068" width="373" height="657" frameX="-2" frameY="0" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="idle0013" x="1869" y="2068" width="372" height="657" frameX="-1" frameY="0" frameWidth="380" frameHeight="657"/>
+	<SubTexture name="left0000" x="2241" y="2068" width="373" height="660" frameX="0" frameY="0" frameWidth="373" frameHeight="661"/>
+	<SubTexture name="left0001" x="2614" y="2068" width="372" height="661" frameX="-1" frameY="0" frameWidth="373" frameHeight="661"/>
+	<SubTexture name="left0002" x="2986" y="2068" width="366" height="657" frameX="0" frameY="-5" frameWidth="373" frameHeight="661"/>
+	<SubTexture name="left0003" x="3352" y="2068" width="366" height="657" frameX="0" frameY="-4" frameWidth="373" frameHeight="661"/>
+	<SubTexture name="left0004" x="3352" y="2068" width="366" height="657" frameX="0" frameY="-4" frameWidth="373" frameHeight="661"/>
+	<SubTexture name="miss down0000" x="3718" y="2068" width="410" height="592" frameX="0" frameY="-7" frameWidth="410" frameHeight="598"/>
+	<SubTexture name="miss down0001" x="4128" y="2068" width="408" height="592" frameX="0" frameY="-7" frameWidth="410" frameHeight="598"/>
+	<SubTexture name="miss down0002" x="4536" y="2068" width="395" height="598" frameX="-8" frameY="0" frameWidth="410" frameHeight="598"/>
+	<SubTexture name="miss down0003" x="4931" y="2068" width="396" height="598" frameX="-8" frameY="0" frameWidth="410" frameHeight="598"/>
+	<SubTexture name="miss left0000" x="5327" y="2068" width="380" height="660"/>
+	<SubTexture name="miss left0001" x="5707" y="2068" width="379" height="660" frameX="-1" frameY="0" frameWidth="380" frameHeight="660"/>
+	<SubTexture name="miss left0002" x="6086" y="2068" width="373" height="658" frameX="0" frameY="-1" frameWidth="380" frameHeight="660"/>
+	<SubTexture name="miss left0003" x="6459" y="2068" width="374" height="658" frameX="0" frameY="-1" frameWidth="380" frameHeight="660"/>
+	<SubTexture name="miss right0000" x="6833" y="2068" width="365" height="664"/>
+	<SubTexture name="miss right0001" x="7198" y="2068" width="364" height="663" frameX="0" frameY="0" frameWidth="365" frameHeight="664"/>
+	<SubTexture name="miss right0002" x="7562" y="2068" width="357" height="663" frameX="-8" frameY="0" frameWidth="365" frameHeight="664"/>
+	<SubTexture name="miss right0003" x="0" y="2732" width="358" height="663" frameX="-8" frameY="0" frameWidth="365" frameHeight="664"/>
+	<SubTexture name="miss up0000" x="358" y="2732" width="311" height="694" frameX="-4" frameY="0" frameWidth="319" frameHeight="694"/>
+	<SubTexture name="miss up0001" x="669" y="2732" width="309" height="693" frameX="-5" frameY="0" frameWidth="319" frameHeight="694"/>
+	<SubTexture name="miss up0002" x="978" y="2732" width="318" height="688" frameX="0" frameY="-7" frameWidth="319" frameHeight="694"/>
+	<SubTexture name="miss up0003" x="1296" y="2732" width="319" height="689" frameX="0" frameY="-6" frameWidth="319" frameHeight="694"/>
+	<SubTexture name="right0000" x="1615" y="2732" width="495" height="667"/>
+	<SubTexture name="right0001" x="2110" y="2732" width="494" height="667" frameX="0" frameY="0" frameWidth="495" frameHeight="667"/>
+	<SubTexture name="right0002" x="2604" y="2732" width="484" height="666" frameX="-11" frameY="-1" frameWidth="495" frameHeight="667"/>
+	<SubTexture name="right0003" x="3088" y="2732" width="485" height="666" frameX="-11" frameY="-1" frameWidth="495" frameHeight="667"/>
+	<SubTexture name="right0004" x="3088" y="2732" width="485" height="666" frameX="-11" frameY="-1" frameWidth="495" frameHeight="667"/>
+	<SubTexture name="up0000" x="3573" y="2732" width="329" height="685" frameX="-2" frameY="0" frameWidth="330" frameHeight="685"/>
+	<SubTexture name="up0001" x="3902" y="2732" width="329" height="685" frameX="-2" frameY="0" frameWidth="330" frameHeight="685"/>
+	<SubTexture name="up0002" x="4231" y="2732" width="327" height="680" frameX="0" frameY="-6" frameWidth="330" frameHeight="685"/>
+	<SubTexture name="up0003" x="4558" y="2732" width="327" height="680" frameX="0" frameY="-6" frameWidth="330" frameHeight="685"/>
+	<SubTexture name="up0004" x="4558" y="2732" width="327" height="680" frameX="0" frameY="-6" frameWidth="330" frameHeight="685"/>
+</TextureAtlas>

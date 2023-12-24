@@ -1,0 +1,50 @@
+{
+	"storyName": "From scratch",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "philly",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"moderato",
+			"allegro",
+			[
+				167,
+				255,
+				196
+			]
+		],
+		[
+			"underground",
+			"julian",
+			[
+				255,
+				130,
+				0
+			]
+		],
+		[
+			"sussy-pussy",
+			"tomongus",
+			[
+				253,
+				85,
+				91
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Dan"
+}

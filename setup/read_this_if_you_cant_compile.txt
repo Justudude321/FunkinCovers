@@ -1,1 +1,2 @@
 https://github.com/ShadowMario/FNF-PsychEngine/wiki/Libraries-versions
+lime not recognized? Try running this: haxelib run lime setup -alias -y

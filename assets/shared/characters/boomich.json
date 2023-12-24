@@ -1,0 +1,34 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-4,
+				-1
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "BoomboxAnimation"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Boombox",
+	"position": [
+		110,
+		180
+	],
+	"healthicon": "",
+	"flip_x": false,
+	"healthbar_colors": [
+		161,
+		161,
+		161
+	],
+	"camera_position": [
+		-40,
+		30
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

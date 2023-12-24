@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Sus Notes Future.png">
+	<!-- Created with Adobe Animate version 23.0.0.407 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="blue0000" x="0" y="0" width="147" height="161"/>
+	<SubTexture name="blue hold end0000" x="146" y="161" width="146" height="75"/>
+	<SubTexture name="blue hold piece0000" x="0" y="161" width="146" height="76"/>
+	<SubTexture name="green0000" x="147" y="0" width="147" height="161"/>
+	<SubTexture name="green hold end0000" x="146" y="161" width="146" height="75"/>
+	<SubTexture name="green hold piece0000" x="0" y="161" width="146" height="76"/>
+	<SubTexture name="purple0000" x="294" y="0" width="162" height="146"/>
+	<SubTexture name="purple hold end0000" x="146" y="161" width="146" height="75"/>
+	<SubTexture name="purple hold piece0000" x="0" y="161" width="146" height="76"/>
+	<SubTexture name="red0000" x="294" y="146" width="162" height="146"/>
+	<SubTexture name="red hold end0000" x="146" y="161" width="146" height="75"/>
+	<SubTexture name="red hold piece0000" x="0" y="161" width="146" height="76"/>
+</TextureAtlas>
