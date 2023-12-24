@@ -3038,7 +3038,7 @@ class PlayState extends MusicBeatState
 			{
 				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
-				switch(curStage){
+				switch(curStage){//Need to find a better health drain thing
 					case 'bodega':
 						health = Math.max(health - 0.015, 0.39);
 
