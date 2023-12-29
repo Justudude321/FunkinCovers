@@ -25,8 +25,6 @@ class Sus extends BaseStage
 	override function update(elapsed:Float)
 	{
 		// Code here
-		
-		game.isCameraOnForcedPos = true;
 		game.camFollow.setPosition(980, 660);//realized I can do this
 	}
 

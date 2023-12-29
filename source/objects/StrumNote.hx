@@ -23,6 +23,27 @@ class StrumNote extends FlxSprite
 		}
 		return value;
 	}
+		
+	public function strumRGB(change:Int)//Hell yeah >:)
+	{
+		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
+		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
+		
+		if (noteData > -1 && noteData <= arr.length)
+		{
+			if (change == 1){//Gameboy
+				rgbShader.r = 0xFF89C073;
+				rgbShader.g = 0xFFE0F8D0;
+				rgbShader.b = 0xFF356955;
+			}
+			else{
+				rgbShader.r = arr[0];
+				rgbShader.g = arr[1];
+				rgbShader.b = arr[2];
+			}
+		}
+		reloadNote();
+	}
 
 	public var useRGBShader:Bool = true;
 	public function new(x:Float, y:Float, leData:Int, player:Int) {
@@ -74,7 +95,8 @@ class StrumNote extends FlxSprite
 			loadGraphic(Paths.image('pixelUI/' + texture), true, Math.floor(width), Math.floor(height));
 
 			antialiasing = false;
-			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+			if(PlayState.curStage == 'tower') setGraphicSize(Std.int(width * 3.35));
+			else setGraphicSize(Std.int(width * PlayState.daPixelZoom));
 
 			animation.add('green', [6]);
 			animation.add('red', [7]);

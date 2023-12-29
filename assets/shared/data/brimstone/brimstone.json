@@ -14675,7 +14675,7 @@
 		"validScore": true,
 		"stage": "tower",
 		"needsVoices": true,
-		"arrowSkin": "NOTE_assets-buried",
+		"arrowSkin": "noteSkins/NOTE_assets-buried",
 		"speed": 3,
 		"bpm": 197
 	}

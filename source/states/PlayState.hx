@@ -1701,10 +1701,7 @@ class PlayState extends MusicBeatState
 		{
 			case 'alley':
 				if(curStep == 934 || curStep == 1319){//Dark notes haha so smart >:)
-					for(i in 0...unspawnNotes.length -1){
-						shadeType = 0;
-						if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB();
-					}
+					for(i in 0...unspawnNotes.length -1) if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB(0);
 				}
 				if(curStep == 960 || curStep == 1344){//Strums
 					for(i in 0...playerStrums.length){
@@ -1714,10 +1711,7 @@ class PlayState extends MusicBeatState
 				}
 
 				if(curStep == 1191 || curStep == 1447){//Normal
-					for(i in 0...unspawnNotes.length -1){
-						shadeType = 2;
-						if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB();
-					}
+					for(i in 0...unspawnNotes.length -1) if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB(2);
 				}
 				if(curStep == 1216 || curStep == 1472){
 					for(i in 0...playerStrums.length){
@@ -1726,16 +1720,27 @@ class PlayState extends MusicBeatState
 					}
 				}
 			case 'tower':
-				if(curBeat == 595){
-					for(i in 0...unspawnNotes.length -1){
-						shadeType = 1;
-						if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB();
+				if(curStep == 2373){//step 2373 beat 593
+					for(i in 0...unspawnNotes.length -1) if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB(1);
+				}
+				if(curBeat == 600){
+					for (i in 0...playerStrums.length){
+						playerStrums.members[i].strumRGB(1);
+						opponentStrums.members[i].strumRGB(1);
+						playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
+						opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
 					}
 				}
-				if(curBeat == 659){
-					for(i in 0...unspawnNotes.length -1){
-						shadeType = 2;
-						if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB();
+
+				if(curBeat == 658){
+					for(i in 0...unspawnNotes.length -1) if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB(2);
+				}
+				if(curBeat == 664){
+					for (i in 0...playerStrums.length){
+						playerStrums.members[i].strumRGB(2);
+						opponentStrums.members[i].strumRGB(2);
+						playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
+						opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
 					}
 				}
 		}
@@ -3041,18 +3046,19 @@ class PlayState extends MusicBeatState
 			{
 				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
-				switch(curStage){//Need to find a better health drain thing
+				var drain:Bool = (guitarHeroSustains && note.isSustainNote) ? false : true;
+				switch(curStage){//0.023 default health gain
 					case 'bodega':
-						health = Math.max(health - 0.015, 0.39);
+						health = (drain) ? Math.max(health - 0.013, 0.39) : health;
 
 					case 'DriveThru':
-						health = Math.max(health - 0.015, 0.39);
+						health = (drain) ? Math.max(health - 0.015, 0.39) : health;
 
 					case 'hall':
-						health = Math.max(health - 0.02, 0.39);
+						health = (drain) ? Math.max(health - 0.02, 0.39) : health;
 						
 					case 'jelly':
-						health = Math.max(health - 0.01, 0.39);
+						health = (drain) ? Math.max(health - 0.01, 0.39) : health;
 				}
 			}
 		}

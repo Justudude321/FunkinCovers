@@ -4,6 +4,7 @@ import backend.animation.PsychAnimationController;
 
 import flixel.util.FlxSort;
 import flixel.util.FlxDestroyUtil;
+import flixel.FlxObject;
 
 import openfl.utils.AssetType;
 import openfl.utils.Assets;
@@ -78,6 +79,20 @@ class Character extends FlxSprite
 	public var noAntialiasing:Bool = false;
 	public var originalFlipX:Bool = false;
 	public var editorIsPlayer:Null<Bool> = null;
+
+	public var camFollow(default, null):FlxObject = new FlxObject(0, 0, 1, 1);
+	public var camFollowOffset(default, null):FlxPoint = FlxPoint.get();
+
+	@:noCompletion override function set_x(X:Float):Float
+	{
+		camFollow.x -= x - X;
+		return x = X;
+	}
+	@:noCompletion override function set_y(Y:Float):Float
+	{
+		camFollow.y -= y - Y;
+		return y = Y;
+	}
 
 	public function new(x:Float, y:Float, ?character:String = 'bf', ?isPlayer:Bool = false)
 	{

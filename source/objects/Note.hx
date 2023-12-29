@@ -165,21 +165,21 @@ class Note extends FlxSprite
 		}
 	}
 	
-	public function changeRGB()//Hell yeah >:)
+	public function changeRGB(change:Int)//Hell yeah >:)
 	{
 		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
 		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
 	
 		if (noteData > -1 && noteData <= arr.length)
 		{
-			if(PlayState.shadeType == 0){//Dark Notes
+			if(change == 0){//Dark Notes
 				rgbShader.r = 0xFF000000;
 				rgbShader.g = arr[2];
 				rgbShader.b = arr[0];
 				noteSplashData.r = arr[0];
 				noteSplashData.g = 0xFF101010;
 			}
-			else if (PlayState.shadeType == 1){//Gameboy
+			else if (change == 1){//Gameboy
 				rgbShader.r = 0xFF89C073;
 				rgbShader.g = 0xFFE0F8D0;
 				rgbShader.b = 0xFF356955;
@@ -354,7 +354,7 @@ class Note extends FlxSprite
 			offsetX -= width / 2;
 
 			if (PlayState.isPixelStage)
-				offsetX += 30;
+				offsetX += (PlayState.curStage == 'tower') ? 49: 30;//Is there a better way?
 
 			if (prevNote.isSustainNote)
 			{
@@ -445,7 +445,8 @@ class Note extends FlxSprite
 				var graphic = Paths.image('pixelUI/' + skinPixel + skinPostfix);
 				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 5));
 			}
-			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+			if(PlayState.curStage == 'tower') setGraphicSize(Std.int(width * 3.35));
+			else setGraphicSize(Std.int(width * PlayState.daPixelZoom));
 			loadPixelNoteAnims();
 			antialiasing = false;
 
