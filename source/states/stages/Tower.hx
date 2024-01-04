@@ -49,7 +49,7 @@ class Tower extends BaseStage
 		brimfloor.scale.set(3.5,3.5);
 		brimgraves.scale.set(3.5,3.5);
 		
-		if(!game.isMiddlescroll){
+		if(!PlayState.isMiddlescroll){
 			hud1 = new BGSprite('buried_1', 0, 28);
 			hud1.cameras = [camHUD];
 			hud1.setGraphicSize(Std.int(hud1.width*3.4),Std.int(hud1.height*3.4));
@@ -63,7 +63,7 @@ class Tower extends BaseStage
 			add(hud2);
 			hud1.antialiasing = false;
 			hud2.antialiasing = false;	
-			if(!game.isDownscroll){
+			if(!PlayState.isDownscroll){
 				brimHealth = new BGSprite('brimstone_healthbar',  148, 190);
 				brimHealth.cameras = [camHUD];
 				brimHealth.setGraphicSize(Std.int(brimHealth.width*1.12),5);
@@ -98,7 +98,7 @@ class Tower extends BaseStage
 		}
 		else{
 			var daY:Int = 30;
-			if(game.isDownscroll)daY = 510;
+			if(PlayState.isDownscroll)daY = 510;
 			hud3 = new BGSprite('buried_3', 295, daY);
 			hud3.cameras = [camHUD];
 			hud3.setGraphicSize(Std.int(hud3.width*3.4),Std.int(hud3.height*3.4));
@@ -198,8 +198,8 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 		else brimHealth.color = 0xffFF0000;
 
 		//All the scrolls
-		if(!game.isDownscroll){//up
-			if(!game.isMiddlescroll && !switched){//no mid
+		if(!PlayState.isDownscroll){//up
+			if(!PlayState.isMiddlescroll && !switched){//no mid
 				for (i in 0...game.opponentStrums.length){
 					game.opponentStrums.members[i].y = 540;
 					game.opponentStrums.members[i].downScroll = true;
@@ -214,11 +214,11 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 				game.opponentStrums.members[3].x = 1166;	
 				switched = true;
 			}
-			else if(game.isMiddlescroll)
+			else if(PlayState.isMiddlescroll)
 				for (i in 0...game.opponentStrums.length)game.opponentStrums.members[i].alpha = 0;
 		}
 		else{//down
-			if(!game.isMiddlescroll && !switched){//no mid
+			if(!PlayState.isMiddlescroll && !switched){//no mid
 				for (i in 0...game.opponentStrums.length){
 					game.opponentStrums.members[i].y = 50;
 					game.opponentStrums.members[i].downScroll = false;
@@ -236,7 +236,7 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 				switched = true;
 			}
 			
-			else if(game.isMiddlescroll){
+			else if(PlayState.isMiddlescroll){
 				for (i in 0...game.playerStrums.length)game.playerStrums.members[i].y = 530;//mid
 				for (i in 0...game.opponentStrums.length)game.opponentStrums.members[i].alpha = 0;
 			}
@@ -322,7 +322,7 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 				game.opponentStrums.members[i].color = 0xff57b91a;
 			}
 
-			if(!game.isMiddlescroll){
+			if(!PlayState.isMiddlescroll){
 				hud1.color = 0xffb1ff81;
 				hud2.color = 0xffb1ff81;
 			}
@@ -338,7 +338,7 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 				gray2.color = FlxColor.WHITE;
 				gray3.color = FlxColor.WHITE;	
 			}});
-			if(!game.isMiddlescroll){
+			if(!PlayState.isMiddlescroll){
 				hud1.color = FlxColor.WHITE;
 				hud2.color = FlxColor.WHITE;
 			}

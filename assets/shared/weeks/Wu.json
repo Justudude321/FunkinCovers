@@ -3,14 +3,18 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
-	"weekBefore": "Me",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "Me",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"brimstone",
@@ -20,13 +24,18 @@
 				235,
 				235
 			]
+		],
+		[
+			"pokemon-master",
+			"red",
+			[
+				255,
+				0,
+				0
+			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "Wu"
+	"hideStoryMode": false,
+	"weekName": "Wu",
+	"hiddenUntilUnlocked": false
 }

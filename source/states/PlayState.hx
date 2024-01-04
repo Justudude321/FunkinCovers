@@ -213,6 +213,9 @@ class PlayState extends MusicBeatState
 	public static var shadeType:Int = 2;
 	public static var isDownscroll:Bool = false;
 	public static var isMiddlescroll:Bool = false;
+	public var pixelsNow:Bool = false;
+	public var pikaAtk:Bool = false;
+	public var fuegoAtk:Bool = false;
 
 	var darkNotes:String = 'noteSkins/NOTE_assets-dark';
 	var bartop:BGSprite = null;
@@ -429,7 +432,7 @@ class PlayState extends MusicBeatState
 			
 			//Wu
 			case 'tower': new states.stages.Tower();
-			// case 'letsBattle': new states.stages.LetsBattle();
+			case 'redstage': new states.stages.Redstage();
 			// case 'singstar': new states.stages.Singstar();
 
 		}
@@ -3149,6 +3152,24 @@ class PlayState extends MusicBeatState
 						// 	daTiming = new FlxTimer().start(16, function(tmr:FlxTimer)
 						// 		{daTimingStarted = false;});
 						// }
+
+					case 'Pika Note':
+						FlxG.sound.play(Paths.sound('Thunder'));
+						if(boyfriend.animation.getByName('hurt') != null) {
+							boyfriend.playAnim('hurt', true);
+							boyfriend.specialAnim = true;
+						}
+						pikaAtk = (!pixelsNow) ? true : false;
+						// gimmickCount++;
+					
+					case 'Fuego Note':
+						FlxG.sound.play(Paths.sound('Flame'));
+						if(boyfriend.animation.getByName('hurt') != null) {
+							boyfriend.playAnim('hurt', true);
+							boyfriend.specialAnim = true;
+						}
+						fuegoAtk = (!pixelsNow) ? true : false;
+						// gimmickCount++;
 				}
 			}
 

@@ -269,13 +269,51 @@ class Note extends FlxSprite
 					rgbShader.enabled = false;
 
 					// splash data and colors
-					noteSplashData.r = 0xBD0140;
-					noteSplashData.g = 0xCF5765;
+					noteSplashData.r = 0xCE3B2E;
+					noteSplashData.g = 0xD78843;
 					noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
 
 					// gameplay data
 					lowPriority = true;
 					missHealth = isSustainNote ? 0.15 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Pika Note':
+					pureEvil = true;
+					ignoreNote = mustPress;
+					if(ClientPrefs.data.noteSkin == 'Chip')reloadNote('hurtSkins/Pika Notes Chip');
+					else if(ClientPrefs.data.noteSkin == 'Future')reloadNote('hurtSkins/Pika Notes Future');
+					else reloadNote('hurtSkins/Pika Notes');
+					rgbShader.enabled = false;
+
+					// splash data and colors
+					noteSplashData.r = 0xFFC000;
+					noteSplashData.g = 0x0DFEFC;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.25 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Fuego Note':
+					pureEvil = true;
+					ignoreNote = mustPress;
+					if(ClientPrefs.data.noteSkin == 'Chip')reloadNote('hurtSkins/Fuego Notes Chip');
+					else if(ClientPrefs.data.noteSkin == 'Future')reloadNote('hurtSkins/Fuego Notes Future');
+					else reloadNote('hurtSkins/Fuego Notes');
+					rgbShader.enabled = false;
+
+					// splash data and colors
+					noteSplashData.r = 0xDA4130;
+					noteSplashData.g = 0xDE8231;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.25 : 0.1;
 					hitCausesMiss = true;
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;

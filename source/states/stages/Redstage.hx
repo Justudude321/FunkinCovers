@@ -2,37 +2,89 @@ package states.stages;
 
 import states.stages.objects.*;
 
-class Jelly extends BaseStage
+class Redstage extends BaseStage
 {
 	// If you're moving your stage from PlayState to a stage file,
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
 
-	var skellies:BGSprite;
+	var pokeBattle:BGSprite;
+	var charizard:BGSprite;
+	var pixelCharizard:BGSprite;
+	var pika:BGSprite;
+	var pixelPika:BGSprite;
 	override function create()
 	{
 		// Spawn your stage sprites here.
 		// Characters are not ready yet on this function, so you can't add things above them yet.
 		// Use createPost() if that's what you want to do.
+		var bg1:BGSprite = new BGSprite('camFlash', -200, 400);
+		bg1.scale.set(2.3,2.3);
+		add(bg1);
+		pokeBattle = new BGSprite('fondo_pokemon_1', -440, 310);
+		pokeBattle.scale.set(1.55,1.55);
+		add(pokeBattle);
 
-		camHUD.alpha = 0.001;
-		var bg:BGSprite = new BGSprite('ourple', -850, -770);
-		add(bg);
+		charizard = new BGSprite('charizard', 400, 50, ['chari idle']);
+		charizard.animation.addByPrefix('idle', 'chari idle', 22);
+		add(charizard);
+		pixelCharizard = new BGSprite('pixelcharizard', 550, 200, ['chari idle'], true);
+		add(pixelCharizard);
 		
-		skellies = new BGSprite('skelliebros', 0, 460, ['Skellies Dance']);
-		skellies.animation.addByPrefix('idle', 'Skellies Dance', 24, false);
-		skellies.animation.addByPrefix('idle-alt', 'SkelliesE Dance', 24, false);
-		skellies.animation.addByPrefix('transform', 'Skellies Transform', 24, false);
-		add(skellies);
+		charizard.animation.play("idle");
+		pixelCharizard.visible = false;
 	}
 	
 	override function createPost()
 	{
 		// Use this function to layer things above characters!
+		pika = new BGSprite('pikachu', 1200, 600, ['PIKACHU IDLE']);
+		pika.animation.addByPrefix('idle', 'PIKACHU IDLE', 22);
+		add(pika);
+		pixelPika = new BGSprite('pixelpikachu', 1200, 600, ['pikachu idle'], true);
+		add(pixelPika);
+		pika.animation.play("idle");
+		pixelPika.visible = false;
 	}
 
+	var switched:Bool = false;
 	override function update(elapsed:Float)
 	{
 		// Code here
+		if(PlayState.instance.pikaAtk == true && !pixelPika.visible){
+			pika.visible = false;
+			var thunder:BGSprite = new BGSprite('pikachu', pika.x, pika.y, ['pikaatack']);
+			thunder.animation.addByPrefix('pow','pikaatack',24,false);
+			addBehindBF(thunder);
+			thunder.animation.play('pow');
+			thunder.animation.finishCallback = function(name:String){
+				thunder.destroy();
+				pika.visible = true;	
+			}
+			PlayState.instance.pikaAtk = false;
+		}
+		if(PlayState.instance.fuegoAtk && !pixelCharizard.visible){
+			charizard.visible = false;
+			var fire:BGSprite = new BGSprite('charizard', -50, 15, ['charizard atack']);
+			fire.animation.addByPrefix('pow','charizard atack',24,false);
+			addBehindDad(fire);
+			fire.animation.play('pow');
+			fire.animation.finishCallback = function(name:String){
+				fire.destroy();
+				charizard.visible = true;	
+			}
+			PlayState.instance.fuegoAtk = false;
+		}
+
+		if(!switched){
+			for (i in 0...game.opponentStrums.length)game.opponentStrums.members[i].x = -200;
+			if(!PlayState.isMiddlescroll){
+				game.playerStrums.members[0].x = 92;
+				game.playerStrums.members[1].x = 204;
+				game.playerStrums.members[2].x = 316;
+				game.playerStrums.members[3].x = 428;
+			}
+			switched = true;
+		}
 	}
 
 	// Steps, Beats and Sections:
@@ -42,39 +94,25 @@ class Jelly extends BaseStage
 	override function stepHit()
 	{
 		// Code here
-
-		if (curStep == 128){
-			FlxTween.tween(camHUD, {alpha: 1}, 1, {onComplete: function(twn:FlxTween)
-				{}});
-			game.cameraSpeed = 1;				
-		}
-		if (curStep == 1529){
-			skellies.animation.play('transform', true);
-			skellies.x = 0 - 20;
-			skellies.y = 460 - 15;
-		}
-		if (curStep == 1536){
-			skellies.x = 0;
-			skellies.y = 460;
-		}
-		if (curStep == 1584)game.cameraSpeed = 1;
-		if (curStep == 1856)game.cameraSpeed = 100;
-		if (curStep == 1921)boyfriendGroup.alpha = 0;
 	}
 	override function beatHit()
 	{
 		// Code here
-		if(curStep > 1534)skellies.animation.play("idle-alt", true);
-		else if(curStep < 1531)skellies.animation.play("idle", true);
-
-		if(curBeat == 384){
-			var flash = new BGSprite('camFlash',0,0);
-			flash.scale.set(2,2);
-			flash.cameras = [camOther];
-			add(flash);
-			FlxTween.tween(flash, {alpha: 0}, 0.4, {ease: FlxEase.quartIn, onComplete: 
-				function(twn:FlxTween){flash.destroy();}
-			});	
+		if(curBeat == 128 || curBeat == 160 || curBeat == 264){
+			PlayState.instance.pixelsNow = true;
+			pixelCharizard.visible = true;
+			pixelPika.visible = true;
+			charizard.visible = false;
+			pika.visible = false;
+			pokeBattle.visible = false;
+		}
+		if(curBeat == 144 || curBeat == 176 || curBeat == 316){
+			PlayState.instance.pixelsNow = false;
+			pixelCharizard.visible = false;
+			pixelPika.visible = false;
+			charizard.visible = true;
+			pika.visible = true;
+			pokeBattle.visible = true;
 		}
 	}
 	override function sectionHit()

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="FUEGONOTE_assets.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="blue0000" x="0" y="0" width="165" height="156"/>
+	<SubTexture name="blue hold end0000" x="165" y="0" width="50" height="64"/>
+	<SubTexture name="blue hold piece0000" x="215" y="0" width="50" height="44"/>
+	<SubTexture name="green0000" x="265" y="0" width="166" height="156"/>
+	<SubTexture name="green hold end0000" x="165" y="0" width="50" height="64"/>
+	<SubTexture name="green hold piece0000" x="215" y="0" width="50" height="44"/>
+	<SubTexture name="pruple end hold0000" x="165" y="0" width="50" height="64"/>
+	<SubTexture name="purple0000" x="0" y="156" width="154" height="165"/>
+	<SubTexture name="purple hold piece0000" x="215" y="0" width="50" height="44"/>
+	<SubTexture name="red0000" x="154" y="156" width="154" height="166"/>
+	<SubTexture name="red hold end0000" x="165" y="0" width="50" height="64"/>
+	<SubTexture name="red hold piece0000" x="215" y="0" width="50" height="44"/>
+</TextureAtlas>
