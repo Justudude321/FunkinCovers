@@ -433,7 +433,7 @@ class PlayState extends MusicBeatState
 			//Wu
 			case 'tower': new states.stages.Tower();
 			case 'redstage': new states.stages.Redstage();
-			// case 'singstar': new states.stages.Singstar();
+			case 'singstar': new states.stages.Singstar();
 
 		}
 
@@ -3050,7 +3050,7 @@ class PlayState extends MusicBeatState
 				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
 				var drain:Bool = (guitarHeroSustains && note.isSustainNote) ? false : true;
-				switch(curStage){//0.023 default health gain
+				switch(curStage){//Health Drain, 0.023 default health gain
 					case 'bodega':
 						health = (drain) ? Math.max(health - 0.013, 0.39) : health;
 
@@ -3062,6 +3062,9 @@ class PlayState extends MusicBeatState
 						
 					case 'jelly':
 						health = (drain) ? Math.max(health - 0.01, 0.39) : health;
+					
+					case 'singstar':
+						health = (drain) ? Math.max(health - 0.19, 0.39) : health;
 				}
 			}
 		}

@@ -3,18 +3,14 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
+	"weekBefore": "Me",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "Me",
 	"startUnlocked": true,
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
+	"hideStoryMode": false,
 	"songs": [
 		[
 			"brimstone",
@@ -33,9 +29,22 @@
 				0,
 				0
 			]
+		],
+		[
+			"virgin-rage",
+			"liquid",
+			[
+				255,
+				153,
+				51
+			]
 		]
 	],
-	"hideStoryMode": false,
-	"weekName": "Wu",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Wu"
 }
