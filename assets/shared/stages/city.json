@@ -1,0 +1,9 @@
+{
+	"directory": "mystery",
+	"defaultZoom": 0.50,
+	"isPixelStage": false,
+
+	"boyfriend": [1285, 275],
+	"girlfriend": [690, 250],
+	"opponent": [390, 220]
+}

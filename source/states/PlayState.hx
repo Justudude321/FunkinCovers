@@ -435,6 +435,12 @@ class PlayState extends MusicBeatState
 			case 'redstage': new states.stages.Redstage();
 			case 'singstar': new states.stages.Singstar();
 
+			//Mystery
+			case 'city': new states.stages.City();
+			// case 'tower': new states.stages.Tower();
+			// case 'redstage': new states.stages.Redstage();
+			// case 'singstar': new states.stages.Singstar();
+
 		}
 
 		if(isPixelStage) {
