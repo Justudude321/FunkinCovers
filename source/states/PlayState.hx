@@ -437,7 +437,7 @@ class PlayState extends MusicBeatState
 
 			//Mystery
 			case 'city': new states.stages.City();
-			// case 'tower': new states.stages.Tower();
+			case 'bridge': new states.stages.Bridge();
 			// case 'redstage': new states.stages.Redstage();
 			// case 'singstar': new states.stages.Singstar();
 

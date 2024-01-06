@@ -3,18 +3,14 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
+	"weekBefore": "Wu",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "Wu",
 	"startUnlocked": true,
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
+	"hideStoryMode": false,
 	"songs": [
 		[
 			"heart",
@@ -24,9 +20,22 @@
 				47,
 				86
 			]
+		],
+		[
+			"groundhog-day",
+			"ace",
+			[
+				157,
+				205,
+				245
+			]
 		]
 	],
-	"hideStoryMode": false,
-	"weekName": "Mystery",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Mystery"
 }
