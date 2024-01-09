@@ -98,7 +98,7 @@ class Tower extends BaseStage
 		}
 		else{
 			var daY:Int = 30;
-			if(PlayState.isDownscroll)daY = 510;
+			if(PlayState.isDownscroll) daY = 510;
 			hud3 = new BGSprite('buried_3', 295, daY);
 			hud3.cameras = [camHUD];
 			hud3.setGraphicSize(Std.int(hud3.width*3.4),Std.int(hud3.height*3.4));
@@ -124,6 +124,20 @@ class Tower extends BaseStage
 		add(sludge);
 		sludge.alpha = 0;
 
+		hand = new BGSprite('WA_assets', 888, 375, ['WH_Idle']);
+		hand.animation.addByPrefix('hi', 'WH_Intro', 24, false);
+		hand.animation.addByPrefix('idle', 'WH_Idle', 24, true);
+		hand.animation.addByPrefix('morph', 'WH_ToGF', 24, false);
+		hand.scale.set(3.5,3.5);
+		add(hand);
+		shadow = new BGSprite('shadow', 910, 575);
+		shadow.scale.set(3.5,3.5);
+		add(shadow);
+		hand.alpha = 0;
+		shadow.alpha = 0;
+
+		insert(6, dadGroup);
+
 		gray1.antialiasing = false;
 		gray2.antialiasing = false;
 		gray3.antialiasing = false;
@@ -131,6 +145,9 @@ class Tower extends BaseStage
 		brimfloor.antialiasing = false;
 		brimgraves.antialiasing = false;
 		sludge.antialiasing = false;
+		
+		hand.antialiasing = false;
+		shadow.antialiasing = false;
 		game.skipCountdown = true;
 	}
 	
@@ -152,18 +169,6 @@ class Tower extends BaseStage
 		missingnoEnter.scale.set(3.5,3.5);
 		add(missingnoEnter);
 		missingnoEnter.alpha = 0;
-
-		hand = new BGSprite('WA_assets', 888, 375, ['WH_Idle']);
-		hand.animation.addByPrefix('hi', 'WH_Intro', 24, false);
-		hand.animation.addByPrefix('idle', 'WH_Idle', 24, true);
-		hand.animation.addByPrefix('morph', 'WH_ToGF', 24, false);
-		hand.scale.set(3.5,3.5);
-		add(hand);
-		shadow = new BGSprite('shadow', 910, 575);
-		shadow.scale.set(3.5,3.5);
-		add(shadow);
-		hand.alpha = 0;
-		shadow.alpha = 0;
 
 		genEnter.antialiasing = false;
 		missingnoEnter.antialiasing = false;
@@ -188,8 +193,8 @@ class Tower extends BaseStage
 			open2.cameras = [camOther];
 			add(open1);
 			add(open2);
-FlxTween.tween(open1, {x: -1300}, 2, {ease: FlxEase.linear, onComplete: function(twn:FlxTween){open1.destroy();}});
-FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(twn:FlxTween){open2.destroy();}});	
+			FlxTween.tween(open1, {x: -1300}, 2, {ease: FlxEase.linear, onComplete: function(twn:FlxTween){open1.destroy();}});
+			FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(twn:FlxTween){open2.destroy();}});	
 		}
 
 		brimHealth.setGraphicSize(Std.int(174*(game.healthBar.percent/100)),Std.int(brimHealth.height));
@@ -215,7 +220,7 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 				switched = true;
 			}
 			else if(PlayState.isMiddlescroll)
-				for (i in 0...game.opponentStrums.length)game.opponentStrums.members[i].alpha = 0;
+				for (i in 0...game.opponentStrums.length) game.opponentStrums.members[i].alpha = 0;
 		}
 		else{//down
 			if(!PlayState.isMiddlescroll && !switched){//no mid
@@ -223,7 +228,7 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 					game.opponentStrums.members[i].y = 50;
 					game.opponentStrums.members[i].downScroll = false;
 				}
-				for (i in 0...game.playerStrums.length)game.playerStrums.members[i].y = 540;
+				for (i in 0...game.playerStrums.length) game.playerStrums.members[i].y = 540;
 
 				game.opponentStrums.members[0].x = 4;
 				game.opponentStrums.members[1].x = 116;
@@ -237,27 +242,25 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 			}
 			
 			else if(PlayState.isMiddlescroll){
-				for (i in 0...game.playerStrums.length)game.playerStrums.members[i].y = 530;//mid
-				for (i in 0...game.opponentStrums.length)game.opponentStrums.members[i].alpha = 0;
+				for (i in 0...game.playerStrums.length) game.playerStrums.members[i].y = 530;//mid
+				for (i in 0...game.opponentStrums.length) game.opponentStrums.members[i].alpha = 0;
 			}
 		}
-
+		
+		var daFrames:Float = (240/FlxG.updateFramerate);
 		if(curBeat >= 808 && curBeat <= 872){
 			reset += 0.006;
-			var daFrames:Float = (240/FlxG.updateFramerate);
 			hand.y += Math.cos(reset * daFrames) * 0.075 * daFrames;	
 		}
 
 		if(curStep >= 3488){
 			reset += 0.002;
-			var daFrames:Float = (240/FlxG.updateFramerate);
 			gf.x += Math.cos(reset * daFrames) * 0.075 * daFrames;
 			shadow.x += Math.cos(reset * daFrames) * 0.075 * daFrames;
 		}
 		
 		if(curStep >= 3490){
 			reset += 0.002;
-			var daFrames:Float = (240/FlxG.updateFramerate);
 			gf.y += Math.sin(reset * daFrames) * 0.075 * daFrames;
 		}
 	}
@@ -269,12 +272,14 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 	override function stepHit()
 	{
 		// Code here
-		if (curStep == 2703)gf.alpha = 1;
 		if (curStep == 1594){
 			missingnoEnter.animation.play('throw', true);
 			missingnoEnter.alpha = 1;
 		}
-
+		if(curStep == 2373){//step 2373 beat 593
+			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB(1);
+		}
+		if (curStep == 2703)gf.alpha = 1;
 	}
 	var cameraTwn:FlxTween;
 	override function beatHit()
@@ -289,10 +294,10 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 			genEnter.alpha = 0;
 			gf.alpha = 1;
 		}
-		if(curBeat == 400)missingnoEnter.animation.play('idle', true);
-		if(curBeat == 410)missingnoEnter.animation.play('cracking', true);
-		if(curBeat == 420)missingnoEnter.animation.play('breaking', true);
-		if(curBeat == 427)missingnoEnter.animation.play('burst', true);
+		if(curBeat == 400) missingnoEnter.animation.play('idle', true);
+		if(curBeat == 410) missingnoEnter.animation.play('cracking', true);
+		if(curBeat == 420) missingnoEnter.animation.play('breaking', true);
+		if(curBeat == 427) missingnoEnter.animation.play('burst', true);
 		if(curBeat == 432){
 			missingnoEnter.alpha = 0;
 			missingnoEnter.destroy();
@@ -308,7 +313,6 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 			genEnter.alpha = 0;
 			genEnter.destroy();
 		}
-
 		//what to turn green
 		if(curBeat == 600){
 			gray1.color = 0xffb1ff81;
@@ -317,10 +321,6 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 			FlxTween.tween(brimgraves, {alpha: 0}, 1, {onComplete: function(twn:FlxTween){}});
 			FlxTween.tween(brimfloor, {alpha: 0}, 1, {onComplete: function(twn:FlxTween){}});
 			FlxTween.tween(brimback, {alpha: 0}, 1, {onComplete: function(twn:FlxTween){}});
-			for (i in 0...game.playerStrums.length){
-				game.playerStrums.members[i].color = 0xff57b91a;
-				game.opponentStrums.members[i].color = 0xff57b91a;
-			}
 
 			if(!PlayState.isMiddlescroll){
 				hud1.color = 0xffb1ff81;
@@ -329,7 +329,19 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 			else hud3.color = 0xffb1ff81;
 			boyfriend.color = 0xff57b91a;
 			dad.color = 0xff57b91a;
+		
+			for (i in 0...game.playerStrums.length){
+				PlayState.instance.playerStrums.members[i].strumRGB(1);
+				PlayState.instance.opponentStrums.members[i].strumRGB(1);
+				PlayState.instance.playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
+				PlayState.instance.opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
+			}
 		}
+		
+		if(curBeat == 658){
+			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB(2);
+		}
+
 		if(curBeat == 664){
 			FlxTween.tween(brimback, {alpha: 1}, 1, {onComplete: function(twn:FlxTween){}});
 			FlxTween.tween(brimfloor, {alpha: 1}, 1, {onComplete: function(twn:FlxTween){}});
@@ -343,9 +355,12 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 				hud2.color = FlxColor.WHITE;
 			}
 			else hud3.color = FlxColor.WHITE;
+			
 			for (i in 0...game.playerStrums.length){
-				game.playerStrums.members[i].color = FlxColor.WHITE;
-				game.opponentStrums.members[i].color = FlxColor.WHITE;
+				PlayState.instance.playerStrums.members[i].strumRGB(2);
+				PlayState.instance.opponentStrums.members[i].strumRGB(2);
+				PlayState.instance.playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
+				PlayState.instance.opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
 			}
 			boyfriend.color = FlxColor.WHITE;
 			dad.color = FlxColor.WHITE;
@@ -367,7 +382,7 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 			shadow.alpha = 1;	
 			hand.animation.play('hi', true);
 		}
-		if(curBeat == 812)hand.animation.play('idle', true);
+		if(curBeat == 812) hand.animation.play('idle', true);
 		if(curBeat == 864){
 			hand.animation.play('morph', true);
 			FlxTween.tween(hand, {y: 420}, 2, {onComplete: function(twn:FlxTween){}});
@@ -377,7 +392,7 @@ FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: function(
 				cameraTwn = null;
 			}});
 		}
-		if(curBeat == 868)gf.alpha = 0;
+		if(curBeat == 868) gf.alpha = 0;
 		if(curBeat == 872){
 			hand.alpha = 0;
 			gf.alpha = 1;

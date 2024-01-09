@@ -3,14 +3,18 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
-	"weekBefore": "Wu",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "Wu",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"heart",
@@ -29,13 +33,18 @@
 				205,
 				245
 			]
+		],
+		[
+			"xj",
+			"jenny",
+			[
+				36,
+				215,
+				235
+			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "Mystery"
+	"hideStoryMode": false,
+	"weekName": "Mystery",
+	"hiddenUntilUnlocked": false
 }

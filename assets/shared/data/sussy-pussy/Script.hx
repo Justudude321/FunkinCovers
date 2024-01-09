@@ -17,7 +17,7 @@ var axis:Bool;//true is vertical, false is horizontal
 function onUpdatePost(dt){
 	//Might need to uncomment this if you used isCameraOnForcedPos with onUpdate
 	//game.isCameraOnForcedPos = false;
-	var offset:Float = 30;//Probably not accurate idk
+	var offset:Float = 20;//Probably not accurate idk
 	var valid:Bool = true;
 	
 	switch(focusOn.animation.curAnim.name){
@@ -37,7 +37,7 @@ function onUpdatePost(dt){
 
 	if(valid){
 		var oldPos:Float = (!axis) ? game.camGame.scroll.x : game.camGame.scroll.y;
-		var newPos:Float = lerp(oldPos, oldPos + (1 / game.camGame.zoom * offset), dt * game.cameraSpeed * game.playbackRate);
+		var newPos:Float = lerp(oldPos, oldPos + (1 / game.camGame.zoom * offset), dt * game.cameraSpeed * game.playbackRate * 1.9);
 		if(!axis) game.camGame.scroll.x = newPos;
 		else game.camGame.scroll.y = newPos;
 	}

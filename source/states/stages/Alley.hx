@@ -51,16 +51,35 @@ class Alley extends BaseStage
 		// Code here
 		if (curStep == 928)
 			FlxTween.tween(FlxG.camera, {zoom: 1.3}, 2.5, {ease: FlxEase.sineIn, onComplete: function (twn:FlxTween) {cameraTwn = null;}});
+		if(curStep == 934 || curStep == 1319){//Dark notes haha so smart >:)
+			for(i in 0...PlayState.instance.unspawnNotes.length -1) 
+				if(!PlayState.instance.unspawnNotes[i].pureEvil) 
+					PlayState.instance.unspawnNotes[i].changeRGB(0);
+		}
 		if (curStep == 957){
 			jacket.visible = true;
-			FlxTween.tween(jacket, {x: 2500}, 0.15, {ease: FlxEase.linear, onComplete: function(twn:FlxTween){jacket.visible = false;}});		
+			FlxTween.tween(jacket, {x: 2500}, 0.15, {ease: FlxEase.linear, onComplete: function(twn:FlxTween){
+				jacket.visible = false;
+			}});		
 		}
-
-		if (curStep == 960 || curStep == 1344){
+		if (curStep == 960 || curStep == 1344){//Strums
+			for(i in 0...game.playerStrums.length){
+				PlayState.instance.playerStrums.members[i].texture = PlayState.darkNotes;
+				PlayState.instance.opponentStrums.members[i].texture = PlayState.darkNotes;
+			}
 			alleywall.visible = false;
 			alleyfloor.visible = false;
 		}
-		else if (curStep == 1216 || curStep == 1472){
+		if(curStep == 1191 || curStep == 1447){//Normal
+			for(i in 0...PlayState.instance.unspawnNotes.length -1) 
+				if(!PlayState.instance.unspawnNotes[i].pureEvil) 
+					PlayState.instance.unspawnNotes[i].changeRGB(2);
+		}
+		if (curStep == 1216 || curStep == 1472){
+			for(i in 0...game.playerStrums.length){//Tis fine ig
+				PlayState.instance.playerStrums.members[i].texture = PlayState.darkNotes.substring(0,PlayState.darkNotes.length-5);
+				PlayState.instance.opponentStrums.members[i].texture = PlayState.darkNotes.substring(0,PlayState.darkNotes.length-5);
+			}
 			alleywall.visible = true;
 			alleyfloor.visible = true;
 		}

@@ -171,7 +171,7 @@ class Note extends FlxSprite
 		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
 	
 		if (noteData > -1 && noteData <= arr.length)
-		{
+		{//Change with stage switch later
 			if(change == 0){//Dark Notes
 				rgbShader.r = 0xFF000000;
 				rgbShader.g = arr[2];

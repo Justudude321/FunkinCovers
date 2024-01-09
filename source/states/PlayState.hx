@@ -211,13 +211,13 @@ class PlayState extends MusicBeatState
 
 	//Mod Stuff
 	public static var shadeType:Int = 2;
+	public static var darkNotes:String;
 	public static var isDownscroll:Bool = false;
 	public static var isMiddlescroll:Bool = false;
 	public var pixelsNow:Bool = false;
 	public var pikaAtk:Bool = false;
 	public var fuegoAtk:Bool = false;
 
-	var darkNotes:String = 'noteSkins/NOTE_assets-dark';
 	var bartop:BGSprite = null;
 	var barbot:BGSprite = null;
 	var flash:BGSprite;
@@ -285,6 +285,7 @@ class PlayState extends MusicBeatState
 	{
 		if(ClientPrefs.data.noteSkin == 'Chip') darkNotes = 'noteSkins/NOTE_assets-chip-dark';
 		else if(ClientPrefs.data.noteSkin == 'Future') darkNotes = 'noteSkins/NOTE_assets-future-dark';
+		else darkNotes = 'noteSkins/NOTE_assets-dark';
 
 		//For missingnoThing
 		isDownscroll = ClientPrefs.data.downScroll;
@@ -428,7 +429,7 @@ class PlayState extends MusicBeatState
 			//Me
 			case 'leafstorm': new states.stages.Leafstorm();
 			case 'jelly': new states.stages.Jelly();
-			//case 'beatCity': new states.stages.BeatCity(); Sans fight
+			//case 'beatCity': new states.stages.BeatCity(); Fitin, got an idea
 			
 			//Wu
 			case 'tower': new states.stages.Tower();
@@ -438,7 +439,7 @@ class PlayState extends MusicBeatState
 			//Mystery
 			case 'city': new states.stages.City();
 			case 'bridge': new states.stages.Bridge();
-			// case 'redstage': new states.stages.Redstage();
+			case 'highschool': new states.stages.Highschool();
 			// case 'singstar': new states.stages.Singstar();
 
 		}
@@ -1706,53 +1707,10 @@ class PlayState extends MusicBeatState
 		else FlxG.camera.followLerp = 0;
 		callOnScripts('onUpdate', [elapsed]);
 
-		switch(curStage)//Damn you strumtime for screwing with the event
-		{
-			case 'alley':
-				if(curStep == 934 || curStep == 1319){//Dark notes haha so smart >:)
-					for(i in 0...unspawnNotes.length -1) if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB(0);
-				}
-				if(curStep == 960 || curStep == 1344){//Strums
-					for(i in 0...playerStrums.length){
-						playerStrums.members[i].texture = darkNotes;
-						opponentStrums.members[i].texture = darkNotes;
-					}
-				}
-
-				if(curStep == 1191 || curStep == 1447){//Normal
-					for(i in 0...unspawnNotes.length -1) if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB(2);
-				}
-				if(curStep == 1216 || curStep == 1472){
-					for(i in 0...playerStrums.length){
-						playerStrums.members[i].texture = darkNotes.substring(0,darkNotes.length-5);//Tis fine ig
-						opponentStrums.members[i].texture = darkNotes.substring(0,darkNotes.length-5);
-					}
-				}
-			case 'tower':
-				if(curStep == 2373){//step 2373 beat 593
-					for(i in 0...unspawnNotes.length -1) if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB(1);
-				}
-				if(curBeat == 600){
-					for (i in 0...playerStrums.length){
-						playerStrums.members[i].strumRGB(1);
-						opponentStrums.members[i].strumRGB(1);
-						playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
-						opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
-					}
-				}
-
-				if(curBeat == 658){
-					for(i in 0...unspawnNotes.length -1) if(!unspawnNotes[i].pureEvil) unspawnNotes[i].changeRGB(2);
-				}
-				if(curBeat == 664){
-					for (i in 0...playerStrums.length){
-						playerStrums.members[i].strumRGB(2);
-						opponentStrums.members[i].strumRGB(2);
-						playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
-						opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
-					}
-				}
-		}
+		// switch(curStage)//Damn you strumtime for screwing with the event
+		// {
+		//		Keeping this just in case
+		// }
 		super.update(elapsed);
 
 		setOnScripts('curDecStep', curDecStep);
