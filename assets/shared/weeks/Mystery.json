@@ -3,18 +3,14 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
+	"weekBefore": "Wu",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "Wu",
 	"startUnlocked": true,
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
+	"hideStoryMode": false,
 	"songs": [
 		[
 			"heart",
@@ -42,9 +38,22 @@
 				215,
 				235
 			]
+		],
+		[
+			"killer-queen",
+			"nikku",
+			[
+				178,
+				14,
+				54
+			]
 		]
 	],
-	"hideStoryMode": false,
-	"weekName": "Mystery",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Mystery"
 }

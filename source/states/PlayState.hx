@@ -214,6 +214,7 @@ class PlayState extends MusicBeatState
 	public static var darkNotes:String;
 	public static var isDownscroll:Bool = false;
 	public static var isMiddlescroll:Bool = false;
+	public static var dadFocus:Bool = false;
 	public var pixelsNow:Bool = false;
 	public var pikaAtk:Bool = false;
 	public var fuegoAtk:Bool = false;
@@ -440,7 +441,7 @@ class PlayState extends MusicBeatState
 			case 'city': new states.stages.City();
 			case 'bridge': new states.stages.Bridge();
 			case 'highschool': new states.stages.Highschool();
-			// case 'singstar': new states.stages.Singstar();
+			case 'jojo': new states.stages.Jojo();
 
 		}
 
@@ -1707,6 +1708,7 @@ class PlayState extends MusicBeatState
 		else FlxG.camera.followLerp = 0;
 		callOnScripts('onUpdate', [elapsed]);
 
+		// if(curStage == 'jojo') dadFocus = (SONG.notes[curSection].mustHitSection != true) ? true : false;
 		// switch(curStage)//Damn you strumtime for screwing with the event
 		// {
 		//		Keeping this just in case
@@ -2342,6 +2344,7 @@ class PlayState extends MusicBeatState
 	{
 		if(isDad)
 		{
+			dadFocus = true;
 			camFollow.setPosition(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
 			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
 			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
@@ -2349,6 +2352,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
+			dadFocus = false;
 			camFollow.setPosition(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];

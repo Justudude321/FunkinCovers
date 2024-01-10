@@ -13,12 +13,12 @@ class Highschool extends BaseStage
 		// Spawn your stage sprites here.
 		// Characters are not ready yet on this function, so you can't add things above them yet.
 		// Use createPost() if that's what you want to do.
-		var bg:BGSprite = new BGSprite('HighSchool', -600,750);
+		var bg:BGSprite = new BGSprite('HighSchool', -550, 650);
 		add(bg);
-		var floor:BGSprite = new BGSprite('barrera', -600, 2750);
-		add(floor);
 		var crowd:BGSprite = new BGSprite('gangbop', -400, 1500, ['Gang Bottom Boppers'], true);
 		add(crowd);
+		var floor:BGSprite = new BGSprite('barrera', -550, 2650);
+		add(floor);
 	}
 	
 	override function createPost()
