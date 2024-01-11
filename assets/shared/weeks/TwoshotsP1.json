@@ -1,0 +1,32 @@
+{
+	"storyName": "2shots part1 - wip",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "philly",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "Mystery",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"taste-for-blood",
+			"sonic-dark",
+			[
+				75,
+				0,
+				215
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "TwoshotsP1",
+	"hiddenUntilUnlocked": false
+}

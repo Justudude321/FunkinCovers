@@ -18,7 +18,7 @@ class Fitin extends BaseStage
 		// Characters are not ready yet on this function, so you can't add things above them yet.
 		// Use createPost() if that's what you want to do.
 		var backstage:BGSprite = new BGSprite('camFlash', -350, -80);
-		backstage.setGraphicSize(Std.int(backstage.width*1.6),Std.int(backstage.height*1.5));
+		backstage.setGraphicSize(Std.int(backstage.width*1.65),Std.int(backstage.height*1.55));
 		backstage.updateHitbox();
 		add(backstage);
 		backstage.alpha = 0.94;

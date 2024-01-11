@@ -1,0 +1,9 @@
+{
+	"directory": "twoshots-1",
+	"defaultZoom": 0.8,
+	"isPixelStage": false,
+
+	"boyfriend": [900, 230],
+	"girlfriend": [400, 230],
+	"opponent": [0, 230]
+}

@@ -219,6 +219,7 @@ class PlayState extends MusicBeatState
 	public var pikaAtk:Bool = false;
 	public var fuegoAtk:Bool = false;
 
+	var newX:Array<Float> = new Array<Float>();
 	var bartop:BGSprite = null;
 	var barbot:BGSprite = null;
 	var flash:BGSprite;
@@ -442,6 +443,12 @@ class PlayState extends MusicBeatState
 			case 'bridge': new states.stages.Bridge();
 			case 'highschool': new states.stages.Highschool();
 			case 'jojo': new states.stages.Jojo();
+
+			//Two-Shots Part 1
+			case 'hillzone': new states.stages.Hillzone();
+			// case 'bridge': new states.stages.Bridge();
+			// case 'highschool': new states.stages.Highschool();
+			// case 'jojo': new states.stages.Jojo();
 
 		}
 
@@ -2273,6 +2280,12 @@ class PlayState extends MusicBeatState
 			case 'Play Sound':
 				if(flValue2 == null) flValue2 = 1;
 				FlxG.sound.play(Paths.sound(value1), flValue2);
+				
+			case 'Change Scroll':
+				changeScroll(value1, value2);
+
+			case 'Trade Place':
+				tradePlace();
 			
 			case 'Cinema Time'://Cinematic Bars
 				bartop = new BGSprite("bar", 0, -80, 0, 0);
@@ -2316,6 +2329,176 @@ class PlayState extends MusicBeatState
 						playerStrums.members[i].y = FlxG.random.int(Std.int(playerStrums.members[0].y - 50), Std.int(playerStrums.members[0].y + 50));
 					}
 				}
+	}
+
+	function changeScroll(vertical:String, horizontal:String) {
+		if(vertical == 'swap'){
+			if(isDownscroll){//down to up
+				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.23, {//lmao, making the switch look smooth
+					onComplete:function (twn:FlxTween) {isDownscroll = false;}});			
+				for (i in 0...opponentStrums.length){
+					FlxTween.tween(playerStrums.members[i], {y: 50}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
+					});
+					FlxTween.tween(opponentStrums.members[i], {y: 50}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				}
+				
+				FlxTween.tween(healthBar, {y: 644.8}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(timeBar, {y: 31}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(iconP1, {y: 644.8 - 70}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(iconP2, {y: 644.8 - 70}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(scoreTxt, {y: 644.8 + 35}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(timeTxt, {y: 31 - 8}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			}
+			else{//up to down
+				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.23, {
+					onComplete:function (twn:FlxTween) {isDownscroll = true;}});
+				for (i in 0...opponentStrums.length){
+					FlxTween.tween(playerStrums.members[i], {y: 570}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
+					});
+					FlxTween.tween(opponentStrums.members[i], {y: 570}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				}
+
+				FlxTween.tween(healthBar, {y: 83.2}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(timeBar, {y: 688}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(iconP1, {y: 83.2 - 70}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(iconP2, {y: 83.2 - 70}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(scoreTxt, {y: 83.2 + 35}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(timeTxt, {y: 688 - 8}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			}
+		}
+		if(horizontal == 'swap'){
+			var add:Int = 112;
+			if(isMiddlescroll){//middle to side
+				isMiddlescroll = false;
+				for (i in 0...opponentStrums.length){
+					FlxTween.tween(playerStrums.members[i], {x: 732 + (add*i)}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
+					});
+
+					FlxTween.tween(opponentStrums.members[i], {x: 92 + (add*i)}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+					FlxTween.tween(opponentStrums.members[i], {alpha: 1}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+					FlxTween.tween(healthBar, {alpha: 1}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+					FlxTween.tween(iconP1, {alpha: 1}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+					FlxTween.tween(iconP2, {alpha: 1}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+					FlxTween.tween(scoreTxt, {alpha: 1}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				}
+			}
+			else{//side to middle
+				isMiddlescroll = true;
+				for (i in 0...opponentStrums.length){
+					FlxTween.tween(playerStrums.members[i], {x: 412 + (add*i)}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
+					});
+					FlxTween.tween(opponentStrums.members[i], {alpha: 0.5}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				}
+				for (i in 0...2){
+					FlxTween.tween(opponentStrums.members[i], {x: 82 + (add*i)}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
+					});
+				}
+				for (i in 0...2){
+					FlxTween.tween(opponentStrums.members[i+2], {x: 971 + (add*i)}, 0.5, {
+						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
+					});
+				}
+				FlxTween.tween(healthBar, {alpha: 0.5}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(iconP1, {alpha: 0.5}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(iconP2, {alpha: 0.5}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(scoreTxt, {alpha: 0.5}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			}
+		}
+
+		if(playerStrums.members[0].angle == 360){
+			for (i in 0...opponentStrums.length){
+				FlxTween.tween(playerStrums.members[i], {angle: 0}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(opponentStrums.members[i], {angle: 0}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			}
+		}
+		else{
+			for (i in 0...opponentStrums.length){
+				FlxTween.tween(playerStrums.members[i], {angle: 360}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(opponentStrums.members[i], {angle: 360}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			}
+		}
+	}
+
+	function tradePlace(){
+		for (i in 0...opponentStrums.length) newX[i] = opponentStrums.members[i].x;
+
+		for (i in 0...opponentStrums.length){
+			FlxTween.tween(opponentStrums.members[i], {x: playerStrums.members[i].x}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			FlxTween.tween(playerStrums.members[i], {x: newX[i]}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+		}
+		if(playerStrums.members[0].angle == 360){
+			for (i in 0...opponentStrums.length){
+				FlxTween.tween(playerStrums.members[i], {angle: 0}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(opponentStrums.members[i], {angle: 0}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			}
+		}
+		else{
+			for (i in 0...opponentStrums.length){
+				FlxTween.tween(playerStrums.members[i], {angle: 360}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(opponentStrums.members[i], {angle: 360}, 0.5, {
+					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			}
+		}
+		if(healthBar.alpha == 1){
+			FlxTween.tween(healthBar, {alpha: 0.5}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			FlxTween.tween(iconP1, {alpha: 0.5}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			FlxTween.tween(iconP2, {alpha: 0.5}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			FlxTween.tween(scoreTxt, {alpha: 0.5}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+		}
+		else{
+			FlxTween.tween(healthBar, {alpha: 1}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			FlxTween.tween(iconP1, {alpha: 1}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			FlxTween.tween(iconP2, {alpha: 1}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+			FlxTween.tween(scoreTxt, {alpha: 1}, 0.5, {
+				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
+		}
+		
 	}
 
 	function moveCameraSection(?sec:Null<Int>):Void {
