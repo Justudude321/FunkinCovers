@@ -215,6 +215,7 @@ class PlayState extends MusicBeatState
 	public static var isDownscroll:Bool = false;
 	public static var isMiddlescroll:Bool = false;
 	public static var dadFocus:Bool = false;
+	public static var colorChanged:Bool = false;
 	public var pixelsNow:Bool = false;
 	public var pikaAtk:Bool = false;
 	public var fuegoAtk:Bool = false;
@@ -292,6 +293,7 @@ class PlayState extends MusicBeatState
 		//For missingnoThing
 		isDownscroll = ClientPrefs.data.downScroll;
 		isMiddlescroll = ClientPrefs.data.middleScroll;
+		colorChanged = false;
 
 		//trace('Playback Rate: ' + playbackRate);
 		Paths.clearStoredMemory();
@@ -446,10 +448,21 @@ class PlayState extends MusicBeatState
 
 			//Two-Shots Part 1
 			case 'hillzone': new states.stages.Hillzone();
-			// case 'bridge': new states.stages.Bridge();
-			// case 'highschool': new states.stages.Highschool();
-			// case 'jojo': new states.stages.Jojo();
+			// case 'bridge': new states.stages.Bridge();//Soda Pop
+			// case 'highschool': new states.stages.Highschool();//Custom Song
+			// case 'jojo': new states.stages.Jojo();//Wilted
 
+			//Two-Shots Part 2
+			// case 'hillzone': new states.stages.Hillzone();//???
+			// case 'bridge': new states.stages.Bridge();//Technicolor Tussel
+			// case 'highschool': new states.stages.Highschool();//HeartBeat
+			// case 'jojo': new states.stages.Jojo();//Unlikely Rivals
+
+			//Finale
+			// case 'hillzone': new states.stages.Hillzone();//Sinister
+			// case 'bridge': new states.stages.Bridge();//God Feast
+			// case 'highschool': new states.stages.Highschool();//Santa
+			// case 'jojo': new states.stages.Jojo();//Mouthman
 		}
 
 		if(isPixelStage) {
@@ -3215,7 +3228,7 @@ class PlayState extends MusicBeatState
 						health = (drain) ? Math.max(health - 0.01, 0.39) : health;
 					
 					case 'singstar':
-						health = (drain) ? Math.max(health - 0.19, 0.39) : health;
+						health = (drain) ? Math.max(health - 0.019, 0.39) : health;
 				}
 			}
 		}

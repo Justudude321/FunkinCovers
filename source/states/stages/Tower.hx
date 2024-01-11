@@ -277,7 +277,7 @@ class Tower extends BaseStage
 			missingnoEnter.alpha = 1;
 		}
 		if(curStep == 2373){//step 2373 beat 593
-			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB(1);
+			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();
 		}
 		if (curStep == 2703)gf.alpha = 1;
 	}
@@ -331,15 +331,17 @@ class Tower extends BaseStage
 			dad.color = 0xff57b91a;
 		
 			for (i in 0...game.playerStrums.length){
-				PlayState.instance.playerStrums.members[i].strumRGB(1);
-				PlayState.instance.opponentStrums.members[i].strumRGB(1);
+				PlayState.instance.playerStrums.members[i].strumRGB();
+				PlayState.instance.opponentStrums.members[i].strumRGB();
 				PlayState.instance.playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
 				PlayState.instance.opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
 			}
+
+			PlayState.colorChanged = true;
 		}
 		
 		if(curBeat == 658){
-			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB(2);
+			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();
 		}
 
 		if(curBeat == 664){
@@ -357,8 +359,8 @@ class Tower extends BaseStage
 			else hud3.color = FlxColor.WHITE;
 			
 			for (i in 0...game.playerStrums.length){
-				PlayState.instance.playerStrums.members[i].strumRGB(2);
-				PlayState.instance.opponentStrums.members[i].strumRGB(2);
+				PlayState.instance.playerStrums.members[i].strumRGB();
+				PlayState.instance.opponentStrums.members[i].strumRGB();
 				PlayState.instance.playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
 				PlayState.instance.opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
 			}

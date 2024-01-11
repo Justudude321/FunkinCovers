@@ -24,22 +24,31 @@ class StrumNote extends FlxSprite
 		return value;
 	}
 		
-	public function strumRGB(change:Int)//Hell yeah >:)
+	public function strumRGB()//Hell yeah >:)
 	{
 		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
 		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
 		
 		if (noteData > -1 && noteData <= arr.length)
 		{
-			if (change == 1){//Gameboy
-				rgbShader.r = 0xFF89C073;
-				rgbShader.g = 0xFFE0F8D0;
-				rgbShader.b = 0xFF356955;
-			}
-			else{
+			if(PlayState.colorChanged){
 				rgbShader.r = arr[0];
 				rgbShader.g = arr[1];
 				rgbShader.b = arr[2];
+			}
+			else{
+				switch(PlayState.curStage){
+					case 'hall':
+						arr = ClientPrefs.data.entity[noteData];
+						rgbShader.r = arr[0];
+						rgbShader.g = arr[1];
+						rgbShader.b = arr[2];
+					case 'tower':
+						rgbShader.r = 0xFF89C073;
+						rgbShader.g = 0xFFE0F8D0;
+						rgbShader.b = 0xFF356955;
+	
+				}
 			}
 		}
 		reloadNote();

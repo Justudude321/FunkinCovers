@@ -35,6 +35,17 @@ import states.TitleState;
 		[0xFF3DCAFF, 0xFFF4FFFF, 0xFF003060],
 		[0xFF71E300, 0xFFF6FFE6, 0xFF003100],
 		[0xFFFF884E, 0xFFFFFAF5, 0xFF6C0000]];
+	
+	public var entity:Array<Array<FlxColor>> = [
+		[0xFF7B1CD3, 0xFFFFFFFF, 0xFF68118A],
+		[0xFF2656F2, 0xFFFFFFFF, 0xFF1542B7],
+		[0xFF00DAA7, 0xFFFFFFFF, 0xFF00694E],
+		[0xFFF50B71, 0xFFFFFFFF, 0xFF8C003A]];
+	public var skarlet:Array<Array<FlxColor>> = [
+		[0xFFFF1E73, 0xFFFFFFFF, 0xFF561F4F],
+		[0xFF00FFCD, 0xFFFFFFFF, 0xFF07349A],
+		[0xFFFF1E73, 0xFFFFFFFF, 0xFF561F4F],
+		[0xFF00FFCD, 0xFFFFFFFF, 0xFF07349A]];
 
 	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';

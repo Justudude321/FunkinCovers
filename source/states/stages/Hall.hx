@@ -25,6 +25,13 @@ class Hall extends BaseStage
 	override function update(elapsed:Float)
 	{
 		// Code here
+		if(curStep == 0){
+			for (i in 0...game.playerStrums.length){
+				PlayState.instance.playerStrums.members[i].strumRGB();
+				PlayState.instance.opponentStrums.members[i].strumRGB();
+			}
+			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();
+		}
 	}
 
 	// Steps, Beats and Sections:
