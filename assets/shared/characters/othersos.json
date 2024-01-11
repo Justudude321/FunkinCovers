@@ -1,0 +1,101 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				33,
+				-1
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-43,
+				-61
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-35,
+				-3
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "right",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				44,
+				41
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				2,
+				63
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hey",
+			"indices": [],
+			"name": "hey"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-1,
+				1
+			],
+			"anim": "boowomp",
+			"fps": 24,
+			"name": "boowomp",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/othersos",
+	"position": [
+		70,
+		320
+	],
+	"healthicon": "othersos",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		-20,
+		-60
+	],
+	"sing_duration": 6.1,
+	"scale": 1.2,
+	"_editor_isPlayer": false
+}

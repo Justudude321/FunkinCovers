@@ -1,38 +1,55 @@
 package states.stages;
 
+import substates.PauseSubState;
 import states.stages.objects.*;
 
-class Jelly extends BaseStage
+class Fitin extends BaseStage
 {
 	// If you're moving your stage from PlayState to a stage file,
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
-
-	var skellies:BGSprite;
+	
+	var sloth:BGSprite;
+	var greed:BGSprite;
+	var wrath:BGSprite;
+	static var skip = false;
 	override function create()
 	{
 		// Spawn your stage sprites here.
 		// Characters are not ready yet on this function, so you can't add things above them yet.
 		// Use createPost() if that's what you want to do.
-
-		camHUD.alpha = 0.001;
-		var bg:BGSprite = new BGSprite('ourple', -850, -770);
-		add(bg);
-		
-		skellies = new BGSprite('skelliebros', 0, 460, ['Skellies Dance']);
-		skellies.animation.addByPrefix('idle', 'Skellies Dance', 24, false);
-		skellies.animation.addByPrefix('idle-alt', 'SkelliesE Dance', 24, false);
-		skellies.animation.addByPrefix('transform', 'Skellies Transform', 24, false);
-		add(skellies);
+		var backstage:BGSprite = new BGSprite('camFlash', -350, -80);
+		backstage.setGraphicSize(Std.int(backstage.width*1.6),Std.int(backstage.height*1.5));
+		backstage.updateHitbox();
+		add(backstage);
+		backstage.alpha = 0.94;
+		sloth = new BGSprite('metal', 375, 450, 0.9, 0.9, ['metalsos'], true);
+		add(sloth);
+		wrath = new BGSprite('rage', 160, 240, 0.92, 0.92, ['angrysos'], true);
+		add(wrath);
+		if(skip) game.skipCountdown = true;//Seamless enough
+		skip = false;
 	}
 	
 	override function createPost()
 	{
 		// Use this function to layer things above characters!
+		greed = new BGSprite('grinch', -50, 575, 1.2, 1.2, ['grinchsos'], true);
+		greed.setGraphicSize(Std.int(greed.width*1.2),Std.int(greed.height*1.2));
+		greed.updateHitbox();
+		add(greed);
 	}
 
+	var balls:Bool = false;//Does infinite thing, adding gimmicks later
 	override function update(elapsed:Float)
 	{
 		// Code here
+		if(curStep == 1) game.cameraSpeed = 1;
+		var currentBeat:Float = (Conductor.songPosition/5000)*(Conductor.bpm/60);
+		var thing:Float = Math.sin((currentBeat+12*12)*Math.PI);
+
+		sloth.y = 300 + 70*thing;
+		greed.y = 400 + 60*thing;
+		wrath.y = 120 - 70*thing;
 	}
 
 	// Steps, Beats and Sections:
@@ -42,40 +59,14 @@ class Jelly extends BaseStage
 	override function stepHit()
 	{
 		// Code here
-
-		if (curStep == 128){
-			FlxTween.tween(camHUD, {alpha: 1}, 1, {onComplete: function(twn:FlxTween)
-				{}});
-			game.cameraSpeed = 1;
+		if(curStep == 1296 && balls) {
+			skip = true;
+			PauseSubState.restartSong(true);
 		}
-		if (curStep == 1529){
-			skellies.animation.play('transform', true);
-			skellies.x = 0 - 20;
-			skellies.y = 460 - 15;
-		}
-		if (curStep == 1536){
-			skellies.x = 0;
-			skellies.y = 460;
-		}
-		if (curStep == 1584)game.cameraSpeed = 1;
-		if (curStep == 1856)game.cameraSpeed = 100;
-		if (curStep == 1921)boyfriendGroup.alpha = 0;
 	}
 	override function beatHit()
 	{
 		// Code here
-		if(curStep > 1534)skellies.animation.play("idle-alt", true);
-		else if(curStep < 1531)skellies.animation.play("idle", true);
-
-		if(curBeat == 384){
-			var flash = new BGSprite('camFlash',0,0);
-			flash.scale.set(2,2);
-			flash.cameras = [camOther];
-			add(flash);
-			FlxTween.tween(flash, {alpha: 0}, 0.4, {ease: FlxEase.quartIn, onComplete: 
-				function(twn:FlxTween){flash.destroy();}
-			});	
-		}
 	}
 	override function sectionHit()
 	{

@@ -1,4 +1,16 @@
 {
+	"storyName": "Me - WIP",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "philly",
+	"weekBefore": "Rose",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
 	"songs": [
 		[
 			"rush",
@@ -17,25 +29,22 @@
 				42,
 				29
 			]
+		],
+		[
+			"fitin",
+			"othersos",
+			[
+				255,
+				255,
+				255
+			]
 		]
 	],
-	"hiddenUntilUnlocked": false,
-	"hideFreeplay": false,
-	"weekBackground": "philly",
-	"difficulties": "",
 	"weekCharacters": [
 		"",
 		"bf",
 		"gf"
 	],
-	"storyName": "Me - WIP",
-	"weekName": "Me",
-	"freeplayColor": [
-		146,
-		113,
-		253
-	],
-	"hideStoryMode": false,
-	"weekBefore": "Rose",
-	"startUnlocked": true
+	"hiddenUntilUnlocked": false,
+	"weekName": "Me"
 }

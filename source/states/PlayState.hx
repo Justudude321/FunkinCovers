@@ -430,7 +430,7 @@ class PlayState extends MusicBeatState
 			//Me
 			case 'leafstorm': new states.stages.Leafstorm();
 			case 'jelly': new states.stages.Jelly();
-			//case 'beatCity': new states.stages.BeatCity(); Fitin, got an idea
+			case 'fitin': new states.stages.Fitin(); //Fitin, got an idea
 			
 			//Wu
 			case 'tower': new states.stages.Tower();
