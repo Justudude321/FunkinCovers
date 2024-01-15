@@ -30,7 +30,7 @@ class Subway2 extends BaseStage
 		floor.setGraphicSize(Std.int(floor.width*1.2),Std.int(floor.height*1.2));
 		floor.updateHitbox();
 		add(floor);
-		var floor2:BGSprite = new BGSprite('FRONT2', -483, -311 + floor.height, ['Floor front'], true);//????
+		var floor2:BGSprite = new BGSprite('FRONT2', -483, -311 + floor.height, ['Floor front'], true);
 		floor2.setGraphicSize(Std.int(floor2.width*1.2),Std.int(floor2.height*1.2));
 		floor2.updateHitbox();
 		floor2.flipY = true;
@@ -100,25 +100,30 @@ class Subway2 extends BaseStage
 		}
 	}
 
+	var chance:Int = FlxG.random.int(1, 6);
 	// For events
 	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float)
 	{
 		switch(eventName)
 		{
 			case "Subway Train":
-				var val1:Int = Std.parseInt(value1);
-				switch (val1) {//"Borrowed" from a repository I found of V1 I think, sorry 
+				switch (chance) {//"Borrowed" from a repository I found of V1 I think, sorry Rechi
 					case 1:
 						doors = new BGSprite('doors1', 2171, 58, ['DOORS OPENING']);
-						doors.animation.addByPrefix('open', 'DOORS OPENING', 24, false);
-						doors.animation.addByPrefix('close', 'DOORS CLOSING', 24, false);
-						doors.animation.addByIndices('idle', 'DOORS OPENING', [0], "", 24, false);
+					case 2:
+						doors = new BGSprite('doors2', 2486, 89, ['DOORS OPENING']);
+					case 3:
+						doors = new BGSprite('doors3', 2640, 158, ['DOORS OPENING']);
 					case 4:
 						doors = new BGSprite('doors4', 2485, 91, ['DOORS OPENING']);
-						doors.animation.addByPrefix('open', 'DOORS OPENING', 24, false);
-						doors.animation.addByPrefix('close', 'DOORS CLOSING', 24, false);
-						doors.animation.addByIndices('idle', 'DOORS OPENING', [0], "", 24, false);
+					case 5:
+						doors = new BGSprite('doors5', 2485, 91, ['DOORS OPENING']);
+					case 6:
+						doors = new BGSprite('doors6', 2485, 91, ['DOORS OPENING']);
 				}
+				doors.animation.addByPrefix('open', 'DOORS OPENING', 24, false);
+				doors.animation.addByPrefix('close', 'DOORS CLOSING', 24, false);
+				doors.animation.addByIndices('idle', 'DOORS OPENING', [0], "", 24, false);
 				doors.animation.play('idle', true);
 				doors.scale.set(1.2, 1.2);
 				doors.updateHitbox();
@@ -132,6 +137,7 @@ class Subway2 extends BaseStage
 								if (name == "open") {
 									var timer2:FlxTimer = new FlxTimer().start(1, function(_) {
 										doors.animation.play('close');
+										chance = FlxG.random.int(1, 6);
 									});
 								} else if (name == "close") {
 									var timer3:FlxTimer = new FlxTimer().start(0.75, function(_) {
@@ -168,12 +174,19 @@ class Subway2 extends BaseStage
 		switch(event.event)
 		{
 			case 'Subway Train':
-				var val1:Int = Std.parseInt(event.value1);
-				switch (val1) {//Idk if this does anything or not...
+				switch (chance) {//Idk if this does anything or not...
 					case 1:
 						precacheImage('doors1');
+					case 2:
+						precacheImage('doors2');
+					case 3:
+						precacheImage('doors3');
 					case 4:
 						precacheImage('doors4');
+					case 5:
+						precacheImage('doors5');
+					case 6:
+						precacheImage('doors6');
 				}
 		}
 	}
