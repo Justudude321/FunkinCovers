@@ -27,11 +27,8 @@ class Hillzone extends BaseStage
 		// Use this function to layer things above characters!
 	}
 	var a:Float = 0;
-	var curX:Array<Float> = new Array<Float>();
-	var newX:Array<Float> = new Array<Float>();
-	var newY:Array<Float> = new Array<Float>();
-	var newX2:Array<Float> = new Array<Float>();
-	var newY2:Array<Float> = new Array<Float>();
+	var defaultX:Array<Float> = new Array<Float>();
+	var defaultY:Array<Float> = new Array<Float>();
 	override function update(elapsed:Float)
 	{
 		// Code here
@@ -43,7 +40,7 @@ class Hillzone extends BaseStage
 			else 
 				for (i in 0...game.strumLineNotes.length) game.strumLineNotes.members[i].y = 20 * Math.cos(i/1.5 + a) + 50;
 
-			for (i in 0...game.strumLineNotes.length) game.strumLineNotes.members[i].x = 20 * Math.cos(i/1.5 + a) + curX[i];
+			for (i in 0...game.strumLineNotes.length) game.strumLineNotes.members[i].x = 20 * Math.cos(i/1.5 + a) + defaultX[i];
 		}
 	}
 
@@ -59,44 +56,29 @@ class Hillzone extends BaseStage
 	{
 		// Code here
 		if(curBeat == 227){
-			for (i in 0...game.strumLineNotes.length) curX[i] = PlayState.instance.strumLineNotes.members[i].x;
-			for (i in 0...game.opponentStrums.length){
-				newX[i] = game.playerStrums.members[i].x;
-				newY[i] = game.playerStrums.members[i].y;
-				newX2[i] = game.opponentStrums.members[i].x;
-				newY2[i] = game.opponentStrums.members[i].y;
+			for (i in 0...game.strumLineNotes.length){
+				defaultX[i] = PlayState.instance.strumLineNotes.members[i].x;
+				defaultY[i] = PlayState.instance.strumLineNotes.members[i].y;
 			}
 		}
 		if(curBeat == 292)
-			for (i in 0...game.opponentStrums.length){
-				FlxTween.tween(game.playerStrums.members[i], {x: newX[i]}, 0.25, {
+			for (i in 0...game.strumLineNotes.length){
+				FlxTween.tween(game.strumLineNotes.members[i], {x: defaultX[i]}, 0.25, {
 					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
 				});
-				FlxTween.tween(game.playerStrums.members[i], {y: newY[i]}, 0.25, {
-					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
-				});
-				FlxTween.tween(game.opponentStrums.members[i], {x: newX2[i]}, 0.25, {
-					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
-				});
-				FlxTween.tween(game.opponentStrums.members[i], {y: newY2[i]}, 0.25, {
+				FlxTween.tween(game.strumLineNotes.members[i], {y: defaultY[i]}, 0.25, {
 					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
 				});
 			}
 		if(curBeat == 568)
-			for (i in 0...game.opponentStrums.length){
+			for (i in 0...game.strumLineNotes.length){
 				if(PlayState.isDownscroll){//down to up
-					FlxTween.tween(game.playerStrums.members[i], {y: -500}, 1.5, {
-						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
-					});
-					FlxTween.tween(game.opponentStrums.members[i], {y: -500}, 1.5, {
+					FlxTween.tween(game.strumLineNotes.members[i], {y: -500}, 1.5, {
 						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
 					});
 				}
 				else{
-					FlxTween.tween(game.playerStrums.members[i], {y: 900}, 2, {
-						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
-					});
-					FlxTween.tween(game.opponentStrums.members[i], {y: 900}, 2, {
+					FlxTween.tween(game.strumLineNotes.members[i], {y: 900}, 2, {
 						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
 					});
 				}

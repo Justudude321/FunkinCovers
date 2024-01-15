@@ -76,7 +76,7 @@ class Redstage extends BaseStage
 		}
 
 		if(!switched){
-			for (i in 0...game.opponentStrums.length)game.opponentStrums.members[i].x = -200;
+			for (i in 0...game.opponentStrums.length) game.opponentStrums.members[i].x = -200;
 			if(!PlayState.isMiddlescroll){
 				game.playerStrums.members[0].x = 92;
 				game.playerStrums.members[1].x = 204;

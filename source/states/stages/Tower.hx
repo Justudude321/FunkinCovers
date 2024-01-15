@@ -272,14 +272,12 @@ class Tower extends BaseStage
 	override function stepHit()
 	{
 		// Code here
-		if (curStep == 1594){
+		if(curStep == 1594){
 			missingnoEnter.animation.play('throw', true);
 			missingnoEnter.alpha = 1;
-		}
-		if(curStep == 2373){//step 2373 beat 593
-			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();
-		}
-		if (curStep == 2703)gf.alpha = 1;
+		}//step 2373 beat 593
+		if(curStep == 2373) for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();
+		if(curStep == 2703) gf.alpha = 1;
 	}
 	var cameraTwn:FlxTween;
 	override function beatHit()
@@ -330,19 +328,15 @@ class Tower extends BaseStage
 			boyfriend.color = 0xff57b91a;
 			dad.color = 0xff57b91a;
 		
-			for (i in 0...game.playerStrums.length){
-				PlayState.instance.playerStrums.members[i].strumRGB();
-				PlayState.instance.opponentStrums.members[i].strumRGB();
-				PlayState.instance.playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
-				PlayState.instance.opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
+			for(i in 0...game.strumLineNotes.length){
+				PlayState.instance.strumLineNotes.members[i].strumRGB();
+				PlayState.instance.strumLineNotes.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
 			}
 
 			PlayState.colorChanged = true;
 		}
 		
-		if(curBeat == 658){
-			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();
-		}
+		if(curBeat == 658) for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();
 
 		if(curBeat == 664){
 			FlxTween.tween(brimback, {alpha: 1}, 1, {onComplete: function(twn:FlxTween){}});
@@ -358,11 +352,9 @@ class Tower extends BaseStage
 			}
 			else hud3.color = FlxColor.WHITE;
 			
-			for (i in 0...game.playerStrums.length){
-				PlayState.instance.playerStrums.members[i].strumRGB();
-				PlayState.instance.opponentStrums.members[i].strumRGB();
-				PlayState.instance.playerStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
-				PlayState.instance.opponentStrums.members[i].texture = 'noteSkins/NOTE_assets-buried';
+			for(i in 0...game.strumLineNotes.length){
+				PlayState.instance.strumLineNotes.members[i].strumRGB();
+				PlayState.instance.strumLineNotes.members[i].texture = 'noteSkins/NOTE_assets-buried';
 			}
 			boyfriend.color = FlxColor.WHITE;
 			dad.color = FlxColor.WHITE;

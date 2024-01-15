@@ -65,10 +65,7 @@ class Alley extends BaseStage
 			}});		
 		}
 		if (curStep == 960 || curStep == 1344){//Strums
-			for(i in 0...game.playerStrums.length){
-				PlayState.instance.playerStrums.members[i].texture = PlayState.darkNotes;
-				PlayState.instance.opponentStrums.members[i].texture = PlayState.darkNotes;
-			}
+			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].texture = PlayState.darkNotes;
 			alleywall.visible = false;
 			alleyfloor.visible = false;
 		}
@@ -79,11 +76,8 @@ class Alley extends BaseStage
 
 			PlayState.colorChanged = false;
 		}
-		if (curStep == 1216 || curStep == 1472){
-			for(i in 0...game.playerStrums.length){//Tis fine ig
-				PlayState.instance.playerStrums.members[i].texture = PlayState.darkNotes.substring(0,PlayState.darkNotes.length-5);
-				PlayState.instance.opponentStrums.members[i].texture = PlayState.darkNotes.substring(0,PlayState.darkNotes.length-5);
-			}
+		if (curStep == 1216 || curStep == 1472){//Tis fine ig
+			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].texture = PlayState.darkNotes.substring(0,PlayState.darkNotes.length-5);
 			alleywall.visible = true;
 			alleyfloor.visible = true;
 		}

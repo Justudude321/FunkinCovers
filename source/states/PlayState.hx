@@ -448,7 +448,7 @@ class PlayState extends MusicBeatState
 
 			//Two-Shots Part 1
 			case 'hillzone': new states.stages.Hillzone();
-			// case 'bridge': new states.stages.Bridge();//Soda Pop
+			case 'subway2': new states.stages.Subway2();//Soda Pop
 			// case 'highschool': new states.stages.Highschool();//Custom Song
 			// case 'jojo': new states.stages.Jojo();//Wilted
 
@@ -2347,15 +2347,13 @@ class PlayState extends MusicBeatState
 	function changeScroll(vertical:String, horizontal:String) {
 		if(vertical == 'swap'){
 			if(isDownscroll){//down to up
-				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.23, {//lmao, making the switch look smooth
-					onComplete:function (twn:FlxTween) {isDownscroll = false;}});			
-				for (i in 0...opponentStrums.length){
-					FlxTween.tween(playerStrums.members[i], {y: 50}, 0.5, {
+				var smooth:FlxTimer = new FlxTimer().start(0.23, function(_) {//lmao, making the switch look smooth
+					isDownscroll = false;
+				});
+				for (i in 0...strumLineNotes.length)
+					FlxTween.tween(strumLineNotes.members[i], {y: 50}, 0.5, {
 						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
 					});
-					FlxTween.tween(opponentStrums.members[i], {y: 50}, 0.5, {
-						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-				}
 				
 				FlxTween.tween(healthBar, {y: 644.8}, 0.5, {
 					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
@@ -2371,15 +2369,13 @@ class PlayState extends MusicBeatState
 					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
 			}
 			else{//up to down
-				FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 0.23, {
-					onComplete:function (twn:FlxTween) {isDownscroll = true;}});
-				for (i in 0...opponentStrums.length){
-					FlxTween.tween(playerStrums.members[i], {y: 570}, 0.5, {
+				var smooth:FlxTimer = new FlxTimer().start(0.23, function(_) {//lmao, making the switch look smooth
+					isDownscroll = true;
+				});
+				for (i in 0...strumLineNotes.length)
+					FlxTween.tween(strumLineNotes.members[i], {y: 570}, 0.5, {
 						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}
 					});
-					FlxTween.tween(opponentStrums.members[i], {y: 570}, 0.5, {
-						ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-				}
 
 				FlxTween.tween(healthBar, {y: 83.2}, 0.5, {
 					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
@@ -2448,21 +2444,15 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if(playerStrums.members[0].angle == 360){
-			for (i in 0...opponentStrums.length){
-				FlxTween.tween(playerStrums.members[i], {angle: 0}, 0.5, {
+		if(strumLineNotes.members[0].angle == 360){
+			for (i in 0...strumLineNotes.length)
+				FlxTween.tween(strumLineNotes.members[i], {angle: 0}, 0.5, {
 					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-				FlxTween.tween(opponentStrums.members[i], {angle: 0}, 0.5, {
-					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-			}
 		}
 		else{
-			for (i in 0...opponentStrums.length){
-				FlxTween.tween(playerStrums.members[i], {angle: 360}, 0.5, {
+			for (i in 0...strumLineNotes.length)
+				FlxTween.tween(strumLineNotes.members[i], {angle: 360}, 0.5, {
 					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-				FlxTween.tween(opponentStrums.members[i], {angle: 360}, 0.5, {
-					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-			}
 		}
 	}
 
@@ -2475,21 +2465,16 @@ class PlayState extends MusicBeatState
 			FlxTween.tween(playerStrums.members[i], {x: newX[i]}, 0.5, {
 				ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
 		}
-		if(playerStrums.members[0].angle == 360){
-			for (i in 0...opponentStrums.length){
-				FlxTween.tween(playerStrums.members[i], {angle: 0}, 0.5, {
+		
+		if(strumLineNotes.members[0].angle == 360){
+			for (i in 0...strumLineNotes.length)
+				FlxTween.tween(strumLineNotes.members[i], {angle: 0}, 0.5, {
 					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-				FlxTween.tween(opponentStrums.members[i], {angle: 0}, 0.5, {
-					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-			}
 		}
 		else{
-			for (i in 0...opponentStrums.length){
-				FlxTween.tween(playerStrums.members[i], {angle: 360}, 0.5, {
+			for (i in 0...strumLineNotes.length)
+				FlxTween.tween(strumLineNotes.members[i], {angle: 360}, 0.5, {
 					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-				FlxTween.tween(opponentStrums.members[i], {angle: 360}, 0.5, {
-					ease: FlxEase.cubeInOut, onComplete: function(twn:FlxTween){}});
-			}
 		}
 		if(healthBar.alpha == 1){
 			FlxTween.tween(healthBar, {alpha: 0.5}, 0.5, {

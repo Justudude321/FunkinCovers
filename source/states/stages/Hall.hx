@@ -25,12 +25,9 @@ class Hall extends BaseStage
 	override function update(elapsed:Float)
 	{
 		// Code here
-		if(curStep == 0){
-			for (i in 0...game.playerStrums.length){
-				PlayState.instance.playerStrums.members[i].strumRGB();
-				PlayState.instance.opponentStrums.members[i].strumRGB();
-			}
-			for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();
+		if(curStep == 0){//Note, when doing this don't include the -1 in unspawn notes
+			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].strumRGB();
+			for(i in 0...PlayState.instance.unspawnNotes.length) PlayState.instance.unspawnNotes[i].changeRGB();
 		}
 	}
 

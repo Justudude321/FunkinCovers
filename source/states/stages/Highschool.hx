@@ -31,7 +31,7 @@ class Highschool extends BaseStage
 	{
 		// Code here
 		if(curStep == 0){
-			for (i in 0...PlayState.instance.unspawnNotes.length - 1)
+			for (i in 0...PlayState.instance.unspawnNotes.length)
 				if(!PlayState.instance.unspawnNotes[i].mustPress) {
 					PlayState.instance.unspawnNotes[i].texture = 'noteSkins/jenny';
 					PlayState.instance.unspawnNotes[i].rgbShader.enabled = false;
