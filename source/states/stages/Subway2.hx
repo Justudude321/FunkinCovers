@@ -176,17 +176,17 @@ class Subway2 extends BaseStage
 			case 'Subway Train':
 				switch (chance) {//Idk if this does anything or not...
 					case 1:
-						precacheImage('doors1');
+						Paths.image('doors1');
 					case 2:
-						precacheImage('doors2');
+						Paths.image('doors2');
 					case 3:
-						precacheImage('doors3');
+						Paths.image('doors3');
 					case 4:
-						precacheImage('doors4');
+						Paths.image('doors4');
 					case 5:
-						precacheImage('doors5');
+						Paths.image('doors5');
 					case 6:
-						precacheImage('doors6');
+						Paths.image('doors6');
 				}
 		}
 	}
