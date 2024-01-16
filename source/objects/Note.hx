@@ -199,6 +199,13 @@ class Note extends FlxSprite
 						rgbShader.b = arr[2];
 						noteSplashData.r = arr[0];
 						noteSplashData.g = arr[1];
+					case 'wilt':
+						arr = ClientPrefs.data.doki[noteData];
+						rgbShader.r = arr[0];
+						rgbShader.g = arr[1];
+						rgbShader.b = arr[2];
+						noteSplashData.r = arr[0];
+						noteSplashData.g = arr[1];
 					case 'tower'://Gameboy
 						rgbShader.r = 0xFF89C073;
 						rgbShader.g = 0xFFE0F8D0;

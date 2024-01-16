@@ -3,14 +3,18 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
-	"weekBefore": "Mystery",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "Mystery",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"taste-for-blood",
@@ -29,13 +33,18 @@
 				47,
 				106
 			]
+		],
+		[
+			"wilted",
+			"senpai-real",
+			[
+				255,
+				155,
+				83
+			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "TwoshotsP1"
+	"hideStoryMode": false,
+	"weekName": "TwoshotsP1",
+	"hiddenUntilUnlocked": false
 }

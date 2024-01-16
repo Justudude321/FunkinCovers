@@ -46,6 +46,11 @@ import states.TitleState;
 		[0xFF00FFCD, 0xFFFFFFFF, 0xFF07349A],
 		[0xFFFF1E73, 0xFFFFFFFF, 0xFF561F4F],
 		[0xFF00FFCD, 0xFFFFFFFF, 0xFF07349A]];
+	public var doki:Array<Array<FlxColor>> = [
+		[0xFFB997F9, 0xFFFFFFFF, 0xFF8526BA],
+		[0xFF8EEFFF, 0xFFFFFFFF, 0xFF5893D2],
+		[0xFFC1FF7F, 0xFFFFFFFF, 0xFF4A864A],
+		[0xFFFFA8EF, 0xFFFFFFFF, 0xFFC23280]];
 
 	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';

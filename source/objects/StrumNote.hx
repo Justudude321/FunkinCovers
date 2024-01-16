@@ -48,6 +48,11 @@ class StrumNote extends FlxSprite
 						rgbShader.r = arr[0];
 						rgbShader.g = arr[1];
 						rgbShader.b = arr[2];
+					case 'wilt':
+						arr = ClientPrefs.data.doki[noteData];
+						rgbShader.r = arr[0];
+						rgbShader.g = arr[1];
+						rgbShader.b = arr[2];
 					case 'tower':
 						rgbShader.r = 0xFF89C073;
 						rgbShader.g = 0xFFE0F8D0;
