@@ -452,7 +452,7 @@ class PlayState extends MusicBeatState
 
 			//Two-Shots Part 2
 			// case 'hillzone': new states.stages.Hillzone();//???
-			// case 'bridge': new states.stages.Bridge();//Technicolor Tussel
+			case 'cupstage': new states.stages.Cupstage();//Technicolor Tussel
 			// case 'highschool': new states.stages.Highschool();//HeartBeat
 			// case 'jojo': new states.stages.Jojo();//Unlikely Rivals
 
@@ -461,6 +461,10 @@ class PlayState extends MusicBeatState
 			// case 'bridge': new states.stages.Bridge();//God Feast
 			// case 'highschool': new states.stages.Highschool();//Santa
 			// case 'jojo': new states.stages.Jojo();//Mouthman
+
+			//Finale
+			// case 'hillzone': new states.stages.Hillzone();//Score
+			// case 'bridge': new states.stages.Bridge();//Shadow
 		}
 
 		if(isPixelStage) {

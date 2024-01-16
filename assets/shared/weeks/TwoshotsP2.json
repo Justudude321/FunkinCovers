@@ -1,0 +1,32 @@
+{
+	"storyName": "2shots part2 - wip",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "philly",
+	"weekBefore": "TwoshotsP1",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"technicolor-tussle",
+			"cuphead",
+			[
+				171,
+				22,
+				74
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "TwoshotsP2"
+}

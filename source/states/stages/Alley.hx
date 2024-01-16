@@ -53,7 +53,7 @@ class Alley extends BaseStage
 			FlxTween.tween(FlxG.camera, {zoom: 1.3}, 2.5, {ease: FlxEase.sineIn, onComplete: function (twn:FlxTween) {cameraTwn = null;}});
 		if(curStep == 934 || curStep == 1319){//Dark notes haha so smart >:)
 			for(i in 0...PlayState.instance.unspawnNotes.length -1) 
-				if(!PlayState.instance.unspawnNotes[i].pureEvil) 
+				if(!PlayState.instance.unspawnNotes[i].gimmick) 
 					PlayState.instance.unspawnNotes[i].changeRGB();
 
 			PlayState.colorChanged = true;
@@ -71,7 +71,7 @@ class Alley extends BaseStage
 		}
 		if(curStep == 1191 || curStep == 1447){//Normal
 			for(i in 0...PlayState.instance.unspawnNotes.length -1) 
-				if(!PlayState.instance.unspawnNotes[i].pureEvil) 
+				if(!PlayState.instance.unspawnNotes[i].gimmick) 
 					PlayState.instance.unspawnNotes[i].changeRGB();
 
 			PlayState.colorChanged = false;

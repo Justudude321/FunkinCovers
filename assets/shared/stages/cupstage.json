@@ -1,0 +1,10 @@
+{
+	"directory": "twoshots-2",
+	"defaultZoom": 0.7,
+	"isPixelStage": false,
+
+	"boyfriend": [1600, 575],
+	"girlfriend": [400, 130],
+	"opponent": [700, 500],
+	"hide_girlfriend": true
+}

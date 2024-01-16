@@ -60,7 +60,8 @@ class ChartingState extends MusicBeatState
 		'Glitch Note',
 		'Sus Note',
 		'Pika Note',
-		'Fuego Note'
+		'Fuego Note',
+		'Parry Note'
 	];
 	public var ignoreWarnings = false;
 	var curNoteTypes:Array<String> = [];

@@ -57,7 +57,7 @@ class Note extends FlxSprite
 	public var prevNote:Note;
 	public var nextNote:Note;
 	public var downscrollNote:Bool = ClientPrefs.data.downScroll;
-	public var pureEvil:Bool = false;
+	public var gimmick:Bool = false;
 
 	public var spawned:Bool = false;
 
@@ -192,6 +192,12 @@ class Note extends FlxSprite
 						rgbShader.b = arr[2];
 						noteSplashData.r = arr[0];
 						noteSplashData.g = arr[1];
+					case 'tower'://Gameboy
+						rgbShader.r = 0xFF89C073;
+						rgbShader.g = 0xFFE0F8D0;
+						rgbShader.b = 0xFF356955;
+						noteSplashData.r = 0xFF89C073;
+						noteSplashData.g = 0xFFE0F8D0;
 					case 'subway2':
 						arr = ClientPrefs.data.skarlet[noteData];
 						rgbShader.r = arr[0];
@@ -206,13 +212,10 @@ class Note extends FlxSprite
 						rgbShader.b = arr[2];
 						noteSplashData.r = arr[0];
 						noteSplashData.g = arr[1];
-					case 'tower'://Gameboy
-						rgbShader.r = 0xFF89C073;
-						rgbShader.g = 0xFFE0F8D0;
-						rgbShader.b = 0xFF356955;
-						noteSplashData.r = 0xFF89C073;
-						noteSplashData.g = 0xFFE0F8D0;
-	
+					case 'cupstage':
+						rgbShader.r = arr[0];
+						rgbShader.g = arr[0];
+						rgbShader.b = 0xFF000000;
 				}
 			}
 		}
@@ -247,7 +250,7 @@ class Note extends FlxSprite
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;
 				case 'Flash Note':
-					pureEvil = true;
+					gimmick = true;
 					ignoreNote = mustPress;
 					if(ClientPrefs.data.noteSkin == 'Chip')reloadNote('hurtSkins/Flash Notes Chip');
 					else if(ClientPrefs.data.noteSkin == 'Future')reloadNote('hurtSkins/Flash Notes Future');
@@ -266,7 +269,7 @@ class Note extends FlxSprite
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;
 				case 'Glitch Note':
-					pureEvil = true;
+					gimmick = true;
 					ignoreNote = mustPress;
 					if(ClientPrefs.data.noteSkin == 'Chip')reloadNote('hurtSkins/Glitch Notes Chip');
 					else if(ClientPrefs.data.noteSkin == 'Future')reloadNote('hurtSkins/Glitch Notes Future');
@@ -285,7 +288,7 @@ class Note extends FlxSprite
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;
 				case 'Sus Note':
-					pureEvil = true;
+					gimmick = true;
 					ignoreNote = mustPress;
 					if(ClientPrefs.data.noteSkin == 'Chip')reloadNote('hurtSkins/Sus Notes Chip');
 					else if(ClientPrefs.data.noteSkin == 'Future')reloadNote('hurtSkins/Sus Notes Future');
@@ -304,7 +307,7 @@ class Note extends FlxSprite
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;
 				case 'Pika Note':
-					pureEvil = true;
+					gimmick = true;
 					ignoreNote = mustPress;
 					if(ClientPrefs.data.noteSkin == 'Chip')reloadNote('hurtSkins/Pika Notes Chip');
 					else if(ClientPrefs.data.noteSkin == 'Future')reloadNote('hurtSkins/Pika Notes Future');
@@ -323,7 +326,7 @@ class Note extends FlxSprite
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;
 				case 'Fuego Note':
-					pureEvil = true;
+					gimmick = true;
 					ignoreNote = mustPress;
 					if(ClientPrefs.data.noteSkin == 'Chip')reloadNote('hurtSkins/Fuego Notes Chip');
 					else if(ClientPrefs.data.noteSkin == 'Future')reloadNote('hurtSkins/Fuego Notes Future');
@@ -341,6 +344,19 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;
+				case 'Parry Note':
+					gimmick = true;
+					// note colors
+					rgbShader.r = 0xFFFE4E8B;
+					rgbShader.g = 0xFFFE4E8B;
+					rgbShader.b = 0xFFFEDFE7;
+
+					// splash data and colors
+					noteSplashData.r = 0xFFFE4E8B;
+					noteSplashData.g = 0xFFFEDFE7;
+
+					// gameplay data
+					lowPriority = true;
 				case 'Alt Animation':
 					animSuffix = '-alt';
 				case 'No Animation':
