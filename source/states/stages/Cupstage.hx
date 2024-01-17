@@ -24,7 +24,7 @@ class Cupstage extends BaseStage
 		fg.setGraphicSize(Std.int(fg.width*4),Std.int(fg.height*4));
 		fg.updateHitbox();
 		add(fg);
-		//Camfollow 35
+		
 		var grain = new BGSprite('Grainshit', 0, 0, ['Geain instance 1'], true);
 		grain.cameras = [camOther];
 		add(grain);
@@ -41,7 +41,7 @@ class Cupstage extends BaseStage
 	override function update(elapsed:Float)
 	{
 		// Code here
-		if(curStep == 0){//Note, when doing this don't include the -1 in unspawn notes
+		if(curStep == 0){
 			for(i in 0...PlayState.instance.unspawnNotes.length)
 				if(!PlayState.instance.unspawnNotes[i].gimmick)
 					PlayState.instance.unspawnNotes[i].changeRGB();

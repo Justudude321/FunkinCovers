@@ -37,7 +37,7 @@ function onUpdatePost(dt){
 
 	if(valid){
 		var oldPos:Float = (!axis) ? game.camGame.scroll.x : game.camGame.scroll.y;
-		var newPos:Float = lerp(oldPos, oldPos + (1 / game.camGame.zoom * offset), dt * game.cameraSpeed * game.playbackRate * 1.9);
+		var newPos:Float = lerp(oldPos, oldPos + (1 / game.camGame.zoom * offset), dt * game.cameraSpeed * game.playbackRate * 1.2);
 		if(!axis) game.camGame.scroll.x = newPos;
 		else game.camGame.scroll.y = newPos;
 	}

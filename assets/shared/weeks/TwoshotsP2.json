@@ -3,14 +3,18 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
-	"weekBefore": "TwoshotsP1",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "TwoshotsP1",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"technicolor-tussle",
@@ -20,13 +24,18 @@
 				22,
 				74
 			]
+		],
+		[
+			"heartbeat",
+			"pink",
+			[
+				238,
+				100,
+				204
+			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "TwoshotsP2"
+	"hideStoryMode": false,
+	"weekName": "TwoshotsP2",
+	"hiddenUntilUnlocked": false
 }
