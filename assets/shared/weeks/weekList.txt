@@ -4,6 +4,8 @@ Rose
 Me
 Wu
 Mystery
+TwoshotsP1
+TwoshotsP2
 week1
 week2
 week3

@@ -216,6 +216,13 @@ class Note extends FlxSprite
 						rgbShader.r = arr[0];
 						rgbShader.g = arr[0];
 						rgbShader.b = 0xFF000000;
+					case 'halloween':
+						arr = ClientPrefs.data.skarlet[noteData];
+						rgbShader.r = arr[0];
+						rgbShader.g = arr[1];
+						rgbShader.b = arr[2];
+						noteSplashData.r = arr[0];
+						noteSplashData.g = arr[1];
 				}
 			}
 		}

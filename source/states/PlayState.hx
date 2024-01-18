@@ -457,8 +457,8 @@ class PlayState extends MusicBeatState
 			case 'rivalarena': new states.stages.Rivalarena();
 
 			//Finale
-			// case 'hillzone': new states.stages.Hillzone();//Sinister
-			// case 'bridge': new states.stages.Bridge();//God Feast
+			case 'halloween': new states.stages.Halloween();
+			case 'feast': new states.stages.Feast();//God Feast
 			// case 'highschool': new states.stages.Highschool();//Santa
 			// case 'jojo': new states.stages.Jojo();//Mouthman
 
