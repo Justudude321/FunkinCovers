@@ -453,8 +453,8 @@ class PlayState extends MusicBeatState
 			//Two-Shots Part 2
 			// case 'idk': new states.stages.Hillzone();//???
 			case 'cupstage': new states.stages.Cupstage();
-			case 'plantroom': new states.stages.Plantroom();//HeartBeat
-			// case 'jojo': new states.stages.Jojo();//Unlikely Rivals
+			case 'plantroom': new states.stages.Plantroom();
+			case 'rivalarena': new states.stages.Rivalarena();
 
 			//Finale
 			// case 'hillzone': new states.stages.Hillzone();//Sinister
