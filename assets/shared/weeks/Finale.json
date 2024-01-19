@@ -3,14 +3,18 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
-	"weekBefore": "TwoshotsP2",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "TwoshotsP2",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
 	"songs": [
 		[
 			"sinister",
@@ -29,13 +33,18 @@
 				60,
 				170
 			]
+		],
+		[
+			"santa",
+			"spooky",
+			[
+				160,
+				160,
+				160
+			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "Finale"
+	"hideStoryMode": false,
+	"weekName": "Finale",
+	"hiddenUntilUnlocked": false
 }

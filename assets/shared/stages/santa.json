@@ -1,0 +1,13 @@
+{
+	"directory": "finale",
+	"defaultZoom": 1.1,
+	"isPixelStage": false,
+
+	"boyfriend": [820.7, 431.9],
+	"girlfriend": [40.65,273],
+	"opponent": [84.6, 245.6],
+
+	"camera_boyfriend": [-155, -135],
+	"camera_opponent": [120, 88],
+	"camera_girlfriend": [0, 0]
+}

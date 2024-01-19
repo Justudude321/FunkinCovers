@@ -459,7 +459,7 @@ class PlayState extends MusicBeatState
 			//Finale
 			case 'halloween': new states.stages.Halloween();
 			case 'feast': new states.stages.Feast();//God Feast
-			// case 'highschool': new states.stages.Highschool();//Santa
+			case 'santa': new states.stages.Santa();
 			// case 'jojo': new states.stages.Jojo();//Mouthman
 
 			//Finale

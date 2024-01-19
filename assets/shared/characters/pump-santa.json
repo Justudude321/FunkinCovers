@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				54,
+				-30
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "pump left"
+		},
+		{
+			"offsets": [
+				-30,
+				-28
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "pump right"
+		},
+		{
+			"offsets": [
+				40,
+				-80
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "pump down"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "pump idle"
+		},
+		{
+			"offsets": [
+				-10,
+				41
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "pump up"
+		},
+		{
+			"offsets": [
+				-11,
+				70
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hey",
+			"indices": [],
+			"name": "pump YEA"
+		},
+		{
+			"offsets": [
+				-30,
+				24
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "haha",
+			"indices": [],
+			"name": "pump HAHA"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/pump-santa",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "spooky",
+	"flip_x": false,
+	"healthbar_colors": [
+		213,
+		126,
+		0
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
