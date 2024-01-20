@@ -6,6 +6,7 @@ Wu
 Mystery
 TwoshotsP1
 TwoshotsP2
+Finale
 week1
 week2
 week3

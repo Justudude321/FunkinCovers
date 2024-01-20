@@ -418,6 +418,11 @@ class PlayState extends MusicBeatState
 			case 'schoolEvil': new states.stages.SchoolEvil(); //Week 6 - Thorns
 			case 'tank': new states.stages.Tank(); //Week 7 - Ugh, Guns, Stress
 
+			//Tutorials
+			// case 'beatCity': new states.stages.BeatCity();
+			// case 'alley': new states.stages.Alley();
+			// case 'sus': new states.stages.Sus();
+
 			//Dan
 			case 'beatCity': new states.stages.BeatCity();
 			case 'alley': new states.stages.Alley();
@@ -431,7 +436,7 @@ class PlayState extends MusicBeatState
 			//Me
 			case 'leafstorm': new states.stages.Leafstorm();
 			case 'jelly': new states.stages.Jelly();
-			case 'fitin': new states.stages.Fitin(); //Fitin, got an idea
+			case 'fitin': new states.stages.Fitin();
 			
 			//Wu
 			case 'tower': new states.stages.Tower();
@@ -458,12 +463,12 @@ class PlayState extends MusicBeatState
 
 			//Finale
 			case 'halloween': new states.stages.Halloween();
-			case 'feast': new states.stages.Feast();//God Feast
+			case 'feast': new states.stages.Feast();
 			case 'santa': new states.stages.Santa();
 			// case 'jojo': new states.stages.Jojo();//Mouthman
 
 			//Finale
-			// case 'hillzone': new states.stages.Hillzone();//Score
+			case 'funkg': new states.stages.Funkg();
 			// case 'bridge': new states.stages.Bridge();//Shadow
 		}
 
