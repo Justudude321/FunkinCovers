@@ -419,9 +419,9 @@ class PlayState extends MusicBeatState
 			case 'tank': new states.stages.Tank(); //Week 7 - Ugh, Guns, Stress
 
 			//Tutorials
-			// case 'beatCity': new states.stages.BeatCity();
-			// case 'alley': new states.stages.Alley();
-			// case 'sus': new states.stages.Sus();
+			case 'bside': new states.stages.Bside();
+			case 'dside': new states.stages.Dside();
+			case 'erectstage': new states.stages.Erectstage();
 
 			//Dan
 			case 'beatCity': new states.stages.BeatCity();
@@ -2544,7 +2544,7 @@ class PlayState extends MusicBeatState
 			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
 
-			if (songName == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1)
+			if (WeekData.getWeekFileName() == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1)
 			{
 				cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
 					function (twn:FlxTween)
@@ -2557,7 +2557,7 @@ class PlayState extends MusicBeatState
 	}
 
 	public function tweenCamIn() {
-		if (songName == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1.3) {
+		if (WeekData.getWeekFileName() == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1.3) {
 			cameraTwn = FlxTween.tween(FlxG.camera, {zoom: 1.3}, (Conductor.stepCrochet * 4 / 1000), {ease: FlxEase.elasticInOut, onComplete:
 				function (twn:FlxTween) {
 					cameraTwn = null;
@@ -2629,7 +2629,8 @@ class PlayState extends MusicBeatState
 			#if !switch
 			var percent:Float = ratingPercent;
 			if(Math.isNaN(percent)) percent = 0;
-			Highscore.saveScore(SONG.song, songScore, storyDifficulty, percent);
+			if(WeekData.getWeekFileName() == 'tutorial') Highscore.saveScore('tutorial', songScore, storyDifficulty, percent);
+			else Highscore.saveScore(SONG.song, songScore, storyDifficulty, percent);
 			#end
 			playbackRate = 1;
 
@@ -3177,7 +3178,7 @@ class PlayState extends MusicBeatState
 		var result:Dynamic = callOnLuas('opponentNoteHitPre', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
 		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('opponentNoteHitPre', [note]);
 
-		if (songName != 'tutorial')
+		if (WeekData.getWeekFileName() != 'tutorial')
 			camZooming = true;
 
 		if(note.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {
