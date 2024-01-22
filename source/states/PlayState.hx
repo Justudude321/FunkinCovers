@@ -430,7 +430,7 @@ class PlayState extends MusicBeatState
 			
 			//Rose
 			case 'bodega': new states.stages.Bodega();
-			case 'DriveThru': new states.stages.DriveThru();
+			case 'drivethru': new states.stages.DriveThru();
 			case 'hall': new states.stages.Hall();
 			
 			//Me
@@ -3205,7 +3205,7 @@ class PlayState extends MusicBeatState
 					case 'bodega':
 						health = (drain) ? Math.max(health - 0.013, 0.39) : health;
 
-					case 'DriveThru':
+					case 'drivethru':
 						health = (drain) ? Math.max(health - 0.015, 0.39) : health;
 
 					case 'hall':

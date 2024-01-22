@@ -1816,7 +1816,7 @@
 		"player3": null,
 		"song": "Dilemma",
 		"validScore": true,
-		"stage": "DriveThru",
+		"stage": "drivethru",
 		"sections": 0,
 		"needsVoices": true,
 		"bpm": 121,
