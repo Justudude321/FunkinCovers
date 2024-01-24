@@ -465,7 +465,7 @@ class PlayState extends MusicBeatState
 			case 'halloween': new states.stages.Halloween();
 			case 'feast': new states.stages.Feast();
 			case 'santa': new states.stages.Santa();
-			// case 'jojo': new states.stages.Jojo();//Mouthman
+			case '7quid': new states.stages.Quid();
 
 			//Finale
 			case 'funkg': new states.stages.Funkg();
@@ -3202,7 +3202,7 @@ class PlayState extends MusicBeatState
 				char.holdTimer = 0;
 				var drain:Bool = (guitarHeroSustains && note.isSustainNote) ? false : true;
 				switch(curStage){//Health Drain, 0.023 default health gain
-					case 'bodega':
+					case 'bodega':// might need to change this again
 						health = (drain) ? Math.max(health - 0.013, 0.39) : health;
 
 					case 'drivethru':
