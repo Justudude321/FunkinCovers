@@ -165,65 +165,55 @@ class Note extends FlxSprite
 		}
 	}
 	
-	public function changeRGB()//Hell yeah >:)
+	public function changeRGB(origin:String = '')//Hell yeah >:)
 	{
 		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
 		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
 	
 		if (noteData > -1 && noteData <= arr.length)
 		{//Change with stage switch later
-			if(PlayState.colorChanged){
-				defaultRGB();
-				noteSplashData.r = arr[0];
-				noteSplashData.g = arr[1];
-			}
-			else{
-				switch(PlayState.curStage){
-					case 'alley'://Dark Notes
-						rgbShader.r = 0xFF000000;
-						rgbShader.g = arr[2];
-						rgbShader.b = arr[0];
-						noteSplashData.r = arr[0];
-						noteSplashData.g = 0xFF101010;
-					case 'hall':
-						arr = ClientPrefs.data.entity[noteData];
-						rgbShader.r = arr[0];
-						rgbShader.g = arr[1];
-						rgbShader.b = arr[2];
-						noteSplashData.r = arr[0];
-						noteSplashData.g = arr[1];
-					case 'tower'://Gameboy
-						rgbShader.r = 0xFF89C073;
-						rgbShader.g = 0xFFE0F8D0;
-						rgbShader.b = 0xFF356955;
-						noteSplashData.r = 0xFF89C073;
-						noteSplashData.g = 0xFFE0F8D0;
-					case 'subway2':
-						arr = ClientPrefs.data.skarlet[noteData];
-						rgbShader.r = arr[0];
-						rgbShader.g = arr[1];
-						rgbShader.b = arr[2];
-						noteSplashData.r = arr[0];
-						noteSplashData.g = arr[1];
-					case 'wilt':
-						arr = ClientPrefs.data.doki[noteData];
-						rgbShader.r = arr[0];
-						rgbShader.g = arr[1];
-						rgbShader.b = arr[2];
-						noteSplashData.r = arr[0];
-						noteSplashData.g = arr[1];
-					case 'cupstage':
-						rgbShader.r = arr[0];
-						rgbShader.g = arr[0];
-						rgbShader.b = 0xFF000000;
-					case 'halloween':
-						arr = ClientPrefs.data.skarlet[noteData];
-						rgbShader.r = arr[0];
-						rgbShader.g = arr[1];
-						rgbShader.b = arr[2];
-						noteSplashData.r = arr[0];
-						noteSplashData.g = arr[1];
-				}
+			switch(origin){
+				case 'dark'://Dark Notes
+					rgbShader.r = 0xFF000000;
+					rgbShader.g = arr[2];
+					rgbShader.b = arr[0];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = 0xFF101010;
+				case 'entity':
+					arr = ClientPrefs.data.entity[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
+				case 'lullaby'://Gameboy
+					rgbShader.r = 0xFF89C073;
+					rgbShader.g = 0xFFE0F8D0;
+					rgbShader.b = 0xFF356955;
+					noteSplashData.r = 0xFF89C073;
+					noteSplashData.g = 0xFFE0F8D0;
+				case 'skarlet':
+					arr = ClientPrefs.data.skarlet[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
+				case 'doki':
+					arr = ClientPrefs.data.doki[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
+				case 'cross':
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[0];
+					rgbShader.b = 0xFF000000;
+				default:
+					defaultRGB();
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
 			}
 		}
 	}

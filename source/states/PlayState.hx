@@ -210,12 +210,13 @@ class PlayState extends MusicBeatState
 	public var cameraSpeed:Float = 1;
 
 	//Mod Stuff
-	public static var shadeType:Int = 2;
 	public static var darkNotes:String;
 	public static var isDownscroll:Bool = false;
 	public static var isMiddlescroll:Bool = false;
 	public static var dadFocus:Bool = false;
-	public static var colorChanged:Bool = false;
+	public static var drain:Bool;
+	public static var drainHP:Float;
+
 	public var pixelsNow:Bool = false;
 	public var pikaAtk:Bool = false;
 	public var fuegoAtk:Bool = false;
@@ -224,7 +225,6 @@ class PlayState extends MusicBeatState
 	var bartop:BGSprite = null;
 	var barbot:BGSprite = null;
 	var flash:BGSprite;
-	var switched:Bool = false;
 	//End of Mod Stuff
 
 	public var songScore:Int = 0;
@@ -292,7 +292,7 @@ class PlayState extends MusicBeatState
 		//For missingnoThing
 		isDownscroll = ClientPrefs.data.downScroll;
 		isMiddlescroll = ClientPrefs.data.middleScroll;
-		colorChanged = false;
+		drain = false;
 
 		//trace('Playback Rate: ' + playbackRate);
 		Paths.clearStoredMemory();
@@ -3200,22 +3200,11 @@ class PlayState extends MusicBeatState
 			{
 				char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
-				var drain:Bool = (guitarHeroSustains && note.isSustainNote) ? false : true;
-				switch(curStage){//Health Drain, 0.023 default health gain
-					case 'bodega':// might need to change this again
-						health = (drain) ? Math.max(health - 0.013, 0.39) : health;
 
-					case 'drivethru':
-						health = (drain) ? Math.max(health - 0.015, 0.39) : health;
-
-					case 'hall':
-						health = (drain) ? Math.max(health - 0.02, 0.39) : health;
-						
-					case 'jelly':
-						health = (drain) ? Math.max(health - 0.01, 0.39) : health;
-					
-					case 'singstar':
-						health = (drain) ? Math.max(health - 0.019, 0.39) : health;
+				//Health Drain, 0.023 default health gain
+				if(drain){
+					var drainPref:Bool = (guitarHeroSustains && note.isSustainNote) ? false : true;
+					health = (drainPref) ? Math.max(health-drainHP, 0.30) : health;
 				}
 			}
 		}
@@ -3280,7 +3269,7 @@ class PlayState extends MusicBeatState
 						// gimmickCount++;
 
 					case 'Sus Note':
-						FlxG.sound.play(Paths.sound('Vineboom'));
+						FlxG.sound.play(Paths.sound('modstuff/Vineboom'));
 						if(boyfriend.animation.getByName('hurt') != null) {
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
@@ -3307,7 +3296,7 @@ class PlayState extends MusicBeatState
 						// }
 
 					case 'Pika Note':
-						FlxG.sound.play(Paths.sound('Thunder'));
+						FlxG.sound.play(Paths.sound('modstuff/Thunder'));
 						if(boyfriend.animation.getByName('hurt') != null) {
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
@@ -3316,7 +3305,7 @@ class PlayState extends MusicBeatState
 						// gimmickCount++;
 					
 					case 'Fuego Note':
-						FlxG.sound.play(Paths.sound('Flame'));
+						FlxG.sound.play(Paths.sound('modstuff/Flame'));
 						if(boyfriend.animation.getByName('hurt') != null) {
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;

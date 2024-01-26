@@ -12,17 +12,17 @@ class Bodega extends BaseStage
 		// Spawn your stage sprites here.
 		// Characters are not ready yet on this function, so you can't add things above them yet.
 		// Use createPost() if that's what you want to do.
-
 		var light:BGSprite = new BGSprite('light', -650, 600, 0.9, 0.9);
 		var shop:BGSprite = new BGSprite('shop', -650, 600, 0.9, 0.9);
 		var table:BGSprite = new BGSprite('table', -80, 1320, 0.9, 0.9);
-		
 		shop.setGraphicSize(Std.int(shop.width * 1.1));
 		shop.updateHitbox();
-		
+
 		add(light);
 		add(shop);
 		add(table);
+		PlayState.drain = true;
+		PlayState.drainHP = 0.013;
 	}
 	
 	override function createPost()

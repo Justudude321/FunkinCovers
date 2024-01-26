@@ -14,6 +14,9 @@ class Singstar extends BaseStage
 		// Use createPost() if that's what you want to do.
 		var bg:BGSprite = new BGSprite('singstar', -590, -180, 0.9, 0.9);
 		add(bg);
+		
+		PlayState.drain = true;
+		PlayState.drainHP = 0.019;
 	}
 	
 	override function createPost()

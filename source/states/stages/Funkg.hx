@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import substates.GameOverSubstate;
 
 class Funkg extends BaseStage
 {
@@ -12,6 +13,11 @@ class Funkg extends BaseStage
 		// Spawn your stage sprites here.
 		// Characters are not ready yet on this function, so you can't add things above them yet.
 		// Use createPost() if that's what you want to do.
+		
+		// GameOverSubstate.deathSoundName = 'fnf_loss_sfx2';
+		// GameOverSubstate.loopSoundName = 'gameOver2';
+		// GameOverSubstate.endSoundName = 'gameOverEnd2';
+		GameOverSubstate.characterName = 'picoo-dead';
 		var buildings:BGSprite = new BGSprite('april_bg_1', -816, -280, 0.54, 1.0);
 		add(buildings);
 		var floor:BGSprite = new BGSprite('april_bg_2', -1053, -325, 0.93, 1.0);

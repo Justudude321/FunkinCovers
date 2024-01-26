@@ -15,6 +15,9 @@ class Hall extends BaseStage
 
 		var bg:BGSprite = new BGSprite('NikusaBG', -1000, -425);
 		add(bg);
+		
+		PlayState.drain = true;
+		PlayState.drainHP = 0.02;
 	}
 	
 	override function createPost()
@@ -26,8 +29,8 @@ class Hall extends BaseStage
 	{
 		// Code here
 		if(curStep == 0){//Note, when doing this don't include the -1 in unspawn notes
-			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].strumRGB();
-			for(i in 0...PlayState.instance.unspawnNotes.length) PlayState.instance.unspawnNotes[i].changeRGB();
+			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].strumRGB('entity');
+			for(i in 0...PlayState.instance.unspawnNotes.length) PlayState.instance.unspawnNotes[i].changeRGB('entity');
 		}
 	}
 

@@ -276,7 +276,7 @@ class Tower extends BaseStage
 			missingnoEnter.animation.play('throw', true);
 			missingnoEnter.alpha = 1;
 		}//step 2373 beat 593
-		if(curStep == 2373) for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();
+		if(curStep == 2373) for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB('lullaby');
 		if(curStep == 2703) gf.alpha = 1;
 	}
 	var cameraTwn:FlxTween;
@@ -329,11 +329,9 @@ class Tower extends BaseStage
 			dad.color = 0xff57b91a;
 		
 			for(i in 0...game.strumLineNotes.length){
-				PlayState.instance.strumLineNotes.members[i].strumRGB();
+				PlayState.instance.strumLineNotes.members[i].strumRGB('lullaby');
 				PlayState.instance.strumLineNotes.members[i].texture = 'noteSkins/NOTE_assets-buriedGB';
 			}
-
-			PlayState.colorChanged = true;
 		}
 		
 		if(curBeat == 658) for(i in 0...PlayState.instance.unspawnNotes.length -1) PlayState.instance.unspawnNotes[i].changeRGB();

@@ -19,6 +19,9 @@ class DriveThru extends BaseStage
 		add(bg);
 		add(madcar);
 		add(carback);
+		
+		PlayState.drain = true;
+		PlayState.drainHP = 0.015;
 	}
 	
 	override function createPost()

@@ -56,8 +56,8 @@ class Wilt extends BaseStage
 	{
 		// Code here
 		if(curStep == 0){
-			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].strumRGB();
-			for(i in 0...PlayState.instance.unspawnNotes.length) PlayState.instance.unspawnNotes[i].changeRGB();
+			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].strumRGB('doki');
+			for(i in 0...PlayState.instance.unspawnNotes.length) PlayState.instance.unspawnNotes[i].changeRGB('doki');
 		}
 	}
 

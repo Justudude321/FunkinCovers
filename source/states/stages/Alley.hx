@@ -54,9 +54,7 @@ class Alley extends BaseStage
 		if(curStep == 934 || curStep == 1319){//Dark notes haha so smart >:)
 			for(i in 0...PlayState.instance.unspawnNotes.length -1) 
 				if(!PlayState.instance.unspawnNotes[i].gimmick) 
-					PlayState.instance.unspawnNotes[i].changeRGB();
-
-			PlayState.colorChanged = true;
+					PlayState.instance.unspawnNotes[i].changeRGB('dark');
 		}
 		if (curStep == 957){
 			jacket.visible = true;
@@ -73,8 +71,6 @@ class Alley extends BaseStage
 			for(i in 0...PlayState.instance.unspawnNotes.length -1) 
 				if(!PlayState.instance.unspawnNotes[i].gimmick) 
 					PlayState.instance.unspawnNotes[i].changeRGB();
-
-			PlayState.colorChanged = false;
 		}
 		if (curStep == 1216 || curStep == 1472){//Tis fine ig
 			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].texture = PlayState.darkNotes.substring(0,PlayState.darkNotes.length-5);

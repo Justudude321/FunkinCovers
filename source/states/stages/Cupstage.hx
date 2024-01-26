@@ -44,7 +44,7 @@ class Cupstage extends BaseStage
 		if(curStep == 0){
 			for(i in 0...PlayState.instance.unspawnNotes.length)
 				if(!PlayState.instance.unspawnNotes[i].gimmick)
-					PlayState.instance.unspawnNotes[i].changeRGB();
+					PlayState.instance.unspawnNotes[i].changeRGB('cross');
 		}
 	}
 

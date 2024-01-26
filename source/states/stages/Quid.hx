@@ -48,6 +48,8 @@ class Quid extends BaseStage
 			front.animation.addByPrefix('bop', 'bop', 24, false);
 			add(front);
 		}
+		PlayState.drain = true;
+		PlayState.drainHP = (ClientPrefs.data.guitarHeroSustains) ? 0.013 : 0.01;
 	}
 	
 	override function createPost()

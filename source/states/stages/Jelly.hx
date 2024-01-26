@@ -23,6 +23,9 @@ class Jelly extends BaseStage
 		skellies.animation.addByPrefix('idle-alt', 'SkelliesE Dance', 24, false);
 		skellies.animation.addByPrefix('transform', 'Skellies Transform', 24, false);
 		add(skellies);
+		
+		PlayState.drain = true;
+		PlayState.drainHP = 0.01;
 	}
 	
 	override function createPost()

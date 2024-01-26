@@ -35,8 +35,8 @@ class Halloween extends BaseStage
 	{
 		// Code here
 		if(curStep == 0){
-			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].strumRGB();
-			for(i in 0...PlayState.instance.unspawnNotes.length) PlayState.instance.unspawnNotes[i].changeRGB();
+			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].strumRGB('skarlet');
+			for(i in 0...PlayState.instance.unspawnNotes.length) PlayState.instance.unspawnNotes[i].changeRGB('skarlet');
 		}
 		var songPos:Float = Conductor.songPosition/1000;
 		camHUD.angle = Math.sin(songPos);
