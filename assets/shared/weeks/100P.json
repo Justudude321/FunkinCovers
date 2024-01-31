@@ -3,19 +3,24 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "philly",
+	"weekBefore": "Finale",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "Finale",
 	"startUnlocked": true,
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
+	"hideStoryMode": false,
 	"songs": [
+		[
+			"mouthman",
+			"binej",
+			[
+				156,
+				164,
+				201
+			]
+		],
 		[
 			"score",
 			"darnell",
@@ -35,7 +40,11 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
-	"weekName": "100P",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "100P"
 }

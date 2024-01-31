@@ -36,6 +36,7 @@ import states.TitleState;
 		[0xFF71E300, 0xFFF6FFE6, 0xFF003100],
 		[0xFFFF884E, 0xFFFFFAF5, 0xFF6C0000]];
 	
+	//Mod colors
 	public var entity:Array<Array<FlxColor>> = [
 		[0xFF7B1CD3, 0xFFFFFFFF, 0xFF68118A],
 		[0xFF2656F2, 0xFFFFFFFF, 0xFF1542B7],

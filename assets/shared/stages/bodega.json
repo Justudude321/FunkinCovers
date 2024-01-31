@@ -5,5 +5,7 @@
 
 	"boyfriend": [650,1130],
 	"girlfriend": [300, 1500],
-	"opponent": [120, 1150]
+	"opponent": [120, 1150],
+
+	"camera_speed": 0.75
 }
