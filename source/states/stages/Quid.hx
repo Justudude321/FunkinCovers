@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import shaders.Statics;
 import openfl.display.BlendMode;
 import cutscenes.CutsceneHandler;
 
@@ -11,10 +12,6 @@ class Quid extends BaseStage
 
 	var back:BGSprite;
 	var front:BGSprite;
-	var light:BGSprite;
-	var tutorial:BGSprite;
-	var input:Bool = false;
-	var stop_countdown:Bool = true;
 	override function create()
 	{
 		// Spawn your stage sprites here.
@@ -56,23 +53,7 @@ class Quid extends BaseStage
 		PlayState.drain = true;
 		PlayState.drainHP = (ClientPrefs.data.guitarHeroSustains) ? 0.013 : 0.01;
 		
-		if(isStoryMode && !seenCutscene){
-			tutorial = new BGSprite('mouthman/intro/tutorial', 0, 0, ['default']);
-			tutorial.animation.addByPrefix('default', 'default', 36.96, true);
-			tutorial.alpha = 0.00001;
-			tutorial.cameras = [camOther];
-			add(tutorial);
-			light = new BGSprite('mouthman/intro/light', -260, -20, ['default']);
-			light.animation.addByPrefix('default', 'default', 24, false);
-			light.alpha = 0.00001;
-			light.blend = ADD;
-			light.cameras = [camOther];
-			add(light);
-			camHUD.alpha = 0.00001;
-			
-			inCutscene = true;
-			setStartCallback(begin);
-		}
+		if(isStoryMode && !seenCutscene) setStartCallback(info);
 	}
 	
 	override function createPost()
@@ -84,50 +65,81 @@ class Quid extends BaseStage
 		overlay.blend = ADD;
 		add(overlay);
 	}
+
+	//Cutscene stuff
+	var cutsceneHandler:CutsceneHandler;
+	var light:BGSprite;
+	var tutorial:BGSprite;
+	function prepareCutscene(){
+		cutsceneHandler = new CutsceneHandler();
+		camHUD.alpha = 0.00001;
+		inCutscene = true;
+
+		tutorial = new BGSprite('mouthman/intro/tutorial', 0, 0, ['default']);
+		tutorial.animation.addByPrefix('default', 'default', 36.96, true);
+		tutorial.alpha = 0.00001;
+		tutorial.cameras = [camOther];
+		tutorial.shader = new Statics();//Easier than I thought
+		add(tutorial);
+		light = new BGSprite('mouthman/intro/light', -260, -20, ['default']);
+		light.animation.addByPrefix('default', 'default', 24, false);
+		light.alpha = 0.00001;
+		light.blend = ADD;
+		light.cameras = [camOther];
+		add(light);
+
+		cutsceneHandler.finishCallback = function(){
+			FlxG.sound.music.fadeOut();
+			startCountdown();
+			FlxTween.tween(camHUD, {alpha: 1}, 2, {ease: FlxEase.cubeOut, onComplete: function(twn:FlxTween){
+			}});
+		}
+	}
 	
-	function begin(){
-		var tutorial:FlxTimer = new FlxTimer().start(1.5, function(_) {
+	function info(){
+		prepareCutscene();
+		cutsceneHandler.endTime = 18;
+		Paths.sound('modstuff/mouthman/intro_tv');
+		var tv:FlxSound = new FlxSound().loadEmbedded(Paths.sound('modstuff/mouthman/intro_tv'));
+		FlxG.sound.list.add(tv);
+
+		cutsceneHandler.timer(1.5, function()
+		{
 			light.alpha = 1;
 			light.animation.play('default', true);
-			FlxG.sound.play(Paths.sound('modstuff/mouthman/intro_tv'));
-			var opened:FlxTimer = new FlxTimer().start(0.5, function(_) {open();});
+			tv.play(true);
 		});
-	}
 
-	function open(){
-		FlxTween.tween(light, {alpha: 0}, 2, {ease: FlxEase.cubeOut, onComplete: function(twn:FlxTween){
-		}});
-		input = true;
-		tutorial.alpha = 1;
-		tutorial.animation.play('default', true);
-		FlxG.sound.playMusic(Paths.music('modstuff/mouthman_tutorial'), 0.75, true);
-	}
+		cutsceneHandler.timer(2, function()//0.5
+		{
+			FlxG.sound.playMusic(Paths.music('modstuff/mouthman_tutorial'), 0.85, true);
+			FlxTween.tween(light, {alpha: 0}, 2, {ease: FlxEase.cubeOut, onComplete: function(twn:FlxTween){
+			}});
+			tutorial.alpha = 1;
+			tutorial.animation.play('default', true);
+		});
 
-	function closed(){
-		stop_countdown = false;
-		inCutscene = false;
-		startCountdown();
-		FlxTween.tween(camHUD, {alpha: 1}, 2, {ease: FlxEase.cubeOut, onComplete: function(twn:FlxTween){
-		}});
+		cutsceneHandler.timer(16.5, function(){//14.5
+			FlxTween.tween(tutorial, {alpha: 0}, 2, {ease: FlxEase.quartInOut, onComplete: function(twn:FlxTween){
+			}});
+			light.alpha = 0.5;
+			FlxTween.tween(light, {alpha: 0}, 2, {ease: FlxEase.cubeOut, onComplete: function(twn:FlxTween){
+			}});
+			tv.play(true);
+		});
+		
+		cutsceneHandler.timer(17, function(){//0.5
+			inCutscene = false;
+		});
 	}
 
 	override function update(elapsed:Float)
 	{
 		// Code here
-		if(isStoryMode && stop_countdown && !seenCutscene){
-			if(input){
-				if(FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.ESCAPE){
-					FlxTween.tween(tutorial, {alpha: 0}, 2, {ease: FlxEase.quartInOut, onComplete: function(twn:FlxTween){
-					}});
-					light.alpha = 0.5;
-					FlxTween.tween(light, {alpha: 0}, 2, {ease: FlxEase.cubeOut, onComplete: function(twn:FlxTween){
-					}});
-					FlxG.sound.play(Paths.sound('confirmMenu'));
-					FlxG.sound.music.fadeOut(1.5);//Conductor.crochet / 1000 * 4.5
-					var opened:FlxTimer = new FlxTimer().start(0.5, function(_) {closed();});
-				}
-			}
-		}
+		//See if opponent misses can be coded here
+		//Research wtf a FSM is and see if the battle code can use it or not
+		//Add the battle thing as an event or something
+		//Research atlas stuff
 	}
 
 	// Steps, Beats and Sections:

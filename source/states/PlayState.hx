@@ -225,6 +225,8 @@ class PlayState extends MusicBeatState
 	var bartop:BGSprite = null;
 	var barbot:BGSprite = null;
 	var flash:BGSprite;
+	var base:Float = 45;
+	var bias:Float = 5;
 	//End of Mod Stuff
 
 	public var songScore:Int = 0;
@@ -1848,18 +1850,22 @@ class PlayState extends MusicBeatState
 						notes.forEachAlive(function(daNote:Note)
 						{
 							var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
-							if(!daNote.mustPress) strumGroup = opponentStrums;
+							if(!daNote.mustPress) {
+								strumGroup = opponentStrums;
+								// if(curStage == '7quid') opponentNoteMissCheck(daNote);
+							}
 
 							var strum:StrumNote = strumGroup.members[daNote.noteData];
 							daNote.followStrumNote(strum, fakeCrochet, songSpeed / playbackRate);
-
 							if(daNote.mustPress)
 							{
 								if(cpuControlled && !daNote.blockHit && daNote.canBeHit && (daNote.isSustainNote || daNote.strumTime <= Conductor.songPosition))
 									goodNoteHit(daNote);
 							}
-							else if (daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote)
+							else if (daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote){
+								// if(curStage == '7quid') bias = (bias >= base) ? base : bias + 0.5;
 								opponentNoteHit(daNote);
+							}
 
 							if(daNote.isSustainNote && strum.sustainReduce) daNote.clipToStrumNote(strum);
 
@@ -3144,15 +3150,20 @@ class PlayState extends MusicBeatState
 		}
 
 		var lastCombo:Int = combo;
+		// if(note.mustPress){
 		combo = 0;
+		// }
 
-		health -= subtract * healthLoss;
-		if(!practiceMode) songScore -= 10;
-		if(!endingSong) songMisses++;
-		totalPlayed++;
-		RecalculateRating(true);
+		health = (note.mustPress) ? health - (subtract * healthLoss) : health + (subtract * healthLoss);
+		// if(note.mustPress){
+			if(!practiceMode) songScore -= 10;
+			if(!endingSong) songMisses++;
+			totalPlayed++;
+			RecalculateRating(true);
+		// }
 
 		// play character anims
+		// var char:Character = (note.mustPress) ? boyfriend : dad;
 		var char:Character = boyfriend;
 		if((note != null && note.gfNote) || (SONG.notes[curSection] != null && SONG.notes[curSection].gfSection)) char = gf;
 
@@ -3164,7 +3175,7 @@ class PlayState extends MusicBeatState
 			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, direction)))] + 'miss' + suffix;
 			char.playAnim(animToPlay, true);
 
-			if(char != gf && lastCombo > 5 && gf != null && gf.animOffsets.exists('sad'))
+			if(/*char != dad && */char != gf && lastCombo > 5 && gf != null && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');
 				gf.specialAnim = true;
@@ -3217,6 +3228,13 @@ class PlayState extends MusicBeatState
 		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('opponentNoteHit', [note]);
 
 		if (!note.isSustainNote) invalidateNote(note);
+	}
+
+	function opponentNoteMissCheck(note:Note):Void
+	{
+		// if((note.isSustainNote && note.ignoreNote) || !note.isSustainNote){
+			note.ignoreNote = FlxG.random.bool(bias);
+		// }
 	}
 
 	public function goodNoteHit(note:Note):Void
