@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import shaders.Sunset;
 
 class BeatCity extends BaseStage
 {
@@ -20,6 +21,7 @@ class BeatCity extends BaseStage
 	override function createPost()
 	{
 		// Use this function to layer things above characters!
+		boyfriend.shader = new Sunset();
 	}
 
 	override function update(elapsed:Float)

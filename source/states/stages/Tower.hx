@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import shaders.Wavy;
 
 class Tower extends BaseStage
 {
@@ -23,6 +24,7 @@ class Tower extends BaseStage
 	var shadow:BGSprite;
 	var brimHealth:BGSprite;
 	var sludge:BGSprite;
+	var waves:Wavy;
 	override function create()
 	{
 		// Spawn your stage sprites here.
@@ -149,6 +151,9 @@ class Tower extends BaseStage
 		hand.antialiasing = false;
 		shadow.antialiasing = false;
 		game.skipCountdown = true;
+		
+		waves = new Wavy();
+		waves.iTime.value = [0];
 	}
 	
 	override function createPost()
@@ -262,6 +267,10 @@ class Tower extends BaseStage
 		if(curStep >= 3490){
 			reset += 0.002;
 			gf.y += Math.sin(reset * daFrames) * 0.075 * daFrames;
+		}
+
+		if(curBeat >= 864){
+			waves.iTime.value[0] -= 0.0038 * daFrames;
 		}
 	}
 
@@ -377,12 +386,23 @@ class Tower extends BaseStage
 		if(curBeat == 812) hand.animation.play('idle', true);
 		if(curBeat == 864){
 			hand.animation.play('morph', true);
+
 			FlxTween.tween(hand, {y: 420}, 2, {onComplete: function(twn:FlxTween){}});
 			FlxTween.tween(shadow, {y: 700}, 2, {onComplete: function(twn:FlxTween){}});
 			FlxTween.tween(FlxG.camera, {zoom: 1.94}, 2.8, {ease: FlxEase.sineIn, onComplete: function (twn:FlxTween) {
 				defaultCamZoom = 1.94;
 				cameraTwn = null;
 			}});
+			FlxTween.tween(brimback, {alpha: 0}, 2.5, {onComplete: function(twn:FlxTween){}});
+			FlxTween.tween(brimfloor, {alpha: 0}, 2.5, {onComplete: function(twn:FlxTween){}});
+			FlxTween.tween(brimgraves, {alpha: 0}, 2.5, {onComplete: function(twn:FlxTween){}});
+			
+			brimback.shader = waves;
+			brimfloor.shader = waves;
+			brimgraves.shader = waves;
+			gray1.shader = waves;
+			gray2.shader = waves;
+			gray3.shader = waves;
 		}
 		if(curBeat == 868) gf.alpha = 0;
 		if(curBeat == 872){
@@ -394,11 +414,6 @@ class Tower extends BaseStage
 				defaultCamZoom = 0.94;
 				cameraTwn = null;
 			}});
-		if(curBeat == 864){
-			FlxTween.tween(brimback, {alpha: 0}, 2.5, {onComplete: function(twn:FlxTween){}});
-			FlxTween.tween(brimfloor, {alpha: 0}, 2.5, {onComplete: function(twn:FlxTween){}});
-			FlxTween.tween(brimgraves, {alpha: 0}, 2.5, {onComplete: function(twn:FlxTween){}});
-		}
 	}
 	override function sectionHit()
 	{

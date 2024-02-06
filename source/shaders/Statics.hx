@@ -1,6 +1,6 @@
 package shaders;
 
-//Idk what I'm doing
+//7quid
 import flixel.system.FlxAssets.FlxShader;
 
 class Statics extends FlxShader
