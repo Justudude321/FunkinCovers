@@ -225,8 +225,9 @@ class PlayState extends MusicBeatState
 	var bartop:BGSprite = null;
 	var barbot:BGSprite = null;
 	var flash:BGSprite;
-	var base:Float = 45;
+	var base:Float = 10;
 	var bias:Float = 5;
+	var opMisses:Int = 0;
 	//End of Mod Stuff
 
 	public var songScore:Int = 0;
@@ -1852,7 +1853,7 @@ class PlayState extends MusicBeatState
 							var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
 							if(!daNote.mustPress) {
 								strumGroup = opponentStrums;
-								// if(curStage == '7quid') opponentNoteMissCheck(daNote);
+								if(curStage == '7quid') opponentMissChance(daNote);
 							}
 
 							var strum:StrumNote = strumGroup.members[daNote.noteData];
@@ -1862,18 +1863,19 @@ class PlayState extends MusicBeatState
 								if(cpuControlled && !daNote.blockHit && daNote.canBeHit && (daNote.isSustainNote || daNote.strumTime <= Conductor.songPosition))
 									goodNoteHit(daNote);
 							}
-							else if (daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote){
-								// if(curStage == '7quid') bias = (bias >= base) ? base : bias + 0.5;
+							else if (daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote && !daNote.missed)
 								opponentNoteHit(daNote);
-							}
 
 							if(daNote.isSustainNote && strum.sustainReduce) daNote.clipToStrumNote(strum);
 
 							// Kill extremely late notes and cause misses
+							// Opponent's miss animations aren't forced sometimes, idk why tho...
 							if (Conductor.songPosition - daNote.strumTime > noteKillOffset)
 							{
 								if (daNote.mustPress && !cpuControlled && !daNote.ignoreNote && !endingSong && (daNote.tooLate || !daNote.wasGoodHit))
 									noteMiss(daNote);
+								else if(!daNote.mustPress && daNote.missed && daNote.ignoreNote)
+									opponentnoteMiss(daNote.noteData, daNote);
 
 								daNote.active = daNote.visible = false;
 								invalidateNote(daNote);
@@ -3150,20 +3152,15 @@ class PlayState extends MusicBeatState
 		}
 
 		var lastCombo:Int = combo;
-		// if(note.mustPress){
 		combo = 0;
-		// }
 
-		health = (note.mustPress) ? health - (subtract * healthLoss) : health + (subtract * healthLoss);
-		// if(note.mustPress){
-			if(!practiceMode) songScore -= 10;
-			if(!endingSong) songMisses++;
-			totalPlayed++;
-			RecalculateRating(true);
-		// }
+		health -= subtract * healthLoss;
+		if(!practiceMode) songScore -= 10;
+		if(!endingSong) songMisses++;
+		totalPlayed++;
+		RecalculateRating(true);
 
 		// play character anims
-		// var char:Character = (note.mustPress) ? boyfriend : dad;
 		var char:Character = boyfriend;
 		if((note != null && note.gfNote) || (SONG.notes[curSection] != null && SONG.notes[curSection].gfSection)) char = gf;
 
@@ -3175,7 +3172,7 @@ class PlayState extends MusicBeatState
 			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, direction)))] + 'miss' + suffix;
 			char.playAnim(animToPlay, true);
 
-			if(/*char != dad && */char != gf && lastCombo > 5 && gf != null && gf.animOffsets.exists('sad'))
+			if(char != gf && lastCombo > 5 && gf != null && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');
 				gf.specialAnim = true;
@@ -3214,6 +3211,7 @@ class PlayState extends MusicBeatState
 
 				//Health Drain, 0.023 default health gain
 				if(drain){
+					opponentVocals.volume = 1;
 					var drainPref:Bool = (guitarHeroSustains && note.isSustainNote) ? false : true;
 					health = (drainPref) ? Math.max(health-drainHP, 0.30) : health;
 				}
@@ -3230,11 +3228,85 @@ class PlayState extends MusicBeatState
 		if (!note.isSustainNote) invalidateNote(note);
 	}
 
-	function opponentNoteMissCheck(note:Note):Void
+	function opponentMissChance(note:Note):Void
 	{
-		// if((note.isSustainNote && note.ignoreNote) || !note.isSustainNote){
-			note.ignoreNote = FlxG.random.bool(bias);
-		// }
+		// Original oppMiss scripts from 7quid & palm2727
+		var distance = note.strumTime - Conductor.songPosition;
+		var missed:Bool = FlxG.random.bool(bias);
+		if(missed && distance >= 10 && distance <= 12){
+			if(guitarHeroSustains && !note.isSustainNote){
+				note.ignoreNote = missed;
+				note.missed = missed;
+			}// Fuck it, this is good enough
+			else if (!guitarHeroSustains){
+				note.ignoreNote = missed;
+				note.missed = missed;
+			}
+		}
+		bias = (bias >= base) ? base : bias + 0.5;
+	}
+
+	function opponentnoteMiss(direction:Int, note:Note = null)
+	{
+		opMisses++;
+		trace("Opponent missed " + Std.string(opMisses) + " times!");
+		// score and data
+		var add:Float = 0.05;
+		if(note != null) add = note.missHealth / 2;
+
+		// GUITAR HERO SUSTAIN CHECK LOL!!!!
+		if (note != null && guitarHeroSustains && note.parent == null) {
+			if(note.tail.length > 0) {
+				note.alpha = 0.35;
+				for(childNote in note.tail) {
+					childNote.alpha = note.alpha;
+					childNote.missed = true;
+					childNote.canBeHit = false;
+					childNote.ignoreNote = true;
+					childNote.tooLate = true;
+				}
+				note.missed = true;
+				note.canBeHit = false;
+
+				//subtract += 0.385; // you take more damage if playing with this gameplay changer enabled.
+				// i mean its fair :p -Crow
+				add *= note.tail.length + 1;
+				// i think it would be fair if damage multiplied based on how long the sustain is -Tahir
+			}
+
+			if (note.missed)
+				return;
+		}
+		if (note != null && guitarHeroSustains && note.parent != null && note.isSustainNote) {
+			if (note.missed)
+				return;
+
+			var parentNote:Note = note.parent;
+			if (parentNote.wasGoodHit && parentNote.tail.length > 0) {
+				for (child in parentNote.tail) if (child != note) {
+					child.missed = true;
+					child.canBeHit = false;
+					child.ignoreNote = true;
+					child.tooLate = true;
+				}
+			}
+		}
+
+		health += (add * healthLoss);
+		bias = (bias > 0) ? bias - 3 : 0;
+
+		// Character anims
+		var char:Character = dad;
+
+		if(char != null && (note == null || !note.noMissAnimation) && char.hasMissAnimations)
+		{
+			var suffix:String = '';
+			if(note != null) suffix = note.animSuffix;
+
+			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, direction)))] + 'miss' + suffix;
+			char.playAnim(animToPlay, true);
+		}
+		opponentVocals.volume = 0;
 	}
 
 	public function goodNoteHit(note:Note):Void
