@@ -58,6 +58,7 @@ class Note extends FlxSprite
 	public var nextNote:Note;
 	public var downscrollNote:Bool = ClientPrefs.data.downScroll;
 	public var gimmick:Bool = false;
+	public var forceOppMiss:Bool = false;
 
 	public var spawned:Bool = false;
 
