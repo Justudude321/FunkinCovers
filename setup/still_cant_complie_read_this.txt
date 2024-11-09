@@ -1,0 +1,6 @@
+Certificate verification failed?
+    Add -R http://lib.haxe.org/ at the end of the commands that
+    give you this message in the windows bat 
+
+Lime not recognized when doing "lime test cpp"? 
+    Try running this: haxelib run lime setup -alias -y

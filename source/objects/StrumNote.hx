@@ -23,6 +23,42 @@ class StrumNote extends FlxSprite
 		}
 		return value;
 	}
+	
+	public function strumRGB(origin:String = '')//Hell yeah >:)
+	{
+		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
+		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
+		
+		if (noteData > -1 && noteData <= arr.length)
+		{
+			switch(origin){
+				case 'entity':
+					arr = ClientPrefs.data.entity[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+				case 'lullaby':
+					rgbShader.r = 0xFF89C073;
+					rgbShader.g = 0xFFE0F8D0;
+					rgbShader.b = 0xFF356955;
+				case 'skarlet':
+					arr = ClientPrefs.data.skarlet[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+				case 'doki':
+					arr = ClientPrefs.data.doki[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+				default:
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+			}
+		}
+		reloadNote();
+	}
 
 	public var useRGBShader:Bool = true;
 	public function new(x:Float, y:Float, leData:Int, player:Int) {

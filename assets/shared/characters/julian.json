@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				181,
+				412
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "juli idle"
+		},
+		{
+			"offsets": [
+				237,
+				490
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "juli up"
+		},
+		{
+			"offsets": [
+				223,
+				368
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "juli down"
+		},
+		{
+			"offsets": [
+				298,
+				438
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "juli left"
+		},
+		{
+			"offsets": [
+				162,
+				406
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "juli right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/julian",
+	"position": [
+		150,
+		420
+	],
+	"healthicon": "julian",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		120,
+		0
+	],
+	"camera_position": [
+		-90,
+		-430
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

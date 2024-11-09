@@ -1,0 +1,166 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				118,
+				10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				-3,
+				-60
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				-31,
+				35
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-25,
+				5
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				2,
+				-60
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "miss down"
+		},
+		{
+			"offsets": [
+				-41,
+				40
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "miss up"
+		},
+		{
+			"offsets": [
+				-23,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "miss left"
+		},
+		{
+			"offsets": [
+				-16,
+				4
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "miss right"
+		},
+		{
+			"offsets": [
+				-27,
+				17
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "dies"
+		},
+		{
+			"offsets": [
+				-28,
+				16
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "death loop"
+		},
+		{
+			"offsets": [
+				-28,
+				52
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "death confirm"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-1,
+				8
+			],
+			"anim": "hey",
+			"fps": 24,
+			"name": "hey",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/tester1",
+	"position": [
+		0,
+		100
+	],
+	"healthicon": "tester1",
+	"flip_x": true,
+	"healthbar_colors": [
+		40,
+		200,
+		40
+	],
+	"camera_position": [
+		0,
+		-30
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

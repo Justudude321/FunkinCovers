@@ -42,6 +42,9 @@ class Note extends FlxSprite
 		'Alt Animation',
 		'Hey!',
 		'Hurt Note',
+		'Glitch Note',
+		'Flash Note',
+		'Sus Note',
 		'GF Sing',
 		'No Animation'
 	];
@@ -63,6 +66,10 @@ class Note extends FlxSprite
 	public var noteWasHit:Bool = false;
 	public var prevNote:Note;
 	public var nextNote:Note;
+
+	//Mod stuff
+	public var downscrollNote:Bool = ClientPrefs.data.downScroll;
+	public var gimmick:Bool = false;
 
 	public var spawned:Bool = false;
 
@@ -184,6 +191,47 @@ class Note extends FlxSprite
 		}
 	}
 
+	public function changeRGB(origin:String = '')//Hell yeah >:)
+	{
+		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
+		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
+	
+		if (arr != null && noteData > -1 && noteData <= arr.length)
+		{// Change with stage switch later?
+			switch(origin){
+				case 'dark'://Dark Notes
+					rgbShader.r = 0xFF000000;
+					rgbShader.g = arr[2];
+					rgbShader.b = arr[0];
+				case 'entity':
+					arr = ClientPrefs.data.entity[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+				case 'lullaby'://Gameboy
+					rgbShader.r = 0xFF89C073;
+					rgbShader.g = 0xFFE0F8D0;
+					rgbShader.b = 0xFF356955;
+				case 'skarlet':
+					arr = ClientPrefs.data.skarlet[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+				case 'doki':
+					arr = ClientPrefs.data.doki[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+				case 'cross':
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[0];
+					rgbShader.b = 0xFF000000;
+				default:
+					defaultRGB();
+			}
+		}
+	}
+
 	private function set_noteType(value:String):String {
 		noteSplashData.texture = PlayState.SONG != null ? PlayState.SONG.splashSkin : 'noteSplashes';
 		defaultRGB();
@@ -202,9 +250,9 @@ class Note extends FlxSprite
 					rgbShader.b = 0xFF990022;
 
 					// splash data and colors
-					//noteSplashData.r = 0xFFFF0000;
-					//noteSplashData.g = 0xFF101010;
-					noteSplashData.texture = 'noteSplashes-electric';
+					// noteSplashData.r = 0xFFFF0000;
+					// noteSplashData.g = 0xFF101010;
+					// noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
 
 					// gameplay data
 					lowPriority = true;
@@ -212,6 +260,98 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;
+				case 'Flash Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+					// Should reload the skin based on whatever note type the user picked
+
+					// splash data and colors
+					// noteSplashData.r = 0xFFED6D18;
+					// noteSplashData.g = 0xFFF8DD85;
+					// noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.15 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Glitch Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+
+					// splash data and colors
+					// noteSplashData.r = 0xFF0EAC76;
+					// noteSplashData.g = 0xFF8B8B8B;
+					// noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.15 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Sus Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+
+					// splash data and colors
+					// noteSplashData.r = 0xCE3B2E;
+					// noteSplashData.g = 0xD78843;
+					// noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.15 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Pika Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+
+					// splash data and colors
+					// noteSplashData.r = 0xFFC000;
+					// noteSplashData.g = 0x0DFEFC;
+					// noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.25 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Fuego Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+
+					// splash data and colors
+					// noteSplashData.r = 0xDA4130;
+					// noteSplashData.g = 0xDE8231;
+					// noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.25 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Parry Note':
+					gimmick = true;
+					// note colors
+					rgbShader.r = 0xFFFE4E8B;
+					rgbShader.g = 0xFFFE4E8B;
+					rgbShader.b = 0xFFFEDFE7;
+
+					// splash data and colors
+					// noteSplashData.r = 0xFFFE4E8B;
+					// noteSplashData.g = 0xFFFEDFE7;
+				
 				case 'Alt Animation':
 					animSuffix = '-alt';
 				case 'No Animation':
@@ -244,7 +384,7 @@ class Note extends FlxSprite
 		this.inEditor = inEditor;
 		this.moves = false;
 
-		x += (ClientPrefs.data.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
+		x += (PlayState.isMiddlescroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
 		this.strumTime = strumTime;
@@ -276,7 +416,7 @@ class Note extends FlxSprite
 			alpha = 0.6;
 			multAlpha = 0.6;
 			hitsoundDisabled = true;
-			if(ClientPrefs.data.downScroll) flipY = true;
+			if(PlayState.isDownscroll) flipY = true;
 
 			offsetX += width / 2;
 			copyAngle = false;
@@ -505,8 +645,18 @@ class Note extends FlxSprite
 		var strumAlpha:Float = myStrum.alpha;
 		var strumDirection:Float = myStrum.direction;
 
-		distance = (0.45 * (Conductor.songPosition - strumTime) * songSpeed * multSpeed);
-		if (!myStrum.downScroll) distance *= -1;
+		distance = (0.45 * (Conductor.songPosition - strumTime) * songSpeed * multSpeed);//downscroll??
+		
+		// if (strumScroll && curStage == 'tower') //Downscroll
+		// {
+		// 	//daNote.y = (strumY + 0.45 * (Conductor.songPosition - daNote.strumTime) * songSpeed);
+		// 	daNote.distance = (0.45 * (Conductor.songPosition - daNote.strumTime) * songSpeed * daNote.multSpeed);
+		// }
+		// else if(isDownscroll && curStage != 'tower'){
+		// 	daNote.distance = (0.45 * (Conductor.songPosition - daNote.strumTime) * songSpeed * daNote.multSpeed);
+		// }
+		
+		if (!PlayState.isDownscroll) distance *= -1;//Used to be (!myStrum.downScroll) upscroll??
 
 		var angleDir = strumDirection * Math.PI / 180;
 		if (copyAngle)
@@ -521,7 +671,7 @@ class Note extends FlxSprite
 		if(copyY)
 		{
 			y = strumY + offsetY + correctionOffset + Math.sin(angleDir) * distance;
-			if(myStrum.downScroll && isSustainNote)
+			if(PlayState.isDownscroll && isSustainNote) //Used to be (myStrum.downScroll)
 			{
 				if(PlayState.isPixelStage)
 				{
@@ -540,7 +690,7 @@ class Note extends FlxSprite
 			var swagRect:FlxRect = clipRect;
 			if(swagRect == null) swagRect = new FlxRect(0, 0, frameWidth, frameHeight);
 
-			if (myStrum.downScroll)
+			if (PlayState.isDownscroll) //Used to be (myStrum.downScroll)
 			{
 				if(y - offset.y * scale.y + height >= center)
 				{
