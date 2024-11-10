@@ -1,0 +1,50 @@
+{
+	"storyName": "Fern - wip",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "avapep",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"lets-get-funky",
+			"enid",
+			[
+				255,
+				120,
+				205
+			]
+		],
+		[
+			"dilemma",
+			"drive",
+			[
+				0,
+				255,
+				145
+			]
+		],
+		[
+			"promenade",
+			"niku2",
+			[
+				245,
+				245,
+				245
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "fern"
+}

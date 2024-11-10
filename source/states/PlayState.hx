@@ -385,6 +385,14 @@ class PlayState extends MusicBeatState
 			case 'beatcity': new BeatCity();
 			case 'alley': new Alley();
 			case 'sus': new Sus();
+
+			// Fern
+			case 'bodega': new Bodega();
+			case 'drivethru': new DriveThru();
+			case 'hall': new Hall();
+
+			// Me
+			
 		}
 		if(isPixelStage) introSoundsSuffix = '-pixel';
 
