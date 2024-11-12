@@ -20,18 +20,14 @@ class DriveThru extends BaseStage
 		add(carback);
 	}
 	
+	var switched:Bool = false;
+	var newX:Array<Float> = new Array<Float>();
 	override function createPost()
 	{
 		// Use this function to layer things above characters!
 		var carfront:BGSprite = new BGSprite('carfront', -80, 150);
 		add(carfront);
-	}
 
-	var switched:Bool = false;
-	var newX:Array<Float> = new Array<Float>();
-	override function update(elapsed:Float)
-	{
-		// Code here
 		if(!switched){
 			for (i in 0...game.opponentStrums.length)
 				newX[i] = game.opponentStrums.members[i].x;
@@ -43,13 +39,12 @@ class DriveThru extends BaseStage
 			switched = true;
 		}
 	}
-
-	// Note: Check the song's json file, it skips some sustains for some reason
+	
 	var guitarHero:Bool = ClientPrefs.data.guitarHeroSustains;
 	override function opponentNoteHit(note:objects.Note)
 	{
 		// Code here
-		PlayState.instance.health = !(guitarHero && note.isSustainNote) ? 
-		Math.max(PlayState.instance.health - 0.015, 0.30) : PlayState.instance.health;
+		game.health = !(guitarHero && note.isSustainNote) ? 
+		Math.max(game.health - 0.015, 0.30) : game.health;
 	}
 }

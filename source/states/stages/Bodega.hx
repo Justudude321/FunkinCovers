@@ -27,7 +27,7 @@ class Bodega extends BaseStage
 	override function opponentNoteHit(note:objects.Note)
 	{
 		// Code here
-		PlayState.instance.health = !(guitarHero && note.isSustainNote) ? 
-		Math.max(PlayState.instance.health - 0.013, 0.30) : PlayState.instance.health;
+		game.health = !(guitarHero && note.isSustainNote) ? 
+		Math.max(game.health - 0.013, 0.30) : game.health;
 	}
 }

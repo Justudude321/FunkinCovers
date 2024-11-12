@@ -1,16 +1,11 @@
 {
-	"song": {
-		"events": [
+	"events": [
+		[
+			45000,
 			[
-				45000,
-				[
-					[
-						"Cinema Time",
-						"",
-						""
-					]
-				]
+				["Cinema Time", "", ""]
 			]
 		]
-	}
+	],
+	"format": "psych_v1"
 }

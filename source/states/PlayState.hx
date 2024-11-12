@@ -392,7 +392,42 @@ class PlayState extends MusicBeatState
 			case 'hall': new Hall();
 
 			// Me
+			case 'leafstorm': new Leafstorm();
+			// case 'jelly': new Jelly();
+			// case 'fitin': new Fitin();
 			
+			// Burnt
+			// case 'tower': new Tower();
+			// case 'redstage': new Redstage();
+			// case 'singstar': new Singstar();
+
+			// Mystery
+			// case 'city': new City();
+			// case 'bridge': new Bridge();
+			// case 'highschool': new Highschool();
+			// case 'jojo': new Jojo();
+
+			// Two-Shots Part 1
+			// case 'hillzone': new Hillzone();
+			// case 'subway2': new Subway2();
+			// case 'custom': new Custom(); //Custom Song
+			// case 'wilt': new Wilt();
+
+			// Two-Shots Part 2
+			// case 'idk': new IDK();//???
+			// case 'cupstage': new Cupstage();
+			// case 'plantroom': new Plantroom();
+			// case 'rivalarena': new Rivalarena();
+
+			// Finale
+			// case 'halloween': new Halloween();
+			// case 'feast': new Feast();
+			// case 'santa': new Santa();
+			// case '7quid': new Quid();
+
+			// 100P
+			// case 'funkg': new Funkg();
+			// case 'bridge': new Bridge();//Shadow
 		}
 		if(isPixelStage) introSoundsSuffix = '-pixel';
 
@@ -1059,7 +1094,7 @@ class PlayState extends MusicBeatState
 	inline private function createCountdownSprite(image:String, antialias:Bool):FlxSprite
 	{
 		var spr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(image));
-		spr.cameras = [camHUD];
+		spr.cameras = (curStage == 'jelly') ? [camOther] : [camHUD];
 		spr.scrollFactor.set();
 		spr.updateHitbox();
 

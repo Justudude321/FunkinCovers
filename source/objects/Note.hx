@@ -196,7 +196,7 @@ class Note extends FlxSprite
 		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
 		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
 	
-		if (arr != null && noteData > -1 && noteData <= arr.length)
+		if (arr != null && noteData > -1 && noteData <= arr.length && !gimmick)
 		{// Change with stage switch later?
 			switch(origin){
 				case 'dark'://Dark Notes

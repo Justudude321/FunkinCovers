@@ -44,9 +44,8 @@ class Alley extends BaseStage
 				cameraTwn = null;
 			}});
 		if(curStep == 934 || curStep == 1319){// Changes the notes to hit RGB to dark notes
-			for(i in 0...PlayState.instance.unspawnNotes.length -1) 
-				if(!PlayState.instance.unspawnNotes[i].gimmick) 
-					PlayState.instance.unspawnNotes[i].changeRGB('dark');
+			for(i in 0...unspawnNotes.length -1) 
+				unspawnNotes[i].changeRGB('dark');
 		}
 		if (curStep == 957){
 			jacket.visible = true;
@@ -55,17 +54,18 @@ class Alley extends BaseStage
 			}});		
 		}
 		if (curStep == 960 || curStep == 1344){// Changes Strums to dark notes
-			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].texture = skinName + '-dark';
+			for(i in 0...game.strumLineNotes.length)
+				PlayState.instance.strumLineNotes.members[i].texture = skinName + '-dark';
 			alleywall.visible = false;
 			alleyfloor.visible = false;
 		}
 		if(curStep == 1191 || curStep == 1447){//Normal
-			for(i in 0...PlayState.instance.unspawnNotes.length -1) 
-				if(!PlayState.instance.unspawnNotes[i].gimmick) 
-					PlayState.instance.unspawnNotes[i].changeRGB();
+			for(i in 0...unspawnNotes.length -1) 
+				unspawnNotes[i].changeRGB();
 		}
 		if (curStep == 1216 || curStep == 1472){//Tis fine ig
-			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].texture = skinName;
+			for(i in 0...game.strumLineNotes.length)
+				PlayState.instance.strumLineNotes.members[i].texture = skinName;
 			alleywall.visible = true;
 			alleyfloor.visible = true;
 		}

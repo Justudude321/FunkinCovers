@@ -21,22 +21,18 @@ class Hall extends BaseStage
 	{
 		// Use this function to layer things above characters!
 		boyfriend.shader = new Hallway();
-	}
 
-	override function update(elapsed:Float)
-	{
-		// Code here
-		if(curStep == 0){
-			for(i in 0...game.strumLineNotes.length) PlayState.instance.strumLineNotes.members[i].strumRGB('entity');
-			for(i in 0...PlayState.instance.unspawnNotes.length) PlayState.instance.unspawnNotes[i].changeRGB('entity');
-		}
+		for(i in 0...unspawnNotes.length)
+			unspawnNotes[i].changeRGB('entity');
+		for(i in 0...game.strumLineNotes.length)
+			game.strumLineNotes.members[i].strumRGB('entity');
 	}
 	
 	var guitarHero:Bool = ClientPrefs.data.guitarHeroSustains;
 	override function opponentNoteHit(note:objects.Note)
 	{
 		// Code here
-		PlayState.instance.health = !(guitarHero && note.isSustainNote) ? 
-		Math.max(PlayState.instance.health - 0.02, 0.30) : PlayState.instance.health;
+		game.health = !(guitarHero && note.isSustainNote) ? 
+		Math.max(game.health - 0.02, 0.30) : game.health;
 	}
 }
