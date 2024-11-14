@@ -407,8 +407,8 @@ class PlayState extends MusicBeatState
 
 			// Me
 			case 'leafstorm': new Leafstorm();
-			// case 'jelly': new Jelly();
-			// case 'fitin': new Fitin();
+			case 'jelly': new Jelly();
+			case 'fitin': new Fitin();
 			
 			// Burnt
 			// case 'tower': new Tower();

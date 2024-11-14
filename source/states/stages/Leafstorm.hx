@@ -18,11 +18,18 @@ class Leafstorm extends BaseStage
 		add(closebg);
 		var closebg2:BGSprite = new BGSprite('closebg2', -270, 520, 0.7, 0.9);
 		add(closebg2);
-		var gfplatform:BGSprite = new BGSprite('gfplatform', 1345, 580, 1.0, 0.9);
+		var gfplatform:BGSprite = new BGSprite('gfplatform', 1270, 520, 0.7, 0.9);
 		add(gfplatform);			
 		var bgrings:BGSprite = new BGSprite('bgrings', -200, 220, 0.7, 0.9, ['rings'], true);
 		add(bgrings);
 		var fgfloor:BGSprite = new BGSprite('fgfloor', -500, 720);
 		add(fgfloor);
+	}
+
+	override function createPost() 
+	{
+		// Use this function to layer things above characters!
+		gf.scrollFactor.set(0.7, 0.9);
+		gf.setGraphicSize(Std.int(gf.width * 0.7), Std.int(gf.height * 0.7));
 	}
 }

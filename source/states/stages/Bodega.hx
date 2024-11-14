@@ -15,7 +15,7 @@ class Bodega extends BaseStage
 		var light:BGSprite = new BGSprite('light', -650, 600, 0.9, 0.9);
 		var shop:BGSprite = new BGSprite('shop', -650, 600, 0.9, 0.9);
 		var table:BGSprite = new BGSprite('table', -80, 1320, 0.9, 0.9);
-		shop.setGraphicSize(Std.int(shop.width * 1.1));
+		shop.setGraphicSize(Std.int(shop.width * 1.1), Std.int(shop.height * 1.1));
 		shop.updateHitbox();
 
 		add(light);
@@ -29,5 +29,10 @@ class Bodega extends BaseStage
 		// Code here
 		game.health = !(guitarHero && note.isSustainNote) ? 
 		Math.max(game.health - 0.013, 0.30) : game.health;
+		// Annoying that I have do this here	v
+		PlayState.instance.iconP1.animation.curAnim.curFrame = 
+		(game.health < 0.4) ? 1 : 0;
+		PlayState.instance.iconP2.animation.curAnim.curFrame = 
+		(game.health > 1.6) ? 1 : 0;
 	}
 }

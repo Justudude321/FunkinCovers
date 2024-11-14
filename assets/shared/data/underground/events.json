@@ -428,7 +428,7 @@
 				["Change Character", "0", "tester1-swag"],
 				["Change Character", "1", "julian_wacky_swag"],
 				["Change Character", "2", "Bgf_JUICY_swag"],
-				["Set CamZoom", "0.7", ""]
+				["Set Property", "defaultCamZoom", "0.7"]
 			]
 		],
 		[

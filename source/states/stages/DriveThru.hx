@@ -46,5 +46,9 @@ class DriveThru extends BaseStage
 		// Code here
 		game.health = !(guitarHero && note.isSustainNote) ? 
 		Math.max(game.health - 0.015, 0.30) : game.health;
+		PlayState.instance.iconP1.animation.curAnim.curFrame = 
+		(game.health < 0.4) ? 1 : 0;
+		PlayState.instance.iconP2.animation.curAnim.curFrame = 
+		(game.health > 1.6) ? 1 : 0;
 	}
 }
