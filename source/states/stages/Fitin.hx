@@ -41,10 +41,16 @@ class Fitin extends BaseStage
 		add(greed);
 	}
 
+	var redoAt:Float;
+	override function startSong()
+	{
+		// Code here
+		redoAt = FlxG.sound.music.length - 1000;
+	}
+
 	// Allows infinite thing for testing purposes
 	// Will change it so that it's a chance thing
 	var balls:Bool = true;
-	var redoAt:Float = FlxG.sound.music.length - 1000;
 	override function update(elapsed:Float)
 	{
 		// Code here
