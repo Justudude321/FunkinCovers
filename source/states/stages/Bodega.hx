@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import objects.Note;
 
 class Bodega extends BaseStage
 {
@@ -23,8 +24,9 @@ class Bodega extends BaseStage
 		add(table);
 	}
 
+	// Note Hit/Miss
 	var guitarHero:Bool = ClientPrefs.data.guitarHeroSustains;
-	override function opponentNoteHit(note:objects.Note)
+	override function opponentNoteHit(note:Note)
 	{
 		// Code here
 		game.health = !(guitarHero && note.isSustainNote) ? 

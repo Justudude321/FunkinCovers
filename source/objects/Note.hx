@@ -191,37 +191,37 @@ class Note extends FlxSprite
 		}
 	}
 
-	public function changeRGB(origin:String = '')//Hell yeah >:)
+	public function changeRGB(skinName:String = '')//Hell yeah >:)
 	{
 		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
 		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
-	
+		var newRGB:RGBPalette = new RGBPalette();
+
 		if (arr != null && noteData > -1 && noteData <= arr.length && !gimmick)
 		{// Change with stage switch later?
-			switch(origin){
+			switch(skinName){
 				case 'dark'://Dark Notes
 					rgbShader.r = 0xFF000000;
 					rgbShader.g = arr[2];
 					rgbShader.b = arr[0];
 				case 'entity':
 					arr = ClientPrefs.data.entity[noteData];
-					rgbShader.r = arr[0];
-					rgbShader.g = arr[1];
-					rgbShader.b = arr[2];
-				case 'lullaby'://Gameboy
-					rgbShader.r = 0xFF89C073;
-					rgbShader.g = 0xFFE0F8D0;
-					rgbShader.b = 0xFF356955;
+					rgbShader.r = newRGB.r = arr[0];
+					rgbShader.g = newRGB.g = arr[1];
+					rgbShader.b = newRGB.b = arr[2];
+					globalRgbShaders[noteData] = newRGB;
 				case 'skarlet':
 					arr = ClientPrefs.data.skarlet[noteData];
-					rgbShader.r = arr[0];
-					rgbShader.g = arr[1];
-					rgbShader.b = arr[2];
+					rgbShader.r = newRGB.r = arr[0];
+					rgbShader.g = newRGB.g = arr[1];
+					rgbShader.b = newRGB.b = arr[2];
+					globalRgbShaders[noteData] = newRGB;
 				case 'doki':
 					arr = ClientPrefs.data.doki[noteData];
-					rgbShader.r = arr[0];
-					rgbShader.g = arr[1];
-					rgbShader.b = arr[2];
+					rgbShader.r = newRGB.r = arr[0];
+					rgbShader.g = newRGB.g = arr[1];
+					rgbShader.b = newRGB.b = arr[2];
+					globalRgbShaders[noteData] = newRGB;
 				case 'cross':
 					rgbShader.r = arr[0];
 					rgbShader.g = arr[0];
@@ -428,7 +428,7 @@ class Note extends FlxSprite
 			offsetX -= width / 2;
 
 			if (PlayState.isPixelStage)
-				offsetX += 30;
+				offsetX += (PlayState.curStage == 'tower') ? 49 : 30;
 
 			if (prevNote.isSustainNote)
 			{
@@ -528,7 +528,8 @@ class Note extends FlxSprite
 				var graphic = Paths.image('pixelUI/' + skinPixel + skinPostfix);
 				loadGraphic(graphic, true, Math.floor(graphic.width / 4), Math.floor(graphic.height / 5));
 			}
-			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+			setGraphicSize(PlayState.curStage == 'tower' ? 
+			Std.int(width * 3.35) : Std.int(width * PlayState.daPixelZoom));
 			loadPixelNoteAnims();
 			antialiasing = false;
 

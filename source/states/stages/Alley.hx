@@ -40,18 +40,18 @@ class Alley extends BaseStage
 	{
 		// Code here
 		if (curStep == 928)//Camera
-			FlxTween.tween(FlxG.camera, {zoom: 1.3}, 2.5, {ease: FlxEase.sineIn, onComplete: function (twn:FlxTween) {
-				cameraTwn = null;
-			}});
-		if(curStep == 934 || curStep == 1319){// Changes the notes to hit RGB to dark notes
+			FlxTween.tween(FlxG.camera, {zoom: 1.3}, 2.5, {ease: FlxEase.sineIn, onComplete: 
+				function (twn:FlxTween) {cameraTwn = null;}
+			});
+		if (curStep == 934 || curStep == 1319){// Changes the notes RGB to dark notes
 			for(i in 0...unspawnNotes.length -1) 
 				unspawnNotes[i].changeRGB('dark');
 		}
 		if (curStep == 957){
 			jacket.visible = true;
-			FlxTween.tween(jacket, {x: 2500}, 0.15, {ease: FlxEase.linear, onComplete: function(twn:FlxTween) {
-				jacket.visible = false;
-			}});		
+			FlxTween.tween(jacket, {x: 2500}, 0.15, {ease: FlxEase.linear, onComplete: 
+				function (twn:FlxTween) {jacket.visible = false;}
+			});		
 		}
 		if (curStep == 960 || curStep == 1344){// Changes Strums to dark notes
 			for(i in 0...game.strumLineNotes.length)
@@ -59,7 +59,7 @@ class Alley extends BaseStage
 			alleywall.visible = false;
 			alleyfloor.visible = false;
 		}
-		if(curStep == 1191 || curStep == 1447){//Normal
+		if (curStep == 1191 || curStep == 1447){//Normal
 			for(i in 0...unspawnNotes.length -1) 
 				unspawnNotes[i].changeRGB();
 		}

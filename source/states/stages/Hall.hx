@@ -2,6 +2,7 @@ package states.stages;
 
 import states.stages.objects.*;
 import shaders.Hallway;
+import objects.Note;
 
 class Hall extends BaseStage
 {
@@ -28,8 +29,9 @@ class Hall extends BaseStage
 			game.strumLineNotes.members[i].strumRGB('entity');
 	}
 	
+	// Note Hit/Miss
 	var guitarHero:Bool = ClientPrefs.data.guitarHeroSustains;
-	override function opponentNoteHit(note:objects.Note)
+	override function opponentNoteHit(note:Note)
 	{
 		// Code here
 		game.health = !(guitarHero && note.isSustainNote) ? 

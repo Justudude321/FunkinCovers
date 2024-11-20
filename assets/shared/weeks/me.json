@@ -8,7 +8,7 @@
 		113,
 		253
 	],
-	"weekBefore": "Fern",
+	"weekBefore": "fern",
 	"startUnlocked": true,
 	"weekCharacters": [
 		"",
@@ -45,6 +45,6 @@
 		]
 	],
 	"hideStoryMode": false,
-	"weekName": "Me",
+	"weekName": "me",
 	"hiddenUntilUnlocked": false
 }

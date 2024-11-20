@@ -37,10 +37,6 @@ class StrumNote extends FlxSprite
 					rgbShader.r = arr[0];
 					rgbShader.g = arr[1];
 					rgbShader.b = arr[2];
-				case 'lullaby':
-					rgbShader.r = 0xFF89C073;
-					rgbShader.g = 0xFFE0F8D0;
-					rgbShader.b = 0xFF356955;
 				case 'skarlet':
 					arr = ClientPrefs.data.skarlet[noteData];
 					rgbShader.r = arr[0];
@@ -112,7 +108,8 @@ class StrumNote extends FlxSprite
 			loadGraphic(Paths.image('pixelUI/' + texture), true, Math.floor(width), Math.floor(height));
 
 			antialiasing = false;
-			setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+			setGraphicSize((PlayState.curStage == 'tower') ? 
+			Std.int(width * 3.35) : Std.int(width * PlayState.daPixelZoom));
 
 			animation.add('green', [6]);
 			animation.add('red', [7]);

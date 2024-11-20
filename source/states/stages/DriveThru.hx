@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import objects.Note;
 
 class DriveThru extends BaseStage
 {
@@ -20,7 +21,6 @@ class DriveThru extends BaseStage
 		add(carback);
 	}
 	
-	var switched:Bool = false;
 	var newX:Array<Float> = new Array<Float>();
 	override function createPost()
 	{
@@ -28,20 +28,17 @@ class DriveThru extends BaseStage
 		var carfront:BGSprite = new BGSprite('carfront', -80, 150);
 		add(carfront);
 
-		if(!switched){
-			for (i in 0...game.opponentStrums.length)
-				newX[i] = game.opponentStrums.members[i].x;
-			for (i in 0...game.opponentStrums.length)
-				game.opponentStrums.members[i].x = game.playerStrums.members[i].x;
-			for (i in 0...game.playerStrums.length)
-				game.playerStrums.members[i].x = newX[i];
-
-			switched = true;
-		}
+		for (i in 0...game.opponentStrums.length)
+			newX[i] = game.opponentStrums.members[i].x;
+		for (i in 0...game.opponentStrums.length)
+			game.opponentStrums.members[i].x = game.playerStrums.members[i].x;
+		for (i in 0...game.playerStrums.length)
+			game.playerStrums.members[i].x = newX[i];
 	}
 	
+	// Note Hit/Miss
 	var guitarHero:Bool = ClientPrefs.data.guitarHeroSustains;
-	override function opponentNoteHit(note:objects.Note)
+	override function opponentNoteHit(note:Note)
 	{
 		// Code here
 		game.health = !(guitarHero && note.isSustainNote) ? 

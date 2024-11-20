@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import objects.Note;
 
 class Jelly extends BaseStage
 {
@@ -32,8 +33,9 @@ class Jelly extends BaseStage
 	{
 		// Code here
 		if (curStep == 128){
-			FlxTween.tween(camHUD, {alpha: 1}, 1, {onComplete: function(twn:FlxTween)
-				{}});
+			FlxTween.tween(camHUD, {alpha: 1}, 1, {onComplete: 
+				function(twn:FlxTween){}
+			});
 			game.cameraSpeed = 1;
 		}
 		if (curStep == 1529){
@@ -66,8 +68,9 @@ class Jelly extends BaseStage
 		}
 	}
 
+	// Note Hit/Miss
 	var guitarHero:Bool = ClientPrefs.data.guitarHeroSustains;
-	override function opponentNoteHit(note:objects.Note)
+	override function opponentNoteHit(note:Note)
 	{
 		// Code here
 		game.health = !(guitarHero && note.isSustainNote) ? 

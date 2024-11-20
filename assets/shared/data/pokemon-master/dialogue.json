@@ -1,0 +1,20 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "... (What's the name of that anime? The one with stands if I recall.)",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "gf"
+		},
+		{
+			"expression": "talk",
+			"text": "... (Type your answer to Girlfriend in the title screen...)",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "gf"
+		}
+	]
+}

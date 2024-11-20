@@ -17,10 +17,8 @@ class Fitin extends BaseStage
 		// Spawn your stage sprites here.
 		// Characters are not ready yet on this function, so you can't add things above them yet.
 		// Use createPost() if that's what you want to do.
-		var bg = new BGSprite(null,-400,-100);
-		bg.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.WHITE);
-		add(bg);
-		bg.alpha = 0.95;
+		camGame.bgColor.alphaFloat = 0.95;
+		camGame.bgColor = FlxColor.WHITE;
 
 		sloth = new BGSprite('metal', 375, 450, 0.9, 0.9, ['metalsos'], true);
 		add(sloth);
