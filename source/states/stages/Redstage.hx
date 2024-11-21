@@ -21,8 +21,8 @@ class Redstage extends BaseStage
 		camGame.bgColor.alphaFloat = 0.95;
 		camGame.bgColor = FlxColor.WHITE;
 
-		pokeBattle = new BGSprite('fondo_pokemon_1', -440, 310);
-		pokeBattle.scale.set(1.55,1.55);
+		pokeBattle = new BGSprite('fondo_pokemon_1', -440, 260);
+		pokeBattle.scale.set(1.55,1.8);
 		add(pokeBattle);
 
 		charizard = new BGSprite('charizard', 400, 50, ['chari idle']);

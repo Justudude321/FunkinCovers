@@ -413,8 +413,8 @@ class PlayState extends MusicBeatState
 			
 			// Burnt
 			case 'tower': new Tower();
-			// case 'redstage': new Redstage();
-			// case 'singstar': new Singstar();
+			case 'redstage': new Redstage();
+			case 'singstar': new Singstar();
 
 			// Mystery
 			// case 'city': new City();
