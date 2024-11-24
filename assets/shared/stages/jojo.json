@@ -1,0 +1,28 @@
+{
+	"directory": "mystery",
+	"defaultZoom": 0.45,
+	"stageUI": "",
+
+	"boyfriend": [-330, -520],
+	"girlfriend": [-1163, -700],
+	"opponent": [-1800, -750],
+	"hide_girlfriend": false,
+
+	"camera_boyfriend": [-100, 0],
+	"camera_opponent": [140, 130],
+	"camera_girlfriend": [0, 0],
+	"camera_speed": 1,
+	
+	"preload": {
+		"images/bg": 3,
+		"images/building": 2,
+		"images/ground": 3,
+		"images/fg": 3
+	},
+
+	"_editorMeta": {
+		"dad": "nikku-jojo",
+		"boyfriend": "bf",
+		"gf": "gf-distant"
+	}
+}

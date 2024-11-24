@@ -16,8 +16,8 @@
 	"preload": {
 		"images/DTbg": 3,
 		"images/carbehind": 3,
-		"images/carback": 3,
-		"images/carfront": 3
+		"images/carback": 2,
+		"images/carfront": 2
 	},
 
 	"_editorMeta": {

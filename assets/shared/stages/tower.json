@@ -14,10 +14,13 @@
 
 	"preload": {
 		"images/brimstone_healthbar": 3,
-		"images/brimstoneBack": 3,
-		"images/floor": 3,
+		"images/brimstoneBack": 2,
+		"images/floor": 2,
+		"images/graves": 2,
+		"images/brimstoneBack-gray": 3,
+		"images/floor-gray": 3,
+		"images/graves-gray": 3,
 		"images/enter_gengar": 3,
-		"images/graves": 3,
 		"images/missingnopokeball_assets": 3,
 		"images/muksludge": 3,
 		"images/opening1": 3,

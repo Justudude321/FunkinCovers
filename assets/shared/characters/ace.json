@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				60
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Ace idle"
+		},
+		{
+			"offsets": [
+				80,
+				70
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Ace left"
+		},
+		{
+			"offsets": [
+				0,
+				70
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Ace right"
+		},
+		{
+			"offsets": [
+				0,
+				-20
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Ace down"
+		},
+		{
+			"offsets": [
+				50,
+				85
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Ace up"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/ace",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "icon-ace",
+	"flip_x": false,
+	"healthbar_colors": [
+		167,
+		195,
+		235
+	],
+	"camera_position": [
+		-80,
+		-200
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

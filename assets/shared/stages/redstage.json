@@ -14,10 +14,10 @@
 	"camera_speed": 1,
 
 	"preload": {
-		"images/fondo_pokemon_1": 3,
-		"images/charizard": 3,
+		"images/fondo_pokemon_1": 2,
+		"images/charizard": 2,
 		"images/pixelcharizard": 3,
-		"images/pikachu": 3,
+		"images/pikachu": 2,
 		"images/pixelpikachu": 3
 	},
 

@@ -72,7 +72,6 @@ class Singstar extends BaseStage
 				sparkles.animation.play('idle', true);
 			};
 		}
-
 		else if(daAnim == 'idle'){
 			sparkles.x = offsetX;
 			sparkles.y = offsetY;
@@ -82,29 +81,6 @@ class Singstar extends BaseStage
 
 		// if getProperty('dad.curCharacter') == 'liquid-guitar' and getProperty('dad.animation.curAnim.name') == 'transition' and getProperty('dad.animation.curAnim.finished') then
 		// 	triggerEvent("Change Character", '1', 'liquid')
-	}
-
-	override function destroy()
-	{
-		// Code here
-	}
-
-	
-	override function countdownTick(count:Countdown, num:Int)
-	{
-		switch(count)
-		{
-			case THREE: //num 0
-			case TWO: //num 1
-			case ONE: //num 2
-			case GO: //num 3
-			case START: //num 4
-		}
-	}
-
-	override function startSong()
-	{
-		// Code here
 	}
 
 	// Steps, Beats and Sections:
@@ -226,15 +202,15 @@ class Singstar extends BaseStage
 		var newY:Float = offsetY;
 		switch(note.noteData){
 			case 0:
-				newX = offsetX - 75;
+				newX -= 75;
 			case 1:
-				newX = offsetX + 100;
-				newY = offsetY + 50;
+				newX += 100;
+				newY += 50;
 			case 2:
-				newX = offsetX - 25;
-				newY = offsetY - 50;
+				newX -= 25;
+				newY -= 50;
 			case 3:
-				newX = offsetX + 50;
+				newX += 50;
 		}
 		sparkles.x = newX;
 		sparkles.y = newY;

@@ -17,8 +17,8 @@
 		"images/alleywall": 3,
 		"images/alleyground": 3,
 		"images/jacket": 3,
-		"images/alley_swag_wall": 3,
-		"images/alley_swag_ground": 3
+		"images/alley_swag_wall": 2,
+		"images/alley_swag_ground": 2
 	},
 
 	"_editorMeta": {

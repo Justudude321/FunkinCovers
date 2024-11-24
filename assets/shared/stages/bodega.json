@@ -16,7 +16,7 @@
 	"preload": {
 		"images/light": 3,
 		"images/shop": 3,
-		"images/table": 3
+		"images/table": 2
 	},
 
 	"_editorMeta": {

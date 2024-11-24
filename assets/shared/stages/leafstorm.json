@@ -15,10 +15,10 @@
 	
 	"preload": {
 		"images/farbg": 3,
-		"images/closebg": 3,
+		"images/closebg": 2,
 		"images/closebg2": 3,
 		"images/gfplatform": 3,
-		"images/bgrings": 3,
+		"images/bgrings": 2,
 		"images/fgfloor": 3
 	},
 
