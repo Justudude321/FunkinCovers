@@ -9,7 +9,6 @@ class Subway2 extends BaseStage
 
 	var trainGroup:FlxSpriteGroup;
 	var doorArray:Array<FlxSprite> = [];
-	var doors:BGSprite;
 	override function create()
 	{
 		// Spawn your stage sprites here.
@@ -63,10 +62,9 @@ class Subway2 extends BaseStage
 		// Code here
 		if(curStep < 775){
 			var songPos:Float = Conductor.songPosition/1000;
-			camHUD.angle = 2 * Math.sin(songPos);
+			camHUD.angle = 2 * Math.cos(songPos);
 		}
-		else
-			camHUD.angle = 0;
+		else camHUD.angle = 0;
 	}
 
 	override function beatHit()
@@ -90,80 +88,66 @@ class Subway2 extends BaseStage
 				}
 				track = range;
 				tracker.push(track);
-				// trace("track's value is now " + track);
+				var door:FlxSprite = new FlxSprite();
+				Paths.image("doors" + track);
 
-				var doorExists:Int = 0;
-				for (_door in doorArray) {
-					doorExists |= (_door.ID == track ? 1 : 0);
+				// For tracing purposes
+				// door.ID = track;
+				// trace("track's value is now " + track);
+				switch (track) { //precaches doors???
+					case 1:
+						door.setPosition(2171, 58);
+					case 2:
+						door.setPosition(2486, 89);
+					case 3:
+						door.setPosition(2640, 158);
+					case 4:
+						door.setPosition(2485, 91);
+					case 5:
+						door.setPosition(2485, 91);
+					case 6:
+						door.setPosition(2485, 91);
+					case 7:
+						door.setPosition(2485, 91);
 				}
-				if (doorExists < 1) {
-					var door:FlxSprite = new FlxSprite();
-					door.ID = track;
-					switch (track) { //precaches doors???
-						case 1:
-							door.setPosition(2171, 58);
-							door.frames = Paths.getSparrowAtlas("doors1");
-						case 2:
-							door.setPosition(2486, 89);
-							door.frames = Paths.getSparrowAtlas("doors2");
-						case 3:
-							door.setPosition(2640, 158);
-							door.frames = Paths.getSparrowAtlas("doors3");
-						case 4:
-							door.setPosition(2485, 91);
-							door.frames = Paths.getSparrowAtlas("doors4");
-						case 5:
-							door.setPosition(2485, 91);
-							door.frames = Paths.getSparrowAtlas("doors5");
-						case 6:
-							door.setPosition(2485, 91);
-							door.frames = Paths.getSparrowAtlas("doors6");
-						case 7:
-							door.setPosition(2485, 91);
-							door.frames = Paths.getSparrowAtlas("doors7");
-					}
-					door.animation.addByPrefix('open', 'DOORS OPENING', 24, false);
-					door.animation.addByPrefix('close', 'DOORS CLOSING', 24, false);
-					door.animation.addByIndices('idle', 'DOORS OPENING', [0], "", 24, false);
-					door.animation.play('idle', true);
-					door.scale.set(1.2, 1.2);
-					door.updateHitbox();
-					doorArray.push(door);
-					trainGroup.insert(0, door);
-					// trace("door" + track + " precached");
-				}
+				door.frames = Paths.getSparrowAtlas("doors" + track);
+				door.animation.addByPrefix('open', 'DOORS OPENING', 24, false);
+				door.animation.addByPrefix('close', 'DOORS CLOSING', 24, false);
+				door.animation.addByIndices('idle', 'DOORS OPENING', [0], "", 24, false);
+				door.animation.play('idle', true);
+				door.scale.set(1.2, 1.2);
+				door.updateHitbox();
+				doorArray.push(door);
+				trainGroup.insert(0, door);
+				// trace("door" + track + " precached");
 		}
 	}
 
+	var index:Int = 0;
 	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float)
 	{
 		switch(eventName)
 		{
 			case "Subway Train":
-				//"Borrowed" from a repository I found of V1 I think, sorry Rechi :(
-				var doors:FlxSprite = null;
-				for (spr in doorArray) {
-					if (spr.ID == tracker[0]) doors = spr;
-					spr.alpha = 0;
-				}
-				if (doors == null) return;
-				doors.alpha = 1;
-				// trace("Summon train" + tracker[0]);
+				// "Borrowed" from a repository I found of V1 I think, sorry Rechi :(
+				// trace("Summon train" + tracker[index]);
 				var tween1:FlxTween = FlxTween.tween(trainGroup, {x: -2100}, 5, {ease: FlxEase.cubeInOut,
 					onComplete: function(_){
 						var timer1:FlxTimer = new FlxTimer().start(0.75, function(_) {
-							doors.animation.play('open');
-							doors.animation.finishCallback = function(name:String) {
+							doorArray[index].animation.play('open');
+							doorArray[index].animation.finishCallback = function(name:String) {
 								if (name == "open") {
 									var timer2:FlxTimer = new FlxTimer().start(1, function(_) {
-										doors.animation.play('close');
+										doorArray[index].animation.play('close');
 									});
 								} else if (name == "close") {
 									var timer3:FlxTimer = new FlxTimer().start(0.75, function(_) {
 										var tween2:FlxTween = FlxTween.tween(trainGroup, {x: 3500}, 5, {ease: FlxEase.cubeInOut,
 											onComplete: function(_){
 												trainGroup.x = -6100;
-												tracker[0] = tracker[1];
+												// Seems to prevent a lag spike for the 2nd train, somehow...
+												doorArray[index].destroy();
+												index++;
 											}
 										});
 									});
