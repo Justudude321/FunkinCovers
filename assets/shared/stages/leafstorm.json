@@ -1,7 +1,7 @@
 {
 	"directory": "me",
 	"defaultZoom": 0.7,
-	"stageUI": "",
+	"stageUI": "rush",
 
 	"boyfriend": [870, 110],
 	"girlfriend": [1165, -15],

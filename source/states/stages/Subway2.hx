@@ -39,6 +39,8 @@ class Subway2 extends BaseStage
 		hat.setGraphicSize(Std.int(hat.width*1.2),Std.int(hat.height*1.2));
 		hat.updateHitbox();
 		add(hat);
+
+		PlayState.instance.introSoundsSuffix = "-skarlet";
 	}
 	
 	var boppers:BGSprite;
@@ -89,7 +91,7 @@ class Subway2 extends BaseStage
 				track = range;
 				tracker.push(track);
 				var door:FlxSprite = new FlxSprite();
-				Paths.image("doors" + track);
+				Paths.image("theDoors/doors" + track);
 
 				// For tracing purposes
 				// door.ID = track;
@@ -110,7 +112,7 @@ class Subway2 extends BaseStage
 					case 7:
 						door.setPosition(2485, 91);
 				}
-				door.frames = Paths.getSparrowAtlas("doors" + track);
+				door.frames = Paths.getSparrowAtlas("theDoors/doors" + track);
 				door.animation.addByPrefix('open', 'DOORS OPENING', 24, false);
 				door.animation.addByPrefix('close', 'DOORS CLOSING', 24, false);
 				door.animation.addByIndices('idle', 'DOORS OPENING', [0], "", 24, false);

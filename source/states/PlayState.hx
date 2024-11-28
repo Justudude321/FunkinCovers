@@ -399,7 +399,7 @@ class PlayState extends MusicBeatState
 			// Avapep
 			case 'beatcity': new BeatCity();
 			case 'alley': new Alley();
-			case 'sus': new Sus();
+			case 'sus': new Sus(); // hotline sounds and count down
 
 			// Fern
 			case 'bodega': new Bodega();
@@ -407,7 +407,7 @@ class PlayState extends MusicBeatState
 			case 'hall': new Hall();
 
 			// Me
-			case 'leafstorm': new Leafstorm();
+			case 'leafstorm': new Leafstorm(); // rush sounds and count down
 			case 'jelly': new Jelly();
 			case 'fitin': new Fitin();
 			
@@ -417,14 +417,14 @@ class PlayState extends MusicBeatState
 			case 'singstar': new Singstar();
 
 			// Mystery
-			case 'city': new City();
+			case 'city': new City(); // maybe try the street light count down again?
 			case 'bridge': new Bridge();
 			case 'highschool': new Highschool();
-			case 'jojo': new Jojo();
+			case 'jojo': new Jojo(); // hotline stuff
 
 			// Two-Shots Part 1
 			case 'shore': new Shore();
-			case 'subway2': new Subway2();
+			case 'subway2': new Subway2(); // graffiti sound and countdown
 			// case 'custom': new Custom(); //Custom Song
 			// case 'wilt': new Wilt();
 

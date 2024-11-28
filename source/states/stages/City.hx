@@ -64,9 +64,9 @@ class City extends BaseStage
 	
 	function info(){
 		prepareCutscene();
-		cutsceneHandler.endTime = 5;
-		Paths.sound('modstuff/lightHum');
-		var hum:FlxSound = new FlxSound().loadEmbedded(Paths.sound('modstuff/lightHum'));
+		cutsceneHandler.endTime = 4.8;
+		Paths.sound('lightHum');
+		var hum:FlxSound = new FlxSound().loadEmbedded(Paths.sound('lightHum'));
 		FlxG.sound.list.add(hum);
 
 		cutsceneHandler.timer(0, function()
@@ -76,7 +76,7 @@ class City extends BaseStage
 		});
 		
 		cutsceneHandler.timer(4, function(){
-			FlxTween.tween(lights, {alpha: 0}, 0.9, {ease: FlxEase.cubeOut, onComplete: 
+			FlxTween.tween(lights, {alpha: 0}, 0.8, {ease: FlxEase.cubeOut, onComplete: 
 				function(twn:FlxTween){lights.destroy();}
 			});
 			inCutscene = false;

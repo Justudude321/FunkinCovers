@@ -24,6 +24,8 @@ class Leafstorm extends BaseStage
 		add(bgrings);
 		var fgfloor:BGSprite = new BGSprite('fgfloor', -500, 720);
 		add(fgfloor);
+
+		PlayState.instance.introSoundsSuffix = "-rush";
 	}
 
 	override function createPost() 

@@ -28,6 +28,8 @@ class Jojo extends BaseStage
 		add(building);
 		add(floor);
 		add(fg);
+		
+		PlayState.instance.introSoundsSuffix = "-hotline";
 	}
 	
 	override function createPost()
