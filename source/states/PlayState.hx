@@ -426,7 +426,7 @@ class PlayState extends MusicBeatState
 			case 'shore': new Shore();
 			case 'subway2': new Subway2(); // graffiti sound and countdown
 			// case 'custom': new Custom(); //Custom Song
-			// case 'wilt': new Wilt();
+			case 'neonalley': new NeonAlley();
 
 			// Two-Shots Part 2
 			// case 'idk': new IDK();//???
