@@ -1,0 +1,26 @@
+{
+	"directory": "twoshots-2",
+	"defaultZoom": 0.9,
+	"stageUI": "",
+
+	"boyfriend": [700, 450],
+	"girlfriend": [400, 150],
+	"opponent": [170, 430],
+	"hide_girlfriend": true,
+
+	"camera_boyfriend": [0, 40],
+	"camera_opponent": [0, 40],
+	"camera_girlfriend": [800, 700],
+	"camera_speed": 1,
+
+    "preload": {
+		"images/Bg": 3,
+		"images/Table": 2
+	},
+
+	"_editorMeta": {
+		"dad": "Toby_Fox",
+		"boyfriend": "Scott_cawthon",
+		"gf": "gf"
+	}
+}

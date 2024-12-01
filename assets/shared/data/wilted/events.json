@@ -1,36 +1,23 @@
 {
-	"song": {
-		"events": [
+	"events": [
+		[
+			68571.4285714286,
 			[
-				68571.4285714286,
-				[
-					[
-						"Change Character",
-						"dad",
-						"senpai-angry"
-					]
-				]
-			],
+				["Change Character", "dad", "senpai-angry"]
+			]
+		],
+		[
+			87455.3571428572,
 			[
-				87455.3571428572,
-				[
-					[
-						"Cinema Time",
-						"",
-						""
-					]
-				]
-			],
+				["Cinema Time", "", ""]
+			]
+		],
+		[
+			87857.1428571429,
 			[
-				87857.1428571429,
-				[
-					[
-						"Change Character",
-						"dad",
-						"senpai-nonpixel"
-					]
-				]
+				["Change Character", "dad", "senpai-nonpixel"]
 			]
 		]
-	}
+	],
+	"format": "psych_v1"
 }

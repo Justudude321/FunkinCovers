@@ -1,106 +1,65 @@
 {
-	"song": {
-		"events": [
+	"events": [
+		[
+			120609.137055838,
 			[
-				120609.137055838,
-				[
-					[
-						"Play Animation",
-						"throw",
-						"bf"
-					]
-				]
-			],
+				["Play Animation", "throw", "bf"]
+			]
+		],
+		[
+			205736.040609137,
 			[
-				205736.040609137,
-				[
-					[
-						"Change Character",
-						"gf",
-						"muk"
-					]
-				]
-			],
+				["Change Character", "gf", "muk"]
+			]
+		],
+		[
+			205812.182741117,
 			[
-				205812.182741117,
-				[
-					[
-						"Play Animation",
-						"Intro",
-						"gf"
-					]
-				]
-			],
+				["Play Animation", "Intro", "gf"]
+			]
+		],
+		[
+			225989.847715736,
 			[
-				225989.847715736,
-				[
-					[
-						"Play Animation",
-						"Puke",
-						"gf"
-					]
-				]
-			],
+				["Play Animation", "Puke", "gf"]
+			]
+		],
+		[
+			232994.923857868,
 			[
-				232994.923857868,
-				[
-					[
-						"Play Animation",
-						"Puke",
-						"gf"
-					]
-				]
-			],
+				["Play Animation", "Puke", "gf"]
+			]
+		],
+		[
+			246091.370558376,
 			[
-				246091.370558376,
-				[
-					[
-						"Cinema Time",
-						"",
-						""
-					]
-				]
-			],
+				["Cinema Time", "", ""]
+			]
+		],
+		[
+			251269.035532995,
 			[
-				251269.035532995,
-				[
-					[
-						"Play Animation",
-						"Puke",
-						"gf"
-					]
-				]
-			],
+				["Play Animation", "Puke", "gf"]
+			]
+		],
+		[
+			261319.796954315,
 			[
-				261319.796954315,
-				[
-					[
-						"Play Animation",
-						"Puke",
-						"gf"
-					]
-				]
-			],
+				["Play Animation", "Puke", "gf"]
+			]
+		],
+		[
+			263147.208121828,
 			[
-				263147.208121828,
-				[
-					[
-						"Play Animation",
-						"Leave",
-						"gf"
-					]
-				]
-			],
+				["Play Animation", "Leave", "gf"]
+			]
+		],
+		[
+			265583.756345178,
 			[
-				265583.756345178,
-				[
-					[
-						"Change Character",
-						"gf",
-						"ApparitionGF"
-					]
-				]
+				["Change Character", "gf", "ApparitionGF"]
 			]
 		]
-	}
+	],
+	"format": "psych_v1"
 }

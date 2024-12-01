@@ -1,0 +1,29 @@
+{
+	"directory": "twoshots-2",
+	"defaultZoom": 0.7,
+	"stageUI": "",
+
+	"boyfriend": [1600, 575],
+	"girlfriend": [400, 130],
+	"opponent": [700, 500],
+	"hide_girlfriend": true,
+	
+	"camera_boyfriend": [0, -50],
+	"camera_opponent": [0, 0],
+	"camera_girlfriend": [1100, 800],
+	"camera_speed": 1,
+
+    "preload": {
+		"images/BG-00": 3,
+		"images/BG-01": 2,
+		"images/BG-02": 2,
+		"images/Grainshit": 3,
+		"images/CUpheqdshid": 3
+	},
+
+	"_editorMeta": {
+		"dad": "cuphead",
+		"boyfriend": "bf",
+		"gf": "gf"
+	}
+}
