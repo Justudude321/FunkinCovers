@@ -1,0 +1,41 @@
+{
+	"storyName": "100% - wip",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "finale",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"mouthman",
+			"binej",
+			[
+				156,
+				164,
+				201
+			]
+		],
+		[
+			"score",
+			"darnell",
+			[
+				65,
+				60,
+				174
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "complete",
+	"hiddenUntilUnlocked": false
+}

@@ -1,0 +1,87 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [-5, -6],
+			"anim": "idle",
+			"fps": 24,
+			"name": "picoo idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-19, -2],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "picoo left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-53, -70],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "picoo down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-65, 15],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "picoo up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-62, -4],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "picoo right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-19, -3],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "picoo missleft",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-54, -53],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "picoo missdown",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-64, 10],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "picoo missup",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-59, -3],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "picoo missright",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/picoo",
+	"position": [10, 350],
+	"healthicon": "pico",
+	"flip_x": true,
+	"healthbar_colors": [200, 255, 100],
+	"camera_position": [20, 30],
+	"sing_duration": 4,
+	"scale": 1.2,
+	"_editor_isPlayer": true
+}

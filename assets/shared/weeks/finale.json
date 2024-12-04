@@ -1,0 +1,50 @@
+{
+	"storyName": "Finale - wip",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "twoshotsP2",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"sinister",
+			"spooky",
+			[
+				213,
+				106,
+				0
+			]
+		],
+		[
+			"god-feast",
+			"xeno",
+			[
+				0,
+				60,
+				170
+			]
+		],
+		[
+			"santa",
+			"spooky",
+			[
+				160,
+				160,
+				160
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "finale"
+}

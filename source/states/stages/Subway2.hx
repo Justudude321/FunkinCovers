@@ -58,11 +58,18 @@ class Subway2 extends BaseStage
 		for(i in 0...unspawnNotes.length) 
 			unspawnNotes[i].changeRGB('skarlet');
 	}
+	
+	var stopAt:Float;
+	override function startSong()
+	{
+		// Code here
+		stopAt = FlxG.sound.music.length - 1000;
+	}
 
 	override function update(elapsed:Float)
 	{
 		// Code here
-		if(curStep < 775){
+		if(Conductor.songPosition < stopAt){
 			var songPos:Float = Conductor.songPosition/1000;
 			camHUD.angle = 2 * Math.cos(songPos);
 		}

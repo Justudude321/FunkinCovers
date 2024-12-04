@@ -1,0 +1,56 @@
+{
+	"events": [
+		[
+			9500,
+			[
+				["Play Animation", "letsgo", "darnell"],
+				["Set Property", "defaultCamZoom", "0.83"]
+			]
+		],
+		[
+			10666.6666666667,
+			[
+				["Set Property", "defaultCamZoom", "0.61"]
+			]
+		],
+		[
+			41500,
+			[
+				["Set Property", "defaultCamZoom", "0.83"],
+				["Play Animation", "letsgo", "darnell"]
+			]
+		],
+		[
+			42666.6666666667,
+			[
+				["Set Property", "defaultCamZoom", "0.61"]
+			]
+		],
+		[
+			51166.6666666667,
+			[
+				["Add Camera Zoom", "gf", ""]
+			]
+		],
+		[
+			64000,
+			[
+				["Cinema Time", "", ""]
+			]
+		],
+		[
+			105500,
+			[
+				["Set Property", "defaultCamZoom", "0.83"],
+				["Play Animation", "letsgo", "darnell"]
+			]
+		],
+		[
+			106666.666666667,
+			[
+				["Set Property", "defaultCamZoom", "0.61"]
+			]
+		]
+	],
+	"format": "psych_v1"
+}

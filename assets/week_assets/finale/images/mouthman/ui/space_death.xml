@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="space_death.png">
+    <SubTexture name="bop0000" x="0" y="0" width="340" height="472"/>
+    <SubTexture name="bop0001" x="0" y="0" width="340" height="472"/>
+    <SubTexture name="bop0002" x="340" y="0" width="263" height="377" frameX="-37" frameY="-46" frameWidth="340" frameHeight="472"/>
+    <SubTexture name="bop0003" x="340" y="0" width="263" height="377" frameX="-37" frameY="-46" frameWidth="340" frameHeight="472"/>
+</TextureAtlas>

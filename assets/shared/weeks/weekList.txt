@@ -4,6 +4,10 @@ fern
 me
 burnt
 mystery
+twoshotsP1
+twoshotsP2
+finale
+complete
 week1
 week2
 week3
