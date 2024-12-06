@@ -22,26 +22,6 @@ class Sus extends BaseStage
 		// Might need to change this...
 		game.camFollow.setPosition(980, 660);
 	}
-
-	// override function startCountdown():Bool {
-	// 	return super.startCountdown();
-	// }
-
-	// override function countdownTick(count:Countdown, num:Int)
-	// {
-	// 	switch(count)
-	// 	{
-	// 		case THREE: //num 0
-	// 		Paths.sound('intro3-hotline');
-	// 		case TWO: //num 1
-	// 		Paths.sound('intro2-hotline');
-	// 		case ONE: //num 2
-	// 		Paths.sound('intro1-hotline');
-	// 		case GO: //num 3
-	// 		Paths.sound('introGo-hotline');
-	// 		case START: //num 4
-	// 	}
-	// }
 	
 	// Might attempt to do camfollow note press here, idk
 	// Note Hit/Miss

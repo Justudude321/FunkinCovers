@@ -6,6 +6,7 @@
 	"boyfriend": [1070, 25],
 	"girlfriend": [525, -200],
 	"opponent": [0, 80],
+	"hide_girlfriend": false,
 
 	"camera_boyfriend": [0, -100],
 	"camera_opponent": [100, -205],
@@ -15,7 +16,13 @@
 	"preload": {
 		"images/abot/": 3,
 		"images/abot/systemEyes/": 3,
-		"images/abot/abotSystem/": 3
+		"images/abot/abotSystem/": 3,
+
+		"images/april_bg_1": 3,
+		"images/april_bg_2": 2,
+		"images/april_bg_3": 2,
+		"images/april_bg_4": 3,
+		"images/april_bg_5": 3
 	},
 
 	"_editorMeta": {

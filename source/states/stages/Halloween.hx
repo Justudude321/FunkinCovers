@@ -50,7 +50,7 @@ class Halloween extends BaseStage
 		// Code here
 		if(Conductor.songPosition < stopAt){
 			var songPos:Float = Conductor.songPosition/1000;
-			camHUD.angle = 1.5 * Math.cos(songPos);
+			camHUD.angle = 1.25 * Math.cos(songPos);
 		}
 		else camHUD.angle = 0;
 	}
