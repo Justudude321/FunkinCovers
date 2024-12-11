@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import objects.Character;
 
 class Plantroom extends BaseStage
 {
@@ -141,6 +142,17 @@ class Plantroom extends BaseStage
 		add(vines);
 	}
 
+	var singer:Character;
+	function target() {
+		if (game.gf != null && PlayState.SONG.notes[curSection].gfSection)
+			singer = game.gf;
+		else if (!PlayState.SONG.notes[curSection].mustHitSection)
+			singer = game.dad;
+		else
+			singer = game.boyfriend;
+	}
+
+	var offset:Float = 30;
 	override function update(elapsed:Float)
 	{
 		// Code here
@@ -155,6 +167,25 @@ class Plantroom extends BaseStage
 		cloud3.x -= 0.1 * daFrames;
 		cloud4.x -= 0.08 * daFrames;
 		cloudbig.x -= 0.1 * daFrames;
+
+		target();
+		switch(singer.animation.curAnim.name){
+			case 'singLEFT':
+				game.camGame.targetOffset.x = -offset;
+				game.camGame.targetOffset.y = 0;
+			case 'singDOWN':
+				game.camGame.targetOffset.x = 0;
+				game.camGame.targetOffset.y = offset;
+			case 'singUP':
+				game.camGame.targetOffset.x = 0;
+				game.camGame.targetOffset.y = -offset;
+			case 'singRIGHT':
+				game.camGame.targetOffset.x = offset;
+				game.camGame.targetOffset.y = 0;
+			default://For anything that isn't singing, like idle
+				game.camGame.targetOffset.x = 0;
+				game.camGame.targetOffset.y = 0;
+		}
 	}
 
 	override function beatHit()

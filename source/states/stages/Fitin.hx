@@ -2,6 +2,7 @@ package states.stages;
 
 import states.stages.objects.*;
 import substates.PauseSubState;
+import objects.Character;
 
 class Fitin extends BaseStage
 {
@@ -25,8 +26,9 @@ class Fitin extends BaseStage
 		wrath = new BGSprite('rage', 160, 240, 0.92, 0.92, ['angrysos'], true);
 		add(wrath);
 
-		game.skipCountdown = skip;//Seamless enough
+		game.skipCountdown = skip;// Seamless enough, ugh T_T
 		game.cameraSpeed = skip ? 100 : 1;
+		game.defaultCamZoom = skip ? 0.7 : 0.8;
 		skip = false;
 	}
 
@@ -46,19 +48,57 @@ class Fitin extends BaseStage
 		redoAt = FlxG.sound.music.length - 1000;
 	}
 
-	// Allows infinite thing for testing purposes
+	// Stupid but I gotta remember this for when I make the HScript
+	var singer:Character;
+	function target() {
+		if (game.gf != null && PlayState.SONG.notes[curSection].gfSection)
+			singer = game.gf;
+		else if (!PlayState.SONG.notes[curSection].mustHitSection){
+			singer = game.dad;
+			game.defaultCamZoom = 0.7;
+		}
+		else {
+			singer = game.boyfriend;
+			game.defaultCamZoom = 0.8;
+		}
+		game.cameraSpeed = 3;
+	}
+
+	// Balls allows the infinite thing for testing purposes
 	// Will change it so that it's a chance thing
+	var offset:Float = 20;
+	var currentBeat:Float;
+	var thing:Float;
 	var balls:Bool = true;
 	override function update(elapsed:Float)
 	{
 		// Code here
-		if(curStep == 1) game.cameraSpeed = 1;
-		var currentBeat:Float = (Conductor.songPosition/5000) * (Conductor.bpm/60);
-		var thing:Float = Math.sin((currentBeat+12*12)*Math.PI);
+		currentBeat = (Conductor.songPosition/5000) * (Conductor.bpm/60);
+		thing = Math.sin((currentBeat+12*12)*Math.PI);
 
 		sloth.y = 300 + 70 * thing;
 		greed.y = 400 + 60 * thing;
 		wrath.y = 120 - 70 * thing;
+
+		target();
+		switch(singer.animation.curAnim.name){
+			case 'singLEFT':
+				game.camGame.targetOffset.x = -offset;
+				game.camGame.targetOffset.y = 0;
+			case 'singDOWN':
+				game.camGame.targetOffset.x = 0;
+				game.camGame.targetOffset.y = offset;
+			case 'singUP':
+				game.camGame.targetOffset.x = 0;
+				game.camGame.targetOffset.y = -offset;
+			case 'singRIGHT':
+				game.camGame.targetOffset.x = offset;
+				game.camGame.targetOffset.y = 0;
+			default://For anything that isn't singing, like idle
+				game.camGame.targetOffset.x = 0;
+				game.camGame.targetOffset.y = 0;
+				game.cameraSpeed = 1;
+		}
 
 		if(Conductor.songPosition > redoAt && balls){
 			skip = true;

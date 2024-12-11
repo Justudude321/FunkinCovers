@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import objects.Character;
 
 class Jojo extends BaseStage
 {
@@ -38,6 +39,17 @@ class Jojo extends BaseStage
 		gf.scrollFactor.set(1,1);
 	}
 
+	var singer:Character;
+	function target() {
+		if (game.gf != null && PlayState.SONG.notes[curSection].gfSection)
+			singer = game.gf;
+		else if (!PlayState.SONG.notes[curSection].mustHitSection)
+			singer = game.dad;
+		else
+			singer = game.boyfriend;
+	}
+
+	var offset:Float = 30;
 	var reset:Float = 0;
 	override function update(elapsed:Float)
 	{
@@ -52,5 +64,24 @@ class Jojo extends BaseStage
 			game.camFollow.y += thing;
 		}
 		else game.defaultCamZoom = 0.65;
+		
+		target();
+		switch(singer.animation.curAnim.name){
+			case 'singLEFT':
+				game.camGame.targetOffset.x = -offset;
+				game.camGame.targetOffset.y = 0;
+			case 'singDOWN':
+				game.camGame.targetOffset.x = 0;
+				game.camGame.targetOffset.y = offset;
+			case 'singUP':
+				game.camGame.targetOffset.x = 0;
+				game.camGame.targetOffset.y = -offset;
+			case 'singRIGHT':
+				game.camGame.targetOffset.x = offset;
+				game.camGame.targetOffset.y = 0;
+			default://For anything that isn't singing, like idle
+				game.camGame.targetOffset.x = 0;
+				game.camGame.targetOffset.y = 0;
+		}
 	}
 }
