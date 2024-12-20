@@ -2,7 +2,7 @@
 	"animations": [
 		{
 			"loop": false,
-			"offsets": [-5, -6],
+			"offsets": [-9, -9],
 			"anim": "idle",
 			"fps": 24,
 			"name": "picoo idle",
@@ -10,7 +10,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-19, -2],
+			"offsets": [-23, -4],
 			"anim": "singLEFT",
 			"fps": 24,
 			"name": "picoo left",
@@ -18,7 +18,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-53, -70],
+			"offsets": [-37, -90],
 			"anim": "singDOWN",
 			"fps": 24,
 			"name": "picoo down",
@@ -26,7 +26,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-65, 15],
+			"offsets": [-85, 22],
 			"anim": "singUP",
 			"fps": 24,
 			"name": "picoo up",
@@ -34,7 +34,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-62, -4],
+			"offsets": [-80, -6],
 			"anim": "singRIGHT",
 			"fps": 24,
 			"name": "picoo right",
@@ -42,7 +42,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-19, -3],
+			"offsets": [-23, -4],
 			"anim": "singLEFTmiss",
 			"fps": 24,
 			"name": "picoo missleft",
@@ -50,7 +50,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-54, -53],
+			"offsets": [-38, -70],
 			"anim": "singDOWNmiss",
 			"fps": 24,
 			"name": "picoo missdown",
@@ -58,7 +58,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-64, 10],
+			"offsets": [-82, 16],
 			"anim": "singUPmiss",
 			"fps": 24,
 			"name": "picoo missup",
@@ -66,7 +66,7 @@
 		},
 		{
 			"loop": false,
-			"offsets": [-59, -3],
+			"offsets": [-76, -4],
 			"anim": "singRIGHTmiss",
 			"fps": 24,
 			"name": "picoo missright",

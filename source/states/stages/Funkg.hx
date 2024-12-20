@@ -26,7 +26,7 @@ class Funkg extends BaseStage
 	{
 		var buildings:BGSprite = new BGSprite('april_bg_1', -816, -280, 0.54, 1.0);
 		add(buildings);
-		var floor:BGSprite = new BGSprite('april_bg_2', -1053, -325, 0.93, 1.0);
+		var floor:BGSprite = new BGSprite('april_bg_2', -1053, -325, 0.99, 1.0);
 		add(floor);
 		var walls:BGSprite = new BGSprite('april_bg_3', -624, -325, 0.96, 1.0);
 		add(walls);

@@ -3,7 +3,7 @@
 		[
 			9500,
 			[
-				["Play Animation", "letsgo", "darnell"],
+				["Play Animation", "Letsgo", "darnell"],
 				["Set Property", "defaultCamZoom", "0.83"]
 			]
 		],
@@ -17,7 +17,7 @@
 			41500,
 			[
 				["Set Property", "defaultCamZoom", "0.83"],
-				["Play Animation", "letsgo", "darnell"]
+				["Play Animation", "Letsgo", "darnell"]
 			]
 		],
 		[
@@ -42,7 +42,7 @@
 			105500,
 			[
 				["Set Property", "defaultCamZoom", "0.83"],
-				["Play Animation", "letsgo", "darnell"]
+				["Play Animation", "Letsgo", "darnell"]
 			]
 		],
 		[

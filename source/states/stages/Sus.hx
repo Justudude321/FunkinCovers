@@ -52,4 +52,5 @@ class Sus extends BaseStage
 				game.camGame.targetOffset.y = 0;
 		}
 	}
+	// Note: Originals made by stilic_dev, Blue (bluecolorsin), and Pumpsuki
 }
