@@ -25,6 +25,9 @@ typedef NoteSplashData = {
 	useGlobalShader:Bool, //breaks r/g/b but makes it copy default colors for your custom note
 	useRGBShader:Bool,
 	antialiasing:Bool,
+	r:FlxColor,
+	g:FlxColor,
+	b:FlxColor,
 	a:Float
 }
 
@@ -108,6 +111,9 @@ class Note extends FlxSprite
 		antialiasing: !PlayState.isPixelStage,
 		useGlobalShader: false,
 		useRGBShader: (PlayState.SONG != null) ? !(PlayState.SONG.disableNoteRGB == true) : true,
+		r: -1,
+		g: -1,
+		b: -1,
 		a: ClientPrefs.data.splashAlpha
 	};
 
@@ -195,7 +201,6 @@ class Note extends FlxSprite
 	{
 		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
 		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
-		var newRGB:RGBPalette = new RGBPalette();
 
 		if (arr != null && noteData > -1 && noteData <= arr.length && !gimmick)
 		{// Change with stage switch later?
@@ -204,36 +209,43 @@ class Note extends FlxSprite
 					rgbShader.r = 0xFF000000;
 					rgbShader.g = arr[2];
 					rgbShader.b = arr[0];
+					noteSplashData.g = 0xFF000000;
 				case 'entity':
 					arr = ClientPrefs.data.entity[noteData];
-					rgbShader.r = newRGB.r = arr[0];
-					rgbShader.g = newRGB.g = arr[1];
-					rgbShader.b = newRGB.b = arr[2];
-					globalRgbShaders[noteData] = newRGB;
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
 				case 'skarlet':
 					arr = ClientPrefs.data.skarlet[noteData];
-					rgbShader.r = newRGB.r = arr[0];
-					rgbShader.g = newRGB.g = arr[1];
-					rgbShader.b = newRGB.b = arr[2];
-					globalRgbShaders[noteData] = newRGB;
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
 				case 'doki':
 					arr = ClientPrefs.data.doki[noteData];
-					rgbShader.r = newRGB.r = arr[0];
-					rgbShader.g = newRGB.g = arr[1];
-					rgbShader.b = newRGB.b = arr[2];
-					globalRgbShaders[noteData] = newRGB;
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
 				case 'cross':
 					rgbShader.r = arr[0];
 					rgbShader.g = arr[0];
 					rgbShader.b = 0xFF000000;
 				default:
 					defaultRGB();
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
+					
 			}
 		}
 	}
 
 	private function set_noteType(value:String):String {
-		noteSplashData.texture = PlayState.SONG != null ? PlayState.SONG.splashSkin : 'noteSplashes';
+		noteSplashData.texture = PlayState.SONG != null ? PlayState.SONG.splashSkin : 'noteSplashes/noteSplashes';
 		defaultRGB();
 
 		if(noteData > -1 && noteType != value) {
@@ -251,9 +263,9 @@ class Note extends FlxSprite
 					rgbShader.b = 0xFF990022;
 
 					// splash data and colors
-					// noteSplashData.r = 0xFFFF0000;
-					// noteSplashData.g = 0xFF101010;
-					// noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+					noteSplashData.r = 0xFFFF0000;
+					noteSplashData.g = 0xFF101010;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
 
 					// gameplay data
 					lowPriority = true;
@@ -268,9 +280,9 @@ class Note extends FlxSprite
 					// Should reload the skin based on whatever note type the user picked
 
 					// splash data and colors
-					// noteSplashData.r = 0xFFED6D18;
-					// noteSplashData.g = 0xFFF8DD85;
-					// noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
+					noteSplashData.r = 0xFFED6D18;
+					noteSplashData.g = 0xFFF8DD85;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
 
 					// gameplay data
 					lowPriority = true;
@@ -284,9 +296,9 @@ class Note extends FlxSprite
 					reloadNote('hurtSkins/' + value + 's');
 
 					// splash data and colors
-					// noteSplashData.r = 0xFF0EAC76;
-					// noteSplashData.g = 0xFF8B8B8B;
-					// noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+					noteSplashData.r = 0xFF0EAC76;
+					noteSplashData.g = 0xFF8B8B8B;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
 
 					// gameplay data
 					lowPriority = true;
@@ -316,9 +328,9 @@ class Note extends FlxSprite
 					reloadNote('hurtSkins/' + value + 's');
 
 					// splash data and colors
-					// noteSplashData.r = 0xFFC000;
-					// noteSplashData.g = 0x0DFEFC;
-					// noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+					noteSplashData.r = 0xFFC000;
+					noteSplashData.g = 0x0DFEFC;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
 
 					// gameplay data
 					lowPriority = true;
@@ -332,9 +344,9 @@ class Note extends FlxSprite
 					reloadNote('hurtSkins/' + value + 's');
 
 					// splash data and colors
-					// noteSplashData.r = 0xDA4130;
-					// noteSplashData.g = 0xDE8231;
-					// noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
+					noteSplashData.r = 0xDA4130;
+					noteSplashData.g = 0xDE8231;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
 
 					// gameplay data
 					lowPriority = true;
@@ -350,8 +362,8 @@ class Note extends FlxSprite
 					rgbShader.b = 0xFFFEDFE7;
 
 					// splash data and colors
-					// noteSplashData.r = 0xFFFE4E8B;
-					// noteSplashData.g = 0xFFFEDFE7;
+					noteSplashData.r = 0xFFFE4E8B;
+					noteSplashData.g = 0xFFFEDFE7;
 				
 				case 'Alt Animation':
 					animSuffix = '-alt';
