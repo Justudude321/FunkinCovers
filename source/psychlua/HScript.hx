@@ -11,6 +11,8 @@ import psychlua.FunkinLua;
 
 #if HSCRIPT_ALLOWED
 import crowplexus.iris.Iris;
+import crowplexus.iris.IrisConfig;
+import crowplexus.iris.ErrorSeverity;
 
 class HScript extends Iris
 {
@@ -57,17 +59,6 @@ class HScript extends Iris
 	{
 		if (file == null)
 			file = '';
-	
-		super(null, {name: "hscript-iris", autoRun: false, autoPreset: false});
-
-		#if LUA_ALLOWED
-		parentLua = parent;
-		if (parent != null)
-		{
-			this.origin = parent.scriptName;
-			this.modFolder = parent.modFolder;
-		}
-		#end
 
 		filePath = file;
 		if (filePath != null && filePath.length > 0)
@@ -79,22 +70,58 @@ class HScript extends Iris
 				this.modFolder = myFolder[1];
 			#end
 		}
-
 		var scriptThing:String = file;
+		var scriptName:String = null;
 		if(parent == null && file != null)
 		{
 			var f:String = file.replace('\\', '/');
-			if(f.contains('/') && !f.contains('\n'))
-			{
+			if(f.contains('/') && !f.contains('\n')) {
 				scriptThing = File.getContent(f);
+				scriptName = f;
 			}
 		}
-		this.scriptCode = scriptThing;
-
-		preset();
+		#if LUA_ALLOWED
+		if (scriptName == null && parent != null)
+			scriptName = parent.scriptName;
+		#end
 		this.varsToBring = varsToBring;
+		super(scriptThing, new IrisConfig(scriptName, false, false));
+		var customInterp:CustomInterp = new CustomInterp();
+		customInterp.parentInstance = FlxG.state;
+		customInterp.showPosOnLog = false;
+		this.interp = customInterp;
+		#if LUA_ALLOWED
+		parentLua = parent;
+		if (parent != null)
+		{
+			this.origin = parent.scriptName;
+			this.modFolder = parent.modFolder;
+		}
+		#end
+		try {
+			preset();
+			execute();
+		} catch(e:haxe.Exception) {
+			this.destroy();
+			throw e;
+			return;
+		}
+		Iris.warn = function(x, ?pos:haxe.PosInfos) {
+			if (PlayState.instance != null)
+				PlayState.instance.addTextToDebug('[$origin]: $x', FlxColor.YELLOW);
+			Iris.logLevel(WARN, x, pos);
+		}
+		Iris.error = function(x, ?pos:haxe.PosInfos) {
+			if (PlayState.instance != null)
+				PlayState.instance.addTextToDebug('[$origin]: $x', FlxColor.ORANGE);
 
-		execute();
+			Iris.logLevel(ERROR, x, pos);
+		}
+		Iris.fatal = function(x, ?pos:haxe.PosInfos) {
+			if (PlayState.instance != null)
+				PlayState.instance.addTextToDebug('[$origin]: $x', FlxColor.RED);
+			Iris.logLevel(FATAL, x, pos);
+		}
 	}
 
 	var varsToBring(default, set):Any = null;
@@ -310,17 +337,6 @@ class HScript extends Iris
 		set('Function_StopLua', LuaUtils.Function_StopLua); //doesnt do much cuz HScript has a lower priority than Lua
 		set('Function_StopHScript', LuaUtils.Function_StopHScript);
 		set('Function_StopAll', LuaUtils.Function_StopAll);
-		
-		set('add', FlxG.state.add);
-		set('insert', FlxG.state.insert);
-		set('remove', FlxG.state.remove);
-
-		if(PlayState.instance == FlxG.state)
-		{
-			set('addBehindGF', PlayState.instance.addBehindGF);
-			set('addBehindDad', PlayState.instance.addBehindDad);
-			set('addBehindBF', PlayState.instance.addBehindBF);
-		}
 	}
 
 	public function executeCode(?funcToRun:String = null, ?funcArgs:Array<Dynamic> = null):IrisCall {
@@ -345,11 +361,6 @@ class HScript extends Iris
 			trace('ERROR ${funcToRun}: $e');
 		}
 		return null;
-	}
-
-	public function executeFunction(funcToRun:String = null, funcArgs:Array<Dynamic> = null):IrisCall {
-		if (funcToRun == null || !exists(funcToRun)) return null;
-		return call(funcToRun, funcArgs);
 	}
 
 	#if LUA_ALLOWED
@@ -380,7 +391,7 @@ class HScript extends Iris
 			#if HSCRIPT_ALLOWED
 			try
 			{
-				final retVal:IrisCall = funk.hscript.executeFunction(funcToRun, funcArgs);
+				final retVal:IrisCall = funk.hscript.call(funcToRun, funcArgs);
 				if (retVal != null)
 				{
 					return (retVal.returnValue == null || LuaUtils.isOfTypes(retVal.returnValue, [Bool, Int, Float, String, Array])) ? retVal.returnValue : null;
@@ -427,11 +438,6 @@ class HScript extends Iris
 	}
 	#end
 
-	override public function set(name:String, value:Dynamic, allowOverride:Bool = false):Void {
-		// should always override by default
-		super.set(name, value, true);
-	}
-
 	/*override function irisPrint(v):Void
 	{
 		FunkinLua.luaTrace('ERROR (${this.origin}:${interp.posInfos().lineNumber}): ${v}');
@@ -442,7 +448,6 @@ class HScript extends Iris
 	{
 		origin = null;
 		#if LUA_ALLOWED parentLua = null; #end
-
 		super.destroy();
 	}
 
@@ -484,35 +489,59 @@ class CustomFlxColor {
 	public static var CYAN(default, null):Int = FlxColor.CYAN;
 
 	public static function fromInt(Value:Int):Int 
-	{
 		return cast FlxColor.fromInt(Value);
-	}
 
 	public static function fromRGB(Red:Int, Green:Int, Blue:Int, Alpha:Int = 255):Int
-	{
 		return cast FlxColor.fromRGB(Red, Green, Blue, Alpha);
-	}
+
 	public static function fromRGBFloat(Red:Float, Green:Float, Blue:Float, Alpha:Float = 1):Int
-	{	
 		return cast FlxColor.fromRGBFloat(Red, Green, Blue, Alpha);
-	}
 
 	public static inline function fromCMYK(Cyan:Float, Magenta:Float, Yellow:Float, Black:Float, Alpha:Float = 1):Int
-	{
 		return cast FlxColor.fromCMYK(Cyan, Magenta, Yellow, Black, Alpha);
-	}
 
 	public static function fromHSB(Hue:Float, Sat:Float, Brt:Float, Alpha:Float = 1):Int
-	{	
 		return cast FlxColor.fromHSB(Hue, Sat, Brt, Alpha);
-	}
+
 	public static function fromHSL(Hue:Float, Sat:Float, Light:Float, Alpha:Float = 1):Int
-	{	
 		return cast FlxColor.fromHSL(Hue, Sat, Light, Alpha);
-	}
+
 	public static function fromString(str:String):Int
-	{
 		return cast FlxColor.fromString(str);
-	}
 }
 #end
+
+class CustomInterp extends crowplexus.hscript.Interp
+{
+	public var parentInstance:Dynamic;
+	public function new()
+	{
+		super();
+	}
+
+	override function resolve(id: String): Dynamic {
+		if (locals.exists(id)) {
+			var l = locals.get(id);
+			return l.r;
+		}
+
+		if (variables.exists(id)) {
+			var v = variables.get(id);
+			return v;
+		}
+
+		if (imports.exists(id)) {
+			var v = imports.get(id);
+			return v;
+		}
+
+		if(parentInstance != null) {
+			var v = Reflect.getProperty(parentInstance, id);
+			return v;
+		}
+
+		error(EUnknownVariable(id));
+
+		return null;
+	}
+}
