@@ -30,12 +30,12 @@ import substates.PauseSubState;
 import substates.GameOverSubstate;
 
 #if !flash
-import flixel.addons.display.FlxRuntimeShader;
 import openfl.filters.ShaderFilter;
 #end
 
-import objects.VideoSprite;
+import shaders.ErrorHandledShader;
 
+import objects.VideoSprite;
 import objects.Note.EventNote;
 import objects.*;
 import states.stages.*;
@@ -645,12 +645,6 @@ class PlayState extends MusicBeatState
 		noteTypes = null;
 		eventsPushed = null;
 
-		if(eventNotes.length > 1)
-		{
-			for (event in eventNotes) event.strumTime -= eventEarlyTrigger(event);
-			eventNotes.sort(sortByTime);
-		}
-
 		// SONG SPECIFIC SCRIPTS
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		for (folder in Mods.directoriesWithFile(Paths.getSharedPath(), 'data/$songName/'))
@@ -667,6 +661,12 @@ class PlayState extends MusicBeatState
 				#end
 			}
 		#end
+
+		if(eventNotes.length > 0)
+		{
+			for (event in eventNotes) event.strumTime -= eventEarlyTrigger(event);
+			eventNotes.sort(sortByTime);
+		}
 
 		startCallback();
 		RecalculateRating(false, false);
@@ -1555,9 +1555,8 @@ class PlayState extends MusicBeatState
 	}
 
 	function eventEarlyTrigger(event:EventNote):Float {
-		var returnedValue:Dynamic = callOnScripts('eventEarlyTrigger', [event.event, event.value1, event.value2, event.strumTime], true, [], [0]);
-		returnedValue = Std.parseFloat(returnedValue);
-		if(!Math.isNaN(returnedValue) && returnedValue != 0) {
+		var returnedValue:Null<Float> = callOnScripts('eventEarlyTrigger', [event.event, event.value1, event.value2, event.strumTime], true);
+		if(returnedValue != null && returnedValue != 0) {
 			return returnedValue;
 		}
 
@@ -3463,7 +3462,7 @@ class PlayState extends MusicBeatState
 	#end
 
 	public function callOnScripts(funcToCall:String, args:Array<Dynamic> = null, ignoreStops = false, exclusions:Array<String> = null, excludeValues:Array<Dynamic> = null):Dynamic {
-		var returnVal:String = LuaUtils.Function_Continue;
+		var returnVal:Dynamic = LuaUtils.Function_Continue;
 		if(args == null) args = [];
 		if(exclusions == null) exclusions = [];
 		if(excludeValues == null) excludeValues = [LuaUtils.Function_Continue];
@@ -3474,7 +3473,7 @@ class PlayState extends MusicBeatState
 	}
 
 	public function callOnLuas(funcToCall:String, args:Array<Dynamic> = null, ignoreStops = false, exclusions:Array<String> = null, excludeValues:Array<Dynamic> = null):Dynamic {
-		var returnVal:String = LuaUtils.Function_Continue;
+		var returnVal:Dynamic = LuaUtils.Function_Continue;
 		#if LUA_ALLOWED
 		if(args == null) args = [];
 		if(exclusions == null) exclusions = [];
@@ -3513,7 +3512,7 @@ class PlayState extends MusicBeatState
 	}
 
 	public function callOnHScript(funcToCall:String, args:Array<Dynamic> = null, ?ignoreStops:Bool = false, exclusions:Array<String> = null, excludeValues:Array<Dynamic> = null):Dynamic {
-		var returnVal:String = LuaUtils.Function_Continue;
+		var returnVal:Dynamic = LuaUtils.Function_Continue;
 
 		#if HSCRIPT_ALLOWED
 		if(exclusions == null) exclusions = new Array();
@@ -3685,19 +3684,19 @@ class PlayState extends MusicBeatState
 
 	#if (!flash && sys)
 	public var runtimeShaders:Map<String, Array<String>> = new Map<String, Array<String>>();
-	public function createRuntimeShader(name:String):FlxRuntimeShader
+	public function createRuntimeShader(shaderName:String):ErrorHandledRuntimeShader
 	{
-		if(!ClientPrefs.data.shaders) return new FlxRuntimeShader();
+		if(!ClientPrefs.data.shaders) return new ErrorHandledRuntimeShader(shaderName);
 
 		#if (!flash && MODS_ALLOWED && sys)
-		if(!runtimeShaders.exists(name) && !initLuaShader(name))
+		if(!runtimeShaders.exists(shaderName) && !initLuaShader(shaderName))
 		{
-			FlxG.log.warn('Shader $name is missing!');
-			return new FlxRuntimeShader();
+			FlxG.log.warn('Shader $shaderName is missing!');
+			return new ErrorHandledRuntimeShader(shaderName);
 		}
 
-		var arr:Array<String> = runtimeShaders.get(name);
-		return new FlxRuntimeShader(arr[0], arr[1]);
+		var arr:Array<String> = runtimeShaders.get(shaderName);
+		return new ErrorHandledRuntimeShader(shaderName, arr[0], arr[1]);
 		#else
 		FlxG.log.warn("Platform unsupported for Runtime Shaders!");
 		return null;
