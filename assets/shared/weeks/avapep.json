@@ -1,0 +1,45 @@
+{
+	"storyName": "ava-pep",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"songs": [
+		[
+			"moderato",
+			"allegro",
+			[
+				165,
+				255,
+				200
+			]
+		],
+		[
+			"underground",
+			"julian",
+			[
+				255,
+				120,
+				0
+			]
+		],
+		[
+			"sussy-pussy",
+			"tomongus",
+			[
+				255,
+				85,
+				90
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hideStoryMode": false,
+	"hiddenUntilUnlocked": false,
+	"weekName": "avapep"
+}

@@ -1,0 +1,25 @@
+{
+	"directory": "avapep",
+	"defaultZoom": 0.5,
+	"stageUI": "",
+
+	"boyfriend": [1500, 600],
+	"girlfriend": [975, 550],
+	"opponent": [610, 590],
+	"hide_girlfriend": true,
+
+	"camera_boyfriend": [-250, -50],
+	"camera_opponent": [300, 100],
+	"camera_girlfriend": [1300, 850],
+	"camera_speed": 1,
+
+	"preload": {
+		"images/beatcity": 3
+	},
+
+	"_editorMeta": {
+		"dad": "allegro",
+		"boyfriend": "tester1",
+		"gf": "gf"
+	}
+}

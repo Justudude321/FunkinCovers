@@ -67,6 +67,9 @@ class Note extends FlxSprite
 	public var prevNote:Note;
 	public var nextNote:Note;
 
+	// Mod Stuff
+	public var gimmick:Bool = false;
+
 	public var spawned:Bool = false;
 
 	public var tail:Array<Note> = []; // for sustains
@@ -190,6 +193,53 @@ class Note extends FlxSprite
 		}
 	}
 
+	public function changeRGB(skinName:String = '')//Hell yeah >:)
+	{
+		var arr:Array<FlxColor> = ClientPrefs.data.arrowRGB[noteData];
+		if(PlayState.isPixelStage) arr = ClientPrefs.data.arrowRGBPixel[noteData];
+
+		if (arr != null && noteData > -1 && noteData <= arr.length && !gimmick)
+		{// Change with stage switch later?
+			switch(skinName){
+				case 'dark'://Dark Notes
+					rgbShader.r = 0xFF000000;
+					rgbShader.g = arr[2];
+					rgbShader.b = arr[0];
+					noteSplashData.g = 0xFF000000;
+				case 'entity':
+					arr = ClientPrefs.data.entity[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
+				case 'skarlet':
+					arr = ClientPrefs.data.skarlet[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
+				case 'doki':
+					arr = ClientPrefs.data.doki[noteData];
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[1];
+					rgbShader.b = arr[2];
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
+				case 'cross':
+					rgbShader.r = arr[0];
+					rgbShader.g = arr[0];
+					rgbShader.b = 0xFF000000;
+				default:
+					defaultRGB();
+					noteSplashData.r = arr[0];
+					noteSplashData.g = arr[1];
+					
+			}
+		}
+	}
+
 	private function set_noteType(value:String):String {
 		noteSplashData.texture = PlayState.SONG != null ? PlayState.SONG.splashSkin : 'noteSplashes/noteSplashes';
 		defaultRGB();
@@ -197,6 +247,7 @@ class Note extends FlxSprite
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
 				case 'Hurt Note':
+					gimmick = true;
 					ignoreNote = mustPress;
 					//reloadNote('HURTNOTE_assets');
 					//this used to change the note texture to HURTNOTE_assets.png,
@@ -218,6 +269,98 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 					hitsound = 'cancelMenu';
 					hitsoundChartEditor = false;
+				case 'Flash Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+					// Should reload the skin based on whatever note type the user picked
+
+					// splash data and colors
+					noteSplashData.r = 0xFFED6D18;
+					noteSplashData.g = 0xFFF8DD85;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.15 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Glitch Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+
+					// splash data and colors
+					noteSplashData.r = 0xFF0EAC76;
+					noteSplashData.g = 0xFF8B8B8B;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.15 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Sus Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+
+					// splash data and colors
+					// noteSplashData.r = 0xCE3B2E;
+					// noteSplashData.g = 0xD78843;
+					// noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.15 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Pika Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+
+					// splash data and colors
+					noteSplashData.r = 0xFFC000;
+					noteSplashData.g = 0x0DFEFC;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-electric';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.25 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Fuego Note':
+					gimmick = true;
+					ignoreNote = mustPress;
+					reloadNote('hurtSkins/' + value + 's');
+
+					// splash data and colors
+					noteSplashData.r = 0xDA4130;
+					noteSplashData.g = 0xDE8231;
+					noteSplashData.texture = 'noteSplashes/noteSplashes-sparkles';
+
+					// gameplay data
+					lowPriority = true;
+					missHealth = isSustainNote ? 0.25 : 0.1;
+					hitCausesMiss = true;
+					hitsound = 'cancelMenu';
+					hitsoundChartEditor = false;
+				case 'Parry Note':
+					gimmick = true;
+					// note colors
+					rgbShader.r = 0xFFFE4E8B;
+					rgbShader.g = 0xFFFE4E8B;
+					rgbShader.b = 0xFFFEDFE7;
+
+					// splash data and colors
+					noteSplashData.r = 0xFFFE4E8B;
+					noteSplashData.g = 0xFFFEDFE7;
+				
 				case 'Alt Animation':
 					animSuffix = '-alt';
 				case 'No Animation':
@@ -543,6 +686,7 @@ class Note extends FlxSprite
 		var center:Float = myStrum.y + offsetY + Note.swagWidth / 2;
 		if((mustPress || !ignoreNote) && (wasGoodHit || (prevNote.wasGoodHit && !canBeHit)))
 		{
+			// Brimstone bit here
 			var swagRect:FlxRect = clipRect;
 			if(swagRect == null) swagRect = new FlxRect(0, 0, frameWidth, frameHeight);
 

@@ -455,7 +455,7 @@ class EditorPlayState extends MusicBeatSubstate
 			}
 
 			var babyArrow:StrumNote = new StrumNote(strumLineX, strumLineY, i, player);
-			babyArrow.downScroll = ClientPrefs.data.downScroll;
+			babyArrow.downScroll = ClientPrefs.data.downScroll; // Check for brimstone stuff
 			babyArrow.alpha = targetAlpha;
 
 			if (player == 1)

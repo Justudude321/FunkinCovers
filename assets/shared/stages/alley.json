@@ -1,0 +1,29 @@
+{
+	"directory": "avapep",
+	"defaultZoom": 0.7,
+	"stageUI": "",
+
+	"boyfriend": [1100, 150],
+	"girlfriend": [460, 180],
+	"opponent": [280, 150],
+	"hide_girlfriend": false,
+
+	"camera_boyfriend": [0, 0],
+	"camera_opponent": [0, 0],
+	"camera_girlfriend": [0, 0],
+	"camera_speed": 1,
+
+	"preload": {
+		"images/alleywall": 3,
+		"images/alleyground": 3,
+		"images/jacket": 3,
+		"images/alley_swag_wall": 2,
+		"images/alley_swag_ground": 2
+	},
+
+	"_editorMeta": {
+		"dad": "julian",
+		"boyfriend": "tester1",
+		"gf": "gf-Bside-stand"
+	}
+}

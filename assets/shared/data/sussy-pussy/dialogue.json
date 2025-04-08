@@ -1,0 +1,20 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "What were those tapes that played music that everyone was using in the 80s?",
+			"boxState": "normal",
+			"portrait": "gf",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "Type your answer to Girlfriend in the title screen...",
+			"boxState": "normal",
+			"portrait": "gf",
+			"speed": 0.05,
+			"sound": ""
+		}
+	]
+}
