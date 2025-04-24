@@ -212,6 +212,8 @@ class PlayState extends MusicBeatState
 	//Mod Stuff
 	public static var isDownscroll:Bool = false;
 	public static var isMiddlescroll:Bool = false;
+	public var oppHitDrain:Bool;
+	public var drainAmount:Float;
 	// public static var gimmickCount:Int = 0;
 	var flashBang:BGSprite;
 
@@ -274,10 +276,12 @@ class PlayState extends MusicBeatState
 	public static var nextReloadAll:Bool = false;
 	override public function create()
 	{
-		// To mess with strum notes
+		// Mod Stuff
 		// Changes made in Note, PlayState, and EditorPlayState
 		isDownscroll = ClientPrefs.data.downScroll;
 		isMiddlescroll = ClientPrefs.data.middleScroll;
+		drainAmount = 0.02;
+		oppHitDrain = false;
 
 		//trace('Playback Rate: ' + playbackRate);
 		_lastLoadedModDirectory = Mods.currentModDirectory;
@@ -407,9 +411,9 @@ class PlayState extends MusicBeatState
 			case 'sus': new Sus();
 
 			// Fern
-			// case 'bodega': new Bodega();
-			// case 'drivethru': new DriveThru();
-			// case 'hall': new Hall();
+			case 'bodega': new Bodega();
+			case 'drivethru': new DriveThru();
+			case 'hall': new Hall();
 
 			// Me
 			// case 'leafstorm': new Leafstorm(); // rush sounds and count down
@@ -3090,6 +3094,12 @@ class PlayState extends MusicBeatState
 
 				if(canPlay) char.playAnim(animToPlay, true);
 				char.holdTimer = 0;
+
+				// Health Drain, 0.02 default health gain
+				if(oppHitDrain){
+					// opponentVocals.volume = 1;
+					health = !(guitarHeroSustains && note.isSustainNote) ? Math.max(health-drainAmount, 0.30) : health;
+				}
 			}
 		}
 

@@ -1,8 +1,7 @@
 package states.stages;
 
-// import shaders.DropShadowShader;
 import states.stages.objects.*;
-import shaders.Sunset;
+import shaders.DropShadowShader;
 
 class BeatCity extends BaseStage
 {
@@ -18,16 +17,17 @@ class BeatCity extends BaseStage
 		add(bg);
 	}
 	
-	// var shadow:DropShadowShader;
+	var shadow:DropShadowShader;
 	override function createPost()
 	{
 		// Use this function to layer things above characters!
-		boyfriend.shader = new Sunset();
-
-		// shadow = new DropShadowShader();
-		// boyfriend.shader = shadow; // H = 350, S = 74, B = 22
-		// shadow.angle = 45;
-		// shadow.setAdjustColor(-66, -23, 5, 25);// b,h,c,s | -66, -23, 5, 25
-		// shadow.set
+		shadow = new DropShadowShader();
+		boyfriend.shader = shadow;
+		shadow.angle = 180;
+		shadow.strength = 0.9;
+		shadow.distance = 0;
+		shadow.threshold = 0.1;
+		shadow.color = 0x371116;
+		shadow.setAdjustColor(-60, 0, -40, -10);
 	}
 }

@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				-1
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "annie left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				3,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "annie right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-4,
+				-5
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "annie down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-3,
+				0
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "annie up",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 20,
+			"anim": "idle",
+			"indices": [],
+			"name": "annie idle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/annieDT",
+	"position": [
+		0,
+		80
+	],
+	"healthicon": "drive",
+	"flip_x": true,
+	"healthbar_colors": [
+		0,
+		255,
+		144
+	],
+	"camera_position": [
+		-350,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 0.9
+}

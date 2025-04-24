@@ -1,0 +1,11 @@
+{
+	"events": [
+		[
+			45000,
+			[
+				["Cinema Time", "", ""]
+			]
+		]
+	],
+	"format": "psych_v1"
+}

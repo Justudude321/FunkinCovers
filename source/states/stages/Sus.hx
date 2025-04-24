@@ -20,36 +20,36 @@ class Sus extends BaseStage
 	// var singer:Character;
 	// function target() {
 	// 	if (game.gf != null && PlayState.SONG.notes[curSection].gfSection)
-	// 		singer = game.gf;
+	// 		singer = gf;
 	// 	else if (!PlayState.SONG.notes[curSection].mustHitSection)
-	// 		singer = game.dad;
+	// 		singer = dad;
 	// 	else
-	// 		singer = game.boyfriend;
+	// 		singer = boyfriend;
 	// }
 
 	// var offset:Float = 20;
-	override function update(elapsed:Float)
-	{
-		// Yay for targetOffset
-		game.camFollow.setPosition(980, 660);
-		// target();
-		// switch(singer.animation.curAnim.name){
-		// 	case 'singLEFT':
-		// 		game.camGame.targetOffset.x = -offset;
-		// 		game.camGame.targetOffset.y = 0;
-		// 	case 'singDOWN':
-		// 		game.camGame.targetOffset.x = 0;
-		// 		game.camGame.targetOffset.y = offset;
-		// 	case 'singUP':
-		// 		game.camGame.targetOffset.x = 0;
-		// 		game.camGame.targetOffset.y = -offset;
-		// 	case 'singRIGHT':
-		// 		game.camGame.targetOffset.x = offset;
-		// 		game.camGame.targetOffset.y = 0;
-		// 	default://For anything that isn't singing, like idle
-		// 		game.camGame.targetOffset.x = 0;
-		// 		game.camGame.targetOffset.y = 0;
-		// }
-	}
+	// override function update(elapsed:Float)
+	// {
+	// 	// Yay for targetOffset
+	// 	camFollow.setPosition(980, 660);
+	// 	target();
+	// 	switch(singer.animation.curAnim.name){
+	// 		case 'singLEFT':
+	// 			camGame.targetOffset.x = -offset;
+	// 			camGame.targetOffset.y = 0;
+	// 		case 'singDOWN':
+	// 			camGame.targetOffset.x = 0;
+	// 			camGame.targetOffset.y = offset;
+	// 		case 'singUP':
+	// 			camGame.targetOffset.x = 0;
+	// 			camGame.targetOffset.y = -offset;
+	// 		case 'singRIGHT':
+	// 			camGame.targetOffset.x = offset;
+	// 			camGame.targetOffset.y = 0;
+	// 		default: // For anything that isn't singing, like idle
+	// 			camGame.targetOffset.x = 0;
+	// 			camGame.targetOffset.y = 0;
+	// 	}
+	// }
 	// Note: Originals made by stilic_dev, Blue (bluecolorsin), and Pumpsuki
 }

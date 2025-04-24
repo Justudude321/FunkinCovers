@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import objects.Note;
 
 class Alley extends BaseStage
 {
@@ -35,7 +36,7 @@ class Alley extends BaseStage
 		add(jacket);
 	}
 
-	var skinName:String = objects.Note.defaultNoteSkin + objects.Note.getNoteSkinPostfix();
+	var skinName:String = Note.defaultNoteSkin + Note.getNoteSkinPostfix();
 	override function stepHit()
 	{
 		// Code here
@@ -44,40 +45,53 @@ class Alley extends BaseStage
                 FlxTween.tween(FlxG.camera, {zoom: 1.3}, 2.5, {ease: FlxEase.sineIn, onComplete: 
                     function (twn:FlxTween) {cameraTwn = null;}
                 });
-            case 934:// Changes the notes RGB to dark notes
-                for(i in 0...unspawnNotes.length -1) 
-                    unspawnNotes[i].changeRGB('dark');
+
             case 957:
                 jacket.visible = true;
 			    FlxTween.tween(jacket, {x: 2500}, 0.15, {ease: FlxEase.linear, onComplete: 
 				function (twn:FlxTween) {jacket.visible = false;}});
-            case 960:// Changes Strums to dark notes
+
+            case 960:// Changes strums and notes RGB to dark notes, instantly :O
                 for(i in 0...game.strumLineNotes.length)
-                    PlayState.instance.strumLineNotes.members[i].texture = skinName + '-dark';
+                    game.strumLineNotes.members[i].set_texture(skinName + '-dark');
+                for (i in 0...game.notes.members.length)
+                    game.notes.members[i].changeRGB('dark');
+                for(i in 0...unspawnNotes.length)
+                    unspawnNotes[i].changeRGB('dark');
+
                 alleywall.visible = false;
                 alleyfloor.visible = false;
-            case 1191:// Normal notes
-                for(i in 0...unspawnNotes.length -1) 
-                    unspawnNotes[i].changeRGB();
-            case 1216:
+
+            case 1216:// Normal notes
                 for(i in 0...game.strumLineNotes.length)
-                    PlayState.instance.strumLineNotes.members[i].texture = skinName;
+                    game.strumLineNotes.members[i].set_texture(skinName);
+                for (i in 0...game.notes.members.length)
+                    game.notes.members[i].changeRGB();
+                for(i in 0...unspawnNotes.length)
+                    unspawnNotes[i].changeRGB();
+
                 alleywall.visible = true;
                 alleyfloor.visible = true;
-            case 1319:
-                for(i in 0...unspawnNotes.length -1) 
-                    unspawnNotes[i].changeRGB('dark');
+
             case 1344:
                 for(i in 0...game.strumLineNotes.length)
-                    PlayState.instance.strumLineNotes.members[i].texture = skinName + '-dark';
+                    game.strumLineNotes.members[i].set_texture(skinName + '-dark');
+                for (i in 0...game.notes.members.length)
+                    game.notes.members[i].changeRGB('dark');
+                for(i in 0...unspawnNotes.length)
+                    unspawnNotes[i].changeRGB('dark');
+                
                 alleywall.visible = false;
                 alleyfloor.visible = false;
-            case 1447:
-                for(i in 0...unspawnNotes.length -1) 
-                    unspawnNotes[i].changeRGB();
-            case 1472:
+                
+            case 1472:// Weh, stupid notesplash is still dark when it updates >_<
                 for(i in 0...game.strumLineNotes.length)
-                    PlayState.instance.strumLineNotes.members[i].texture = skinName;
+                    game.strumLineNotes.members[i].set_texture(skinName);
+                for (i in 0...game.notes.members.length)
+                    game.notes.members[i].changeRGB();
+                for(i in 0...unspawnNotes.length)
+                    unspawnNotes[i].changeRGB();
+
                 alleywall.visible = true;
                 alleyfloor.visible = true;
         }

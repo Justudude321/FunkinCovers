@@ -1,0 +1,20 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "Hey, what's that animal's name that has a holiday named after it in February?",
+			"boxState": "normal",
+			"portrait": "gf",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "Type your answer to Girlfriend in the title screen...",
+			"boxState": "normal",
+			"portrait": "gf",
+			"speed": 0.05,
+			"sound": ""
+		}
+	]
+}

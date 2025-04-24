@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				-1
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "gar left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				3,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "gar right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-4,
+				-5
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "gar down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-3,
+				0
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "gar up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "turn",
+			"fps": 24,
+			"name": "gar turn",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "gar idle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/gar",
+	"position": [
+		0,
+		100
+	],
+	"healthicon": "mcdeebles",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		115,
+		0
+	],
+	"camera_position": [
+		90,
+		-30
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
