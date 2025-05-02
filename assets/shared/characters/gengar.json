@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-105,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "gengar idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-105,
+				0
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "gengar up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-105,
+				0
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "gengar down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-105,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "gengar left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-105,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "gengar right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/gengar_assets",
+	"position": [
+		0,
+		80
+	],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [
+		169,
+		176,
+		189
+	],
+	"camera_position": [
+		-360,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 3.5
+}

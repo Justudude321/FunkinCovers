@@ -1,0 +1,50 @@
+{
+	"storyName": "Me - WIP",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "fern",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"rush",
+			"sonic",
+			[
+				40,
+				130,
+				255
+			]
+		],
+		[
+			"atrocity",
+			"skeleton",
+			[
+				122,
+				42,
+				29
+			]
+		],
+		[
+			"fitin",
+			"othersos",
+			[
+				255,
+				255,
+				255
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "me",
+	"hiddenUntilUnlocked": false
+}

@@ -1,0 +1,137 @@
+{
+	"events": [
+		[
+			18461.5384615385,
+			[
+				["Set Property", "defaultCamZoom", "0.8"]
+			]
+		],
+		[
+			21538.4615384615,
+			[
+				["Set Property", "defaultCamZoom", "0.9"]
+			]
+		],
+		[
+			24615.3846153846,
+			[
+				["Set Property", "defaultCamZoom", "0.8"]
+			]
+		],
+		[
+			27692.3076923077,
+			[
+				["Set Property", "defaultCamZoom", "0.7"]
+			]
+		],
+		[
+			46153.8461538462,
+			[
+				["Set Property", "defaultCamZoom", "0.8"]
+			]
+		],
+		[
+			47692.3076923077,
+			[
+				["Set Property", "defaultCamZoom", "0.9"]
+			]
+		],
+		[
+			48846.1538461539,
+			[
+				["Set Property", "defaultCamZoom", "0.7"]
+			]
+		],
+		[
+			61538.4615384616,
+			[
+				["Set Property", "defaultCamZoom", "0.8"]
+			]
+		],
+		[
+			64615.3846153846,
+			[
+				["Set Property", "defaultCamZoom", "0.9"]
+			]
+		],
+		[
+			67692.3076923077,
+			[
+				["Set Property", "defaultCamZoom", "0.8"]
+			]
+		],
+		[
+			70769.2307692308,
+			[
+				["Set Property", "defaultCamZoom", "0.7"]
+			]
+		],
+		[
+			73846.1538461538,
+			[
+				["Set Property", "defaultCamZoom", "0.8"]
+			]
+		],
+		[
+			75384.6153846154,
+			[
+				["Set Property", "defaultCamZoom", "0.7"]
+			]
+		],
+		[
+			78461.5384615384,
+			[
+				["Cinema Time", "", ""]
+			]
+		],
+		[
+			81538.4615384615,
+			[
+				["Set Property", "defaultCamZoom", "0.8"]
+			]
+		],
+		[
+			82692.3076923076,
+			[
+				["Set Property", "defaultCamZoom", "0.9"]
+			]
+		],
+		[
+			83076.923076923,
+			[
+				["Set Property", "defaultCamZoom", "0.7"]
+			]
+		],
+		[
+			95384.6153846153,
+			[
+				["Set Property", "defaultCamZoom", "0.75"]
+			]
+		],
+		[
+			96923.0769230768,
+			[
+				["Set Property", "defaultCamZoom", "0.8"]
+			]
+		],
+		[
+			98461.5384615383,
+			[
+				["Set Property", "defaultCamZoom", "0.85"]
+			]
+		],
+		[
+			99999.9999999999,
+			[
+				["Set Property", "defaultCamZoom", "0.9"]
+			]
+		],
+		[
+			101538.461538461,
+			[
+				["Set Property", "defaultCamZoom", "0.7"]
+			]
+		]
+	],
+	"format": "psych_v1"
+}

@@ -1,0 +1,126 @@
+{
+	"events": [
+		[
+			10454.5454545455,
+			[
+				["Play Animation", "sigh", "Dad"]
+			]
+		],
+		[
+			69818.1818181819,
+			[
+				["Play Animation", "no", "BF"]
+			]
+		],
+		[
+			81000,
+			[
+				["Play Animation", "transition", "BF"]
+			]
+		],
+		[
+			81454.5454545455,
+			[
+				["Play Animation", "hurt", "Dad"]
+			]
+		],
+		[
+			81636.3636363637,
+			[
+				["Change Character", "BF", "solid-guitar"]
+			]
+		],
+		[
+			82818.1818181819,
+			[
+				["Change Character", "1", "liquid-guitar"]
+			]
+		],
+		[
+			97454.5454545455,
+			[
+				["Play Animation", "reaction", "BF"]
+			]
+		],
+		[
+			98909.090909091,
+			[
+				["Play Animation", "reaction-loop", "BF"]
+			]
+		],
+		[
+			100363.636363636,
+			[
+				["Cinema Time", "", ""]
+			]
+		],
+		[
+			101818.181818182,
+			[
+				["Play Animation", "reaction", "BF"]
+			]
+		],
+		[
+			105636.363636364,
+			[
+				["Play Animation", "stop-loop", "BF"]
+			]
+		],
+		[
+			127636.363636364,
+			[
+				["Add Camera Zoom", "0.0075", "0.015"]
+			]
+		],
+		[
+			127818.181818182,
+			[
+				["Add Camera Zoom", "0.0075", "0.015"]
+			]
+		],
+		[
+			128000,
+			[
+				["Add Camera Zoom", "0.0075", "0.015"]
+			]
+		],
+		[
+			130090.909090909,
+			[
+				["Hey!", "GF", ""]
+			]
+		],
+		[
+			153636.363636364,
+			[
+				["Change Character", "0", "solid-mad"],
+				["Play Animation", "transition", "BF"]
+			]
+		],
+		[
+			154090.909090909,
+			[
+				["Screen Shake", "0.3, 0.01", "0.2, 0.02"]
+			]
+		],
+		[
+			157090.909090909,
+			[
+				["Play Animation", "transition", "Dad"]
+			]
+		],
+		[
+			158502.272727273,
+			[
+				["Change Character", "1", "liquid"]
+			]
+		],
+		[
+			180363.636363636,
+			[
+				["Screen Shake", "0.3, 0.01", "0.2, 0.01"]
+			]
+		]
+	],
+	"format": "psych_v1"
+}

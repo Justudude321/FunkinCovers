@@ -1,0 +1,50 @@
+{
+	"storyName": "Burnt - wip",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "me",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"brimstone",
+			"buried",
+			[
+				235,
+				235,
+				235
+			]
+		],
+		[
+			"pokemon-master",
+			"red",
+			[
+				255,
+				0,
+				0
+			]
+		],
+		[
+			"virgin-rage",
+			"liquid",
+			[
+				255,
+				153,
+				51
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "burnt"
+}

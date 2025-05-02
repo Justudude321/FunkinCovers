@@ -210,12 +210,9 @@ class PlayState extends MusicBeatState
 	public var cameraSpeed:Float = 1;
 
 	//Mod Stuff
-	public static var isDownscroll:Bool = false;
-	public static var isMiddlescroll:Bool = false;
 	public var oppHitDrain:Bool;
 	public var drainAmount:Float;
 	// public static var gimmickCount:Int = 0;
-	var flashBang:BGSprite;
 
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
@@ -278,8 +275,6 @@ class PlayState extends MusicBeatState
 	{
 		// Mod Stuff
 		// Changes made in Note, PlayState, and EditorPlayState
-		isDownscroll = ClientPrefs.data.downScroll;
-		isMiddlescroll = ClientPrefs.data.middleScroll;
 		drainAmount = 0.02;
 		oppHitDrain = false;
 
@@ -324,6 +319,7 @@ class PlayState extends MusicBeatState
 		camGame = initPsychCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
+		camGame.bgColor.alpha = 0; // Quick fix
 		camHUD.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
 
@@ -416,29 +412,29 @@ class PlayState extends MusicBeatState
 			case 'hall': new Hall();
 
 			// Me
-			// case 'leafstorm': new Leafstorm(); // rush sounds and count down
-			// case 'jelly': new Jelly();
-			// case 'fitin': new Fitin();
+			case 'leafstorm': new Leafstorm(); // rush sounds and count down
+			case 'jelly': new Jelly();
+			case 'fitin': new Fitin();
 			
 			// Burnt
-			// case 'tower': new Tower();
-			// case 'redstage': new Redstage();
-			// case 'singstar': new Singstar();
+			case 'tower': new Tower();
+			case 'redstage': new Redstage();
+			case 'singstar': new Singstar();
 
 			// Mystery
 			// case 'city': new City(); // maybe try the street light count down again?
 			// case 'bridge': new Bridge();
 			// case 'highschool': new Highschool();
-			// case 'jojo': new Jojo(); // hotline stuff
+			// case 'jojo': new Jojo();
 
 			// Two-Shots Part 1
 			// case 'shore': new Shore();
-			// case 'subway2': new Subway2(); // graffiti sound and countdown
-			// case 'custom': new Custom(); //Custom Song
+			// case 'subway2': new Subway2(); // Redo train code
+			// case 'custom': new Custom(); // Custom Song
 			// case 'neonalley': new NeonAlley();
 
 			// Two-Shots Part 2
-			// case 'idk': new IDK();//???
+			// case 'idk': new IDK(); // ???
 			// case 'cupstage': new Cupstage();
 			// case 'plantroom': new Plantroom();
 			// case 'rivalarena': new Rivalarena();
@@ -451,7 +447,7 @@ class PlayState extends MusicBeatState
 
 			// 100P
 			// case 'funkg': new Funkg();
-			// case 'bridge': new Bridge();//Shadow
+			// case 'bridge': new Bridge(); // Shadow
 		}
 		if(isPixelStage) introSoundsSuffix = '-pixel';
 
@@ -541,7 +537,7 @@ class PlayState extends MusicBeatState
 		add(noteGroup);
 
 		Conductor.songPosition = -Conductor.crochet * 5 + Conductor.offset;
-		var showTime:Bool = (ClientPrefs.data.timeBarType != 'Disabled');
+		var showTime:Bool = (ClientPrefs.data.timeBarType != 'Disabled' && curStage != 'tower');
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);
 		timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
@@ -611,7 +607,8 @@ class PlayState extends MusicBeatState
 		uiGroup.add(iconP2);
 
 		scoreTxt = new FlxText(0, healthBar.y + 40, FlxG.width, "", 20);
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		if (curStage == 'tower') scoreTxt.setFormat(Paths.font("poke.ttf"), 30, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		else scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.data.hideHud;
@@ -2371,7 +2368,7 @@ class PlayState extends MusicBeatState
 	function missingnoThing() {
 		if(opponentStrums.members[0].alpha != 0) for (i in opponentStrums)i.alpha = 0;
 			// ash algorithm
-			isDownscroll = FlxG.random.bool();
+			var isDownscroll:Bool = FlxG.random.bool();
 
 			for (i in 0...playerStrums.length) {
 				if (i == 0) {
@@ -3204,7 +3201,7 @@ class PlayState extends MusicBeatState
 							boyfriend.specialAnim = true;
 						}
 					case 'Glitch Note': 
-						if(boyfriend.animation.getByName('hurt') != null) {
+						if(boyfriend.hasAnimation('hurt')) {
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
 						}
@@ -3212,12 +3209,12 @@ class PlayState extends MusicBeatState
 						// gimmickCount++;
 					case 'Flash Note':
 						FlxG.sound.play(Paths.sound('modstuff/bang'));
-						if(boyfriend.animation.getByName('hurt') != null) {
+						if(boyfriend.hasAnimation('hurt')) {
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
 						}
 						
-						flashBang = new BGSprite(null,0,0);
+						var flashBang:BGSprite = new BGSprite(null,0,0);
 						flashBang.makeGraphic(Std.int(FlxG.width), Std.int(FlxG.height), FlxColor.WHITE);
 						flashBang.cameras = [camOther];
 						add(flashBang);
@@ -3228,7 +3225,7 @@ class PlayState extends MusicBeatState
 					case 'Sus Note':
 						// Need to investigate how sunky's gum notes work
 						FlxG.sound.play(Paths.sound('modstuff/Vineboom'));
-						if(boyfriend.animation.getByName('hurt') != null) {
+						if(boyfriend.hasAnimation('hurt')) {
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
 						}

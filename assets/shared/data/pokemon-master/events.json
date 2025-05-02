@@ -1,0 +1,47 @@
+{
+	"events": [
+		[
+			41739.1304347826,
+			[
+				["Change Character", "dad", "red-pixel"]
+			]
+		],
+		[
+			46956.5217391305,
+			[
+				["Change Character", "dad", "red"]
+			]
+		],
+		[
+			52173.9130434783,
+			[
+				["Change Character", "dad", "red-pixel"]
+			]
+		],
+		[
+			57391.3043478261,
+			[
+				["Change Character", "dad", "red"]
+			]
+		],
+		[
+			67826.0869565218,
+			[
+				["Cinema Time", "", ""]
+			]
+		],
+		[
+			86086.9565217393,
+			[
+				["Change Character", "dad", "red-pixel"]
+			]
+		],
+		[
+			103043.47826087,
+			[
+				["Change Character", "dad", "red"]
+			]
+		]
+	],
+	"format": "psych_v1"
+}
