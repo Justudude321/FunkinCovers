@@ -5,7 +5,7 @@
 			"offsets": [0, 0],
 			"anim": "idle",
 			"fps": 24,
-			"name": "Muk_Idle",
+			"name": "BA_Missingno_Idle",
 			"indices": []
 		},
 		{
@@ -13,67 +13,75 @@
 			"offsets": [0, 0],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "Muk_Left",
-			"indices": []
+			"name": "BA_Missingno_Left",
+			"indices": [0, 1, 2, 3, 4, 5, 6, 7]
 		},
 		{
 			"loop": false,
 			"offsets": [0, 0],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "Muk_Down",
-			"indices": []
+			"name": "BA_Missingno_Down",
+			"indices": [0, 1, 2, 3, 4, 5, 6, 7]
 		},
 		{
 			"loop": false,
 			"offsets": [0, 0],
 			"anim": "singUP",
 			"fps": 24,
-			"name": "Muk_Up",
-			"indices": []
+			"name": "BA_Missingno_Up",
+			"indices": [0, 1, 2, 3, 4, 5, 6, 7]
 		},
 		{
 			"loop": false,
 			"offsets": [0, 0],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "Muk_Right",
+			"name": "BA_Missingno_Right",
+			"indices": [0, 1, 2, 3, 4, 5, 6, 7]
+		},
+		{
+			"loop": false,
+			"offsets": [0, 0],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "BA_Missingno_Left Miss",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [0, 0],
-			"anim": "Intro",
+			"anim": "singDOWNmiss",
 			"fps": 24,
-			"name": "Muk_Intro",
+			"name": "BA_Missingno_Down Miss",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [0, 0],
-			"anim": "Puke",
+			"anim": "singUPmiss",
 			"fps": 24,
-			"name": "Muk_Puke",
+			"name": "BA_Missingno_Up Miss",
 			"indices": []
 		},
 		{
-			"offsets": [0, 0],
 			"loop": false,
+			"offsets": [0, 0],
+			"anim": "singRIGHTmiss",
 			"fps": 24,
-			"anim": "Leave",
-			"indices": [35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
-			"name": "Muk_Intro"
+			"name": "BA_Missingno_Right Miss",
+			"indices": []
 		}
 	],
 	"vocals_file": "",
 	"no_antialiasing": true,
-	"image": "characters/leanmonster",
-	"position": [413, 152],
+	"image": "characters/ba_missingno_assets",
+	"position": [-200, 440],
 	"healthicon": "face",
-	"flip_x": false,
+	"flip_x": true,
 	"healthbar_colors": [161, 161, 161],
-	"camera_position": [0, 0],
+	"camera_position": [-30, -250],
 	"sing_duration": 6.1,
 	"scale": 6,
-	"_editor_isPlayer": false
+	"_editor_isPlayer": true
 }

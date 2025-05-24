@@ -11,7 +11,6 @@ class Alley extends BaseStage
 	var alleywall:BGSprite;
 	var alleyfloor:BGSprite;
 	var jacket:BGSprite;
-	var cameraTwn:FlxTween;
 	override function create()
 	{
 		// Spawn your stage sprites here.
@@ -42,9 +41,7 @@ class Alley extends BaseStage
 		// Code here
         switch(curStep){
             case 928:// Camera zoom
-                FlxTween.tween(FlxG.camera, {zoom: 1.3}, 2.5, {ease: FlxEase.sineIn, onComplete: 
-                    function (twn:FlxTween) {cameraTwn = null;}
-                });
+                FlxTween.tween(FlxG.camera, {zoom: 1.3}, 2.5, {ease: FlxEase.sineIn});
 
             case 957:
                 jacket.visible = true;

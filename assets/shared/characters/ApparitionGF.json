@@ -1,78 +1,55 @@
 {
 	"animations": [
 		{
+			"offsets": [0, 0],
 			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "BAGF_Idle",
-			"indices": []
+			"indices": [],
+			"name": "BAGF_Idle"
 		},
 		{
+			"offsets": [0, 0],
 			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "BAGF_Left",
-			"indices": []
+			"indices": [],
+			"name": "BAGF_Left"
 		},
 		{
+			"offsets": [0, 0],
 			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "BAGF_Down",
-			"indices": []
+			"indices": [],
+			"name": "BAGF_Down"
 		},
 		{
+			"offsets": [0, 0],
 			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "BAGF_Up",
-			"indices": []
+			"indices": [],
+			"name": "BAGF_Up"
 		},
 		{
+			"offsets": [0, 0],
 			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "BAGF_Right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "BAGF_Right"
 		}
 	],
+	"vocals_file": "",
 	"no_antialiasing": true,
 	"image": "characters/apparitiongf_assets",
-	"position": [
-		95,
-		10
-	],
+	"position": [110, -75],
 	"healthicon": "face",
 	"flip_x": false,
-	"healthbar_colors": [
-		161,
-		161,
-		161
-	],
-	"camera_position": [
-		0,
-		0
-	],
+	"healthbar_colors": [161, 161, 161],
+	"camera_position": [0, 0],
 	"sing_duration": 6.1,
-	"scale": 3.5
+	"scale": 6,
+	"_editor_isPlayer": false
 }

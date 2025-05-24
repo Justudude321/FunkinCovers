@@ -1,111 +1,79 @@
 {
 	"animations": [
 		{
+			"offsets": [-105, 0],
 			"loop": false,
-			"offsets": [
-				-105,
-				0
-			],
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "buryman_idle",
-			"indices": []
+			"indices": [],
+			"name": "buryman_idle"
 		},
 		{
+			"offsets": [-105, 0],
 			"loop": false,
-			"offsets": [
-				-105,
-				0
-			],
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "buryman_up",
-			"indices": []
+			"indices": [],
+			"name": "buryman_up"
 		},
 		{
+			"offsets": [-105, 0],
 			"loop": false,
-			"offsets": [
-				-105,
-				0
-			],
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "buryman_down",
-			"indices": []
+			"indices": [],
+			"name": "buryman_down"
 		},
 		{
+			"offsets": [-105, 0],
 			"loop": false,
-			"offsets": [
-				-105,
-				0
-			],
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "buryman_left",
-			"indices": []
+			"indices": [],
+			"name": "buryman_left"
 		},
 		{
+			"offsets": [-105, 0],
 			"loop": false,
-			"offsets": [
-				-105,
-				0
-			],
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "buryman_right",
-			"indices": []
+			"indices": [],
+			"name": "buryman_right"
 		},
 		{
+			"offsets": [-105, 0],
 			"loop": false,
-			"offsets": [
-				-105,
-				0
-			],
+			"fps": 24,
 			"anim": "ground",
-			"fps": 24,
-			"name": "buryman_ground",
-			"indices": []
+			"indices": [],
+			"name": "buryman_ground"
 		},
 		{
+			"offsets": [-105, 0],
 			"loop": false,
-			"offsets": [
-				-105,
-				0
-			],
+			"fps": 24,
 			"anim": "laugh",
-			"fps": 24,
-			"name": "buryman_laugh",
-			"indices": []
+			"indices": [],
+			"name": "buryman_laugh"
 		},
 		{
+			"offsets": [-105, 0],
 			"loop": false,
-			"offsets": [
-				-105,
-				0
-			],
-			"anim": "scream",
 			"fps": 24,
-			"name": "buryman_scream",
-			"indices": []
+			"anim": "scream",
+			"indices": [],
+			"name": "buryman_scream"
 		}
 	],
+	"vocals_file": "",
 	"no_antialiasing": true,
 	"image": "characters/buryman_assets",
-	"position": [
-		0,
-		80
-	],
+	"position": [0, 80],
 	"healthicon": "face",
 	"flip_x": false,
-	"healthbar_colors": [
-		169,
-		176,
-		189
-	],
-	"camera_position": [
-		-220,
-		0
-	],
+	"healthbar_colors": [169, 176, 189],
+	"camera_position": [-220, 0],
 	"sing_duration": 4,
-	"scale": 3.5
+	"scale": 6,
+	"_editor_isPlayer": false
 }

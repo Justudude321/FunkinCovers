@@ -2,144 +2,109 @@ package shaders;
 
 import flixel.system.FlxAssets.FlxShader;
 
-// For brimestone, also has a gameboy shader
+// For brimstone, also has a gameboy shader
+// Optimized ig... idk
 class BrimCam extends FlxShader
 {
 	@:glFragmentSource('
 	#pragma header
-	float threshold = 0.125; // Threshold for dithering (0.0045 found to be optimal)
+
 	uniform float intensity = 0.0;
-	mat2 dither_2 = mat2(0.,1.,1.,0.);
+	const float threshold = 0.125;
 
-	struct dither_tile {
-		float height;
-	};
+	const vec3 gb_colors[4] = vec3[4](
+		vec3(8., 24., 32.) / 255.0,
+		vec3(52., 104., 86.) / 255.0,
+		vec3(136., 192., 112.) / 255.0,
+		vec3(224., 248., 208.) / 255.0
+	);
 
-	vec3[4] gb_colors() {
-		vec3 gb_colors[4];
-		gb_colors[0] = vec3(8., 24., 32.) / 255.;
-		gb_colors[1] = vec3(52., 104., 86.) / 255.;
-		gb_colors[2] = vec3(136., 192., 112.) / 255.;
-		gb_colors[3] = vec3(224., 248., 208.) / 255.;
-		return gb_colors;
+	const vec3 buried_eye_color = vec3(255.0, 0.0, 0.0) / 255.0;
+	const vec3 buried_grave_color = vec3(121.0, 133.0, 142.0) / 255.0;
+	const vec3 buried_wall_color = vec3(107., 130., 149.) / 255.0;
+
+	mat2 dither_2 = mat2(0.0, 1.0, 1.0, 0.0);
+
+	float get_dither(vec2 coord) {
+		// Returns 0.0 or 1.0 based on 2x2 Bayer matrix
+		return dither_2[int(mod(coord.x, 2.0))][int(mod(coord.y, 2.0))];
 	}
 
-	float[4] gb_colors_distance(vec3 color) {
-		float distances[4];
-		distances[0] = distance(color, gb_colors()[0]);
-		distances[1] = distance(color, gb_colors()[1]);
-		distances[2] = distance(color, gb_colors()[2]);
-		distances[3] = distance(color, gb_colors()[3]);
-		return distances;
+	int closest_index(vec3 color) {
+		float minDist = 1000.0;
+		int idx = 0;
+		for (int i = 0; i < 4; i++) {
+			float d = distance(color, gb_colors[i]);
+			if (d < minDist) {
+				minDist = d;
+				idx = i;
+			}
+		}
+		return idx;
 	}
 
 	vec3 closest_gb(vec3 color) {
-		int best_i = 0;
-		float best_d = 2.;
-		
-		vec3 gb_colors[4] = gb_colors();
-		for (int i = 0; i < 4; i++) {
-			float dis = distance(gb_colors[i], color);
-			if (dis < best_d) {
-				best_d = dis;
-				best_i = i;
-			}
-		}
-		return gb_colors[best_i];
+		return gb_colors[closest_index(color)];
 	}
 
-	vec3[2] gb_2_closest(vec3 color) {
-		float distances[4] = gb_colors_distance(color);
-		
-		int first_i = 0;
-		float first_d = 2.;
-		
-		int second_i = 0;
-		float second_d = 2.;
-		
-		for (int i = 0; i < distances.length(); i++) {
-			float d = distances[i];
-			if (distances[i] <= first_d) {
-				second_i = first_i;
-				second_d = first_d;
-				first_i = i;
-				first_d = d;
-			} else if (distances[i] <= second_d) {
-				second_i = i;
-				second_d = d;
+	void two_closest(vec3 color, out int firstIdx, out int secondIdx) {
+		float dists[4];
+		for (int i = 0; i < 4; i++) {
+			dists[i] = distance(color, gb_colors[i]);
+		}
+		firstIdx = 0;
+		secondIdx = 1;
+		if (dists[1] < dists[0]) {
+			firstIdx = 1;
+			secondIdx = 0;
+		}
+		for (int i = 2; i < 4; i++) {
+			if (dists[i] < dists[firstIdx]) {
+				secondIdx = firstIdx;
+				firstIdx = i;
+			} else if (dists[i] < dists[secondIdx]) {
+				secondIdx = i;
 			}
 		}
-		vec3 colors[4] = gb_colors();
-		vec3 result[2];
-		if (first_i < second_i)
-			result = vec3[2](colors[first_i], colors[second_i]);
-		else
-			result = vec3[2](colors[second_i], colors[first_i]);   
-		return result;
 	}
 
 	bool needs_dither(vec3 color) {
-		float distances[4] = gb_colors_distance(color);
-		
-		int first_i = 0;
-		float first_d = 2.;
-		
-		int second_i = 0;
-		float second_d = 2.;
-		
-		for (int i = 0; i < distances.length(); i++) {
-			float d = distances[i];
-			if (d <= first_d) {
-				second_i = first_i;
-				second_d = first_d;
-				first_i = i;
-				first_d = d;
-			} else if (d <= second_d) {
-				second_i = i;
-				second_d = d;
-			}
-		}
-		return abs(first_d - second_d) <= threshold;
+		int i1, i2;
+		two_closest(color, i1, i2);
+		float d1 = distance(color, gb_colors[i1]);
+		float d2 = distance(color, gb_colors[i2]);
+		return abs(d1 - d2) <= threshold;
 	}
 
-	vec3 return_gbColor(vec3 sampleColor) {
-		vec3 endColor;
-		if (needs_dither(sampleColor)) {
-			endColor = vec3(gb_2_closest(sampleColor)[int(dither_2[int(openfl_TextureCoordv.x)][int(openfl_TextureCoordv.y)])]);
-		} else
-			endColor = vec3(closest_gb(texture2D(bitmap, openfl_TextureCoordv).rgb));
-		return endColor;
+	vec3 get_dithered_color(vec3 color, vec2 coord) {
+		int i1, i2;
+		two_closest(color, i1, i2);
+		float d = get_dither(coord);
+		return (d < 0.5) ? gb_colors[i1] : gb_colors[i2];
 	}
-
-	vec3 buried_eye_color = vec3(255.0, 0.0, 0.0) / 255.0;
-	vec3 buried_grave_color = vec3(121.0, 133.0, 142.0) / 255.0;
-	vec3 buried_wall_color = vec3(107., 130., 149.) / 255.0;
 
 	void main() {
-		vec4 sampleColor = texture2D(bitmap, openfl_TextureCoordv);
-		vec3 colors[4] = gb_colors();
-		if (sampleColor.a != 0.0) {
-			vec3 colorB = return_gbColor(sampleColor.rgb);
-			vec4 newColor;
-			if (sampleColor.rgb == buried_eye_color)
-				colorB = colors[2];
-			if (sampleColor.rgb == buried_grave_color)
-				colorB = colors[2];
-			if (sampleColor.rgb == buried_wall_color)
-				colorB = colors[2];
-			newColor = vec4(mix(sampleColor.rgb * sampleColor.a, colorB.rgb, intensity), sampleColor.a);
-			gl_FragColor = newColor;
-		} else
-			gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
+		vec4 sample = texture2D(bitmap, openfl_TextureCoordv);
+		if (sample.a == 0.0) {
+			gl_FragColor = vec4(0.0);
+			return;
+		}
 
-		/*
-		vec3 gbColor = vec3(closest_gb(texture(bitmap, openfl_TextureCoordv).rgb));
-		// Output to screen
-		gl_FragColor = vec4(
-			mix(texture2D(bitmap, openfl_TextureCoordv).rgb * texture2D(bitmap, openfl_TextureCoordv).a, gbColor.rgb, intensity),
-			texture2D(bitmap, openfl_TextureCoordv).a
-		);
-		*/
+		vec3 color = sample.rgb;
+		vec3 finalColor;
+
+		// Apply overrides
+		if (all(equal(color, buried_eye_color)) ||
+			all(equal(color, buried_grave_color)) ||
+			all(equal(color, buried_wall_color))) {
+			finalColor = gb_colors[2];
+		} else if (needs_dither(color)) {
+			finalColor = get_dithered_color(color, gl_FragCoord.xy);
+		} else {
+			finalColor = closest_gb(color);
+		}
+
+		gl_FragColor = vec4(mix(color * sample.a, finalColor, intensity), sample.a);
 	}
 	')
 	public function new()

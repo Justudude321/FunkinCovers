@@ -4,7 +4,6 @@ import openfl.filters.ShaderFilter;
 import states.stages.objects.*;
 import shaders.Wavy;
 import shaders.BrimCam;
-import shaders.Vignette;
 
 class Tower extends BaseStage
 {
@@ -33,10 +32,8 @@ class Tower extends BaseStage
 
 	var waves:Wavy;
 	var pixelFilter:BrimCam;
-	var redThing:Vignette;
-	var camVig:FlxCamera;
 	override function create()
-	{//PlayState.defaultCamZoom = 0.55
+	{
 		// Spawn your stage sprites here.
 		// Characters are not ready yet on this function, so you can't add things above them yet.
 		// Use createPost() if that's what you want to do.
@@ -87,16 +84,10 @@ class Tower extends BaseStage
 		waves.iTime.value = [0];
 		waves.wavy.value = [0];
 		pixelFilter = new BrimCam();
-		pixelFilter.intensity.value = [0.0045]; // idk man
+		pixelFilter.intensity.value = [0]; // idk man
 		camGame.setFilters([new ShaderFilter(pixelFilter)]);
 		camHUD.setFilters([new ShaderFilter(pixelFilter)]);
-		
-		redThing = null;
-		camVig = new FlxCamera();	
-		camVig.bgColor.alpha = 0;
-		FlxG.cameras.add(camVig, false);
-		FlxG.cameras.list[2] = camVig; // Had to do this to fix pausing
-		FlxG.cameras.list[3] = camOther;
+		insert(6, dadGroup);
 	}
 
 	override function createPost()
@@ -113,34 +104,34 @@ class Tower extends BaseStage
 		sludge.updateHitbox();
 		add(sludge);
 		sludge.alpha = 0;
-
-		hand = new BGSprite('WA_assets', 888, 375, ['WH_Idle']);
+		
+		hand = new BGSprite('WA_assets', 348, 370, ['WH_Idle']);
 		hand.animation.addByPrefix('hi', 'WH_Intro', 24, false);
 		hand.animation.addByPrefix('idle', 'WH_Idle', 24, true);
 		hand.animation.addByPrefix('morph', 'WH_ToGF', 24, false);
-		hand.scale.set(3.5,3.5);
-		add(hand);
+		hand.scale.set(6,6);
+		addBehindGF(hand);
 		hand.alpha = 0;
 
-		shadow = new BGSprite('shadow', 910, 575);
-		shadow.scale.set(3.5,3.5);
-		add(shadow);
+		shadow = new BGSprite('shadow', 390, 635);
+		shadow.scale.set(6,6);
+		addBehindGF(shadow);
 		shadow.alpha = 0;
 
-		genEnter = new BGSprite('enter_gengar', 762, 372, ['gengar entrance']);
+		genEnter = new BGSprite('enter_gengar', 199, 361, ['gengar entrance']);
 		genEnter.animation.addByPrefix('boo', 'gengar entrance', 24, false);
 		genEnter.animation.addByPrefix('bye', 'gengar leave', 24, false);
-		genEnter.scale.set(3.5,3.5);
+		genEnter.scale.set(6,6);
 		add(genEnter);
 		genEnter.alpha = 0;
 
-		missingnoEnter = new BGSprite('missingnopokeball_assets', 562, 642, ['Ball_Throw']);
+		missingnoEnter = new BGSprite('missingnopokeball_assets', -147, 787, ['Ball_Throw']);
 		missingnoEnter.animation.addByPrefix('throw', 'Ball_Throw', 24, false);//beat 399
 		missingnoEnter.animation.addByPrefix('idle', 'Ball_Idle_Normal', 24, true);
 		missingnoEnter.animation.addByPrefix('cracking', 'Ball_Idle_Break', 24, true);
 		missingnoEnter.animation.addByPrefix('breaking', 'Ball_Break', 24, true);
 		missingnoEnter.animation.addByPrefix('burst', 'Ball_FinalBurst', 24, false);
-		missingnoEnter.scale.set(3.5,3.5);
+		missingnoEnter.scale.set(6,6);
 		add(missingnoEnter);
 		missingnoEnter.alpha = 0;
 
@@ -151,6 +142,11 @@ class Tower extends BaseStage
 		missingnoEnter.antialiasing = false;
 
 		setupHUD(false);
+		game.timeBar.visible = false;
+		game.healthBar.visible = false;
+		game.iconP1.visible = false;
+		game.iconP2.visible = false;
+		game.scoreTxt.y = 0;
 		gf.alpha = 0;
 		//bfDos.alpha = 0;
 	}
@@ -162,11 +158,13 @@ class Tower extends BaseStage
 	override function update(elapsed:Float)
 	{
 		// Code here
+		camFollow.setPosition(240, 545);
 		brimHealth.setGraphicSize(Std.int(156*(game.healthBar.percent/100)),Std.int(brimHealth.height));
 		brimHealth.updateHitbox();
 		if (game.health >= 0.5) brimHealth.color = FlxColor.WHITE;
 		else brimHealth.color = 0xffFF0000;
 		
+		// White hand floating
 		// Need to test Fitin's way of doing floating characters
 		// var currentBeat = (Conductor.songPosition/700) * (Conductor.bpm/200);
 		var daFrames:Float = (240/FlxG.updateFramerate);
@@ -182,29 +180,25 @@ class Tower extends BaseStage
 			gf.x += Math.cos(reset * daFrames) * 0.075 * daFrames;
 			shadow.x += Math.cos(reset * daFrames) * 0.075 * daFrames;
 		}
-		
 		if (curStep >= 3490) {
 			reset += 0.002;
 			gf.y += Math.sin(reset * daFrames) * 0.075 * daFrames;
 		}
 
+		// Shader Stuff
+		if (gf.alpha == 0 && hand.alpha == 0) {
+			currentGB = FlxMath.lerp(currentGB, targetGBvalue, 0.025);
+			pixelFilter.intensity.value = [currentGB];
+		}
+
 		if (curBeat >= 864) {
-			waves.iTime.value[0] -= 0.0038 * daFrames;
+			waves.iTime.value[0] -= FlxG.elapsed; //+= FlxG.elapsed, -= 0.0038 * daFrames
 			if (waves.wavy.value[0] <= 7.99){
-				// trace(waveVal);
 				waveVal = FlxMath.lerp(waveVal, 8, 0.025);
 				waves.wavy.value = [waveVal];
 			}
 			// -= ((elapsed / (1 / 60)) * 0.0125) / 2
 		}
-
-		if (pixelFilter != null) {
-			currentGB = FlxMath.lerp(currentGB, targetGBvalue, 0.025);
-			pixelFilter.intensity.value = [currentGB];
-		}
-
-		if (redThing != null)
-			redThing.time.value = [Conductor.songPosition / (Conductor.stepCrochet * 8)];
 	}
 
 	override function startSong()
@@ -216,12 +210,16 @@ class Tower extends BaseStage
 		open2.cameras = [camOther];
 		add(open1);
 		add(open2);
-		FlxTween.tween(open1, {x: -1300}, 2, {ease: FlxEase.linear, onComplete: 
-			function(twn:FlxTween) {open1.destroy();}
-		});
-		FlxTween.tween(open2, {x: 1300}, 2, {ease: FlxEase.linear, onComplete: 
-			function(twn:FlxTween) {open2.destroy();}
-		});	
+		FlxTween.tween(open1, {x: -1300}, 2, 
+			{ease: FlxEase.linear, onComplete: 
+			function(twn:FlxTween) {
+				open1.destroy();
+			}});
+		FlxTween.tween(open2, {x: 1300}, 2, 
+			{ease: FlxEase.linear, onComplete: 
+			function(twn:FlxTween) {
+				open2.destroy();
+			}});	
 	}
 
 	override function stepHit()
@@ -231,11 +229,8 @@ class Tower extends BaseStage
 			missingnoEnter.animation.play('throw', true);
 			missingnoEnter.alpha = 1;
 		}
-		if (curStep == 2703)
-			gf.alpha = 1;
 	}
 
-	var cameraTwn:FlxTween;
 	override function beatHit()
 	{
 		// Code here
@@ -294,17 +289,17 @@ class Tower extends BaseStage
 
 			case 864:
 				hand.animation.play('morph', true);
-				FlxTween.tween(hand, {y: 420}, 2, {onComplete: function(twn:FlxTween){}});
-				FlxTween.tween(shadow, {y: 700}, 2, {onComplete: function(twn:FlxTween){}});
-				FlxTween.tween(FlxG.camera, {zoom: 1.94}, 2.8, {ease: FlxEase.sineIn, onComplete: 
+				
+				FlxTween.tween(hand, {x: 388, y: 360}, 2);
+				FlxTween.tween(shadow, {x: 412, y: 860}, 2);
+				FlxTween.tween(FlxG.camera, {zoom: 0.94}, 2.8, 
+					{ease: FlxEase.sineIn, onComplete: 
 					function (twn:FlxTween) {
-					defaultCamZoom = 1.94;
-					cameraTwn = null;
-					}
-				});
-				FlxTween.tween(brimback, {alpha: 0}, 2.5, {onComplete: function(twn:FlxTween){}});
-				FlxTween.tween(brimfloor, {alpha: 0}, 2.5, {onComplete: function(twn:FlxTween){}});
-				FlxTween.tween(brimgraves, {alpha: 0}, 2.5, {onComplete: function(twn:FlxTween){}});
+						defaultCamZoom = 0.94;
+					}});
+				FlxTween.tween(brimback, {alpha: 0}, 2.5);
+				FlxTween.tween(brimfloor, {alpha: 0}, 2.5);
+				FlxTween.tween(brimgraves, {alpha: 0}, 2.5);
 					
 				brimback.shader = waves;
 				brimfloor.shader = waves;
@@ -319,16 +314,18 @@ class Tower extends BaseStage
 			case 872:
 				hand.alpha = 0;
 				gf.alpha = 1;
-						
-				redThing = new Vignette();
-				redThing.time.value = [0];
-				camVig.setFilters([new ShaderFilter(redThing)]);
+
+				brimback.shader = null;
+				brimfloor.shader = null;
+				brimgraves.shader = null;
+				brimback.destroy();
+				brimfloor.destroy();
+				brimgraves.destroy();
 			
 			case 875:
-				FlxTween.tween(FlxG.camera, {zoom: 0.94}, 2.8, {ease: FlxEase.linear, onComplete: 
+				FlxTween.tween(FlxG.camera, {zoom: 0.55}, 2.8, {ease: FlxEase.linear, onComplete: 
 					function (twn:FlxTween){
-					defaultCamZoom = 0.94;
-					cameraTwn = null;
+					defaultCamZoom = 0.55;
 					}
 				});
 		}
@@ -347,13 +344,9 @@ class Tower extends BaseStage
 					{
 						sludge.alpha = 1;
 						sludge.animation.play(Std.string(FlxG.random.int(0, 2)), true);
-						new FlxTimer().start(1.7, function(_)
+						new FlxTimer().start(1.8, function(_)
 						{
-							FlxTween.tween(sludge, {alpha: 0}, 3, {ease: FlxEase.sineIn, onComplete: 
-								function (twn:FlxTween) {
-								cameraTwn = null;
-								}
-							});
+							FlxTween.tween(sludge, {alpha: 0}, 3, {ease: FlxEase.sineIn});
 						});
 					});
 				}
@@ -424,18 +417,12 @@ class Tower extends BaseStage
 			}
 			else{
 				for (i in 0...game.opponentStrums.length) {
-					game.opponentStrums.members[i].alpha = 0;
+					game.opponentStrums.members[i].x = -200;
 					game.playerStrums.members[i].x = 442 + (offsetX*i);
 					if (isDownscroll)
 						game.playerStrums.members[i].y = 530;
 				}
 			}
-
-			game.timeBar.visible = false;
-			game.healthBar.visible = false;
-			game.iconP1.visible = false;
-			game.iconP2.visible = false;
-			game.scoreTxt.y = 0;
 		}	
 	}
 }
