@@ -2,8 +2,9 @@ package states.stages;
 
 import openfl.filters.ShaderFilter;
 import states.stages.objects.*;
-import shaders.Wavy;
+import shaders.DesatWave;
 import shaders.BrimCam;
+import shaders.Vignette;
 
 class Tower extends BaseStage
 {
@@ -13,9 +14,6 @@ class Tower extends BaseStage
 	var isDownscroll:Bool;
 	var isMiddlescroll:Bool;
 
-	var gray1:BGSprite;
-	var gray2:BGSprite;
-	var gray3:BGSprite;
 	var brimback:BGSprite;
 	var brimfloor:BGSprite;
 	var brimgraves:BGSprite;
@@ -30,8 +28,10 @@ class Tower extends BaseStage
 	var brimHealth:BGSprite;
 	var sludge:BGSprite;
 
-	var waves:Wavy;
+	var bgEffects:DesatWave;
 	var pixelFilter:BrimCam;
+	var redThing:Vignette;
+	var camVig:FlxCamera;
 	override function create()
 	{
 		// Spawn your stage sprites here.
@@ -42,37 +42,20 @@ class Tower extends BaseStage
 		isDownscroll = ClientPrefs.data.downScroll;
 		isMiddlescroll = ClientPrefs.data.middleScroll;
 		
-		gray1 = new BGSprite('brimstoneBack-gray', -1130, -350);
-		gray2 = new BGSprite('floor-gray', -1130, -350);
-		gray3 = new BGSprite('graves-gray', -1130, -350);
 		brimback = new BGSprite('brimstoneBack', -1130, -350);
 		brimfloor = new BGSprite('floor', -1130, -350);
 		brimgraves = new BGSprite('graves', -1130, -350);
-
-		gray1.setGraphicSize(Std.int(gray1.width * 6));
-		gray1.updateHitbox();
-		gray2.setGraphicSize(Std.int(gray2.width * 6));
-		gray2.updateHitbox();
-		gray3.setGraphicSize(Std.int(gray3.width * 6));
-		gray3.updateHitbox();
 		brimback.setGraphicSize(Std.int(brimback.width * 6));
 		brimback.updateHitbox();
 		brimfloor.setGraphicSize(Std.int(brimfloor.width * 6));
 		brimfloor.updateHitbox();
 		brimgraves.setGraphicSize(Std.int(brimgraves.width * 6));
 		brimgraves.updateHitbox();
-
-		add(gray1);
-		add(gray2);
-		add(gray3);
 		add(brimback);
 		add(brimfloor);
 		add(brimgraves);
 
 		setupHUD(true);
-		gray1.antialiasing = false;
-		gray2.antialiasing = false;
-		gray3.antialiasing = false;
 		brimback.antialiasing = false;
 		brimfloor.antialiasing = false;
 		brimgraves.antialiasing = false;
@@ -80,14 +63,18 @@ class Tower extends BaseStage
 		game.skipCountdown = true;
 
 		// Shader Stuff
-		waves = new Wavy();
-		waves.iTime.value = [0];
-		waves.wavy.value = [0];
+		bgEffects = new DesatWave();
 		pixelFilter = new BrimCam();
-		pixelFilter.intensity.value = [0]; // idk man
 		camGame.setFilters([new ShaderFilter(pixelFilter)]);
 		camHUD.setFilters([new ShaderFilter(pixelFilter)]);
-		insert(6, dadGroup);
+
+		redThing = null;
+		camVig = new FlxCamera();	
+		camVig.bgColor.alpha = 1; // This fixes the ram, kinda??
+		FlxG.cameras.add(camVig, false);
+		FlxG.cameras.list[2] = camVig; // Had to do this to fix pausing
+		FlxG.cameras.list[3] = camOther;
+		insert(3, dadGroup);
 	}
 
 	override function createPost()
@@ -153,7 +140,7 @@ class Tower extends BaseStage
 
 	var currentGB:Float = 0;
 	var targetGBvalue:Float = 0;
-	var waveVal:Float = 0;
+	var lerpVal:Float = 0;
 	var reset:Float = 0;
 	override function update(elapsed:Float)
 	{
@@ -165,40 +152,40 @@ class Tower extends BaseStage
 		else brimHealth.color = 0xffFF0000;
 		
 		// White hand floating
-		// Need to test Fitin's way of doing floating characters
-		// var currentBeat = (Conductor.songPosition/700) * (Conductor.bpm/200);
-		var daFrames:Float = (240/FlxG.updateFramerate);
+		var frameLerp:Float = 240 * elapsed;
 		if (curBeat >= 808 && curBeat <= 872) {
-			// hand.y += Math.cos((currentBeat * 0.25) * Math.PI)
 			reset += 0.006;
-			hand.y += Math.cos(reset * daFrames) * 0.075 * daFrames;	
+			hand.y += Math.cos(reset * frameLerp) * 0.075 * frameLerp;	
 		}
 
 		// GF Apparition float stuff
 		if (curStep >= 3488) {
 			reset += 0.002;
-			gf.x += Math.cos(reset * daFrames) * 0.075 * daFrames;
-			shadow.x += Math.cos(reset * daFrames) * 0.075 * daFrames;
+			gf.x += Math.cos(reset * frameLerp) * 0.075 * frameLerp;
+			shadow.x += Math.cos(reset * frameLerp) * 0.075 * frameLerp;
 		}
 		if (curStep >= 3490) {
 			reset += 0.002;
-			gf.y += Math.sin(reset * daFrames) * 0.075 * daFrames;
+			gf.y += Math.sin(reset * frameLerp) * 0.075 * frameLerp;
 		}
 
 		// Shader Stuff
 		if (gf.alpha == 0 && hand.alpha == 0) {
-			currentGB = FlxMath.lerp(currentGB, targetGBvalue, 0.025);
+			currentGB = FlxMath.lerp(currentGB, targetGBvalue, 0.0125 * frameLerp);
 			pixelFilter.intensity.value = [currentGB];
 		}
 
 		if (curBeat >= 864) {
-			waves.iTime.value[0] -= FlxG.elapsed; //+= FlxG.elapsed, -= 0.0038 * daFrames
-			if (waves.wavy.value[0] <= 7.99){
-				waveVal = FlxMath.lerp(waveVal, 8, 0.025);
-				waves.wavy.value = [waveVal];
+			bgEffects.time.value[0] -= (frameLerp * 0.01) / 8;
+			if (lerpVal <= 7.99){
+				lerpVal = FlxMath.lerp(lerpVal, 8, 0.004 * frameLerp);
+				bgEffects.intensity.value = [lerpVal];
+				bgEffects.desat.value = [(lerpVal/8)];
 			}
-			// -= ((elapsed / (1 / 60)) * 0.0125) / 2
 		}
+
+		if (redThing != null)
+			redThing.time.value = [Conductor.songPosition / (Conductor.stepCrochet * 8)];
 	}
 
 	override function startSong()
@@ -297,16 +284,10 @@ class Tower extends BaseStage
 					function (twn:FlxTween) {
 						defaultCamZoom = 0.94;
 					}});
-				FlxTween.tween(brimback, {alpha: 0}, 2.5);
-				FlxTween.tween(brimfloor, {alpha: 0}, 2.5);
-				FlxTween.tween(brimgraves, {alpha: 0}, 2.5);
 					
-				brimback.shader = waves;
-				brimfloor.shader = waves;
-				brimgraves.shader = waves;
-				gray1.shader = waves;
-				gray2.shader = waves;
-				gray3.shader = waves;
+				brimback.shader = bgEffects;
+				brimfloor.shader = bgEffects;
+				brimgraves.shader = bgEffects;
 			
 			case 868:
 				gf.alpha = 0;
@@ -315,12 +296,10 @@ class Tower extends BaseStage
 				hand.alpha = 0;
 				gf.alpha = 1;
 
-				brimback.shader = null;
-				brimfloor.shader = null;
-				brimgraves.shader = null;
-				brimback.destroy();
-				brimfloor.destroy();
-				brimgraves.destroy();
+				redThing = new Vignette();
+				redThing.intenMin.value = [0.0];
+				redThing.intenGain.value = [0.3];
+				camVig.setFilters([new ShaderFilter(redThing)]);
 			
 			case 875:
 				FlxTween.tween(FlxG.camera, {zoom: 0.55}, 2.8, {ease: FlxEase.linear, onComplete: 

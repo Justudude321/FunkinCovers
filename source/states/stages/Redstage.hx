@@ -63,19 +63,6 @@ class Redstage extends BaseStage
 			charizard.visible = false;
 			pika.visible = false;
 			pokeBattle.visible = false;
-			// PlayState.stageUI = "pixel";
-			// for(i in 0...game.strumLineNotes.length)
-            //     game.strumLineNotes.members[i].strumRGB();
-            // for (i in 0...game.notes.members.length)
-			// 	if(!game.notes.members[i].gimmick){
-			// 		game.notes.members[i].reloadNote();
-			// 		game.notes.members[i].changeRGB();
-			// 	}
-            // for(i in 0...unspawnNotes.length)
-			// 	if(!unspawnNotes[i].gimmick){
-            //     	unspawnNotes[i].reloadNote();
-            // 	    unspawnNotes[i].changeRGB();
-			// 	}
 		}
 		if(curBeat == 144 || curBeat == 176 || curBeat == 316){
 			pixelCharizard.visible = false;
@@ -83,19 +70,6 @@ class Redstage extends BaseStage
 			charizard.visible = true;
 			pika.visible = true;
 			pokeBattle.visible = true;
-			// PlayState.stageUI = "normal";
-			// for(i in 0...game.strumLineNotes.length)
-            //     game.strumLineNotes.members[i].strumRGB();
-            // for (i in 0...game.notes.members.length)
-			// 	if(!game.notes.members[i].gimmick){
-			// 		game.notes.members[i].reloadNote();
-			// 		game.notes.members[i].changeRGB();
-			// 	}
-            // for(i in 0...unspawnNotes.length)
-			// 	if(!unspawnNotes[i].gimmick){
-            //     	unspawnNotes[i].reloadNote();
-            // 	    unspawnNotes[i].changeRGB();
-			// 	}
 		}
 	}
 
