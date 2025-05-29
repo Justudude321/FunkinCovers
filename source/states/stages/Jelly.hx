@@ -32,7 +32,7 @@ class Jelly extends BaseStage
 		// Code here
 		switch(curStep){
 			case 128:
-				FlxTween.tween(camHUD, {alpha: 1}, 1, {onComplete: function(twn:FlxTween){}});
+				FlxTween.tween(camHUD, {alpha: 1}, 1);
 				game.cameraSpeed = 1;
 			
 			case 1529:
@@ -65,9 +65,11 @@ class Jelly extends BaseStage
 			flash.makeGraphic(Std.int(FlxG.width), Std.int(FlxG.height), FlxColor.WHITE);
 			flash.cameras = [camOther];
 			add(flash);
-			FlxTween.tween(flash, {alpha: 0}, 0.4, {ease: FlxEase.quartIn, onComplete: 
-				function(twn:FlxTween){flash.destroy();}
-			});
+			FlxTween.tween(flash, {alpha: 0}, 0.4, 
+				{ease: FlxEase.quartIn, onComplete: 
+				function(twn:FlxTween){
+					flash.destroy();
+				}});
 		}
 	}
 }

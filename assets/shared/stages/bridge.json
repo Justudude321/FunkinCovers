@@ -1,0 +1,28 @@
+{
+	"directory": "mystery",
+	"defaultZoom": 0.42,
+	"stageUI": "",
+
+	"boyfriend": [1600, 350],
+	"girlfriend": [945, 330],
+	"opponent": [400, 350],
+	"hide_girlfriend": false,
+
+	"camera_boyfriend": [-200, -330],
+	"camera_opponent": [0, 0],
+	"camera_girlfriend": [0, -200],
+	"camera_speed": 1,
+
+	"preload": {
+		"images/background": 3,
+		"images/bridge": 2,
+		"images/foreground": 3,
+		"images/AceCrowd": 2
+	},
+
+	"_editorMeta": {
+		"dad": "ace",
+		"boyfriend": "tester2",
+		"gf": "gf"
+	}
+}

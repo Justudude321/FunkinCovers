@@ -45,8 +45,11 @@ class Alley extends BaseStage
 
             case 957:
                 jacket.visible = true;
-			    FlxTween.tween(jacket, {x: 2500}, 0.15, {ease: FlxEase.linear, onComplete: 
-				function (twn:FlxTween) {jacket.visible = false;}});
+			    FlxTween.tween(jacket, {x: 2500}, 0.15, 
+                    {ease: FlxEase.linear, onComplete:
+                    function (twn:FlxTween) {
+                        jacket.visible = false;
+                    }});
 
             case 960:// Changes strums and notes RGB to dark notes, instantly :O
                 for(i in 0...game.strumLineNotes.length)

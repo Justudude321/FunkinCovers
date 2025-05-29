@@ -422,10 +422,10 @@ class PlayState extends MusicBeatState
 			case 'singstar': new Singstar();
 
 			// Mystery
-			// case 'city': new City(); // maybe try the street light count down again?
-			// case 'bridge': new Bridge();
-			// case 'highschool': new Highschool();
-			// case 'jojo': new Jojo();
+			case 'city': new City(); // maybe try the street light count down again?
+			case 'bridge': new Bridge();
+			case 'highschool': new Highschool();
+			case 'jojo': new Jojo();
 
 			// Two-Shots Part 1
 			// case 'shore': new Shore();

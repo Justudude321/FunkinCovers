@@ -1,0 +1,59 @@
+{
+	"storyName": "Mystery - wip",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "burnt",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"heart",
+			"vg",
+			[
+				210,
+				47,
+				86
+			]
+		],
+		[
+			"groundhog-day",
+			"ace",
+			[
+				157,
+				205,
+				245
+			]
+		],
+		[
+			"xj",
+			"jenny",
+			[
+				36,
+				215,
+				235
+			]
+		],
+		[
+			"killer-queen",
+			"nikku_jojo",
+			[
+				178,
+				14,
+				54
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "mystery",
+	"hiddenUntilUnlocked": false
+}

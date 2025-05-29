@@ -90,18 +90,14 @@ class Singstar extends BaseStage
 	{
 		// Code here
 		if(curStep == 1072)
-			FlxTween.tween(menace, {alpha: 1}, ((Conductor.stepCrochet / 1000) * 16) * 6 / 2, 
-			{ease: FlxEase.quadIn, onComplete: 
-				function(twn:FlxTween){}
-			});
+			FlxTween.tween(menace, {alpha: 1}, ((Conductor.stepCrochet / 1000) * 16) * 6 / 2, {ease: FlxEase.quadIn});
 
 		if(curStep == 1168)
 			FlxTween.tween(menace, {alpha: 0}, 0.7, 
 			{ease: FlxEase.quadOut, onComplete: 
-				function(twn:FlxTween){
-					menace.destroy();
-				}
-			});
+			function(twn:FlxTween){
+				menace.destroy();
+			}});
 	}
 
 	override function opponentNoteHit(note:Note)
