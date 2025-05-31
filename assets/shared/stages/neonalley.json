@@ -1,0 +1,29 @@
+{
+	"directory": "twoshots-1",
+	"defaultZoom": 0.50,
+	"stageUI": "",
+
+	"boyfriend": [800, 420],
+	"girlfriend": [250, -100],
+	"opponent": [-50, 0],
+	"hide_girlfriend": true,
+
+	"camera_boyfriend": [-50, 50],
+	"camera_opponent": [50, -50],
+	"camera_girlfriend": [850, 350],
+	"camera_speed": 1,
+
+    "preload": {
+		"images/back": 2,
+		"images/neon": 2,
+		"images/blend_02": 3,
+		"images/blend_01": 3,
+		"images/front": 3
+	},
+
+	"_editorMeta": {
+		"dad": "senpai",
+		"boyfriend": "monika",
+		"gf": "gf"
+	}
+}

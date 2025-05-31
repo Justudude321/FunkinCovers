@@ -1,0 +1,670 @@
+{
+	"events": [
+		[
+			-4000,
+			[
+				["Camera Follow Pos", "700", "450"]
+			]
+		],
+		[
+			0,
+			[
+				["Black Bars", "100", "0.2, cubeout"],
+				["Play Animation", "drink", "Dad"],
+				["Camera Follow Pos", "", ""]
+			]
+		],
+		[
+			2880,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			3000,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			3120,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			3240,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			3360,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			3480,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			3600,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			3720,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			3840,
+			[
+				["Add Camera Zoom", "0.3", ""]
+			]
+		],
+		[
+			5760,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			6960,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			7080,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			7200,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			7320,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			7440,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			7560,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			7680,
+			[
+				["Add Camera Zoom", "0.3", ""]
+			]
+		],
+		[
+			9600,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			11520,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			13440,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			15360,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			15480,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			15600,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			15720,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			19200,
+			[
+				["Add Camera Zoom", "0.2", ""],
+				["Black Bars", "125", ""]
+			]
+		],
+		[
+			19680,
+			[
+				["Add Camera Zoom", "0.2", ""],
+				["Black Bars", "145", ""]
+			]
+		],
+		[
+			20160,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			20400,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			20520,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			20640,
+			[
+				["Black Bars", "100", "2, cubeout"]
+			]
+		],
+		[
+			21120,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			23040,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			24960,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			25680,
+			[
+				["Subway Train", "7", ""]
+			]
+		],
+		[
+			26880,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			27360,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			27840,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			28800,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			30720,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			32640,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			34560,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			34920,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			35280,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			35520,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			35760,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			36000,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			36480,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			36840,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			37200,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			37440,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			37680,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			37920,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			38400,
+			[
+				["Add Camera Zoom", "0.1", ""],
+				["Cinema Time", "", ""]
+			]
+		],
+		[
+			38760,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			39120,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			39360,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			39600,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			39840,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			40320,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			40680,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			41040,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			41280,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			41400,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			41520,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			41640,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			41760,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			41880,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			42000,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			42120,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			42240,
+			[
+				["Add Camera Zoom", "0.3", ""]
+			]
+		],
+		[
+			44160,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			45360,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			45480,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			45600,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			45720,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			45840,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			45960,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			46080,
+			[
+				["Add Camera Zoom", "0.3", ""]
+			]
+		],
+		[
+			48000,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			49920,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			51840,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			53760,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			53880,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			54000,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			54120,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			54360,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			54480,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			54600,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			54720,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			55680,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			57600,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			59520,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			61440,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			63360,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			65280,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			67200,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			69120,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			71040,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			72960,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			73560,
+			[
+				["Subway Train", "7", ""]
+			]
+		],
+		[
+			74880,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			76800,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			78720,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			80640,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			82560,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			84480,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			86400,
+			[
+				["Add Camera Zoom", "0.1", ""]
+			]
+		],
+		[
+			88320,
+			[
+				["Add Camera Zoom", "0.3", ""]
+			]
+		]
+	],
+	"format": "psych_v1"
+}

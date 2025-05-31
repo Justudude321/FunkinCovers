@@ -412,7 +412,7 @@ class PlayState extends MusicBeatState
 			case 'hall': new Hall();
 
 			// Me
-			case 'leafstorm': new Leafstorm(); // rush sounds and count down
+			case 'leafstorm': new Leafstorm();
 			case 'jelly': new Jelly();
 			case 'fitin': new Fitin();
 			
@@ -428,10 +428,10 @@ class PlayState extends MusicBeatState
 			case 'jojo': new Jojo();
 
 			// Two-Shots Part 1
-			// case 'shore': new Shore();
-			// case 'subway2': new Subway2(); // Redo train code
+			case 'shore': new Shore();
+			case 'subway': new Subway(); // Redo train code
 			// case 'custom': new Custom(); // Custom Song
-			// case 'neonalley': new NeonAlley();
+			case 'neonalley': new NeonAlley();
 
 			// Two-Shots Part 2
 			// case 'idk': new IDK(); // ???

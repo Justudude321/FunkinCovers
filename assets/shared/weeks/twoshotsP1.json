@@ -1,0 +1,50 @@
+{
+	"storyName": "2shots part1 - wip",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "mystery",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"no-heroes-dx",
+			"scourge",
+			[
+				0,
+				195,
+				80
+			]
+		],
+		[
+			"soda-pop",
+			"skarlet",
+			[
+				225,
+				47,
+				106
+			]
+		],
+		[
+			"wilted",
+			"senpai-real",
+			[
+				255,
+				155,
+				83
+			]
+		]
+	],
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "twoshotsP1"
+}

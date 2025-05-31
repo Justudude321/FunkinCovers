@@ -1,0 +1,63 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [0, 0],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Senpai Returns0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [32, 12],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Senpai Returns Left0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-16, 4],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Senpai Returns Right0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-3, 34],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Senpai Returns Up0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-6, -53],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Senpai Returns Down0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [4, 8],
+			"anim": "swap",
+			"fps": 24,
+			"name": "Senpai Swap0",
+			"indices": []
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/SenpaiNonPixel_Assets",
+	"position": [-10, 90],
+	"healthicon": "senpai-real",
+	"flip_x": false,
+	"healthbar_colors": [255, 170, 111],
+	"camera_position": [50, 70],
+	"sing_duration": 4,
+	"scale": 0.9,
+	"_editor_isPlayer": false
+}

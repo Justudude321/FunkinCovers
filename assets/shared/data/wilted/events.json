@@ -1,0 +1,23 @@
+{
+	"events": [
+		[
+			68571.4285714286,
+			[
+				["Change Character", "dad", "senpai-angry"]
+			]
+		],
+		[
+			87455.3571428572,
+			[
+				["Cinema Time", "", ""]
+			]
+		],
+		[
+			87857.1428571429,
+			[
+				["Change Character", "dad", "senpai-nonpixel"]
+			]
+		]
+	],
+	"format": "psych_v1"
+}

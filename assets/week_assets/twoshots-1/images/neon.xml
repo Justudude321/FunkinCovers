@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="neon.png">
+	<!-- Created with Adobe Animate version 22.0.10.305 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="neon_tick0000" x="0" y="0" width="1929" height="346"/>
+	<SubTexture name="neon_tick0001" x="0" y="353" width="1929" height="346"/>
+	<SubTexture name="neon_tick0002" x="0" y="0" width="1929" height="346"/>
+	<SubTexture name="neon_tick0003" x="0" y="353" width="1929" height="346"/>
+</TextureAtlas>

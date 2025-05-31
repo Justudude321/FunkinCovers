@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				256,
+				-142
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "SCOURGE Left"
+		},
+		{
+			"offsets": [
+				273,
+				51
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "SCOURGE Up"
+		},
+		{
+			"offsets": [
+				95,
+				-63
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "SCOURGE Right"
+		},
+		{
+			"offsets": [
+				196,
+				-147
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "SCOURGE Down"
+		},
+		{
+			"offsets": [
+				234,
+				7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "SCOURGE Idle"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/scourge",
+	"position": [
+		120,
+		60
+	],
+	"healthicon": "scourge",
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		250,
+		85
+	],
+	"camera_position": [
+		-140,
+		50
+	],
+	"sing_duration": 4.50000000000001,
+	"scale": 1.1
+}
