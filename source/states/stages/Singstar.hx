@@ -9,6 +9,7 @@ class Singstar extends BaseStage
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
 
 	var menace:BGSprite;
+	var mic:BGSprite;
 	override function create()
 	{
 		// Spawn your stage sprites here.
@@ -16,12 +17,10 @@ class Singstar extends BaseStage
 		// Use createPost() if that's what you want to do.
         var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 		add(bg);
-
 		var stageFront:BGSprite = new BGSprite('stagefront', -650, 600, 0.9, 0.9);
 		stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 		stageFront.updateHitbox();
 		add(stageFront);
-
 		menace = new BGSprite('liquidred', -605, -190, 0.9, 0.9);
 		add(menace);
 		menace.alpha = 0;
@@ -36,7 +35,6 @@ class Singstar extends BaseStage
 			stageLight.updateHitbox();
 			stageLight.flipX = true;
 			add(stageLight);
-
 			var stageCurtains:BGSprite = new BGSprite('stagecurtains', -500, -300, 1.3, 1.3);
 			stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 			stageCurtains.updateHitbox();
@@ -52,11 +50,17 @@ class Singstar extends BaseStage
 		// Use this function to layer things above characters!
 		offsetX = dad.x + 10;
 		offsetY = dad.y;
+
 		sparkles = new BGSprite('sparkles', offsetX, offsetY, ['cool sparkles0']);
 		sparkles.animation.addByPrefix('idle', 'cool sparkles0', 24, true);
 		sparkles.animation.addByPrefix('hey', 'cool sparkles hey', 24, true);
 		sparkles.animation.play("idle", true);
 		add(sparkles);
+		mic = new BGSprite('micthrow', -577.5, 155, ['micthrow anim']);
+		mic.animation.addByPrefix('throw', 'micthrow anim', 24, false);
+		mic.animation.addByPrefix('hit', 'micthrow hit', 24, false);
+		add(mic);
+		mic.alpha = 0;
 
 		game.oppHitDrain = true;
 		game.drainAmount = 0.0182;
@@ -65,8 +69,8 @@ class Singstar extends BaseStage
 	override function update(elapsed:Float)
 	{
 		// Code here
-		var daAnim:String = dad.animation.curAnim.name;
-		if(daAnim == 'hey'){
+		var dadAnim:String = dad.animation.curAnim.name;
+		if(dadAnim == 'hey'){
 			sparkles.animation.play("hey", true);
 			sparkles.x = offsetX;
 			sparkles.y = offsetY;
@@ -75,29 +79,108 @@ class Singstar extends BaseStage
 				sparkles.animation.play('idle', true);
 			};
 		}
-		else if(daAnim == 'idle'){
+		else if(dadAnim == 'idle'){
 			sparkles.x = offsetX;
 			sparkles.y = offsetY;
 		}
-		sparkles.visible = (daAnim == 'hurt' || daAnim == 'shocked') ?
+		sparkles.visible = (dadAnim == 'hurt' || dadAnim == 'shocked') ?
 		false : true;
 
-		// if getProperty('dad.curCharacter') == 'liquid-guitar' and getProperty('dad.animation.curAnim.name') == 'transition' and getProperty('dad.animation.curAnim.finished') then
-		// 	triggerEvent("Change Character", '1', 'liquid')
+		// Timing with mic
+		if(dadAnim == 'hurt' && dad.animation.curAnim.curFrame == 7)
+			mic.destroy();
+		if (boyfriend.curCharacter == "solid" && boyfriend.animation.curAnim.name == "transition"){
+			if (boyfriend.animation.curAnim.curFrame == 9){
+				mic.alpha = 1;
+				mic.animation.play('throw', true);
+			}
+		}
+
+		// Force camera
+		if (curStep >= 1150 && curStep < 1156)
+			camFollow.setPosition(1017.5, 545);
+		if (curStep >= 1072 && curStep < 1168)
+			game.camZooming = false;
 	}
 	
 	override function stepHit()
 	{
 		// Code here
-		if(curStep == 1072)
-			FlxTween.tween(menace, {alpha: 1}, ((Conductor.stepCrochet / 1000) * 16) * 6 / 2, {ease: FlxEase.quadIn});
+		switch(curStep){
+			case 871:// Zoom to transition
+				FlxTween.tween(camFollow, {x: 717.5}, (Conductor.stepCrochet / 1000) * 24, {ease: FlxEase.sineOut});
+				FlxTween.tween(camFollow, {y: 445}, (Conductor.stepCrochet / 1000) * 24, {ease: FlxEase.sineIn});
+				FlxTween.tween(camGame, {zoom: 0.7}, (Conductor.stepCrochet / 1000) * 20, {ease: FlxEase.quintIn});
+			
+			case 880:
+				camFollow.setPosition(867.5, 545);
+				FlxTween.tween(camGame, {zoom: 0.7}, (Conductor.stepCrochet / 1000) * 15, {ease: FlxEase.quadIn});
+			
+			case 1072:// Opp pops off
+				FlxTween.tween(menace, {alpha: 1}, ((Conductor.stepCrochet / 1000) * 16) * 6 / 2, {ease: FlxEase.quadIn});
+				FlxTween.tween(camGame, {zoom: 1.4}, ((Conductor.stepCrochet / 1000) * 16) * 6, {ease: FlxEase.quadIn});
+				FlxTween.tween(camFollow, {x: 452}, ((Conductor.stepCrochet / 1000) * 16) * 4, {ease: FlxEase.quadOut});
 
-		if(curStep == 1168)
-			FlxTween.tween(menace, {alpha: 0}, 0.7, 
-			{ease: FlxEase.quadOut, onComplete: 
-			function(twn:FlxTween){
-				menace.destroy();
-			}});
+			case 1150:// "STOP!"
+				game.cameraSpeed = 2;
+
+			case 1156:
+				camFollow.setPosition(408, 326.5);
+				
+			case 1168:// Sigh
+				FlxTween.tween(menace, {alpha: 0}, 0.7, 
+				{ease: FlxEase.quadOut, onComplete: 
+				function(twn:FlxTween){
+					menace.destroy();
+				}});
+				game.cameraSpeed = 1;
+				game.camZooming = true;
+				defaultCamZoom = 0.7;
+
+			case 1172:
+				dad.animation.paused = true;
+				dad.specialAnim = true;
+
+			case 1174:
+				defaultCamZoom = 0.9;
+
+			case 1184:
+				dad.animation.paused = false;
+			
+			case 1710:// "Listen to me you jerk"
+				game.camZooming = false;
+				FlxTween.tween(camFollow, {x: 1067.5}, (Conductor.stepCrochet / 1000) * 14, {ease: FlxEase.quadOut});
+				FlxTween.tween(camGame, {zoom: 1.5}, (Conductor.stepCrochet / 1000) * 14, 
+				{ease: FlxEase.quadIn, onComplete:
+				function(twn:FlxTween) {
+					game.camZooming = true;
+					camFollow.x = 867.5;
+				}});
+		}
+	}
+
+	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float)
+	{
+		switch(eventName)
+		{
+			case "Play Animation":
+				if (value1 == "no") {
+					camFollow.x = 867.5;
+					FlxTween.tween(camFollow, {x: 1017.5}, (Conductor.stepCrochet / 1000) * 16, {ease: FlxEase.quadOut});
+					
+					game.camZooming = false;
+					FlxTween.tween(camGame, {zoom: 1.4}, (Conductor.stepCrochet / 1000) * 16, 
+					{ease: FlxEase.quadIn, onComplete: 
+					function(twn:FlxTween){
+						game.camZooming = true;
+						camFollow.x = 867.5;
+					}});
+				}
+				if (value1 == "hurt"){
+					game.camZooming = true;
+					mic.animation.play('hit', true);
+				}
+		}
 	}
 
 	override function opponentNoteHit(note:Note)

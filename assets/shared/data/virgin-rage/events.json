@@ -21,19 +21,22 @@
 		[
 			81454.5454545455,
 			[
-				["Play Animation", "hurt", "Dad"]
+				["Play Animation", "hurt", "Dad"],
+				["Add Camera Zoom", "", ""]
 			]
 		],
 		[
 			81636.3636363637,
 			[
-				["Change Character", "BF", "solid-guitar"]
+				["Change Character", "BF", "solid-guitar"],
+				["Hey!", "BF", ""]
 			]
 		],
 		[
 			82818.1818181819,
 			[
-				["Change Character", "1", "liquid-guitar"]
+				["Change Character", "1", "liquid-guitar"],
+				["Play Animation", "hey", "Dad"]
 			]
 		],
 		[
@@ -100,7 +103,8 @@
 		[
 			154090.909090909,
 			[
-				["Screen Shake", "0.3, 0.01", "0.2, 0.02"]
+				["Screen Shake", "0.3, 0.01", "0.2, 0.02"],
+				["Play Animation", "shocked", "Dad"]
 			]
 		],
 		[
