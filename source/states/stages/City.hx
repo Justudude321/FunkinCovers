@@ -8,6 +8,7 @@ class City extends BaseStage
 	// If you're moving your stage from PlayState to a stage file,
 	// you might have to rename some variables if they're missing, for example: camZooming -> game.camZooming
 
+	var lights:BGSprite;
 	override function create()
 	{
 		// Spawn your stage sprites here.
@@ -34,53 +35,50 @@ class City extends BaseStage
 		var right:BGSprite = new BGSprite('buildingRight', 1360, -890);
 		add(right);
 
-		game.skipCountdown = true;
-		setStartCallback(info);
-	}
-
-	//Cutscene stuff
-	var cutsceneHandler:CutsceneHandler;
-	var lights:BGSprite;
-	function prepareCutscene(){
-		cutsceneHandler = new CutsceneHandler();
-		camHUD.alpha = 0.00001;
-		inCutscene = true;
-
-		lights = new BGSprite('heart', 0, 0, ['sign2 instance']);
-		lights.animation.addByPrefix('start', 'sign2 instance', 14, false);
+		lights = new BGSprite('heart', 0, 0, ['sign2 three']);
+		lights.animation.addByPrefix('3', 'sign2 three', 20, false);
+		lights.animation.addByPrefix('2', 'sign2 two', 20, false);
+		lights.animation.addByPrefix('1', 'sign2 one', 20, false);
+		lights.animation.addByPrefix('go', 'sign2 go', 20, false);
 		lights.setGraphicSize(Std.int(lights.width*0.75),Std.int(lights.height*0.75));
 		lights.updateHitbox();
 		lights.screenCenter();
-		add(lights);
 		lights.cameras = [camOther];
+		add(lights);
 
-		
-		cutsceneHandler.finishCallback = function(){
-			startCountdown();
-			FlxTween.tween(camHUD, {alpha: 1}, 1, {ease: FlxEase.cubeOut});
-		}
+		camHUD.alpha = 0.001;
+		game.introSoundsSuffix = "-heart";
 	}
-	
-	function info(){
-		prepareCutscene();
-		cutsceneHandler.endTime = 4.8;
-		Paths.sound('lightHum');
-		var hum:FlxSound = new FlxSound().loadEmbedded(Paths.sound('lightHum'));
-		FlxG.sound.list.add(hum);
 
-		cutsceneHandler.timer(0, function()
+	override function countdownTick(count:Countdown, num:Int)
+	{
+		switch(count)
 		{
-			hum.play();
-			lights.animation.play('start', true);
-		});
-		
-		cutsceneHandler.timer(4, function(){
-			FlxTween.tween(lights, {alpha: 0}, 0.8, 
-                {ease: FlxEase.cubeOut, onComplete: 
-				function(twn:FlxTween){
-                    lights.destroy();
-                }});
-			inCutscene = false;
-		});
+			case THREE: //num 0
+				lights.animation.play('3', true);
+
+			case TWO: //num 1
+				if (game.countdownReady != null)
+					game.countdownReady.kill();
+				lights.animation.play('2', true);
+
+			case ONE: //num 2
+				if (game.countdownSet != null)
+					game.countdownSet.kill();
+				lights.animation.play('1', true);
+
+			case GO: //num 3
+				if (game.countdownGo != null)
+					game.countdownGo.kill();
+				lights.animation.play('go', true);
+
+			case START: //num 4
+				FlxTween.tween(lights, {alpha: 0}, Conductor.crochet / 1000, 
+				{ease: FlxEase.cubeInOut, onComplete: 
+				function(twn:FlxTween) {
+					lights.destroy();
+				}});
+				FlxTween.tween(camHUD, {alpha: 1}, Conductor.crochet / 1000, {ease: FlxEase.cubeInOut});
+		}
 	}
 }

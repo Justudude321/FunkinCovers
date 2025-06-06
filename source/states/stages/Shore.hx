@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import shaders.DropShadowScreenspace;
 
 class Shore extends BaseStage
 {
@@ -29,4 +30,18 @@ class Shore extends BaseStage
 		ground.updateHitbox();
 		add(ground);
 	} // offset of 30 for camfollow notes
+
+	var shadow:DropShadowScreenspace;
+	override function createPost()
+	{
+		// Use this function to layer things above characters!
+		// shadow = new DropShadowScreenspace();
+		// boyfriend.shader = shadow;
+		// shadow.angle = 165;
+		// shadow.strength = 0.9;
+		// shadow.distance = 15;
+		// shadow.threshold = 0.1;
+		// shadow.color = 0xFFC2CF35;
+		// shadow.setAdjustColor(-24, -5, -5, 5);
+	}
 }

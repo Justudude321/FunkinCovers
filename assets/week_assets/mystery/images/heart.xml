@@ -2,46 +2,31 @@
 <TextureAtlas imagePath="scaledHeart.png">
 	<!-- Created with Adobe Animate version 22.0.2.168 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="sign2 instance 10000" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10001" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10002" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10003" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10004" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10005" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10006" x="855" y="2" width="851" height="834" frameX="0" frameY="-57" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10007" x="1708" y="2" width="849" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10008" x="2559" y="2" width="849" height="834" frameX="-2" frameY="-57" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10009" x="1708" y="2" width="849" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10010" x="1708" y="2" width="849" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10011" x="1708" y="2" width="849" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10012" x="2" y="961" width="808" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10013" x="812" y="961" width="763" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10014" x="1577" y="961" width="743" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10015" x="2322" y="961" width="743" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10016" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10017" x="2322" y="961" width="743" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10018" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10019" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10020" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10021" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10022" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10023" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10024" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10025" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10026" x="2" y="2" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10027" x="2" y="1920" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10028" x="2" y="1920" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10029" x="2" y="1920" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10030" x="2" y="1920" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10031" x="2" y="1920" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10032" x="2" y="1920" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10033" x="2" y="1920" width="851" height="957"/>
-	<SubTexture name="sign2 instance 10034" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10035" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10036" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10037" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10038" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10039" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10040" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
-	<SubTexture name="sign2 instance 10041" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 three 10000" x="2" y="2" width="851" height="957"/>
+	<SubTexture name="sign2 three 10001" x="2" y="2" width="851" height="957"/>
+	<SubTexture name="sign2 three 10002" x="2" y="2" width="851" height="957"/>
+	<SubTexture name="sign2 three 10003" x="2" y="2" width="851" height="957"/>
+	<SubTexture name="sign2 three 10004" x="2" y="2" width="851" height="957"/>
+	<SubTexture name="sign2 three 10005" x="2" y="2" width="851" height="957"/>
+	<SubTexture name="sign2 three 10006" x="855" y="2" width="851" height="834" frameX="0" frameY="-57" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 two 10007" x="1708" y="2" width="849" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 two 10008" x="2559" y="2" width="849" height="834" frameX="-2" frameY="-57" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 two 10009" x="1708" y="2" width="849" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 two 10010" x="1708" y="2" width="849" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 two 10011" x="1708" y="2" width="849" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 two 10012" x="2" y="961" width="808" height="957" frameX="-2" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 one 10013" x="812" y="961" width="763" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 one 10014" x="1577" y="961" width="743" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 one 10015" x="2322" y="961" width="743" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 one 10016" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 one 10017" x="2322" y="961" width="743" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 one 10018" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 one 10019" x="3067" y="961" width="848" height="957" frameX="-3" frameY="0" frameWidth="851" frameHeight="957"/>
+	<SubTexture name="sign2 go 10027" x="2" y="1920" width="851" height="957"/>
+	<SubTexture name="sign2 go 10028" x="2" y="1920" width="851" height="957"/>
+	<SubTexture name="sign2 go 10029" x="2" y="1920" width="851" height="957"/>
+	<SubTexture name="sign2 go 10030" x="2" y="1920" width="851" height="957"/>
+	<SubTexture name="sign2 go 10031" x="2" y="1920" width="851" height="957"/>
+	<SubTexture name="sign2 go 10032" x="2" y="1920" width="851" height="957"/>
+	<SubTexture name="sign2 go 10033" x="2" y="1920" width="851" height="957"/>
 </TextureAtlas>

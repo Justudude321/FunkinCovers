@@ -86,7 +86,7 @@ class Singstar extends BaseStage
 		sparkles.visible = (dadAnim == 'hurt' || dadAnim == 'shocked') ?
 		false : true;
 
-		// Timing with mic
+		// Timing with mic throw and hitting the opp
 		if(dadAnim == 'hurt' && dad.animation.curAnim.curFrame == 7)
 			mic.destroy();
 		if (boyfriend.curCharacter == "solid" && boyfriend.animation.curAnim.name == "transition"){
@@ -97,10 +97,10 @@ class Singstar extends BaseStage
 		}
 
 		// Force camera
-		if (curStep >= 1150 && curStep < 1156)
-			camFollow.setPosition(1017.5, 545);
 		if (curStep >= 1072 && curStep < 1168)
 			game.camZooming = false;
+		if (curStep >= 1150 && curStep < 1156)
+			camFollow.setPosition(1017.5, 545);
 	}
 	
 	override function stepHit()
