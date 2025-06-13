@@ -106,6 +106,10 @@ class Singstar extends BaseStage
 	override function stepHit()
 	{
 		// Code here
+
+		// Stupid fix, the tweens at the final case repeated when the song ended, idk why
+		if (game.endingSong) return;
+
 		switch(curStep){
 			case 871:// Zoom to transition
 				FlxTween.tween(camFollow, {x: 717.5}, (Conductor.stepCrochet / 1000) * 24, {ease: FlxEase.sineOut});
@@ -160,11 +164,11 @@ class Singstar extends BaseStage
 	}
 
 	override function eventCalled(eventName:String, value1:String, value2:String, flValue1:Null<Float>, flValue2:Null<Float>, strumTime:Float)
-	{
+	{	
 		switch(eventName)
 		{
 			case "Play Animation":
-				if (value1 == "no") {
+				if (value1 == "no"){
 					camFollow.x = 867.5;
 					FlxTween.tween(camFollow, {x: 1017.5}, (Conductor.stepCrochet / 1000) * 16, {ease: FlxEase.quadOut});
 					

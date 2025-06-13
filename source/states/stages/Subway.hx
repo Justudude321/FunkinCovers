@@ -58,22 +58,17 @@ class Subway extends BaseStage
 
         
 	}
-	
-	var stopAt:Float;
-	override function startSong()
-	{
-		// Code here
-		stopAt = FlxG.sound.music.length - 1000;
-	}
 
 	override function update(elapsed:Float)
 	{
 		// Code here
-		if(Conductor.songPosition < stopAt){
-			var songPos:Float = Conductor.songPosition/1000;
-			camHUD.angle = 2 * Math.cos(songPos);
+		
+		if(game.endingSong){
+			camHUD.angle = 0;
+			return;
 		}
-		else camHUD.angle = 0;
+		var songPos:Float = Conductor.songPosition/1000;
+		camHUD.angle = 2 * Math.cos(songPos);
 	}
 
 	override function beatHit()
