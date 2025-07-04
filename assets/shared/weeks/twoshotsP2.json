@@ -1,0 +1,50 @@
+{
+	"storyName": "2shots part2 - wip",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "twoshotsP1",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"technicolor-tussle",
+			"cuphead",
+			[
+				171,
+				22,
+				74
+			]
+		],
+		[
+			"heartbeat",
+			"pink",
+			[
+				238,
+				100,
+				204
+			]
+		],
+		[
+			"unlikely-rivals",
+			"tobias",
+			[
+				255,
+				255,
+				255
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "twoshotsP2",
+	"hiddenUntilUnlocked": false
+}

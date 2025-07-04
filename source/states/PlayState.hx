@@ -435,9 +435,9 @@ class PlayState extends MusicBeatState
 
 			// Two-Shots Part 2
 			// case 'idk': new IDK(); // ???
-			// case 'cupstage': new Cupstage();
-			// case 'plantroom': new Plantroom();
-			// case 'rivalarena': new Rivalarena();
+			case 'cupstage': new Cupstage();
+			case 'plantroom': new Plantroom();
+			case 'rivalarena': new Rivalarena();
 
 			// Finale
 			// case 'halloween': new Halloween();

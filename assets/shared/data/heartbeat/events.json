@@ -1,0 +1,204 @@
+{
+	"events": [
+		[
+			46896.5517241379,
+			[
+				["Set Property", "defaultCamZoom", "0.55"]
+			]
+		],
+		[
+			48146.5517241379,
+			[
+				["Set Property", "defaultCamZoom", "0.65"]
+			]
+		],
+		[
+			48836.2068965517,
+			[
+				["Set Property", "defaultCamZoom", "0.80"]
+			]
+		],
+		[
+			49310.3448275862,
+			[
+				["Set Property", "defaultCamZoom", "0.85"]
+			]
+		],
+		[
+			49655.1724137931,
+			[
+				["Set Property", "defaultCamZoom", "0.5"]
+			]
+		],
+		[
+			71034.4827586207,
+			[
+				["Set Property", "defaultCamZoom", "0.57"]
+			]
+		],
+		[
+			71724.1379310345,
+			[
+				["Cinema Time", ""],
+				["Set Property", "defaultCamZoom", "0.5"]
+			]
+		],
+		[
+			91034.4827586207,
+			[
+				["Set Property", "defaultCamZoom", "0.55"]
+			]
+		],
+		[
+			92284.4827586207,
+			[
+				["Set Property", "defaultCamZoom", "0.65"]
+			]
+		],
+		[
+			92974.1379310345,
+			[
+				["Set Property", "defaultCamZoom", "0.8"]
+			]
+		],
+		[
+			93448.275862069,
+			[
+				["Set Property", "defaultCamZoom", "0.85"]
+			]
+		],
+		[
+			93793.1034482759,
+			[
+				["Set Property", "defaultCamZoom", "0.5"]
+			]
+		],
+		[
+			104137.931034483,
+			[
+				["Set Property", "defaultCamZoom", "0.6"]
+			]
+		],
+		[
+			104827.586206897,
+			[
+				["Set Property", "defaultCamZoom", "0.5"]
+			]
+		],
+		[
+			105524.425287356,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			106903.735632184,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			107586.206896552,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			109655.172413793,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			111041.666666667,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			112420.977011494,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			113103.448275862,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			113663.793103448,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			114137.931034483,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			114655.172413793,
+			[
+				["Set Property", "defaultCamZoom", "0.55"]
+			]
+		],
+		[
+			115862.068965517,
+			[
+				["Set Property", "defaultCamZoom", "0.5"]
+			]
+		],
+		[
+			135172.413793103,
+			[
+				["Set Property", "defaultCamZoom", "0.55"]
+			]
+		],
+		[
+			135862.068965517,
+			[
+				["Set Property", "defaultCamZoom", "0.65"]
+			]
+		],
+		[
+			136422.413793103,
+			[
+				["Set Property", "defaultCamZoom", "0.7"]
+			]
+		],
+		[
+			137112.068965517,
+			[
+				["Set Property", "defaultCamZoom", "0.85"]
+			]
+		],
+		[
+			137586.206896552,
+			[
+				["Set Property", "defaultCamZoom", "0.9"]
+			]
+		],
+		[
+			137931.034482759,
+			[
+				["Set Property", "defaultCamZoom", "0.5"]
+			]
+		],
+		[
+			137938.218390805,
+			[
+				["Add Camera Zoom", ""]
+			]
+		],
+		[
+			141034.482758621,
+			[
+				["Add Camera Zoom", "0.2", "0.07"]
+			]
+		]
+	],
+	"format": "psych_v1"
+}

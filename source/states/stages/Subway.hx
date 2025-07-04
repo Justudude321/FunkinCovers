@@ -21,7 +21,7 @@ class Subway extends BaseStage
 		bg.updateHitbox();
 		add(bg);
 
-		trainGroup = new FlxSpriteGroup(-6100, 185); // -6100, -2100
+		trainGroup = new FlxSpriteGroup(-2100, 185); // -6100, -2100
 		add(trainGroup);
 		var train:BGSprite = new BGSprite('train');
 		train.scale.set(1.2, 1.2);
@@ -84,6 +84,7 @@ class Subway extends BaseStage
 			game.strumLineNotes.members[i].strumRGB('skarlet');
 		for(i in 0...unspawnNotes.length) 
 			unspawnNotes[i].changeRGB('skarlet');
+		trainGroup.alpha = 0.001;
         index = 0;
 	}
 
@@ -112,6 +113,8 @@ class Subway extends BaseStage
 			case "Subway Train":
 				// "Borrowed" from a repository I found of V1 I think, sorry Rechi :(
 				// trace("Summon train " + doorID[index]);
+				trainGroup.x = -6100;
+				trainGroup.alpha = 1;
 				var tween1:FlxTween = FlxTween.tween(trainGroup, {x: -2100}, 5, {ease: FlxEase.cubeInOut,
 					onComplete: function(_){
 						var timer1:FlxTimer = new FlxTimer().start(0.75, function(_) {
@@ -125,7 +128,6 @@ class Subway extends BaseStage
 									var timer3:FlxTimer = new FlxTimer().start(0.75, function(_) {
 										var tween2:FlxTween = FlxTween.tween(trainGroup, {x: 3500}, 5, {ease: FlxEase.cubeInOut,
 											onComplete: function(_){
-												trainGroup.x = -6100;
 												doorArray[index].destroy();
 												index++;
 											}
