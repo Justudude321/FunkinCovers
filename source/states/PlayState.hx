@@ -440,9 +440,9 @@ class PlayState extends MusicBeatState
 			case 'rivalarena': new Rivalarena();
 
 			// Finale
-			// case 'halloween': new Halloween();
-			// case 'feast': new Feast();
-			// case 'santa': new Santa();
+			case 'halloween': new Halloween();
+			case 'feast': new Feast();
+			case 'santa': new Santa();
 			// case '7quid': new Quid();
 
 			// 100P

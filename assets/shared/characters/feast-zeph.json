@@ -1,0 +1,158 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"cameraOffset": [
+				-30,
+				0
+			],
+			"offsets": [
+				0,
+				10
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "mightyleftmiss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				-30,
+				0
+			],
+			"offsets": [
+				0,
+				-6
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "mightymissright",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				-30,
+				0
+			],
+			"offsets": [
+				0,
+				65
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "mightyupmiss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				-30,
+				0
+			],
+			"offsets": [
+				0,
+				-25
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "mightydownmiss",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"cameraOffset": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "mighty.zipidle"
+		},
+		{
+			"offsets": [
+				0,
+				10
+			],
+			"cameraOffset": [
+				-30,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "MightyZipLeft"
+		},
+		{
+			"offsets": [
+				0,
+				-20
+			],
+			"cameraOffset": [
+				0,
+				30
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "mightyzipdown"
+		},
+		{
+			"offsets": [
+				0,
+				60
+			],
+			"cameraOffset": [
+				0,
+				-30
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "MightyZipup"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"cameraOffset": [
+				30,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "mightyzipright"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/GodFeastMightyZIPSheet",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "zephthanks",
+	"flip_x": true,
+	"healthbar_colors": [
+		102,
+		68,
+		154
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

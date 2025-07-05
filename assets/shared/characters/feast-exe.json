@@ -1,0 +1,98 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				-1
+			],
+			"cameraOffset": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "SonicexeIdle"
+		},
+		{
+			"offsets": [
+				-6,
+				-2
+			],
+			"cameraOffset": [
+				-30,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "SonicexeLeft"
+		},
+		{
+			"offsets": [
+				-9,
+				-37
+			],
+			"cameraOffset": [
+				0,
+				30
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "sonicexedown"
+		},
+		{
+			"offsets": [
+				-23,
+				-13
+			],
+			"cameraOffset": [
+				30,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Sonic.exeRight"
+		},
+		{
+			"loop": false,
+			"cameraOffset": [
+				0,
+				-30
+			],
+			"offsets": [
+				37,
+				21
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "sonicexeup",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/GodFeastSonicEXESheet",
+	"position": [
+		-100,
+		0
+	],
+	"healthicon": "xeno",
+	"flip_x": false,
+	"healthbar_colors": [
+		0,
+		60,
+		170
+	],
+	"camera_position": [
+		110,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tutorial.png">
+    <SubTexture name="default0000" x="0" y="0" width="1280" height="720"/>
+    <SubTexture name="default0001" x="0" y="0" width="1280" height="720"/>
+    <SubTexture name="default0002" x="0" y="720" width="1280" height="720"/>
+    <SubTexture name="default0003" x="0" y="720" width="1280" height="720"/>
+    <SubTexture name="default0004" x="0" y="1440" width="1280" height="720"/>
+    <SubTexture name="default0005" x="0" y="1440" width="1280" height="720"/>
+    <SubTexture name="default0006" x="0" y="2160" width="1280" height="720"/>
+    <SubTexture name="default0007" x="0" y="2160" width="1280" height="720"/>
+    <SubTexture name="default0008" x="0" y="2880" width="1280" height="720"/>
+    <SubTexture name="default0009" x="0" y="2880" width="1280" height="720"/>
+    <SubTexture name="default0010" x="0" y="3600" width="1280" height="720"/>
+    <SubTexture name="default0011" x="0" y="3600" width="1280" height="720"/>
+    <SubTexture name="default0012" x="0" y="4320" width="1280" height="720"/>
+    <SubTexture name="default0013" x="0" y="4320" width="1280" height="720"/>
+    <SubTexture name="default0014" x="0" y="4320" width="1280" height="720"/>
+    <SubTexture name="default0015" x="0" y="4320" width="1280" height="720"/>
+    <SubTexture name="default0016" x="0" y="3600" width="1280" height="720"/>
+    <SubTexture name="default0017" x="0" y="3600" width="1280" height="720"/>
+    <SubTexture name="default0018" x="0" y="3600" width="1280" height="720"/>
+    <SubTexture name="default0019" x="0" y="3600" width="1280" height="720"/>
+    <SubTexture name="default0020" x="0" y="4320" width="1280" height="720"/>
+    <SubTexture name="default0021" x="0" y="4320" width="1280" height="720"/>
+    <SubTexture name="default0022" x="0" y="4320" width="1280" height="720"/>
+    <SubTexture name="default0023" x="0" y="4320" width="1280" height="720"/>
+</TextureAtlas>

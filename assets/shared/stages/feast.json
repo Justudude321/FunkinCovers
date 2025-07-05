@@ -1,0 +1,26 @@
+{
+	"directory": "finale",
+	"defaultZoom": 0.65,
+	"stageUI": "",
+
+	"boyfriend": [913, 72],
+	"opponent": [-450, 42],
+	"girlfriend": [-250, -100],
+	"hide_girlfriend": false,
+
+	"camera_boyfriend": [-250, -150],
+	"camera_opponent": [250, -125],
+	"camera_girlfriend": [150, -100],
+	"camera_speed": 1,
+
+	"preload": {
+		"images/Peaceful_Feast": 2,
+		"images/FeastTable": 3
+	},
+
+	"_editorMeta": {
+		"dad": "feast-exe",
+		"boyfriend": "feast-zeph",
+		"gf": "tester1"
+	}
+}

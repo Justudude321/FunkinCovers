@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="hit.png">
+    <SubTexture name="hit0000" x="0" y="0" width="214" height="215" frameX="-43" frameY="-52" frameWidth="325" frameHeight="325"/>
+    <SubTexture name="hit0001" x="214" y="0" width="219" height="191" frameX="-49" frameY="-64" frameWidth="325" frameHeight="325"/>
+    <SubTexture name="hit0002" x="433" y="0" width="266" height="257" frameX="-47" frameY="-37" frameWidth="325" frameHeight="325"/>
+    <SubTexture name="hit0003" x="433" y="0" width="266" height="257" frameX="-47" frameY="-37" frameWidth="325" frameHeight="325"/>
+    <SubTexture name="hit0004" x="699" y="0" width="287" height="291" frameX="-25" frameY="-6" frameWidth="325" frameHeight="325"/>
+    <SubTexture name="hit0005" x="0" y="291" width="325" height="325"/>
+</TextureAtlas>

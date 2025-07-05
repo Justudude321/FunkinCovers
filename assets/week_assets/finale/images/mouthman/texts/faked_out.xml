@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="faked_out.png">
+    <SubTexture name="default0000" x="0" y="0" width="588" height="414" frameX="0" frameY="-33" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0001" x="0" y="0" width="588" height="414" frameX="0" frameY="-33" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0002" x="0" y="414" width="435" height="324" frameX="-54" frameY="-80" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0003" x="0" y="414" width="435" height="324" frameX="-54" frameY="-80" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0004" x="1123" y="0" width="495" height="337" frameX="-40" frameY="-75" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0005" x="1123" y="337" width="484" height="325" frameX="-41" frameY="-84" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0006" x="588" y="359" width="484" height="325" frameX="-41" frameY="-84" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0007" x="588" y="359" width="484" height="325" frameX="-41" frameY="-84" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0008" x="1123" y="337" width="484" height="325" frameX="-41" frameY="-84" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0009" x="1123" y="337" width="484" height="325" frameX="-41" frameY="-84" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0010" x="588" y="359" width="484" height="325" frameX="-41" frameY="-84" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0011" x="588" y="359" width="484" height="325" frameX="-41" frameY="-84" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0012" x="1123" y="337" width="484" height="325" frameX="-41" frameY="-84" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0013" x="588" y="0" width="535" height="359" frameX="-18" frameY="-69" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0014" x="1618" y="0" width="353" height="462" frameX="-142" frameY="0" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0015" x="1607" y="462" width="171" height="311" frameX="-190" frameY="-98" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0016" x="1778" y="462" width="156" height="148" frameX="-203" frameY="-191" frameWidth="588" frameHeight="462"/>
+    <SubTexture name="default0017" x="1971" y="0" width="26" height="20" frameX="-262" frameY="-238" frameWidth="588" frameHeight="462"/>
+</TextureAtlas>

@@ -1,0 +1,26 @@
+{
+	"directory": "finale",
+	"defaultZoom": 1.1,
+	"stageUI": "",
+
+	"boyfriend": [820.7, 431.9],
+	"girlfriend": [40.65,273],
+	"opponent": [84.6, 245.6],
+	"hide_girlfriend": false,
+
+	"camera_boyfriend": [-155, -135],
+	"camera_opponent": [120, 88],
+	"camera_girlfriend": [100, 0],
+	"camera_speed": 1,
+
+	"preload": {
+		"images/BG": 2,
+		"images/eyes": 3
+	},
+
+	"_editorMeta": {
+		"dad": "pump-santa",
+		"boyfriend": "bf-santa",
+		"gf": "skid-santa"
+	}
+}

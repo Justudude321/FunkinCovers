@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="spit.png">
+    <SubTexture name="dodged0000" x="0" y="1731" width="433" height="272" frameX="0" frameY="0" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="dodged0001" x="441" y="1730" width="433" height="273" frameX="-218" frameY="-128" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="dodged0002" x="881" y="970" width="226" height="273" frameX="-534" frameY="-210" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="dodged0003" x="881" y="970" width="226" height="273" frameX="-534" frameY="-210" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="dodged0004" x="475" y="0" width="345" height="483" frameX="-476" frameY="-126" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="dodged0005" x="475" y="0" width="345" height="483" frameX="-476" frameY="-126" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="dodged0006" x="0" y="1154" width="441" height="577" frameX="-464" frameY="-49" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="dodged0007" x="0" y="1154" width="441" height="577" frameX="-464" frameY="-49" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="dodged0008" x="0" y="0" width="475" height="592" frameX="-447" frameY="-64" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="dodged0009" x="0" y="0" width="475" height="592" frameX="-447" frameY="-64" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="dodged0010" x="433" y="1731" width="5" height="7" frameX="-682" frameY="-356" frameWidth="922" frameHeight="656"/>
+    <SubTexture name="hit0000" x="0" y="1731" width="433" height="272" frameX="0" frameY="-65" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0001" x="874" y="1730" width="238" height="275" frameX="-255" frameY="-108" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0002" x="874" y="1730" width="238" height="275" frameX="-255" frameY="-108" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0003" x="820" y="0" width="344" height="482" frameX="-248" frameY="-55" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0004" x="441" y="1154" width="440" height="576" frameX="-219" frameY="0" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0005" x="441" y="1154" width="440" height="576" frameX="-219" frameY="0" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0006" x="0" y="592" width="465" height="562" frameX="-205" frameY="-22" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0007" x="0" y="592" width="465" height="562" frameX="-205" frameY="-22" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0008" x="465" y="592" width="492" height="378" frameX="-202" frameY="-119" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0009" x="465" y="592" width="492" height="378" frameX="-202" frameY="-119" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0010" x="957" y="482" width="66" height="192" frameX="-400" frameY="-315" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0011" x="957" y="482" width="66" height="192" frameX="-400" frameY="-315" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0012" x="465" y="970" width="56" height="145" frameX="-402" frameY="-365" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0013" x="465" y="970" width="56" height="145" frameX="-402" frameY="-365" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0014" x="475" y="540" width="150" height="23" frameX="-350" frameY="-502" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0015" x="475" y="540" width="150" height="23" frameX="-350" frameY="-502" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0016" x="475" y="483" width="139" height="57" frameX="-359" frameY="-467" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0017" x="475" y="483" width="139" height="57" frameX="-359" frameY="-467" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0018" x="465" y="1115" width="209" height="17" frameX="-316" frameY="-510" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0019" x="465" y="1115" width="209" height="17" frameX="-316" frameY="-510" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0020" x="465" y="1132" width="192" height="14" frameX="-319" frameY="-512" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0021" x="465" y="1132" width="192" height="14" frameX="-319" frameY="-512" frameWidth="694" frameHeight="584"/>
+    <SubTexture name="hit0022" x="438" y="1731" width="2" height="1" frameX="-413" frameY="-519" frameWidth="694" frameHeight="584"/>
+</TextureAtlas>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bar_hit_normal.png">
+    <SubTexture name="perfect0000" x="174" y="532" width="212" height="532"/>
+    <SubTexture name="perfect0001" x="174" y="532" width="212" height="532"/>
+    <SubTexture name="perfect0002" x="386" y="532" width="201" height="498" frameX="-7" frameY="-16" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0003" x="386" y="532" width="201" height="498" frameX="-7" frameY="-16" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0004" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0005" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0006" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0007" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0008" x="169" y="532" width="5" height="4" frameX="-94" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0009" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0010" x="169" y="532" width="5" height="4" frameX="-94" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0011" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0012" x="169" y="532" width="5" height="4" frameX="-94" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0013" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="perfect0014" x="169" y="532" width="5" height="4" frameX="-94" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0000" x="584" y="0" width="212" height="532"/>
+    <SubTexture name="good0001" x="584" y="0" width="212" height="532"/>
+    <SubTexture name="good0002" x="796" y="0" width="201" height="498" frameX="-7" frameY="-16" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0003" x="796" y="0" width="201" height="498" frameX="-7" frameY="-16" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0004" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0005" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0006" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0007" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0008" x="169" y="532" width="5" height="4" frameX="-94" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0009" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0010" x="169" y="532" width="5" height="4" frameX="-94" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0011" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0012" x="169" y="532" width="5" height="4" frameX="-94" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0013" x="0" y="532" width="169" height="459" frameX="-11" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="good0014" x="169" y="532" width="5" height="4" frameX="-94" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="fail0000" x="0" y="0" width="212" height="532" frameX="-2" frameY="0" frameWidth="214" frameHeight="532"/>
+    <SubTexture name="fail0001" x="0" y="0" width="212" height="532" frameX="-2" frameY="0" frameWidth="214" frameHeight="532"/>
+    <SubTexture name="fail0002" x="212" y="0" width="209" height="498" frameX="0" frameY="-16" frameWidth="214" frameHeight="532"/>
+    <SubTexture name="fail0003" x="212" y="0" width="209" height="498" frameX="0" frameY="-16" frameWidth="214" frameHeight="532"/>
+    <SubTexture name="fail0004" x="421" y="0" width="163" height="459" frameX="-14" frameY="-34" frameWidth="214" frameHeight="532"/>
+    <SubTexture name="fail0005" x="421" y="0" width="163" height="459" frameX="-14" frameY="-34" frameWidth="214" frameHeight="532"/>
+    <SubTexture name="fail0006" x="0" y="532" width="169" height="459" frameX="-13" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="fail0007" x="0" y="532" width="169" height="459" frameX="-13" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="fail0008" x="169" y="532" width="5" height="4" frameX="-96" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="fail0009" x="0" y="532" width="169" height="459" frameX="-13" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="fail0010" x="169" y="532" width="5" height="4" frameX="-96" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="fail0011" x="0" y="532" width="169" height="459" frameX="-13" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="fail0012" x="169" y="532" width="5" height="4" frameX="-96" frameY="-250" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="fail0013" x="0" y="532" width="169" height="459" frameX="-13" frameY="-34" frameWidth="212" frameHeight="532"/>
+    <SubTexture name="fail0014" x="169" y="532" width="5" height="4" frameX="-96" frameY="-250" frameWidth="212" frameHeight="532"/>
+</TextureAtlas>
