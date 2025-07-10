@@ -443,7 +443,7 @@ class PlayState extends MusicBeatState
 			case 'halloween': new Halloween();
 			case 'feast': new Feast();
 			case 'santa': new Santa();
-			// case '7quid': new Quid();
+			case '7quid': new Quid();
 
 			// 100P
 			// case 'funkg': new Funkg();

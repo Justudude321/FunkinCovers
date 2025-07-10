@@ -3,15 +3,28 @@
 	"difficulties": "",
 	"hideFreeplay": false,
 	"weekBackground": "",
-	"weekBefore": "twoshotsP2",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "twoshotsP2",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
 	"songs": [
+		[
+			"mouthman",
+			"binej",
+			[
+				156,
+				164,
+				201
+			]
+		],
 		[
 			"sinister",
 			"spooky",
@@ -40,11 +53,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"",
-		"bf",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "finale"
+	"hideStoryMode": false,
+	"weekName": "finale",
+	"hiddenUntilUnlocked": false
 }

@@ -1,9 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
-import cutscenes.CutsceneHandler;
-// import shaders.Statics;
-import objects.Note;
+import shaders.Static;
 
 class Quid extends BaseStage
 {
@@ -51,7 +49,8 @@ class Quid extends BaseStage
 			add(front);
 		}
 		
-		// if(isStoryMode && !seenCutscene) setStartCallback(info);
+		if(isStoryMode && !seenCutscene)
+			setStartCallback(info);
 	}
 	
 	override function createPost()
@@ -67,72 +66,71 @@ class Quid extends BaseStage
 		game.drainAmount = 0.012;
 	}
 
-	//Cutscene stuff
-	// var cutsceneHandler:CutsceneHandler;
-	// var light:BGSprite;
-	// var tutorial:BGSprite;
-	// function prepareCutscene(){
-	// 	cutsceneHandler = new CutsceneHandler();
-	// 	camHUD.alpha = 0.00001;
-	// 	inCutscene = true;
+	override function update(elapsed:Float)
+	{
+		// Code here
+		if(input){
+			if (FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.ESCAPE){
+				input = false;
+				light.alpha = 0.5;
+				FlxTween.tween(tutorial, {alpha: 0}, 2, {ease: FlxEase.quartInOut});
+				FlxTween.tween(light, {alpha: 0}, 2, {ease: FlxEase.cubeOut});
+				tv.play(true);
 
-	// 	tutorial = new BGSprite('mouthman/intro/tutorial', 0, 0, ['default']);
-	// 	tutorial.animation.addByPrefix('default', 'default', 36.96, true);
-	// 	tutorial.alpha = 0.00001;
-	// 	tutorial.cameras = [camOther];
-	// 	tutorial.shader = new Statics();//Easier than I thought
-	// 	add(tutorial);
-	// 	light = new BGSprite('mouthman/intro/light', -260, -20, ['default']);
-	// 	light.animation.addByPrefix('default', 'default', 24, false);
-	// 	light.alpha = 0.00001;
-	// 	light.blend = ADD;
-	// 	light.cameras = [camOther];
-	// 	add(light);
+				new FlxTimer().start(1, function(_) {
+					inCutscene = false;
+					FlxG.sound.music.fadeOut();
+					FlxTween.tween(game.camHUD, {alpha: 1}, 2, {ease: FlxEase.cubeOut});
+					startCountdown();
+				});
+			}
+		}
+	}
 
-	// 	cutsceneHandler.finishCallback = function(){
-	// 		FlxG.sound.music.fadeOut();
-	// 		startCountdown();
-	// 		FlxTween.tween(camHUD, {alpha: 1}, 2, {ease: FlxEase.cubeOut, onComplete: function(twn:FlxTween){
-	// 		}});
-	// 	}
-	// }
+	// Cutscene stuff
+	var tv:FlxSound;
+	var light:BGSprite;
+	var tutorial:BGSprite;
+	var input:Bool = false;
+	function prepareCutscene(){
+		inCutscene = true;
+		camHUD.alpha = 0.00001;
+
+		tutorial = new BGSprite('mouthman/intro/tutorial', 0, 0, ['default']);
+		tutorial.animation.addByPrefix('default', 'default', 36.96, true);
+		tutorial.alpha = 0.00001;
+		tutorial.cameras = [camOther];
+		tutorial.shader = new Static(); // Easier than I thought
+		add(tutorial);
+		light = new BGSprite('mouthman/intro/light', -260, -20, ['default']);
+		light.animation.addByPrefix('default', 'default', 24, false);
+		light.alpha = 0.00001;
+		light.blend = ADD;
+		light.cameras = [camOther];
+		add(light);
+	}
 	
-	// function info(){
-	// 	prepareCutscene();
-	// 	cutsceneHandler.endTime = 18;
-	// 	Paths.sound('modstuff/mouthman/intro_tv');
-	// 	var tv:FlxSound = new FlxSound().loadEmbedded(Paths.sound('modstuff/mouthman/intro_tv'));
-	// 	FlxG.sound.list.add(tv);
+	function info(){
+		prepareCutscene();
 
-	// 	cutsceneHandler.timer(1.5, function()
-	// 	{
-	// 		light.alpha = 1;
-	// 		light.animation.play('default', true);
-	// 		tv.play(true);
-	// 	});
+		Paths.sound('modstuff/mouthman/intro_tv');
+		tv = new FlxSound().loadEmbedded(Paths.sound('modstuff/mouthman/intro_tv'));
+		FlxG.sound.list.add(tv);
 
-	// 	cutsceneHandler.timer(2, function()//0.5
-	// 	{
-	// 		FlxG.sound.playMusic(Paths.music('modstuff/mouthman_tutorial'), 0.85, true);
-	// 		FlxTween.tween(light, {alpha: 0}, 2, {ease: FlxEase.cubeOut, onComplete: function(twn:FlxTween){
-	// 		}});
-	// 		tutorial.alpha = 1;
-	// 		tutorial.animation.play('default', true);
-	// 	});
+		new FlxTimer().start(1.5, function(_) {
+            light.alpha = 1;
+            light.animation.play("default", true);
+			tv.play(true);
 
-	// 	cutsceneHandler.timer(16.5, function(){//14.5
-	// 		FlxTween.tween(tutorial, {alpha: 0}, 2, {ease: FlxEase.quartInOut, onComplete: function(twn:FlxTween){
-	// 		}});
-	// 		light.alpha = 0.5;
-	// 		FlxTween.tween(light, {alpha: 0}, 2, {ease: FlxEase.cubeOut, onComplete: function(twn:FlxTween){
-	// 		}});
-	// 		tv.play(true);
-	// 	});
-		
-	// 	cutsceneHandler.timer(17, function(){//0.5
-	// 		inCutscene = false;
-	// 	});
-	// }
+            new FlxTimer().start(0.5, function(_) {
+                FlxG.sound.playMusic(Paths.sound("modstuff/mouthman/mouthman_tutorial"), 0.85, true);
+                FlxTween.tween(light, {alpha: 0}, 2, {ease: FlxEase.cubeOut});
+                tutorial.alpha = 1;
+                tutorial.animation.play("default", true);
+                input = true;
+            });
+        });
+	}
 
 	// Steps, Beats and Sections:
 	//    curStep, curDecStep

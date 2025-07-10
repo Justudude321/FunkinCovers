@@ -1,0 +1,30 @@
+{
+    "directory":"finale",
+    "defaultZoom":0.68,
+	"stageUI": "",
+    
+    "boyfriend":[865,500],
+    "girlfriend":[440,485],
+    "opponent":[170,530],
+	"hide_girlfriend": false,
+
+	"camera_boyfriend": [0, 0],
+	"camera_opponent": [0, 0],
+	"camera_girlfriend": [0, 0],
+    "camera_speed": 0.74,
+
+	"preload": {
+		"images/sky": 3,
+		"images/city_back": 3,
+		"images/city_front": 3,
+		"images/ng_hq": 2,
+		"images/foreground": 2,
+		"images/overlay": 3
+	},
+
+	"_editorMeta": {
+		"dad": "binej",
+		"boyfriend": "bf",
+		"gf": "gf"
+	}
+}
