@@ -1892,6 +1892,8 @@ class PlayState extends MusicBeatState
 							{
 								if (daNote.mustPress && !cpuControlled && !daNote.ignoreNote && !endingSong && (daNote.tooLate || !daNote.wasGoodHit))
 									noteMiss(daNote);
+								else if(!daNote.mustPress && daNote.noteType == "OppMiss Note")
+									opponentNoteMiss(daNote.noteData, daNote);
 
 								daNote.active = daNote.visible = false;
 								invalidateNote(daNote);
@@ -3109,6 +3111,52 @@ class PlayState extends MusicBeatState
 		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('opponentNoteHit', [note]);
 
 		if (!note.isSustainNote) invalidateNote(note);
+	}
+	
+	function opponentNoteMiss(direction:Int, note:Note = null){
+		// score and data 
+		var add:Float = 0.05;
+		if(note != null) add = note.missHealth / 3;
+
+		// GUITAR HERO SUSTAIN CHECK LOL!!!!
+		if (note != null && guitarHeroSustains && note.parent == null) {
+			if(note.tail.length > 0) {
+				note.alpha = 0.35;
+				for(childNote in note.tail) {
+					childNote.alpha = note.alpha;
+					childNote.noteType = "OppMiss Note";
+					childNote.ignoreNote = true;
+				}
+				note.noteType = "OppMiss Note";
+				note.ignoreNote = true;
+				add *= note.tail.length + 1;
+			}
+
+		}
+		//Kinda works now, hope this doesn't cause a major issue or something...
+		if (note != null && guitarHeroSustains && note.parent != null && note.isSustainNote) {
+
+			var parentNote:Note = note.parent;
+			if (parentNote.wasGoodHit && parentNote.tail.length > 0) {
+				for (child in parentNote.tail) if (child != note) {
+					child.noteType = "OppMiss Note";
+					child.ignoreNote = true;
+				}
+			}
+		}
+
+		health += (add * healthLoss);
+
+		// Dad anims
+		if(dad != null && (note == null || !note.noMissAnimation) && dad.hasMissAnimations)
+		{
+			var suffix:String = '';
+			if(note != null) suffix = note.animSuffix;
+
+			var animToPlay:String = singAnimations[Std.int(Math.abs(Math.min(singAnimations.length-1, direction)))] + 'miss' + suffix;
+			dad.playAnim(animToPlay, true);
+		}
+		opponentVocals.volume = 0;
 	}
 
 	public function goodNoteHit(note:Note):Void

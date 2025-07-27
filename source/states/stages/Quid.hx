@@ -1,6 +1,7 @@
 package states.stages;
 
 import states.stages.objects.*;
+import objects.Note;
 import shaders.Static;
 
 class Quid extends BaseStage
@@ -10,6 +11,8 @@ class Quid extends BaseStage
 
 	var back:BGSprite;
 	var front:BGSprite;
+	var theHUD:FightHUD;
+	var fight:BattleSystem;
 	override function create()
 	{
 		// Spawn your stage sprites here.
@@ -53,14 +56,32 @@ class Quid extends BaseStage
 			setStartCallback(info);
 	}
 	
+	var bias:Float = 5;
 	override function createPost()
 	{
 		// Use this function to layer things above characters!
+		theHUD = new FightHUD();
+		add(theHUD);
+		fight = new BattleSystem(theHUD);
+		add(fight);
+
 		var overlay:BGSprite = new BGSprite('overlay', -1280, -800, 0.5, 0.5);
 		overlay.setGraphicSize(Std.int(overlay.width*1.1),Std.int(overlay.height*1.1));
 		overlay.updateHitbox();
 		overlay.blend = ADD;
 		add(overlay);
+
+		for (i in 0...unspawnNotes.length)
+			if(!unspawnNotes[i].mustPress) {
+				// Original oppMiss scripts from 7quid & .bakugo (Flowers Inside King)
+				if(FlxG.random.bool(bias) && !unspawnNotes[i].isSustainNote && unspawnNotes[i].noteType != "Hey!"){
+					unspawnNotes[i].noteType = "OppMiss Note";
+					unspawnNotes[i].ignoreNote = true;
+					bias = Math.max(bias - 5, 0);
+					continue;
+				}
+				bias = Math.min(bias + 0.4, 15);
+			}
 
         game.oppHitDrain = true;
 		game.drainAmount = 0.012;
@@ -85,6 +106,23 @@ class Quid extends BaseStage
 				});
 			}
 		}
+
+		// if (fight != null) 
+		// 	fight.update(elapsed);
+	}
+
+	override function countdownTick(count:Countdown, num:Int)
+	{
+		switch(count)
+		{
+			case THREE: //num 0
+			case TWO: //num 1
+			case ONE: //num 2
+				theHUD.cameras = [camHUD];
+				theHUD.readyHearts();
+			case GO: //num 3
+			case START: //num 4
+		}
 	}
 
 	// Cutscene stuff
@@ -100,7 +138,7 @@ class Quid extends BaseStage
 		tutorial.animation.addByPrefix('default', 'default', 36.96, true);
 		tutorial.alpha = 0.00001;
 		tutorial.cameras = [camOther];
-		tutorial.shader = new Static(); // Easier than I thought
+		tutorial.shader = new Static(); // Easier than I thought, still
 		add(tutorial);
 		light = new BGSprite('mouthman/intro/light', -260, -20, ['default']);
 		light.animation.addByPrefix('default', 'default', 24, false);
@@ -143,6 +181,8 @@ class Quid extends BaseStage
 			back.animation.play("bop", true);
 			front.animation.play("bop", true);
 		}
+		if (fight != null) 
+			fight.beatHit();
 	}
 
 	// For events
@@ -150,7 +190,8 @@ class Quid extends BaseStage
 	{
 		switch(eventName)
 		{
-			case "My Event":
+			case "battleEvent":
+				fight.onEvent(value1, value2);
 		}
 	}
 	override function eventPushed(event:objects.Note.EventNote)
@@ -191,5 +232,12 @@ class Quid extends BaseStage
 						//precacheMusic('myMusicThree') //preloads music/myMusicThree.ogg
 				}
 		}
+	}
+
+	override function opponentNoteHit(note:Note)
+	{
+		// Code here
+		if(PlayState.instance.opponentVocals.volume == 0)
+			PlayState.instance.opponentVocals.volume = 1;
 	}
 }

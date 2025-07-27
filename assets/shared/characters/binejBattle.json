@@ -1,0 +1,103 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [-611, -118],
+			"anim": "punch_pre",
+			"fps": 24,
+			"name": "punch_pre",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-611, -122],
+			"anim": "punch",
+			"fps": 24,
+			"name": "punch0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-606, -121],
+			"anim": "kick_pre",
+			"fps": 24,
+			"name": "kick_pre",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-597, -111],
+			"anim": "kick",
+			"fps": 24,
+			"name": "kick0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-634, -122],
+			"anim": "uppercut_pre",
+			"fps": 24,
+			"name": "uppercut_pre",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-650, -100],
+			"anim": "uppercut",
+			"fps": 24,
+			"name": "uppercut0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-617, -118],
+			"anim": "fakeout_pre",
+			"fps": 24,
+			"name": "fakeout_pre",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [-617, -118],
+			"anim": "fakeout",
+			"fps": 24,
+			"name": "fakeout0",
+			"indices": []
+		},
+		{
+			"offsets": [-620, -120],
+			"loop": false,
+			"fps": 24,
+			"anim": "spit_pre",
+			"indices": [],
+			"name": "spit_pre"
+		},
+		{
+			"offsets": [-620, -120],
+			"loop": false,
+			"fps": 24,
+			"anim": "spit",
+			"indices": [],
+			"name": "spit0"
+		},
+		{
+			"offsets": [-635, -110],
+			"loop": false,
+			"fps": 24,
+			"anim": "ko",
+			"indices": [],
+			"name": "ko"
+		}
+	],
+	"vocals_file": "",
+	"no_antialiasing": false,
+	"image": "characters/binejBattle",
+	"position": [-60, 210],
+	"healthicon": "binej",
+	"flip_x": false,
+	"healthbar_colors": [156, 164, 201],
+	"camera_position": [480, 140],
+	"sing_duration": 4,
+	"scale": 1,
+	"_editor_isPlayer": false
+}

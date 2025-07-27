@@ -1,178 +1,118 @@
 {
 	"animations": [
 		{
-			"offsets": [
-				24,
-				331
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP",
+			"offsets": [0, 250],
 			"indices": [],
-			"name": "singUP0"
-		},
-		{
-			"offsets": [
-				0,
-				250
-			],
-			"loop": false,
 			"fps": 24,
 			"anim": "idle",
-			"indices": [],
+			"loop": false,
 			"name": "idle"
 		},
 		{
-			"offsets": [
-				-1,
-				201
-			],
+			"offsets": [24, 331],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
 			"loop": false,
+			"name": "singUP0"
+		},
+		{
+			"offsets": [-1, 201],
+			"indices": [],
 			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
+			"loop": false,
 			"name": "singDOWN0"
 		},
 		{
-			"offsets": [
-				51,
-				233
-			],
-			"loop": false,
+			"offsets": [51, 233],
+			"indices": [],
 			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
+			"loop": false,
 			"name": "singLEFT0"
 		},
 		{
-			"offsets": [
-				-17,
-				251
-			],
-			"loop": false,
+			"offsets": [-17, 251],
+			"indices": [],
 			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
+			"loop": false,
 			"name": "singRIGHT0"
 		},
 		{
-			"loop": false,
-			"offsets": [
-				27,
-				330
-			],
+			"offsets": [27, 330],
+			"indices": [],
+			"fps": 24,
 			"anim": "singUPmiss",
-			"fps": 24,
-			"name": "singUPmiss",
-			"indices": []
+			"loop": false,
+			"name": "singUPmiss"
 		},
 		{
-			"loop": false,
-			"offsets": [
-				37,
-				233
-			],
-			"anim": "singLEFTmiss",
+			"offsets": [9, 208],
+			"indices": [],
 			"fps": 24,
-			"name": "singLEFTmiss",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-11,
-				253
-			],
-			"anim": "singRIGHTmiss",
-			"fps": 24,
-			"name": "singRIGHTmiss",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				9,
-				208
-			],
 			"anim": "singDOWNmiss",
-			"fps": 24,
-			"name": "singDOWNmiss",
-			"indices": []
+			"loop": false,
+			"name": "singDOWNmiss"
 		},
 		{
-			"loop": false,
-			"offsets": [
-				14,
-				326
-			],
-			"anim": "hurt",
+			"offsets": [37, 233],
+			"indices": [],
 			"fps": 24,
-			"name": "hurt",
-			"indices": []
+			"anim": "singLEFTmiss",
+			"loop": false,
+			"name": "singLEFTmiss"
 		},
 		{
-			"offsets": [
-				104,
-				228
-			],
+			"offsets": [-11, 253],
+			"indices": [1, 2, 3, 4, 5, 6, 7, 8],
+			"fps": 24,
+			"anim": "singRIGHTmiss",
 			"loop": false,
+			"name": "singRIGHTmiss"
+		},
+		{
+			"offsets": [104, 228],
+			"indices": [],
 			"fps": 24,
 			"anim": "dodge",
-			"indices": [],
+			"loop": false,
 			"name": "dodge"
 		},
 		{
-			"offsets": [
-				-6,
-				252
-			],
+			"offsets": [14, 326],
+			"indices": [],
+			"fps": 24,
+			"anim": "hurt",
 			"loop": false,
+			"name": "hurt"
+		},
+		{
+			"offsets": [-6, 252],
+			"indices": [],
 			"fps": 24,
 			"anim": "angry",
-			"indices": [],
+			"loop": false,
 			"name": "angry"
 		},
 		{
-			"loop": false,
-			"offsets": [
-				-1,
-				261
-			],
-			"anim": "fuck_you",
+			"offsets": [-1, 261],
+			"indices": [],
 			"fps": 24,
-			"name": "fuck_you",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-1,
-				261
-			],
 			"anim": "hey",
-			"fps": 24,
-			"name": "fuck_you",
-			"indices": []
+			"loop": false,
+			"name": "fuck_you"
 		}
 	],
 	"vocals_file": "",
 	"no_antialiasing": false,
 	"image": "characters/binej",
-	"position": [
-		-60,
-		210
-	],
+	"position": [-60, 210],
 	"healthicon": "binej",
 	"flip_x": false,
-	"healthbar_colors": [
-		156,
-		164,
-		201
-	],
-	"camera_position": [
-		160,
-		-300
-	],
+	"healthbar_colors": [156, 164, 201],
+	"camera_position": [160, -300],
 	"sing_duration": 4,
 	"scale": 1,
 	"_editor_isPlayer": false
