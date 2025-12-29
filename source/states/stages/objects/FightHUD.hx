@@ -3,9 +3,10 @@ package states.stages.objects;
 class FightHUD extends FlxSpriteGroup {
     public var healthHeartsPlayer:Array<FlxSprite> = [];
     public var healthHeartsOpponent:Array<FlxSprite> = [];
+    public var dodgeCounter:FlxSprite;
     public var atkDodge:FlxSprite;
-    public var atkCounter:FlxSprite;
     public var spaceDeath:FlxSprite;
+    public var dodgeSprite:FlxSprite;
     public var ply:{maxhp:Int, hp:Int};
     public var opp:{maxhp:Int, hp:Float} = {maxhp: 5, hp: 5};
     var isDownScroll:Bool;
@@ -16,12 +17,12 @@ class FightHUD extends FlxSpriteGroup {
         isDownScroll = ClientPrefs.data.downScroll;
         isMiddleScroll = ClientPrefs.data.middleScroll;
 
-        // Initialize player HP based on difficulty
+        // Player HP based on difficulty
         var diffs = [5, 4, 3]; // Easy, Normal, Hard
         ply = {maxhp: diffs[PlayState.storyDifficulty], hp: diffs[PlayState.storyDifficulty]};
 
         // Dodge button
-        atkDodge = new FlxSprite(isMiddleScroll ? 508 : 825, isDownScroll ? 105 : 165);
+        var atkDodge:FlxSprite = new FlxSprite(isMiddleScroll ? 508 : 825, isDownScroll ? 105 : 165);
         atkDodge.frames = Paths.getSparrowAtlas("mouthman/ui/space");
         atkDodge.animation.addByPrefix("bop", "bop", 24, false);
         atkDodge.animation.addByPrefix("pressed", "pressed", 24, false);
@@ -30,23 +31,23 @@ class FightHUD extends FlxSpriteGroup {
         atkDodge.alpha = 0;
         add(atkDodge);
 
-        // Space death (for spit attacks)
-        spaceDeath = new FlxSprite(isMiddleScroll ? 470 : 787, isDownScroll ? 62 : 122);
+        // Space death
+        var spaceDeath:FlxSprite = new FlxSprite(isMiddleScroll ? 470 : 787, isDownScroll ? 62 : 122);
         spaceDeath.frames = Paths.getSparrowAtlas("mouthman/ui/space_death");
         spaceDeath.animation.addByPrefix("bop", "bop", 24, false);
         spaceDeath.alpha = 0;
         add(spaceDeath);
 
         // Counter
-        atkCounter = new FlxSprite(isMiddleScroll ? 616 : 933, isDownScroll ? 505 : 565);
-        atkCounter.frames = Paths.getSparrowAtlas("alphabet");
+        dodgeCounter = new FlxSprite(isMiddleScroll ? 616 : 933, isDownScroll ? 505 : 565);
+        dodgeCounter.frames = Paths.getSparrowAtlas("alphabet");
         for (i in 0...10)
-            atkCounter.animation.addByPrefix(Std.string(i),  i + " bold", 32, true);
-        atkCounter.offset.set(-3, 0);
-        atkCounter.alpha = 0;
-        add(atkCounter);
+            dodgeCounter.animation.addByPrefix(Std.string(i),  i + " bold", 32, true);
+        dodgeCounter.offset.set(-3, 0);
+        dodgeCounter.alpha = 0;
+        add(dodgeCounter);
 
-        // Health hearts (centered, adjusted for scroll)
+        // Health hearts
         var centerY = FlxG.height / 2;
         for (i in 0...5) {
             var offset = 100 * (i - 2); // Space opponent hearts 100px from center
@@ -94,6 +95,7 @@ class FightHUD extends FlxSpriteGroup {
     public function updateHealthBars(oppHP:Float, plyHP:Int) {
         opp.hp = oppHP;
         ply.hp = plyHP;
+        
         for (i in 0...5) {
             var heart = healthHeartsOpponent[i];
             if (heart.animation.curAnim != null && heart.animation.curAnim.name != "explode") {
@@ -109,16 +111,27 @@ class FightHUD extends FlxSpriteGroup {
     }
 
     public function startDodge(beats:Int, isFakeout:Bool, isSpit:Bool) {
-        atkCounter.alpha = 1;
-        atkCounter.color = isFakeout ? 0xFFAAAA : 0xFFFFFF;
-        atkCounter.animation.play(Std.string(beats));
-        var dodgeSprite = (isSpit || ply.hp == 1) ? spaceDeath : atkDodge;
+        dodgeCounter.alpha = 1;
+        dodgeCounter.color = isFakeout ? 0xFFAAAA : 0xFFFFFF;
+        dodgeCounter.animation.play(Std.string(beats));
+
+        dodgeSprite = (isSpit || ply.hp == 1) ? spaceDeath : atkDodge;
         dodgeSprite.alpha = 1;
-        dodgeSprite.animation.play("bop");
+        dodgeDance(isSpit);
     }
 
     public function handleDodgeInput(beatsLeft:Int, isFakeout:Bool, isSpit:Bool) {
-        var dodgeSprite = (isSpit || ply.hp == 1) ? spaceDeath : atkDodge;
-        dodgeSprite.animation.play("pressed", false, false, isSpit || ply.hp == 1 ? 2 : 0);
+        // SpaceDeath doesn't have an animation for that, lol
+        dodgeSprite.animation.play("pressed");
+    }
+
+    public function dodgeDance(isSpit:Bool) {
+        dodgeSprite.animation.play("bop");
+    }
+
+    public function hideDodge(isSpit:Bool) {
+        FlxTween.tween(dodgeCounter.scale, {x: 0.75, y: 0.75}, 0.25, {ease: FlxEase.backInOut});
+        FlxTween.tween(dodgeSprite, {alpha: 0}, 0.6, {ease: FlxEase.circIn});
+        FlxTween.tween(dodgeCounter, {alpha: 0}, 0.75, {ease: FlxEase.quartIn});
     }
 }

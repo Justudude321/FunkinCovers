@@ -35,11 +35,9 @@ class BattleSystem extends FlxSpriteGroup {
     public var spitFX:FlxSprite;
     public var bfMelted:FlxSprite;
     public var comboText:FlxSprite;
-    public var textEarly:FlxSprite;
-    public var textFakedOut:FlxSprite;
-    public var textFail:FlxSprite;
-    public var textGood:FlxSprite;
-    public var textPerfect:FlxSprite;
+    public var textEarly:FlxSprite;     // else (before 0)
+    public var textFakedOut:FlxSprite;  // if fakeout && beats == 2
+    public var feedback:Array<FlxSprite> = []; // 0 = Fail, 1 = Good, 2 = Perfect
     public var atkBar:FlxSprite;
     public var atkBarHit:FlxSprite;
     public var secretBar:FlxSprite;
@@ -115,26 +113,29 @@ class BattleSystem extends FlxSpriteGroup {
         textFakedOut.alpha = 0;
         add(textFakedOut);
 
-        textFail = new FlxSprite(boyfriend.x - 70, boyfriend.y - 180);
+        var textFail:FlxSprite = new FlxSprite(boyfriend.x - 70, boyfriend.y - 180);
         textFail.frames = Paths.getSparrowAtlas("mouthman/texts/fail");
         textFail.animation.addByPrefix("default", "default", 24, false);
         textFail.setGraphicSize(Std.int(textFail.width * 0.94));
         textFail.alpha = 0;
         add(textFail);
+        feedback.push(textFail);
 
-        textGood = new FlxSprite(boyfriend.x - 30, boyfriend.y - 170);
+        var textGood:FlxSprite = new FlxSprite(boyfriend.x - 30, boyfriend.y - 170);
         textGood.frames = Paths.getSparrowAtlas("mouthman/texts/good");
         textGood.animation.addByPrefix("default", "default", 24, false);
         textGood.setGraphicSize(Std.int(textGood.width * 0.94));
         textGood.alpha = 0;
         add(textGood);
+        feedback.push(textGood);
 
-        textPerfect = new FlxSprite(boyfriend.x - 90, boyfriend.y - 240);
+        var textPerfect:FlxSprite = new FlxSprite(boyfriend.x - 90, boyfriend.y - 240);
         textPerfect.frames = Paths.getSparrowAtlas("mouthman/texts/perfect");
         textPerfect.animation.addByPrefix("default", "default", 24, false);
         textPerfect.setGraphicSize(Std.int(textPerfect.width * 0.94));
         textPerfect.alpha = 0;
         add(textPerfect);
+        feedback.push(textPerfect);
 
         // Attack bar and arrow
         atkBar = new FlxSprite(boyfriend.x - 112, boyfriend.y - 112);
@@ -326,20 +327,7 @@ class BattleSystem extends FlxSpriteGroup {
                             new FlxTimer().start(10 / 24, function(tmr) bloodBinej.alpha = 0);
                             new FlxTimer().start(6 / 24, function(tmr) hitFX.alpha = 0);
                             FlxG.sound.play(Paths.sound("hurt_" + FlxG.random.int(1, 4)));
-                            
-                            if (hitQuality == 2){
-                                textPerfect.animation.play("default");
-                                textPerfect.alpha = 1;
-                            } else {
-                                textGood.animation.play("default");
-                                textGood.alpha = 1;
-                            }
-                            new FlxTimer().start(21 / 24, function(tmr) {
-                                textGood.alpha = 0;
-                                textPerfect.alpha = 0;
-                            });
 
-                            FlxG.sound.play(Paths.sound(((hitQuality == 2) ? "punch" : "kick")), 0.7);
                             PlayState.instance.camGame.shake(0.015, 0.2);
                             PlayState.instance.camHUD.shake(0.005, 0.2);
 
@@ -368,9 +356,7 @@ class BattleSystem extends FlxSpriteGroup {
                             dad.playAnim("idle", true);
                             focusCamera("dad");
                         });
-                        textFail.animation.play("default");
-                        textFail.alpha = 1;
-                        new FlxTimer().start(21 / 24, function(tmr) textFail.alpha = 0);
+                        new FlxTimer().start(21 / 24, function(tmr) feedback[0].alpha = 0);
 
                         if(!hasAttacked){
                             FlxTween.tween((secret) ? secretBar : atkBar, {alpha: 0}, 1, {ease: FlxEase.quartIn});
@@ -388,8 +374,8 @@ class BattleSystem extends FlxSpriteGroup {
                         binejBattle.alpha = 1;
                     }
                     var count = (isFakeout && beatsLeft > 2) ? beatsLeft - 2 : beatsLeft;
-                    fightHUD.atkCounter.animation.play(Std.string(count));
-                    fightHUD.atkDodge.animation.play("bop");
+                    fightHUD.dodgeCounter.animation.play(Std.string(count));
+                    fightHUD.dodgeDance(spitAttack);
                     if(isFakeout){
                         switch(beatsLeft){
                             case 4:
@@ -428,10 +414,7 @@ class BattleSystem extends FlxSpriteGroup {
                         state = isFakeout ? Fakeout : spitAttack ? SpitGameOver : DodgeFail;
                         boyfriend.playAnim("hurt", true);
                         boyfriend.specialAnim = true;
-
-                        FlxTween.tween(fightHUD.atkCounter.scale, {x: 0.75, y: 0.75}, 0.25, {ease: FlxEase.backInOut});
-                        FlxTween.tween(fightHUD.atkDodge, {alpha: 0}, 0.6, {ease: FlxEase.circIn});
-                        FlxTween.tween(fightHUD.atkCounter, {alpha: 0}, 0.75, {ease: FlxEase.quartIn});
+                        fightHUD.hideDodge(spitAttack);
 
                         if (spitAttack) {
                             spitFX.animation.play("hit");
@@ -464,17 +447,11 @@ class BattleSystem extends FlxSpriteGroup {
                             PlayState.instance.health -= 0.3;
                             gf.playAnim("sad", true);
                             gf.specialAnim = true;
-                            if (isFakeout) {
-                                textFakedOut.animation.play("default");
-                                textFakedOut.alpha = 1;
-                                fellForFakeout = true;
-                                new FlxTimer().start(17 / 24, function(tmr) textFakedOut.alpha = 0);
-                            }
-                            // fightHUD.atkCounter.animation.play(Std.string(count));
-                            // fightHUD.atkDodge.animation.play("bop");
+
                             FlxG.sound.play(Paths.sound(sound), 0.7);
                             PlayState.instance.camGame.shake(0.015, 0.2);
                             PlayState.instance.camHUD.shake(0.005, 0.2);
+
                             if (fightHUD.ply.hp <= 0) {
                                 PlayState.instance.health = 0.001;
                                 new FlxTimer().start(0.03, function(tmr) {
@@ -521,20 +498,13 @@ class BattleSystem extends FlxSpriteGroup {
                     canAttack = false;
                     hasAttacked = true;
                     var newHitQuality = handleAttackInput(theAngle);
-                    if (newHitQuality == 2) {
-                        textPerfect.animation.play("default");
-                        textPerfect.alpha = 1;
-                        new FlxTimer().start(21 / 24, function(tmr) textPerfect.alpha = 0);
-                    } else if (newHitQuality == 1) {
-                        textGood.animation.play("default");
-                        textGood.alpha = 1;
-                        new FlxTimer().start(21 / 24, function(tmr) textGood.alpha = 0);
-                    } else {
-                        textFail.animation.play("default");
-                        textFail.alpha = 1;
-                        new FlxTimer().start(21 / 24, function(tmr) textFail.alpha = 0);
+                    
+                    feedback[newHitQuality].animation.play("default");
+                    feedback[newHitQuality].alpha = 1;
+                    new FlxTimer().start(21 / 24, function(tmr) feedback[newHitQuality].alpha = 0);
+                    if (newHitQuality == 0)
                         FlxG.sound.play(Paths.sound("badnoise" + FlxG.random.int(1, 3)), 0.5);
-                    }
+
                     state = Attacking(beatsLeft, true, newHitQuality, secret);
                 }
             case Dodging(beatsLeft, hasDodged, isFakeout, attackType, spitAttack):
@@ -542,20 +512,23 @@ class BattleSystem extends FlxSpriteGroup {
                     canDodge = false;
                     if (beatsLeft == 0) {
                         hasDodged = true;
-                        fightHUD.atkCounter.color = 0xAAFFBB;
+                        fightHUD.dodgeCounter.color = 0xAAFFBB;
                     } else {
                         hasDodged = false;
-                        if (isFakeout) {
+                        if (isFakeout && beatsLeft >= 2) {
+                            textFakedOut.animation.play("default");
+                            textFakedOut.alpha = 1;
                             fellForFakeout = true;
+                            new FlxTimer().start(17 / 24, function(tmr) textFakedOut.alpha = 0);
+                        }
+                        else{
                             textEarly.animation.play("default");
                             textEarly.alpha = 1;
                             new FlxTimer().start(17 / 24, function(tmr) textEarly.alpha = 0);
                         }
                     }
                     fightHUD.handleDodgeInput(beatsLeft, isFakeout, spitAttack);
-                    FlxTween.tween(fightHUD.atkCounter.scale, {x: 0.75, y: 0.75}, 0.25, {ease: FlxEase.backInOut});
-                    FlxTween.tween((spitAttack || fightHUD.ply.hp == 1) ? fightHUD.spaceDeath : fightHUD.atkDodge, {alpha: 0}, 0.6, {ease: FlxEase.circIn});
-                    FlxTween.tween(fightHUD.atkCounter, {alpha: 0}, 0.75, {ease: FlxEase.quartIn});
+                    fightHUD.hideDodge(spitAttack);
                     state = Dodging(beatsLeft, hasDodged, isFakeout, attackType, spitAttack);
                 }
             case SpitGameOver:
